@@ -1,9 +1,18 @@
 <template>
   <div>
+    <main-nav />
     <nuxt />
   </div>
 </template>
+<script>
+import MainNav from '~/components/main-nav'
 
+export default {
+    components: {
+      MainNav
+    }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

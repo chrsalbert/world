@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="photo">
-      <img :src="require(`~/assets/${albums[currentAlbum].photos[currentPhoto].url}`)"/>
+      <img :src="require(`~/assets/images/${albums[currentAlbum].photos[currentPhoto].url}`)"/>
     </div>
   </div>
 </template>
