@@ -1,3 +1,9 @@
+import data from './static/data/trips.json'
+let dynamicRoutes = () => {
+  return new Promise(resolve => {
+    resolve(data.map(el => `trips/${el.id}`))
+  })
+}
 
 export default {
   mode: 'universal',
@@ -14,6 +20,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  generate: {
+    routes: dynamicRoutes
   },
   /*
   ** Customize the progress-bar color

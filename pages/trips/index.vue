@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import Trips from '~/assets/data/trips.json';
+import Trips from '~/static/data/trips.json';
 
 export default {
     

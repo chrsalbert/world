@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Albums from '~/assets/data/photos.json'
+import Albums from '~/static/data/photos.json'
 
 export default {
   components: {

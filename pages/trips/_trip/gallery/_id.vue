@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import Albums from '~/assets/data/photos.json'
-import Trips from '~/assets/data/trips.json';
+import Albums from '~/static/data/photos.json'
+import Trips from '~/static/data/trips.json';
 
 export default {
   data: function() {
@@ -49,7 +49,7 @@ export default {
       return this.trips.find(trip => trip.id === this.tripId)
     },
     album() {
-      return this.albums.find(album => album.id === this.trip.galleryId)
+      return this.albums.find(album => album.id === this.tripId)
     },
     photo() {
       return this.album.photos[this.photoIndex]

@@ -1,7 +1,7 @@
 [  
     {
-        "title": "Album 1",
-        "id": "album-1",
+        "title": "Album Japan",
+        "id": "lithuania",
         "photos": [
             {
                 "text": "1Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -15,8 +15,8 @@
             }
         ]
     }, {
-        "title": "Album 2",
-        "id": "album-2",
+        "title": "Album Marokko",
+        "id": "morocco",
         "photos": [
             {
                 "text": "b1Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

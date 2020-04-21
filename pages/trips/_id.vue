@@ -1,9 +1,9 @@
 <template>
     <div class="l-index">
         <div>
-            <h1>{{ trip.title }}</h1>
-            <h2>Fotogalerie</h2>
-            <ul class="flex">
+            <h1>{{ title }}</h1>
+            <h2 v-if="gallery">Fotogalerie</h2>
+            <ul class="flex" v-if="gallery">
                 <li class="mr-1" v-for="(photo, index) in gallery.photos" :key="photo.url">
                     <nuxt-link :to="`/trips/${trip.id}/gallery/${index + 1}`" class="block shadow">
                         <img :src="require(`~/assets/images/${photo.url}`)" />
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Trips from '~/assets/data/trips.json';
-import Galleries from '~/assets/data/photos.json';
+import Trips from '~/static/data/trips.json';
+import Galleries from '~/static/data/photos.json';
 
 export default {
     data () {
@@ -29,11 +29,14 @@ export default {
         }
     },
     computed: {
+        title() {
+            return this.trip.title
+        },
         trip() {
-            return this.trips.find(trip => trip.id === this.id)
+            return this.trips.find(trip => trip.id == this.id)
         },
         gallery() {
-            return this.galleries.find(gallery => gallery.id === this.trip.galleryId)
+            return this.galleries.find(gallery => gallery.id === this.trip.id)
         }
     }
     
