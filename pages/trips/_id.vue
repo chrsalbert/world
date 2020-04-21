@@ -2,7 +2,10 @@
     <div>
         <h1>{{ trip.title }}</h1>
         <div class="gallery">
-            <div v-for="photo in gallery.photos" :key="photo.url"><img :src="require(`~/assets/images/${photo.url}`)" /></div>
+            <div v-for="(photo, index) in gallery.photos" :key="photo.url">
+                <nuxt-link :to="`/trips/${trip.id}/gallery/${index + 1}`">
+                    <img :src="require(`~/assets/images/${photo.url}`)" /></nuxt-link>
+                </div>
         </div>
     </div>
 </template>
