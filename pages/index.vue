@@ -3,6 +3,7 @@
     <div class="text">
       <h1>{{ currentAlbum }}</h1>
       {{ albums[currentAlbum].photos[currentPhoto].text }}
+      <nuxt-link to="/about">About</nuxt-link>
       <div class="toolbar">
         <p>
           <button v-on:click="toggleFullscreen()">Fullscreen</button>
@@ -28,12 +29,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import Albums from '~/assets/data/photos.json'
 
 export default {
   components: {
-    Logo
   },
   data: function() {
     return {
