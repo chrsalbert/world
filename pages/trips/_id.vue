@@ -11,6 +11,7 @@
                 </li>
             </ul>
             <h2>Stories</h2>
+            Stories…
         </div>
     </div>
 </template>
