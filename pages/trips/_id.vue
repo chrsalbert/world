@@ -1,11 +1,16 @@
 <template>
-    <div>
-        <h1>{{ trip.title }}</h1>
-        <div class="gallery">
-            <div v-for="(photo, index) in gallery.photos" :key="photo.url">
-                <nuxt-link :to="`/trips/${trip.id}/gallery/${index + 1}`">
-                    <img :src="require(`~/assets/images/${photo.url}`)" /></nuxt-link>
-                </div>
+    <div class="l-index">
+        <div>
+            <h1>{{ trip.title }}</h1>
+            <h2>Fotogalerie</h2>
+            <ul class="flex">
+                <li class="mr-1" v-for="(photo, index) in gallery.photos" :key="photo.url">
+                    <nuxt-link :to="`/trips/${trip.id}/gallery/${index + 1}`" class="block shadow">
+                        <img :src="require(`~/assets/images/${photo.url}`)" />
+                    </nuxt-link>
+                </li>
+            </ul>
+            <h2>Stories</h2>
         </div>
     </div>
 </template>
@@ -34,8 +39,7 @@ export default {
 }
 </script>
 <style scoped>
-    .gallery img {
-        max-width: 300px;
-        max-height: 300px
+    img {
+        height: 200px;
     }
 </style>

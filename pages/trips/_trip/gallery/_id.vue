@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="photo">
-      <img :src="require(`~/assets/images/${album.photos[this.photoIndex].url}`)"/>
+      <img :src="require(`~/assets/images/${album.photos[this.photoIndex].url}`)" class="shadow-lg"/>
     </div>
   </div>
 </template>
@@ -114,29 +114,22 @@ export default {
   .container {
     margin: 0 auto;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 2rem);
     display: grid;
     grid-template-columns: 1fr 4fr 1fr 12fr 1fr;
     grid-template-rows: 1fr 16fr 1fr;
   }
-  button {
+  .button {
     height: 20px;
     background: black;
     color: #fff;
     border: none;
   }
   .text {
-    border-top: 2px #000 solid;
-    padding-top: 1rem;
     position: relative;
     grid-column-start: 2;
     grid-row-start: 2;
-    font-family: 'Baloo Paaji 2';
-    line-height: 1.5;
-    font-size: 14px;
-    /* background: #f0f0f0 */
   }
-
   .photo {
     grid-column-start: 4;
     grid-row-start: 2;
