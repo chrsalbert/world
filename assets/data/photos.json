@@ -1,0 +1,34 @@
+[  
+    {
+        "title": "Album 1",
+        "photos": [
+            {
+                "text": "1Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image.jpg"
+            }, {
+                "text": "2222Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image2.jpg"
+            }, {
+                "text": "33 ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image3.jpg"
+            }
+        ]
+    }, {
+        "title": "Album 2",
+        "photos": [
+            {
+                "text": "b1Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image4.jpg"
+            }, {
+                "text": "b2222Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image5.jpg"
+            }, {
+                "text": "b33 ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image6.jpg"
+            }, {
+                "text": "ddj ipsum dolor sit amet, consectetur adipiscing elit.",
+                "url": "image7.jpg"
+            }
+        ]
+    }
+]
