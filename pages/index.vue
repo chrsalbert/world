@@ -12,7 +12,7 @@
           {{ currentPhoto + 1 }} / {{ getAlbumLength }}
         </p>
         <select v-model="currentAlbum">
-          <option v-for="(item, index) of albums" :key="item" :value="index">
+          <option v-for="(item, index) of albums" :key="index" :value="index">
             {{ item.title }}
           </option>
         </select>
@@ -30,6 +30,7 @@
 
 <script>
 import Albums from '~/static/data/photos.json'
+
 
 export default {
   components: {

@@ -1,11 +1,17 @@
 [
     {
         "id": "lithuania",
-        "slug": "Litauen",
+        "galleryId": "lithuania",
+        "slug": "litauen",
         "title": "Litauen"
     }, {
         "id": "albania",
-        "slug": "Albanien",
+        "galleryId": "albania",
+        "slug": "albanien",
         "title": "Albanien"
+    }, {
+        "id": "croatia",
+        "slug": "kroatien",
+        "title": "Kroatien"
     }
 ]

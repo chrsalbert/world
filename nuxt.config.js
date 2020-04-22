@@ -1,9 +1,20 @@
-import data from './static/data/trips.json'
-let dynamicRoutes = () => {
-  return new Promise(resolve => {
-    resolve(data.map(el => `trips/${el.id}`))
-  })
-}
+import Trips from './static/data/trips.json';
+import Gallery from './static/data/photos.json';
+
+const dynamicRoutes = [];
+Trips.forEach(el => {
+  dynamicRoutes.push(`trips/${el.id}`)
+  if(el.galleryId) { 
+    console.log(`checking ${el.galleryId}`)
+    var album = Gallery.find(item => item.id == el.galleryId)
+    if(album) {
+      console.log('YYY');
+      for(var i = 0; i < album.photos.length; i++) {
+          dynamicRoutes.push(`trips/${el.id}/gallery/${i + 1}`)
+      }
+    }
+  }
+});
 
 export default {
   mode: 'universal',
