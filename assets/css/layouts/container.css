@@ -5,6 +5,14 @@
     overflow: hidden;
 }
 
+.l-container__logo {
+    position: fixed;
+    top: 2vh;
+    left: 2vw;
+    font-size: var(--font-size-xl);
+    font-weight: 700
+}
+
 .l-container__section {
     position: absolute;
     top: 0;
