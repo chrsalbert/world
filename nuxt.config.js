@@ -1,3 +1,10 @@
+import Countries from './static/data/countries.json'
+
+const dynamicRoutes = [];
+Countries.forEach(el => {
+  dynamicRoutes.push(`${el.id}`)
+});
+
 export default {
   mode: 'universal',
   head: {
@@ -13,6 +20,9 @@ export default {
   },
   router: {
     middleware: 'pages'
+  },
+  generate: {
+    routes: dynamicRoutes
   },
   loading: { color: '#fff' },
   css: [

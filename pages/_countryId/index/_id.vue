@@ -25,7 +25,7 @@ import Nav from '~/components/gallery/Nav';
 export default {
     asyncData (context) {
     return axios
-        .get(`http://localhost:3000/data/albums/${context.params.countryId}.json`)
+        .get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
         .then((res) => {
             return {
                 gallery: res.data

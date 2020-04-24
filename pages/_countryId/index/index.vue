@@ -32,15 +32,12 @@
 import axios from 'axios';
 import Countries from '~/static/data/countries.json';
 
+
+
 export default {
-    asyncData (context) {
-        return axios
-        .get(`http://localhost:3000/data/albums/${context.params.countryId}.json`)
-        .then((res) => {
-            return {
-                photos: res.data
-            }
-        })
+    async asyncData (context) {
+        const { data } = await axios.get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
+        return { photos: data }
     },
     data () {
         return {
