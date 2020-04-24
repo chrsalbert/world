@@ -1,0 +1,38 @@
+.l-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.l-container__section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-shrink: 0;
+    width: inherit;
+    height: inherit;
+    transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) .2s;
+    backface-visibility: hidden;
+}
+
+.l-container__move {
+    transition: all .7s cubic-bezier(0.55, 0.085, 0.68, 0.53) var(--move-delay);
+    transform: translateX(0)
+}
+
+.l-container__section--index.v-leave { transform: translateX(0) }
+.l-container__section--index.v-leave .l-container__move { transform: translateX(0) }
+.l-container__section--index.v-leave-to { transform: translateX(-100vw) }
+.l-container__section--index.v-leave-to .l-container__move { transform: translateX(-100vw);opacity: 0 }
+.l-container__section--index.v-enter { transform: translateX(-100vw) }
+.l-container__section--index.v-enter .l-container__move { transform: translateX(-100vw) }
+.l-container__section--index.v-enter-to { transform: translateX(0) }
+.l-container__section--index.v-enter-to .l-container__move { transform: translateX(0) }
+
+.l-container__section--album.v-enter { opacity: 0 }
+.l-container__section--album.v-enter-to { opacity: 1 }
+.l-container__section--album.v-leave { opacity: 1 }
+.l-container__section--album.v-leave-to { opacity: 0 }

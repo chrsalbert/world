@@ -1,8 +1,0 @@
-.l-index {
-    padding: 0 var(--body-pad);
-}
-  
-.l-index > * {
-    max-width: var(--body-width);
-    margin: 0 auto;
-}

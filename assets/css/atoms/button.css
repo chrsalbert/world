@@ -1,0 +1,15 @@
+.a-button {
+    display: inline-block;
+    height: var(--space-2xl);
+    line-height: var(--space-2xl);
+    padding: 0 var(--space-lg);
+    background: var(--color-primary);
+    font-family: var(--font-family-alt);
+    border: 1px black solid;
+    color: #fff;
+}
+
+.a-button--secondary {
+    background: none;
+    color: black
+}

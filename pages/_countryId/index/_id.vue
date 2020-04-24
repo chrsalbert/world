@@ -1,0 +1,107 @@
+<template>
+    <div class="o-album">
+        <div class="l-container__move o-album__text">
+            <div>
+                <nuxt-link :to="`/${country.id}`" style="font-family:var(--font-family-alt">← {{ title }}</nuxt-link>
+                <h1>Foto {{ currentPhotoId + 1 }} / {{ photosCount }}</h1>
+                <p>{{ text }}</p>
+            </div>
+            <div class="o-album__tools">
+                <Nav :country="country" :currentPhotoId="currentPhotoId" :galleryLength="photosCount" />
+            </div>
+        </div>
+        <div class="l-container__move o-album__gallery">
+            <figure class="o-album__photo">
+                <img v-on:click="toggleFullscreen()" :src="getCurrentPhoto()" />
+            </figure>
+        </div>
+    </div>
+</template>
+<script>
+import axios from 'axios';
+import Countries from '~/static/data/countries.json';
+import Nav from '~/components/gallery/Nav';
+
+export default {
+    asyncData (context) {
+    return axios
+        .get(`http://localhost:3000/data/albums/${context.params.countryId}.json`)
+        .then((res) => {
+            return {
+                gallery: res.data
+            }
+        })
+    },
+    components: {
+        Nav
+    },
+    watch: {
+        isFullscreen: function () {
+        this.isFullscreen == true ? this.openFullscreen() : this.closeFullscreen()
+        }
+    },
+    data () {
+        return {
+            currentPhotoId: this.$route.params.id - 1,
+            country: Countries.find(country => country.id == this.$route.params.countryId),
+            isFullscreen: false
+        }
+    },
+    mounted () {
+        this.$store.commit('updateGallery', this.gallery)
+    },
+    computed: {
+        photosCount() {
+            return this.gallery.length
+        },
+        currentPhotoText() {
+            return this.currentPhotoId + 1
+        },
+        title() {
+            return this.country.title
+        },
+        text() {
+            return this.gallery[this.currentPhotoId].text
+        },
+        photoUrl() {
+            return this.gallery[this.currentPhotoId].url
+        }
+    },
+    methods: {
+        getCurrentPhoto() {
+            try {
+                return require(`~/assets/images/albums/${this.country.id}/${this.photoUrl}`)
+            } catch (e) {
+                return require(`~/assets/images/albums/taiwan/1.jpg`)
+            }
+        },
+        toggleFullscreen: function(){
+            this.isFullscreen = !this.isFullscreen
+        },
+        openFullscreen() {
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { 
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        },
+        closeFullscreen() {
+            var elem = document.documentElement;
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { 
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    }
+}
+</script>

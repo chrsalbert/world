@@ -1,0 +1,24 @@
+.m-facts {
+    --itemWidth: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl)
+}
+
+.m-facts li {
+    margin-right: 1rem;
+    width: var(--itemWidth);
+}
+
+.m-facts li > * {
+    display: block;
+}
+
+.m-facts span {
+    color: var(--color-light);
+    font-family: var(--font-family-alt)
+}
+
+.m-facts strong {
+    font-size: var(--font-size-lg);
+}
