@@ -5,7 +5,30 @@
 
 .o-album h1 {
     font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-lg)
+    margin-bottom: var(--space-lg);
+    text-transform: capitalize;
+}
+
+.o-album__locations label {
+    text-transform: capitalize;
+    opacity: .6
+}
+
+.o-album__locations input {
+    display: none
+}
+
+.o-album__locations input:checked + label {
+    opacity: 1
+}
+
+.o-album__locations li {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-md)
+}
+
+.o-album__locations a {
+    
 }
 
 .o-album__gallery {
@@ -28,6 +51,7 @@
     height: 90vh;
     overflow-y: scroll;
     padding: 2rem;
+    display: block;
     padding: var(--space-xl);
     display: block !important;
 }
@@ -53,10 +77,16 @@
     width: 100%;
 }
 
+.o-album__photo--2col ul {
+    column-count: 2
+}
+
+.o-album__photo--2col li {
+}
+
 .o-album__photo li {
-    flex: 0 0 20%; 
     margin: 0 0 .5rem;
-    width: 100%;
+    display: inline-block;
 }
 
 .o-album__text {

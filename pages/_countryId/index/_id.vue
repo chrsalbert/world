@@ -3,7 +3,7 @@
         <div class="l-container__move o-album__text">
             <div>
                 <nuxt-link :to="`/${country.id}`" style="font-family:var(--font-family-alt">← {{ title }}</nuxt-link>
-                <h1>Foto {{ currentPhotoId + 1 }} / {{ photosCount }}</h1>
+                <h1>{{ location }}</h1>
                 <p>{{ text }}</p>
             </div>
             <div class="o-album__tools">
@@ -62,6 +62,9 @@ export default {
         },
         text() {
             return this.gallery[this.currentPhotoId].text
+        },
+        location() {
+            return this.gallery[this.currentPhotoId].location
         },
         photoUrl() {
             return this.gallery[this.currentPhotoId].url
