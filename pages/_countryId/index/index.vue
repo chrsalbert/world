@@ -36,7 +36,7 @@ import Countries from '~/static/data/countries.json';
 
 export default {
     async asyncData (context) {
-        const { data } = await axios.get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
+        const { data } = await axios.get(`https://world-rosy.now.sh/data/albums/${context.params.countryId}.json`)
         return { photos: data }
     },
     data () {
