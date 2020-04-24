@@ -66,7 +66,7 @@ export default {
         },
         getCurrentPhoto(url) {
             try {
-                return require(`~/assets/${url}`)
+                return require(`~/assets/${url}?resize&size=400`)
             } catch (e) {
                 return require(`~/assets/images/albums/taiwan/1.jpg`)
             }

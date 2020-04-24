@@ -21,12 +21,14 @@ export default {
   ],
   plugins: [
   ],
-  buildModules: [
-    
-  ],
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@aceforth/nuxt-optimized-images'
   ],
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: false
+  },
   axios: {
   },
   build: {
