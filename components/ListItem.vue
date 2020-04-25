@@ -10,7 +10,7 @@
                 <h2>{{ country.title }}</h2>
                 <ul class="m-facts">
                     <li><span>Reisezeit</span><strong>{{ country.stats.travelDays }} Tage</strong></li>
-                    <li><span>Reisedistanz</span><strong>{{ country.stats.travelDistance }} km</strong></li>
+                    <li><span>Reisedistanz</span><strong>{{ formatNumber(country.stats.travelDistance) }} km</strong></li>
                     <li><span>Zeit im ÖPV</span><strong>{{ country.stats.travelHours }} Std.</strong></li>
                 </ul>
                 <nuxt-link class="a-button" :to="`/${country.id}`">Album ansehen</nuxt-link>
@@ -26,6 +26,9 @@ export default {
     methods: {
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
+        },
+        formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
         }
     }
 }
