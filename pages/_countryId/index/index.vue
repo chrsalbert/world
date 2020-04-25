@@ -25,7 +25,7 @@
                             v-show="isFiltered(photo.location)" 
                             v-bind="{ 'data-location': photo.location }" 
                             :to="`/${country.id}/${index + 1}`">
-                            <img :src="getImageUrl(`images/albums/${country.id}/${photo.url}`)" />
+                            <img :src="getImageUrl(`images/albums/${country.id}/${photo.url}?w=500&h=400&quality=90&f=auto`)" />
                         </nuxt-link>
                     </li>
                 </ul>
