@@ -2,7 +2,7 @@
     <div class="o-country" >
         <aside class="l-container__move o-country__gallery" style="--move-delay:0s">
             <figure class="o-country__photo">
-                <img :src="require(`~/assets/images/${country.cover}`)" />
+                <img :src="getImageUrl(`cover/${country.cover}?w=500&h=400&quality=80&f=auto`)" />
             </figure>
         </aside>
         <article class="l-container__move o-country__text" style="--move-delay:.1s">
@@ -22,6 +22,11 @@
 export default {
     props: {
         country: Object
+    },
+    methods: {
+        getImageUrl(path) {
+            return `${process.env.imageUrl}/${path}`
+        }
     }
 }
 </script>
