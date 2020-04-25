@@ -48,7 +48,9 @@ export default {
         }
     },
     mounted () {
-        this.$store.commit('updateGallery', this.gallery)
+        this.$store.commit('updateGallery', this.gallery);
+        let img = new Image();
+        img.src = this.getImageUrl(`images/albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
     },
     computed: {
         photosCount() {
@@ -68,6 +70,9 @@ export default {
         },
         photoUrl() {
             return this.gallery[this.currentPhotoId].url
+        },
+        nextPhotoUrl() {
+            return this.gallery[this.currentPhotoId + 1].url
         }
     },
     methods: {
