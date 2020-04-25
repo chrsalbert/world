@@ -1,8 +1,13 @@
+import axios from 'axios'
 import Countries from './static/data/countries.json'
 
 const dynamicRoutes = [];
 Countries.forEach(el => {
   dynamicRoutes.push(`${el.id}`)
+  const album = require(`./static/data/albums/${el.id}.json`)
+  for(var i = 1; i <= album.length; i++) {
+    dynamicRoutes.push(`${el.id}/${i}`)
+  }
 });
 
 export default {
