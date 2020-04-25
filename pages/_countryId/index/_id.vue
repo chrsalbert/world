@@ -18,19 +18,13 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
 import Countries from '~/static/data/countries.json';
 import Nav from '~/components/gallery/Nav';
 
 export default {
-    asyncData (context) {
-    return axios
-        .get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
-        .then((res) => {
-            return {
-                gallery: res.data
-            }
-        })
+    async asyncData (context) {
+        const data = require(`~/static/data/albums/${context.params.countryId}.json`)
+        return { gallery: data }
     },
     components: {
         Nav

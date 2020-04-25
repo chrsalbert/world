@@ -34,14 +34,11 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
 import Countries from '~/static/data/countries.json';
-
-
 
 export default {
     async asyncData (context) {
-        const { data } = await axios.get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
+        const data = require(`~/static/data/albums/${context.params.countryId}.json`)
         return { photos: data }
     },
     data () {
