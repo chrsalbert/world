@@ -42,7 +42,6 @@ export default {
         }
     },
     mounted () {
-        this.$store.commit('updateGallery', this.gallery);
         let img = new Image();
         img.src = this.getImageUrl(`albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
     },
