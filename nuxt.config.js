@@ -24,6 +24,10 @@ export default {
   generate: {
     routes: dynamicRoutes
   },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    imageUrl: process.env.IMAGE_URL || 'http://localhost:3000'
+  },
   loading: { color: '#fff' },
   css: [
     '~/assets/css/reset.css',
@@ -32,13 +36,8 @@ export default {
   plugins: [
   ],
   modules: [
-    '@nuxtjs/axios',
-    '@aceforth/nuxt-optimized-images'
+    '@nuxtjs/axios'
   ],
-  optimizedImages: {
-    optimizeImages: true,
-    optimizeImagesInDev: false
-  },
   axios: {
   },
   build: {

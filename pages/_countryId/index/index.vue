@@ -21,7 +21,12 @@
             <figure class="o-album__photo o-album__photo--2" v-bind:class="{ 'o-album__photo--2col': filter != '' }">
                 <ul>
                     <li v-for="(photo, index) of photos" :key="index">
-                        <nuxt-link v-show="isFiltered(photo.location)" v-bind="{ 'data-location': photo.location }" :to="`/${country.id}/${index + 1}`"><img :src="getCurrentPhoto(`images/albums/${country.id}/${photo.url}`)" /></nuxt-link>
+                        <nuxt-link 
+                            v-show="isFiltered(photo.location)" 
+                            v-bind="{ 'data-location': photo.location }" 
+                            :to="`/${country.id}/${index + 1}`">
+                            <img :src="getCurrentPhoto(`images/albums/${country.id}/${photo.url}`)" />
+                        </nuxt-link>
                     </li>
                 </ul>
             </figure>
@@ -36,7 +41,7 @@ import Countries from '~/static/data/countries.json';
 
 export default {
     async asyncData (context) {
-        const { data } = await axios.get(`https://world-rosy.now.sh/data/albums/${context.params.countryId}.json`)
+        const { data } = await axios.get(`${process.env.baseUrl}/data/albums/${context.params.countryId}.json`)
         return { photos: data }
     },
     data () {
@@ -63,7 +68,7 @@ export default {
         },
         getCurrentPhoto(url) {
             try {
-                return require(`~/assets/${url}?resize&size=400`)
+                return require(`~/assets/${url}`)
             } catch (e) {
                 return require(`~/assets/images/albums/taiwan/1.jpg`)
             }
