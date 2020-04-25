@@ -12,7 +12,7 @@
         </div>
         <div class="l-container__move o-album__gallery">
             <figure class="o-album__photo">
-                <img v-on:click="toggleFullscreen()" :src="getImageUrl(`images/albums/${country.id}/${photo.url}?w=1000&h=800&quality=80&f=auto`)" />
+                <img v-on:click="toggleFullscreen()" :src="getImageUrl(`images/albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
             </figure>
         </div>
     </div>
@@ -73,13 +73,6 @@ export default {
     methods: {
         getImageUrl(path) {
             return `${process.env.imageUrl}/${path}`
-        },
-        getCurrentPhoto() {
-            try {
-                return require(`~/assets/images/albums/${this.country.id}/${this.photoUrl}`)
-            } catch (e) {
-                return require(`~/assets/images/albums/taiwan/1.jpg`)
-            }
         },
         toggleFullscreen: function(){
             this.isFullscreen = !this.isFullscreen
