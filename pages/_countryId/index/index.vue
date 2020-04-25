@@ -25,7 +25,7 @@
                             v-show="isFiltered(photo.location)" 
                             v-bind="{ 'data-location': photo.location }" 
                             :to="`/${country.id}/${index + 1}`">
-                            <img :src="getCurrentPhoto(`images/albums/${country.id}/${photo.url}`)" />
+                            <img :src="getImageUrl(`images/albums/${country.id}/${photo.url}`)" />
                         </nuxt-link>
                     </li>
                 </ul>
@@ -66,12 +66,8 @@ export default {
                 return location == this.filter
             }
         },
-        getCurrentPhoto(url) {
-            try {
-                return require(`~/assets/${url}`)
-            } catch (e) {
-                return require(`~/assets/images/albums/taiwan/1.jpg`)
-            }
+        getImageUrl(path) {
+            return `${process.env.imageUrl}/${path}`
         },
         getLocations() {
             let lastMatch = ''
