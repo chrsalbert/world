@@ -64,7 +64,7 @@ export default {
             }
         },
         getImageUrl(path) {
-            return `${process.env.imageUrl}/${path}`
+            return `${process.env.imageUrl}${path}`
         },
         getLocations() {
             let lastMatch = ''

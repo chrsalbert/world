@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         getImageUrl(path) {
-            return `${process.env.imageUrl}/${path}`
+            return `${process.env.imageUrl}${path}`
         }
     }
 }

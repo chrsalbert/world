@@ -71,7 +71,7 @@ export default {
     },
     methods: {
         getImageUrl(path) {
-            return `${process.env.imageUrl}/images/${path}`
+            return `${process.env.imageUrl}${path}`
         },
         toggleFullscreen: function(){
             this.isFullscreen = !this.isFullscreen
