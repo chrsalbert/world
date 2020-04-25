@@ -44,7 +44,7 @@ export default {
     mounted () {
         this.$store.commit('updateGallery', this.gallery);
         let img = new Image();
-        img.src = this.getImageUrl(`images/albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
+        img.src = this.getImageUrl(`albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
     },
     computed: {
         photosCount() {
@@ -71,7 +71,7 @@ export default {
     },
     methods: {
         getImageUrl(path) {
-            return `${process.env.imageUrl}/${path}`
+            return `${process.env.imageUrl}/images/${path}`
         },
         toggleFullscreen: function(){
             this.isFullscreen = !this.isFullscreen
