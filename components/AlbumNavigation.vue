@@ -1,7 +1,7 @@
 <template>
     <div class="m-toolbar">
         <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--secondary">Vorheriges</nuxt-link>
-        <span>{{ currentPhotoId + 1 }} / {{ galleryLength }}</span>
+        <span>{{ photoId + 1 }} / {{ albumLength }}</span>
         <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--secondary">Nächstes</nuxt-link>
     </div>
 </template>
@@ -9,15 +9,15 @@
 export default {
     props: {
         country: Object,
-        currentPhotoId: Number,
-        galleryLength: Number
+        photoId: Number,
+        albumLength: Number
     },
     computed: {
         prevPhotoId() {
-            return this.currentPhotoId === 0 ? this.galleryLength : this.currentPhotoId
+            return this.photoId === 0 ? this.albumLength : this.photoId
         },
         nextPhotoId() {
-            return this.currentPhotoId === (this.galleryLength - 1) ? 1 : this.currentPhotoId + 2
+            return this.photoId === (this.albumLength - 1) ? 1 : this.photoId + 2
         }
     }
 }

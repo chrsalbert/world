@@ -8,7 +8,7 @@
                     {{ text }}
                 </p>
                 <ul class="o-album__locations">
-                    <li v-for="(location, index) of getLocations()" :key="index">
+                    <li v-for="(location, index) of locations" :key="index">
                         <input :id="index" v-model="filter" type="radio" name="location" :value="location" /> <label :for="index">{{ location }}</label>
                     </li>
                 </ul>
@@ -20,9 +20,8 @@
         <div class="l-container__move o-album__gallery">
             <figure class="o-album__photo o-album__photo--2" v-bind:class="{ 'o-album__photo--2col': filter != '' }">
                 <ul>
-                    <li v-for="(photo, index) of photos" :key="index">
+                    <li v-for="(photo, index) of photos" :key="index" v-show="isFiltered(photo.location)" >
                         <nuxt-link 
-                            v-show="isFiltered(photo.location)" 
                             v-bind="{ 'data-location': photo.location }" 
                             :to="`/${country.id}/${index + 1}`">
                             <img :src="getImageUrl(`albums/${country.id}/${photo.url}?w=500&h=400&quality=90&f=auto`)" />
@@ -53,29 +52,17 @@ export default {
         },
         text() {
             return this.country.text
+        },
+        locations() {
+            return [...new Set(this.photos.map(photo => photo.location))]
         }
     },
     methods: {
         isFiltered(location) {
-            if(!this.filter) {
-                return true
-            } else {
-                return location == this.filter
-            }
+            return !this.filter ? true : location == this.filter
         },
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
-        },
-        getLocations() {
-            let lastMatch = ''
-            let locations = []
-            this.photos.forEach(photo => {
-                if(lastMatch != photo.location) {
-                    lastMatch = photo.location
-                    locations.push(lastMatch)
-                }
-            })
-            return locations
         }
     }
 }

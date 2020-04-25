@@ -4,15 +4,11 @@
     </div>
 </template>
 <script>
-
 export default {
     transition: {
-        duration: 2000,
+        duration: 3000,
         name: '',
         mode: ''
     }
 }
 </script>
-<style>
-
-</style>

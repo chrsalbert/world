@@ -7,35 +7,29 @@
                 <p>{{ text }}</p>
             </div>
             <div class="o-album__tools">
-                <Nav :country="country" :currentPhotoId="currentPhotoId" :galleryLength="photosCount" />
+                <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
             </div>
         </div>
         <div class="l-container__move o-album__gallery">
             <figure class="o-album__photo">
-                <img v-on:click="toggleFullscreen()" :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
+                <img 
+                    v-on:click="toggleFullscreen()" 
+                    :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
             </figure>
         </div>
     </div>
 </template>
 <script>
 import Countries from '~/static/data/countries.json';
-import Nav from '~/components/gallery/Nav';
+import AlbumNavigation from '~/components/AlbumNavigation';
 
 export default {
     async asyncData (context) {
         const data = require(`~/static/data/albums/${context.params.countryId}.json`)
-        return { gallery: data }
+        return { album: data }
     },
     components: {
-        Nav
-    },
-    watch: {
-        isFullscreen: function () {
-            this.isFullscreen == true ? this.openFullscreen() : this.closeFullscreen()
-        },
-        currentPhotoId: function () {
-            this.preloadNextPhoto()
-        }
+        AlbumNavigation
     },
     data () {
         return {
@@ -44,42 +38,35 @@ export default {
             isFullscreen: false
         }
     },
-    mounted () {
-        this.preloadNextPhoto()
-    },
     computed: {
-        photosCount() {
-            return this.gallery.length
-        },
-        currentPhotoText() {
-            return this.currentPhotoId + 1
+        albumLength() {
+            return this.album.length
         },
         title() {
             return this.country.title
         },
         text() {
-            return this.gallery[this.currentPhotoId].text
+            return this.album[this.currentPhotoId].text
         },
         location() {
-            return this.gallery[this.currentPhotoId].location
+            return this.album[this.currentPhotoId].location
         },
         photoUrl() {
-            return this.gallery[this.currentPhotoId].url
-        },
-        nextPhotoUrl() {
-            return this.gallery[this.currentPhotoId + 1].url
+            return this.album[this.currentPhotoId].url
         }
     },
     methods: {
+        toggleFullscreen() {
+            this.isFullscreen == true ? this.closeFullscreen() : this.openFullscreen()
+            this.isFullscreen = !this.isFullscreen
+        },
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
         },
         preloadNextPhoto() {
+            let photo = (this.currentPhotoId + 1) == this.album.length ? this.album[0] : this.album[this.currentPhotoId + 1]
             let img = new Image();
-            img.src = this.getImageUrl(`albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
-        },
-        toggleFullscreen: function(){
-            this.isFullscreen = !this.isFullscreen
+            img.src = this.getImageUrl(`albums/${this.country.id}/${photo.url}?w=1000&h=800&quality=80&f=auto`);
         },
         openFullscreen() {
             var elem = document.documentElement;
@@ -105,6 +92,12 @@ export default {
                 document.msExitFullscreen();
             }
         }
+    },
+    mounted () {
+        this.preloadNextPhoto()
+    },
+    updated () {
+        this.preloadNextPhoto()
     }
 }
 </script>
