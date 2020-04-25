@@ -12,7 +12,7 @@
         </div>
         <div class="l-container__move o-album__gallery">
             <figure class="o-album__photo">
-                <img v-on:click="toggleFullscreen()" :src="getImageUrl(`images/albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
+                <img v-on:click="toggleFullscreen()" :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
             </figure>
         </div>
     </div>
