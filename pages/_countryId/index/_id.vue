@@ -31,7 +31,10 @@ export default {
     },
     watch: {
         isFullscreen: function () {
-        this.isFullscreen == true ? this.openFullscreen() : this.closeFullscreen()
+            this.isFullscreen == true ? this.openFullscreen() : this.closeFullscreen()
+        },
+        currentPhotoId: function () {
+            this.preloadNextPhoto()
         }
     },
     data () {
@@ -42,8 +45,7 @@ export default {
         }
     },
     mounted () {
-        let img = new Image();
-        img.src = this.getImageUrl(`albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
+        this.preloadNextPhoto()
     },
     computed: {
         photosCount() {
@@ -71,6 +73,10 @@ export default {
     methods: {
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
+        },
+        preloadNextPhoto() {
+            let img = new Image();
+            img.src = this.getImageUrl(`albums/${this.country.id}/${this.nextPhotoUrl}?w=1000&h=800&quality=80&f=auto`);
         },
         toggleFullscreen: function(){
             this.isFullscreen = !this.isFullscreen
