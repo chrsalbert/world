@@ -19,6 +19,21 @@ export default {
         nextPhotoId() {
             return this.photoId === (this.albumLength - 1) ? 1 : this.photoId + 2
         }
+    },
+    mounted() {
+        window.addEventListener("keydown", e => {
+            switch (e.keyCode) {
+                case 27:
+                    window.location.href = `/${this.country.id}`;
+                    break;
+                case 37:
+                    window.location.href = `/${this.country.id}/${this.prevPhotoId}`;
+                    break;
+                case 39:
+                    window.location.href = `/${this.country.id}/${this.nextPhotoId}`;
+                    break;
+            }
+        })
     }
 }
 </script>

@@ -6,10 +6,16 @@
     background: var(--color-primary);
     border: 1px black solid;
     color: #fff;
-    font-weight: 600
+    font-weight: 600;
+    transition: border-color .1s
 }
 
 .a-button--secondary {
     background: none;
-    color: black
+    color: black;
+    border-color: #ccc
+}
+
+.a-button--secondary:hover {
+    border-color: black
 }
