@@ -1,17 +1,17 @@
 <template>
     <div class="o-country" >
-        <aside class="l-container__move o-country__gallery" style="--move-delay:0s">
+        <aside class="l-container__move l-container__move--1 o-country__gallery">
             <figure class="o-country__photo">
                 <img :src="getImageUrl(`cover/${country.cover}?w=500&h=400&quality=80&f=auto`)" />
             </figure>
         </aside>
-        <article class="l-container__move o-country__text" style="--move-delay:.1s">
+        <article class="l-container__move l-container__move--2 o-country__text">
             <div>
                 <h2>{{ country.title }}</h2>
                 <ul class="m-facts">
-                    <li><span>Reisezeit</span><strong>{{ country.stats.travelDays }} Tage</strong></li>
-                    <li><span>Reisedistanz</span><strong>{{ formatNumber(country.stats.travelDistance) }} km</strong></li>
-                    <li><span>Zeit im ÖPV</span><strong>{{ country.stats.travelHours }} Std.</strong></li>
+                    <li><span>Reisezeit</span><strong>{{ country.stats.days }} Tage</strong></li>
+                    <li><span>Reisedistanz</span><strong>{{ formatNumber(country.stats.distance) }} km</strong></li>
+                    <li><span>Orte</span><strong>{{ country.stats.cities }} Orte</strong></li>
                 </ul>
                 <nuxt-link class="a-button" :to="`/${country.id}`">Album ansehen</nuxt-link>
             </div>

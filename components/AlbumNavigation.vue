@@ -28,6 +28,5 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-family: var(--font-family-alt)
     }
 </style>

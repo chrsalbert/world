@@ -4,9 +4,9 @@
         "title": "Litauen",
         "cover": "litauen.jpg",
         "stats": {
-            "travelDays": "6",
-            "travelDistance": "105",
-            "travelHours": "1"
+            "days": "6",
+            "distance": "105",
+            "cities": "1"
         }
     }, {
         "id": "griechenland",
@@ -14,27 +14,27 @@
         "text": "An einem frühen Morgen stieg ich in Saranda in den Bus nach Albanien. Auf der dreistündigen Fahrt sah ich den Sonnenaufgang hinter den Bergen Albaniens aufgehen. Kurz vor der Ankunft lies der Morgennebel die Landschaft mystisch erscheinen.",
         "cover": "griechenland.jpg",
         "stats": {
-            "travelDays": "16",
-            "travelDistance": "2424",
-            "travelHours": "3"
+            "days": "16",
+            "distance": "2424",
+            "cities": "3"
         }
     }, {
         "id": "indien",
         "title": "Indien",
         "cover": "indien.jpg",
         "stats": {
-            "travelDays": "30",
-            "travelDistance": "4061",
-            "travelHours": "61"
+            "days": "30",
+            "distance": "4061",
+            "cities": "61"
         }
     }, {
         "id": "taiwan",
         "title": "Taiwan",
         "cover": "taiwan.jpg",
         "stats": {
-            "travelDays": "22",
-            "travelDistance": "1600",
-            "travelHours": "39"
+            "days": "22",
+            "distance": "1600",
+            "cities": "39"
         }
     }
 ]

@@ -4,7 +4,6 @@
     line-height: var(--space-2xl);
     padding: 0 var(--space-lg);
     background: var(--color-primary);
-    font-family: var(--font-family-alt);
     border: 1px black solid;
     color: #fff;
 }

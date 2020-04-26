@@ -1,10 +1,16 @@
 h1 {
-font-size: var(--font-size-3xl);
+font-weight: 800;
+letter-spacing: .15em;
+text-transform: uppercase!important;
+font-size: var(--font-size-xl);
 line-height: 1.2em;
 }
     
 h2 {
-font-size: var(--font-size-2xl);
+font-weight: 800;
+letter-spacing: .15em;
+text-transform: uppercase !important;
+font-size: var(--font-size-xl);
 line-height: 1.2em;
 }
 
