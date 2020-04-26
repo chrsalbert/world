@@ -6,6 +6,7 @@
     background: var(--color-primary);
     border: 1px black solid;
     color: #fff;
+    font-weight: 600
 }
 
 .a-button--secondary {

@@ -9,9 +9,13 @@
 
 * { box-sizing: border-box; }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
-    font-size: var(--font-size-global)
+    font-size: var(--font-size-global);
 }
 
 body {

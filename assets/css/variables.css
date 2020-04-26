@@ -12,11 +12,11 @@
     --space-xs: .5rem;
     --space-sm: .75rem;
     --space: 1rem;
-    --space-md: 1.25rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.25rem;
+    --space-xl: 3.337rem;
+    --space-2xl: 4.171rem;
+    --space-3xl: 6.256rem;
     
     --size-sm: 1rem;
     --size: 1.5rem;
@@ -47,17 +47,34 @@
     
     --body-bgColor: #f5f5f5;
     --body-width: 1000px;
-    --body-pad: var(--space-3xl);
+    --body-pad: var(--space-xl);
     
     --image-border-radius: .5em 1em;
     --card-border-radius: .2rem;
     
     --transition-default: all .2s ease-in-out;
     
-    
-    
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    :root {
+        --body-pad: var(--space-lg)
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    :root {
+        --body-pad: var(--space-md)
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --body-pad: var(--space)
+    }
 }

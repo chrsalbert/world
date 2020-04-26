@@ -31,7 +31,7 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    imageUrl: process.env.IMAGE_URL || 'http://localhost:3000/images/'
+    imageUrl: process.env.IMAGE_URL || 'https://cdn.statically.io/img/world-rosy.now.sh/images/'
   },
   loading: { color: '#fff' },
   css: [

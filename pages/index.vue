@@ -1,17 +1,18 @@
 <template>
-    <div class="l-container__section l-container__section--index">
-        <div class="o-countries">
-            <CountryList v-bind:country="country" v-for="country of countries" :key="country.id" />
+    <div id="scroll-container" class="l-slider">
+        <div class="l-slider__section" v-for="country of countries" :key="country.id">
+            <CountryListItem  v-bind:country="country" />
         </div>
     </div>
 </template>
 <script>
     import Countries from '~/static/data/countries.json';
-    import CountryList from '~/components/CountryList';
+    import CountryListItem from '~/components/CountryListItem';
 
     export default {
+        layout: 'blank',
         components: {
-            CountryList
+            CountryListItem
         },
         data () {
             return {

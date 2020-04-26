@@ -1,13 +1,12 @@
 .m-facts {
-    --itemWidth: 12rem;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: var(--space-2xl)
+    margin: 0 -1rem -1rem 0
 }
 
 .m-facts li {
-    margin-right: 1rem;
-    width: var(--itemWidth);
+    margin: 0 1rem 1rem 0;
+    width: 8rem;
 }
 
 .m-facts li > * {
