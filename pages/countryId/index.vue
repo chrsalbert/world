@@ -1,41 +1,27 @@
 <template>
-    <div class="o-album">
-        <div class="l-container__move l-container__move--1 o-album__text">
+    <div class="l-default l-default--splitScroll">
+        <div class="l-default__aside">
             <div>
                 <nuxt-link :to="`/`">← Alle Länder</nuxt-link>
-                <h1>{{ title }}</h1>
-                <p>
-                    {{ text }}
-                </p>
-                <ul class="o-album__locations">
-                    <li v-for="(location, index) of locations" :key="index">
-                        <input :id="index" v-model="filter" type="radio" name="location" :value="location" /> <label :for="index">{{ location }}</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="o-album__tools">
-                <nuxt-link :to="`/${country.id}/1`" class="a-button">Gallerie ansehen</nuxt-link>
+                <h1 style="padding-bottom:var(--space-lg)">{{ title }}</h1>
+                <FilterList :locations="locations" @filter="setFilter" />
             </div>
         </div>
-        <div class="l-container__move  l-container__move--2 o-album__gallery">
-            <figure class="o-album__photo o-album__photo--2" v-bind:class="{ 'o-album__photo--2col': filter != '' }">
-                <ul>
-                    <li v-for="(photo, index) of photos" :key="index" v-show="isFiltered(photo.location)" >
-                        <nuxt-link 
-                            v-bind="{ 'data-location': photo.location }" 
-                            :to="`/${country.id}/${index + 1}`">
-                            <img :src="getImageUrl(`albums/${country.id}/${photo.url}?w=500&h=400&quality=90&f=auto`)" />
-                        </nuxt-link>
-                    </li>
-                </ul>
-            </figure>
+        <div class="l-default__content">
+            <PhotoRoll v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
         </div>
     </div>
 </template>
 <script>
 import Countries from '~/static/data/countries.json';
+import FilterList from '~/components/FilterList';
+import PhotoRoll from '~/components/PhotoRoll';
 
 export default {
+    components: {
+        FilterList,
+        PhotoRoll
+    },
     async asyncData (context) {
         const data = require(`~/static/data/albums/${context.params.countryId}.json`)
         return { photos: data }
@@ -43,8 +29,7 @@ export default {
     data () {
         return {
             country: Countries.find(country => country.id == this.$route.params.countryId),
-            filter: '',
-            showPhotos: false
+            filter: ''
         }
     },
     computed: {
@@ -59,12 +44,14 @@ export default {
         }
     },
     methods: {
-        isFiltered(location) {
-            return !this.filter ? true : location == this.filter
-        },
-        getImageUrl(path) {
-            return `${process.env.imageUrl}${path}`
+        setFilter(value) {
+            return this.filter = value
         }
     }
 }
 </script>
+<style scoped>
+    h1 {
+        margin: var(--space-lg) 0 var(--space-md)
+    }
+</style>

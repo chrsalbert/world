@@ -2,9 +2,12 @@
 @import '~assets/css/elements/headlines.css';
 @import '~assets/css/atoms/button.css';
 @import '~assets/css/molecules/facts.css';
-@import '~assets/css/organisms/album.css';
-@import '~assets/css/organisms/country.css';
-@import '~assets/css/layouts/container.css';
+@import '~assets/css/molecules/filter.css';
+@import '~assets/css/molecules/photoRoll.css';
+@import '~assets/css/molecules/sandwich.css';
+@import '~assets/css/molecules/photo.css';
+@import '~assets/css/layouts/default.css';
+@import '~assets/css/layouts/slider.css';
 
 
 * { box-sizing: border-box; }

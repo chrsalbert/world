@@ -1,0 +1,15 @@
+.m-sandwich {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.m-sandwich > *:nth-child(2) {
+    height: 100%;
+    margin-bottom: var(--space-md);
+    overflow-y: scroll
+}
+
+.m-sandwich > *:last-child {
+    margin-top: auto
+}

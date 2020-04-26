@@ -1,0 +1,22 @@
+.m-filter label {
+    text-transform: capitalize;
+    opacity: .5
+}
+
+.m-filter label:hover {
+    opacity: 1
+}
+
+.m-filter input {
+    display: none
+}
+
+.m-filter input:checked + label {
+    opacity: 1;
+    font-weight: 600
+}
+
+.m-filter li {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-md)
+}

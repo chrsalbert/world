@@ -1,0 +1,11 @@
+.l-slider {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.l-slider__section {
+    height: 100vh;
+    scroll-snap-align: start;
+    padding: 0 var(--body-pad)
+}

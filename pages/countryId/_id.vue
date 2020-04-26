@@ -1,17 +1,21 @@
 <template>
-    <div class="o-album">
-        <div class="l-container__move o-album__text">
-            <div>
-                <nuxt-link :to="`/${country.id}`" style="font-family:var(--font-family-alt">← {{ title }}</nuxt-link>
-                <h1>{{ location }}</h1>
-                <p>{{ text }}</p>
-            </div>
-            <div class="o-album__tools">
-                <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
+    <div class="l-default l-default--fixed">
+        <div class="l-default__aside">
+            <div class="m-sandwich">
+                <div>
+                    <nuxt-link :to="`/${country.id}`">← {{ title }}</nuxt-link>
+                    <h1>{{ location }}</h1>
+                </div>
+                <div>
+                    <p>{{ text }}</p>
+                </div>
+                <div class="o-album__tools">
+                    <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
+                </div>
             </div>
         </div>
-        <div class="l-container__move o-album__gallery">
-            <figure class="o-album__photo">
+        <div class="l-default__content">
+            <figure class="m-photo">
                 <img 
                     v-on:click="toggleFullscreen()" 
                     :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
@@ -101,3 +105,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+    h1 {
+        margin: var(--space-lg) 0 var(--space-md)
+    }
+</style>

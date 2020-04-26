@@ -1,0 +1,14 @@
+.m-photoRoll {
+    display: block; 
+    column-count: 3;
+    column-gap: var(--space-sm);
+    width: 100%;
+}
+
+.m-photoRoll > li {
+    margin-bottom: var(--space-sm)
+}
+
+.m-photoRoll img {
+    max-width: 100%
+}

@@ -1,0 +1,52 @@
+.l-default {
+    display: grid;
+    grid-template-columns: var(--space-3xl) 5fr 3fr 5fr var(--space-3xl);
+    grid-template-rows: var(--space-3xl) 1fr var(--space-3xl);
+    min-height: 100vh
+}
+
+.l-default > * {
+    position: relative;
+}
+
+.l-default__top {
+    grid-column: 1 / 7;
+}
+
+.l-default__body {
+    grid-column: 2 / 7;
+    grid-row: 2 / 3;
+}
+
+.l-default__content {
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+}
+
+.l-default__aside {
+    grid-column: 2 / 2;
+    grid-row: 2 / 3;
+    padding-right: var(--space-3xl)
+}
+
+.l-default__bottom {
+    grid-column: 1 / 7;
+    grid-row: 3;
+}
+
+/* Mod */
+.l-default--fixed {
+    height: 100vh;
+    overflow: hidden
+}
+
+.l-default--swapped .l-default__content {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+.l-default--swapped .l-default__aside {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+    padding-right: var(--space-3xl)
+}
