@@ -3,7 +3,7 @@
         <div class="l-default__aside">
             <div>
                 <nuxt-link :to="`/`">← Alle Länder</nuxt-link>
-                <h1 style="padding-bottom:var(--space-lg)">{{ title }}</h1>
+                <h1>{{ title }}</h1>
                 <FilterList :locations="locations" @filter="setFilter" />
             </div>
         </div>

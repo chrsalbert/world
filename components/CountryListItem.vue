@@ -34,8 +34,11 @@ export default {
 }
 </script>
 <style scroped>
+    h2 {
+        margin-bottom: var(--space-md)
+    }
     .m-facts {
-        margin-bottom: var(--space-lg)
+        margin-bottom: var(--space-2xl)
     }
     figure,
     section {
@@ -48,8 +51,8 @@ export default {
         justify-content: flex-start;
     }
     img {
-        width: 100%;
         max-width: 600px;
         max-height: 100%;
+        box-shadow: var(--shadow-lg)
     }
 </style>
