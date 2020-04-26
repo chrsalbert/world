@@ -1,8 +1,8 @@
 .a-button {
     display: inline-block;
-    height: var(--space-2xl);
-    line-height: var(--space-2xl);
-    padding: 0 var(--space-lg);
+    height: var(--font-size-3xl);
+    line-height: var(--font-size-3xl);
+    padding: 0 var(--font-size-sm);
     background: var(--color-primary);
     border: 1px black solid;
     color: #fff;
