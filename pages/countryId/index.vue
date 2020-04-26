@@ -19,7 +19,7 @@
         </div>
         <div class="l-container__move  l-container__move--2 o-album__gallery">
             <figure class="o-album__photo o-album__photo--2" v-bind:class="{ 'o-album__photo--2col': filter != '' }">
-                <ul v-show="showPhotos">
+                <ul>
                     <li v-for="(photo, index) of photos" :key="index" v-show="isFiltered(photo.location)" >
                         <nuxt-link 
                             v-bind="{ 'data-location': photo.location }" 
@@ -64,15 +64,7 @@ export default {
         },
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
-        },
-        delayedShow () {
-            setTimeout(() => {
-            this.showPhotos = true
-            }, 1000)
         }
-    },
-    mounted() {
-        this.delayedShow()
     }
 }
 </script>
