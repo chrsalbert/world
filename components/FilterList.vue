@@ -1,5 +1,5 @@
 <template>
-    <ul class="m-filter">
+    <ul class="m-filter" v-bind:class="{ 'm-filter--active': filter != '' }">
         <li v-for="(location, index) of locations" :key="index">
             <input 
                 :id="index" 
@@ -8,7 +8,7 @@
                 type="radio" 
                 name="location" 
                 :value="location" /> 
-            <label :for="index">{{ location }}</label>
+            <label class="a-sectionH2" :for="index">{{ location }}</label>
         </li>
         <li v-show="filter">
             <input 
@@ -18,7 +18,7 @@
                 type="radio" 
                 name="location" 
                 value="" /> 
-            <label for="all" style="font-size:var(--font-size;text-transform:none">Alle anzeigen</label>        
+            <label for="all" class="a-sectionH2">Alle anzeigen</label>        
         </li>
     </ul>
 </template>

@@ -1,0 +1,7 @@
+.u-sidebar {
+    padding: 7rem 0 0 calc(calc(100% / 12) / 2)
+}
+
+.u-content {
+    padding: 7rem 0
+}

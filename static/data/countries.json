@@ -6,7 +6,8 @@
         "stats": {
             "days": "3",
             "distance": "0",
-            "cities": "1"
+            "cities": "1",
+            "transportHours": "40"
         }
     }, {
         "id": "litauen",
@@ -15,7 +16,8 @@
         "stats": {
             "days": "6",
             "distance": "105",
-            "cities": "1"
+            "cities": "1",
+            "transportHours": "40"
         }
     }, {
         "id": "griechenland",
@@ -24,7 +26,8 @@
         "stats": {
             "days": "16",
             "distance": "2424",
-            "cities": "3"
+            "cities": "3",
+            "transportHours": "40"
         }
     }, {
         "id": "indien",
@@ -33,7 +36,8 @@
         "stats": {
             "days": "30",
             "distance": "4061",
-            "cities": "61"
+            "cities": "61",
+            "transportHours": "40"
         }
     }, {
         "id": "taiwan",
@@ -42,7 +46,8 @@
         "stats": {
             "days": "22",
             "distance": "1600",
-            "cities": "39"
+            "cities": "39",
+            "transportHours": "40"
         }
     }
 ]

@@ -1,8 +1,8 @@
 <template>
-    <div class="m-toolbar">
-        <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--secondary">Vorheriges</nuxt-link>
+    <div class="l-gallery__navigation">
+        <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--icon"><img src="/icons/arrow-left.svg" /></nuxt-link>
         <span>{{ photoId + 1 }} / {{ albumLength }}</span>
-        <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--secondary">Nächstes</nuxt-link>
+        <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--icon"><img src="/icons/arrow-right.svg"></nuxt-link>
     </div>
 </template>
 <script>
@@ -37,11 +37,3 @@ export default {
     }
 }
 </script>
-<style>
-    .m-toolbar {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-</style>

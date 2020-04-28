@@ -1,3 +1,3 @@
-export default function(context) {
-    // context.store.commit('updateSection', context.route.name, context.route)
+export default function ({ store, redirect }) {
+    store.commit('showSubNav', false)
 }

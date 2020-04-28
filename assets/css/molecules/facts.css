@@ -1,22 +1,29 @@
 .m-facts {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -1rem -1rem 0
+    margin: 0 0 calc(var(--space-md) * -1)
 }
 
 .m-facts li {
-    margin: 0 1rem 1rem 0;
+    position: relative;
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-xl);
     width: 8rem;
+    letter-spacing: .05em;
 }
 
 .m-facts li > * {
     display: block;
+    white-space: nowrap;
+}
+
+.m-facts img {
+    position: absolute;
+    left: 0;
+    opacity: .4
 }
 
 .m-facts span {
+    margin-top: .2em;
     color: var(--color-light);
-}
-
-.m-facts strong {
-    font-size: var(--font-size-lg);
+    text-transform: uppercase;
+    font-size: var(--font-size-sm)
 }

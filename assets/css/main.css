@@ -1,12 +1,19 @@
 @import '~assets/css/variables.css';
 @import '~assets/css/elements/headlines.css';
+@import '~assets/css/utilities/page.css';
+@import '~assets/css/utilities/grid.css';
+@import '~assets/css/atoms/icon.css';
 @import '~assets/css/atoms/button.css';
+@import '~assets/css/atoms/text.css';
+@import '~assets/css/atoms/photo.css';
 @import '~assets/css/molecules/facts.css';
 @import '~assets/css/molecules/filter.css';
+@import '~assets/css/molecules/mainNav.css';
 @import '~assets/css/molecules/photoRoll.css';
 @import '~assets/css/molecules/sandwich.css';
 @import '~assets/css/molecules/photo.css';
-@import '~assets/css/layouts/default.css';
+@import '~assets/css/organisms/countrySlide.css';
+@import '~assets/css/layouts/gallery.css';
 @import '~assets/css/layouts/slider.css';
 
 
@@ -27,12 +34,16 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--color-text);
-    background: var(--body-bgColor)
+    background: var(--body-bgColor);
 }
 
 a {
     color: var(--color-link);
     text-decoration: none;
+}
+
+a:hover {
+    color: blue
 }
 
 strong {

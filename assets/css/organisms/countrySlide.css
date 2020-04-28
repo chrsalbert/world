@@ -1,0 +1,31 @@
+.o-countrySlide {
+    position: relative;
+    z-index: 40;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.o-countrySlide > * {
+    flex: 1;
+}
+
+.o-countrySlide__more {
+    position: absolute;
+    top: 50%;
+    right: calc(calc(100% / 12) / 2);
+    transform: translateY(-50%);
+}
+
+.o-countrySlide__next,
+.o-countrySlide__prev {
+    position: fixed;
+    top: calc(calc(100% / 12) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.o-countrySlide__next {
+    top: auto;
+    bottom: calc(calc(100% / 12) / 2);
+}

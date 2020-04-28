@@ -1,10 +1,15 @@
+.m-filter--active label,
+.m-filter:hover label {
+    color: var(--color-text-light)
+}
+
 .m-filter label {
-    text-transform: capitalize;
-    opacity: .5
+    text-transform: uppercase;
+    transition: .1s color linear;
 }
 
 .m-filter label:hover {
-    opacity: 1
+    color: var(--color-text)
 }
 
 .m-filter input {
@@ -13,7 +18,8 @@
 
 .m-filter input:checked + label {
     opacity: 1;
-    font-weight: 600
+    font-weight: 600;
+    color: var(--color-text)
 }
 
 .m-filter li {

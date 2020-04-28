@@ -1,25 +1,22 @@
 <template>
-    <div class="l-default l-default--fixed">
-        <div class="l-default__aside">
-            <div class="m-sandwich">
-                <div>
-                    <nuxt-link :to="`/${country.id}`">← {{ title }}</nuxt-link>
-                    <h1>{{ location }}</h1>
-                </div>
-                <div>
-                    <p>{{ text }}</p>
-                </div>
-                <div class="o-album__tools">
-                    <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
-                </div>
+    <div class="l-gallery l-gallery--detail">
+        <div class="l-gallery__aside">
+            <div>
+                <h1 class="a-sectionH1">{{ location }}</h1>
+                <p class="a-subline">Januar 2020</p>
+            </div>
+            <div class="l-gallery__asideContent">
+                <h2 class="a-sectionH2">Headline</h2>
+                <p>{{ text }}</p>
             </div>
         </div>
-        <div class="l-default__content">
-            <figure class="m-photo">
-                <img 
+        <div class="l-gallery__stream">
+            <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
+            <div class="l-gallery__photo">
+                <img class="a-photo"
                     v-on:click="toggleFullscreen()" 
                     :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
-            </figure>
+            </div>
         </div>
     </div>
 </template>
@@ -105,8 +102,3 @@ export default {
     }
 }
 </script>
-<style scoped>
-    h1 {
-        margin: var(--space-lg) 0 var(--space-md)
-    }
-</style>

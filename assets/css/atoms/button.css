@@ -19,3 +19,18 @@
 .a-button--secondary:hover {
     border-color: black
 }
+
+.a-button--icon {
+    background: none;
+    width: var(--font-size-3xl);
+    padding: 0;
+    border-radius: 50%;
+    border-color: transparent;
+    text-align: center;
+    transition: .1s all linear
+}
+
+.a-button--icon img {
+    width: 2rem;
+    height: 2rem;
+}

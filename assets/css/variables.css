@@ -1,10 +1,11 @@
 :root {
     --color-primary: black;
     --color-light: gray;
-    --color-gray: lightgray;
+    --color-gray: #999;
     --color-secondary: darkgray;
     --color-third: #bbcfff;
     --color-text: black;
+    --color-text-light: #999;
     --color-link: black;
     --color-h1: var(--color-primary);
     
@@ -27,7 +28,7 @@
     --size-3xl: 4rem;
     
     --font-family-scale: 1.414;
-    --font-family: 'Raleway', 'Serif';
+    --font-family: 'PT Sans', 'Sans Serif';
     --font-family-alt: 'Playfair Display', 'Sans Serif';
     --font-size-global: 14px;
     --font-size-sm: .8rem;
@@ -45,9 +46,11 @@
     --footer-bgColor: var(--color-primary);
     --footer-textColor: #fff;
     
-    --body-bgColor: #f5f5f5;
-    --body-width: 1000px;
-    --body-pad: var(--space-xl);
+    --body-bgColor: #fff;
+    --body-width: 1400px;
+    --body-pad: 0;
+
+    --grid-column-width: calc(100% / 12);
     
     --image-border-radius: .5em 1em;
     --card-border-radius: .2rem;
@@ -60,6 +63,11 @@
     --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);;
 }
 
+@media only screen and (max-width: 1000px) {
+    :root {
+        --body-pad: var(--space-lg)
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     :root {

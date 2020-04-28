@@ -1,13 +1,15 @@
 <template>
-    <div class="l-default l-default--splitScroll">
-        <div class="l-default__aside">
+    <div class="l-gallery">
+        <div class="l-gallery__aside">
             <div>
-                <nuxt-link :to="`/`">← Alle Länder</nuxt-link>
-                <h1>{{ title }}</h1>
+                <h1 class="a-sectionH1">{{ title }}</h1>
+                <p class="a-subline">Januar 2020</p>
+            </div>
+            <div class="l-gallery__asideContent">
                 <FilterList :locations="locations" @filter="setFilter" />
             </div>
         </div>
-        <div class="l-default__content">
+        <div class="l-gallery__stream">
             <PhotoRoll v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
         </div>
     </div>
@@ -50,8 +52,3 @@ export default {
     }
 }
 </script>
-<style scoped>
-    h1 {
-        margin: var(--space-lg) 0 var(--space-md)
-    }
-</style>
