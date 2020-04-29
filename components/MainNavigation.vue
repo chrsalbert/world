@@ -2,44 +2,54 @@
     <div>
         <div v-if="isDefault" class="m-mainNav">
             <div>
-                <nuxt-link to="/" class="a-button a-button--icon"><img src="/icons/home.svg"></nuxt-link>
-                <button v-on:click="toggleSubNav()" class="a-button a-button--icon"><img src="/icons/menu.svg" v-if="!showSubnav"><img src="/icons/cross.svg" v-if="showSubnav"></button>
+                <nuxt-link to="/" class="a-button a-button--icon" v-html="iconHome"></nuxt-link>
+                <button v-on:click="toggleSubNav()" class="a-button a-button--icon" v-html="iconMenu" v-if="!showSubnav"></button>
+                <button v-on:click="toggleSubNav()" class="a-button a-button--icon" v-html="iconCross" v-if="showSubnav"></button>
             </div>
         </div>
         <div v-if="isGallery" class="m-mainNav">
-            <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon"><img src="/icons/cross.svg"></nuxt-link>
+            <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon" v-html="iconCross"></nuxt-link>
             <div>
-                <button v-on:click="toggleColumns()" class="a-button a-button--icon"><img src="/icons/2col.svg"></button>
-                <button v-on:click="toggleColumns()" class="a-button a-button--icon"><img src="/icons/1col.svg"></button>
+                <button v-on:click="toggleColumns()" class="a-button a-button--icon" v-html="iconOneCol"></button>
+                <button v-on:click="toggleColumns()" class="a-button a-button--icon" v-html="iconTwoCol"></button>
             </div>
         </div>
         <nav class="m-subNav" v-show="showSubnav">
-            <div class="u-row">
-                <div class="u-col" style="--span:7">
-                    <div class="a-sectionH1">Alle Länder</div>
-                    <ul class="m-subNav__sections">
-                        <li v-for="(country, index) in countries" :key="index" v-on:mouseover="showDetails(country.title, country.stats)" v-on:mouseout="showTrip()">
-                            <nuxt-link class="a-sectionH2" :to="`/${ country.id }`">{{ country.title }}</nuxt-link>
-                        </li>
-                    </ul>
-                </div>
-                <div class="u-col" style="--span:4">
+            <div style="display:flex;">
+                <div class="m-subNav__headline">
                     <div class="a-sectionH1">{{ sectionTitle }}</div>
-                    <FactsList :facts="facts" />
+                </div>
+                <div class="m-subNav__facts">
+                    <FactsList :facts="facts" classes="m-facts--x" />
                 </div>
             </div>
+            <ul class="m-subNav__sections">
+                <li v-for="(country, index) in countries" :key="index" v-on:mouseover="showDetails(country.title, country.stats)" v-on:mouseout="showTrip()">
+                    <nuxt-link class="a-sectionH2" :to="`/${ country.id }`">{{ country.title }}</nuxt-link>
+                </li>
+            </ul>
         </nav>
     </div>
 </template>
 <script>
     import { mapMutations } from 'vuex'
     import FactsList from '~/components/FactsList';
+    import iconHome from "~/assets/images/icons/home.svg?raw";
+    import iconMenu from "~/assets/images/icons/menu.svg?raw";
+    import iconCross from "~/assets/images/icons/cross.svg?raw";
+    import iconOneCol from "~/assets/images/icons/1col.svg?raw";
+    import iconTwoCol from "~/assets/images/icons/2col.svg?raw";
 
     export default {
         data () {
             return {
-                sectionTitle: 'Der Trip',
-                facts: []
+                sectionTitle: 'Alle Länder',
+                facts: [],
+                iconMenu,
+                iconHome,
+                iconCross,
+                iconOneCol,
+                iconTwoCol
             }
         },
         components: {
@@ -82,7 +92,7 @@
                 this.sectionTitle = title
             },
             showTrip() {
-                this.sectionTitle = 'Der Trip'
+                this.sectionTitle = 'Alle Länder'
                 this.facts = [
                     {
                         icon: 'card',

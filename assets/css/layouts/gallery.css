@@ -1,3 +1,6 @@
+.l-gallery {
+    overflow: hidden; /* blend mode hack */
+}
 .l-gallery__aside {
     position: fixed;
     width: calc(calc(100% / 12) * 3);

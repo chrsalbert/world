@@ -25,6 +25,7 @@ html {
 
 html,
 body {
+    background: #fff;
     font-size: var(--font-size-global);
 }
 

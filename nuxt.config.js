@@ -42,7 +42,8 @@ export default {
   plugins: [
   ],
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "@nuxtjs/svg"
   ],
   axios: {
   },

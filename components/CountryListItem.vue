@@ -10,24 +10,28 @@
                         <h2 class="a-sectionH1">{{ country.title }}</h2>
                         <p class="a-subline">Januar 2019</p>
                         <FactsList :facts="getFacts" />
-                        <nuxt-link class="o-countrySlide__more a-button a-button--icon" :to="`/${country.id}`"><img src="/icons/arrow-right.svg" /></nuxt-link>
+                        <nuxt-link class="o-countrySlide__more a-button a-button--icon" :to="`/${country.id}`" v-html="iconArrowRight"></nuxt-link>
                     </div>
                 </section>
             </div>
         </div>
-        <button class="a-button a-button--icon o-countrySlide__prev"><img src="/icons/arrow-up.svg" /></button>
-        <button class="a-button a-button--icon o-countrySlide__next"><img src="/icons/arrow-down.svg" /></button>
     </div>
 </template>
 <script>
 import FactsList from '~/components/FactsList';
+import iconArrowRight from '~/assets/images/icons/arrow-right.svg?raw';
 
 export default {
     props: {
         country: Object
     },
     components: {
-        FactsList
+        FactsList,
+    },
+    data () {
+        return {
+            iconArrowRight
+        }
     },
     computed: {
         getFacts() {

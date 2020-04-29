@@ -20,6 +20,7 @@
 .o-countrySlide__next,
 .o-countrySlide__prev {
     position: fixed;
+    z-index: 99;
     top: calc(calc(100% / 12) / 2);
     left: 50%;
     transform: translateX(-50%);

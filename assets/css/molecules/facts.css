@@ -15,9 +15,11 @@
     white-space: nowrap;
 }
 
-.m-facts img {
+.m-facts figure {
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     opacity: .4
 }
 
@@ -26,4 +28,12 @@
     color: var(--color-light);
     text-transform: uppercase;
     font-size: var(--font-size-sm)
+}
+
+.m-facts--x {
+    display: flex;
+}
+
+.m-facts--x li {
+    width: 33%
 }

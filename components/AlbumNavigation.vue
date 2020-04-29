@@ -1,16 +1,25 @@
 <template>
     <div class="l-gallery__navigation">
-        <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--icon"><img src="/icons/arrow-left.svg" /></nuxt-link>
+        <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link>
         <span>{{ photoId + 1 }} / {{ albumLength }}</span>
-        <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--icon"><img src="/icons/arrow-right.svg"></nuxt-link>
+        <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link>
     </div>
 </template>
 <script>
+import iconArrowLeft from "~/assets/images/icons/arrow-left.svg?raw";
+import iconArrowRight from "~/assets/images/icons/arrow-right.svg?raw";
+
 export default {
     props: {
         country: Object,
         photoId: Number,
         albumLength: Number
+    },
+    data () {
+        return {
+            iconArrowLeft,
+            iconArrowRight
+        }
     },
     computed: {
         prevPhotoId() {

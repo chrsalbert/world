@@ -7,5 +7,6 @@
 .l-slider__section {
     height: inherit;
     scroll-snap-align: start;
-    padding: 0 var(--body-pad)
+    padding: 0 var(--body-pad);
+    background: #fff
 }

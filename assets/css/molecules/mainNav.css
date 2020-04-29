@@ -9,7 +9,12 @@
     left: calc(var(--grid-column-width) / 2);
     right: calc(var(--grid-column-width) / 2);
     margin-left: -.6rem;
-    margin-right: -.6rem
+    margin-right: -.6rem;
+    mix-blend-mode: difference;
+}
+
+.m-subNav svg {
+    mix-blend-mode: difference;
 }
 
 .m-subNav {
@@ -25,8 +30,17 @@
 
 .m-subNav__sections {
     column-count: 3;
+    max-width: 60rem;
 }
 
 .m-subNav__sections li {
     margin-bottom: var(--space-sm);
+}
+
+.m-subNav__facts {
+    width: 40rem
+}
+
+.m-subNav__headline {
+    width: 20rem
 }
