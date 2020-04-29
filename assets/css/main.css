@@ -8,8 +8,6 @@
 @import '~assets/css/atoms/photo.css';
 @import '~assets/css/molecules/filter.css';
 @import '~assets/css/molecules/mainNav.css';
-@import '~assets/css/molecules/sandwich.css';
-@import '~assets/css/molecules/photo.css';
 
 * { box-sizing: border-box; }
 
