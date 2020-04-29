@@ -49,13 +49,14 @@
     .button-prev {
         position: fixed;
         z-index: 99;
-        top: calc(calc(100% / 12) / 2);
+        top: calc(var(--header-height) / 2);
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate3d(-50%, -50%, 0);
     }
 
     .button-next {
         top: auto;
-        bottom: calc(calc(100% / 12) / 2);
+        bottom: calc(var(--header-height) / 2);
+        transform: translate3d(-50%, 50%, 0);
     }
 </style>

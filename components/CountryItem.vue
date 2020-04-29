@@ -97,9 +97,6 @@ export default {
     }
 
     @media only screen and (max-width: 600px) {
-        .cover {
-
-        }
         .item {
             flex-direction: column
         }

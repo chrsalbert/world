@@ -22,51 +22,69 @@ export default {
 }
 </script>
 <style scoped>
-.container {
-    position: relative;
-    background: #281f18;
-    height: 100vh;
-}
+    .container {
+        position: relative;
+        background: #281f18;
+        height: 100vh;
+    }
 
-.header {
-    position: absolute;
-    color: #fff;
-    top: 40%;
-    left: var(--grid-column-width);
-}
+    .header {
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: var(--grid-column-width);
+    }
 
-h1 {
-    font-weight: 900;
-    font-size: 10rem;
-    color: #fff;
-    line-height: .8;
-    letter-spacing: 0;
-    margin-bottom: 1rem
-}
+    h1 {
+        font-weight: 900;
+        font-size: 10rem;
+        color: #fff;
+        line-height: .9;
+        letter-spacing: 0;
+        margin-bottom: 1rem
+    }
 
-p {
-    max-width: 30em;
-    font-size: var(--font-size-lg)
-}
+    p {
+        max-width: 30em;
+        font-size: var(--font-size-lg)
+    }
 
-.worldmap {
-    position: absolute;
-    width: 80%;
-    top: 5rem;
-    left: 10vw;
-}
+    .worldmap {
+        position: absolute;
+        width: 80%;
+        top: 5rem;
+        left: 10vw;
+    }
 
-svg {
-    width: 100%;
-    height: 100%;
-}
+    svg {
+        width: 100%;
+        height: 100%;
+    }
 
-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    filter: saturate(.95) brightness(.6) contrast(.62);
-    opacity: .5;
-}
+    video {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        filter: saturate(.95) brightness(.6) contrast(.62);
+        opacity: .5;
+    }
+
+    @media only screen and (min-width: 600px) {
+        video {
+            top: 50%
+        }
+        .header {
+            top: 40%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        h1 {
+            font-size: var(--font-size-3xl)
+        }
+        p {
+            font-size: var(--font-size-md)
+        }
+    }
 </style>
