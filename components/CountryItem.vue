@@ -5,11 +5,9 @@
         </div>
         <div class="text">
             <h2 class="a-sectionH1">{{ country.title }}</h2>
-            <p class="a-subline">Januar 2019</p>
-            <FactsList :facts="getFacts" />
-            <div class="button-more">
-                <nuxt-link class="a-button a-button--icon" :to="`/${country.id}`" v-html="iconArrowRight"></nuxt-link>
-            </div>
+            <p class="a-subline">{{ country.time.from }} – {{ country.time.to }}</p>
+            <FactsList :facts="getFacts" mode="horizontal" />
+            <nuxt-link class="a-button a-button--icon button-more" :to="`/${country.id}`" v-html="iconArrowRight"></nuxt-link>
         </div>
     </div>
 </template>
@@ -61,13 +59,12 @@ export default {
 </script>
 <style scoped>
     .item {
+        height: 100%;
+        display: flex;
+        align-items: center;
         position: relative;
         z-index: 40;
-        padding: var(--header-height) var(--body-pad) 0
-    }
-
-    .cover {
-        margin-bottom: var(--space-lg)
+        padding: var(--header-height) var(--body-pad)
     }
 
     .button-more {
@@ -77,18 +74,22 @@ export default {
         transform: translateY(-50%);
     }
 
-    @media only screen and (min-width: 600px) {
-        .item {
-            height: 100%;
-            display: flex;
-            align-items: center;
+    @media only screen and (min-width: 1100px) {
+        .cover {
+            margin-left: var(--grid-col2);
         }
+    }
+
+    @media only screen and (min-width: 900px) {
         .item > * {
             flex: 1;
         }
         .cover {
+            display: flex;
+            align-items: center;
+            height: 100%;
             width: var(--grid-col5);
-            margin-left: var(--grid-col2);
+            margin-left: var(--grid-col1);
         }
         .text {
             width: var(--grid-col4);
@@ -96,9 +97,22 @@ export default {
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
         .item {
-            flex-direction: column
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cover {
+            margin: -10vh 0 var(--space-lg);
+            height: 30vh;
+        }
+        .text {
+            text-align: center;
+            width: 100%;
+        }
+        .button-more {
+            display: none
         }
     }
+    
 </style>

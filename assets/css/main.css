@@ -6,13 +6,10 @@
 @import '~assets/css/atoms/button.css';
 @import '~assets/css/atoms/text.css';
 @import '~assets/css/atoms/photo.css';
-@import '~assets/css/molecules/facts.css';
 @import '~assets/css/molecules/filter.css';
 @import '~assets/css/molecules/mainNav.css';
-@import '~assets/css/molecules/photoRoll.css';
 @import '~assets/css/molecules/sandwich.css';
 @import '~assets/css/molecules/photo.css';
-@import '~assets/css/layouts/gallery.css';
 
 * { box-sizing: border-box; }
 

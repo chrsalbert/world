@@ -1,17 +1,17 @@
 <template>
-    <div class="l-gallery">
-        <div class="l-gallery__aside">
+    <div class="container">
+        <aside>
             <div>
                 <h1 class="a-sectionH1">{{ title }}</h1>
                 <p class="a-subline">Januar 2020</p>
             </div>
-            <div class="l-gallery__asideContent">
+            <div class="filter">
                 <FilterList :locations="locations" @filter="setFilter" />
             </div>
-        </div>
-        <div class="l-gallery__stream">
+        </aside>
+        <main>
             <PhotoRoll v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
-        </div>
+        </main>
     </div>
 </template>
 <script>
@@ -52,3 +52,49 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .container {
+        position: relative;
+        margin: 0 var(--body-pad)
+    }
+
+    aside {
+        padding: var(--header-height) 0 0 0;
+    }
+
+    .filter {
+        height: 100px;
+        overflow-y: scroll
+    }
+
+    @media only screen and (min-width: 600px) {
+        .container {
+            min-height: 100vh;
+        }
+
+        aside {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: var(--header-height);
+            left: var(--body-pad);
+            bottom: 0;
+            width: var(--grid-col4);
+            padding: 0;
+        }
+
+        .filter {
+            flex: 1
+        }
+
+        main {
+            padding: var(--header-height) 0 var(--header-height) var(--grid-col5);
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .filter {
+            display: none
+        }
+    }
+</style>

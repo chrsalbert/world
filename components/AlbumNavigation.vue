@@ -1,9 +1,9 @@
 <template>
-    <div class="l-gallery__navigation">
+    <nav>
         <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link>
         <span>{{ photoId + 1 }} / {{ albumLength }}</span>
         <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link>
-    </div>
+    </nav>
 </template>
 <script>
 import iconArrowLeft from "~/assets/images/icons/arrow-left.svg?raw";
@@ -46,3 +46,35 @@ export default {
     }
 }
 </script>
+<style scoped>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media only screen and (min-width: 600px) {
+        nav > * {
+            position: absolute
+        }
+
+        a {
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        a:first-child {
+            left: 0;
+        }
+
+        a:last-child {
+            right: 0;
+        }
+
+        span {
+            bottom: calc(calc(var(--header-height) / 2) * -1);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+</style>

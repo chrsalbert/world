@@ -2,6 +2,10 @@
     {
         "id": "niederlande",
         "title": "Niederlande",
+        "time": {
+            "from": "1.5.2019",
+            "to": "5.5.2019"
+        },
         "cover": "niederlande.webp",
         "stats": {
             "days": "3",
@@ -12,6 +16,10 @@
     }, {
         "id": "litauen",
         "title": "Litauen",
+        "time": {
+            "from": "1.5.2019",
+            "to": "5.5.2019"
+        },
         "cover": "litauen.jpg",
         "stats": {
             "days": "6",
@@ -22,6 +30,10 @@
     }, {
         "id": "griechenland",
         "title": "Griechenland",
+        "time": {
+            "from": "1.5.2019",
+            "to": "5.5.2019"
+        },
         "cover": "griechenland.jpg",
         "stats": {
             "days": "16",
@@ -32,6 +44,10 @@
     }, {
         "id": "indien",
         "title": "Indien",
+        "time": {
+            "from": "1.5.2019",
+            "to": "5.5.2019"
+        },
         "cover": "indien.jpg",
         "stats": {
             "days": "30",
@@ -42,6 +58,10 @@
     }, {
         "id": "taiwan",
         "title": "Taiwan",
+        "time": {
+            "from": "1.5.2019",
+            "to": "5.5.2019"
+        },
         "cover": "taiwan.jpg",
         "stats": {
             "days": "22",

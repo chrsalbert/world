@@ -1,23 +1,23 @@
 <template>
-    <div class="l-gallery l-gallery--detail" v-bind:class="{ 'l-gallery--show': !showAside }">
-        <div class="l-gallery__aside">
+    <div class="container" v-bind:class="{ 'l-gallery--show': !showAside }">
+        <aside>
             <div>
                 <h1 class="a-sectionH1">{{ location }}</h1>
                 <p class="a-subline">Januar 2020</p>
             </div>
-            <div class="l-gallery__asideContent">
+            <div>
                 <h2 class="a-sectionH2">Headline</h2>
                 <p>{{ text }}</p>
             </div>
-        </div>
-        <div class="l-gallery__stream">
-            <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
-            <div class="l-gallery__photo">
+        </aside>
+        <main>
+            <figure>
                 <img class="a-photo"
                     v-on:click="toggleFullscreen()" 
                     :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
-            </div>
-        </div>
+            </figure>
+            <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
+        </main>
     </div>
 </template>
 <script>
@@ -106,3 +106,72 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .container {
+        position: relative;
+        padding-top: var(--header-height);
+        margin: 0 var(--body-pad)
+    }
+
+    aside {
+        padding: 0 var(--header-height) 0 0 0;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .container {
+            min-height: 100vh;
+        }
+
+        main {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--grid-col7);
+            margin: 0 0 0 var(--grid-col5);
+            height: calc(100vh - calc(var(--header-height) * 2));
+        }
+
+        figure {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: 0 var(--grid-column-width)
+        }
+
+        aside {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: var(--header-height);
+            left: var(--body-pad);
+            bottom: 0;
+            width: var(--grid-col4);
+            padding: 0;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        figure {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin: var(--space-md) auto;
+        }
+        main {
+            margin-bottom: var(--space-md)
+        }
+        .container {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        aside {
+            text-align: center;
+            padding: 0 0 var(--space-xl)
+        }
+        img {
+            display: block;
+        }
+    }
+</style>

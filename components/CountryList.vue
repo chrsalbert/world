@@ -41,10 +41,12 @@
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
     }
+
     .section {
         height: inherit;
         scroll-snap-align: start
     }
+
     .button-next,
     .button-prev {
         position: fixed;
@@ -53,7 +55,7 @@
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
     }
-
+    
     .button-next {
         top: auto;
         bottom: calc(var(--header-height) / 2);
