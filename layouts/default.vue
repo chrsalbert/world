@@ -1,5 +1,5 @@
 <template>
-    <div class="u-page">
+    <div>
         <MainNavigation :countries="countries" />
         <nuxt/>
     </div>

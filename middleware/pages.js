@@ -1,3 +1,4 @@
-export default function ({ store, redirect }) {
-    store.commit('showSubNav', false)
+export default function (context) {
+    context.store.commit('navigation/showSubNav', false)
+    context.store.commit('navigation/changeNav', 'default')
 }

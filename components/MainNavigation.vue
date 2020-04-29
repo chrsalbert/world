@@ -1,9 +1,18 @@
 <template>
     <div>
-        <nav class="m-mainNav">
-            <nuxt-link to="/" class="a-button a-button--icon"><img src="/icons/home.svg"></nuxt-link>
-            <button v-on:click="toggleSubNav()" class="a-button a-button--icon"><img src="/icons/menu.svg" v-if="!showSubnav"><img src="/icons/cross.svg" v-if="showSubnav"></button>
-        </nav>
+        <div v-if="isDefault" class="m-mainNav">
+            <div>
+                <nuxt-link to="/" class="a-button a-button--icon"><img src="/icons/home.svg"></nuxt-link>
+                <button v-on:click="toggleSubNav()" class="a-button a-button--icon"><img src="/icons/menu.svg" v-if="!showSubnav"><img src="/icons/cross.svg" v-if="showSubnav"></button>
+            </div>
+        </div>
+        <div v-if="isGallery" class="m-mainNav">
+            <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon"><img src="/icons/cross.svg"></nuxt-link>
+            <div>
+                <button v-on:click="toggleColumns()" class="a-button a-button--icon"><img src="/icons/2col.svg"></button>
+                <button v-on:click="toggleColumns()" class="a-button a-button--icon"><img src="/icons/1col.svg"></button>
+            </div>
+        </div>
         <nav class="m-subNav" v-show="showSubnav">
             <div class="u-row">
                 <div class="u-col" style="--span:7">
@@ -41,15 +50,28 @@
         },
         computed: {
             showSubnav() {
-                return this.$store.state.showSubNav
+                return this.$store.state.navigation.showSubNav
+            },
+            isGallery() {
+                return this.$store.state.navigation.currentNav == 'gallery'
+            },
+            isDefault() {
+                return this.$store.state.navigation.currentNav == 'default'
             }
         },
         methods: {
             toggleSubNav() {
-                if(this.$store.state.showSubNav == true) {
-                    this.$store.commit('showSubNav', false)
+                if(this.$store.state.navigation.showSubNav == true) {
+                    this.$store.commit('navigation/showSubNav', false)
                 } else {
-                    this.$store.commit('showSubNav', true)
+                    this.$store.commit('navigation/showSubNav', true)
+                }
+            },
+            toggleColumns() {
+                if(this.$store.state.gallery.showAside == true) {
+                    this.$store.commit('gallery/showAside', false)
+                } else {
+                    this.$store.commit('gallery/showAside', true)
                 }
             },
             showDetails(title, stats) {

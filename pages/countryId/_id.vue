@@ -1,5 +1,5 @@
 <template>
-    <div class="l-gallery l-gallery--detail">
+    <div class="l-gallery l-gallery--detail" v-bind:class="{ 'l-gallery--show': !showAside }">
         <div class="l-gallery__aside">
             <div>
                 <h1 class="a-sectionH1">{{ location }}</h1>
@@ -29,6 +29,7 @@ export default {
         const data = require(`~/static/data/albums/${context.params.countryId}.json`)
         return { album: data }
     },
+    middleware: 'gallery',
     components: {
         AlbumNavigation
     },
@@ -54,6 +55,9 @@ export default {
         },
         photoUrl() {
             return this.album[this.currentPhotoId].url
+        },
+        showAside() {
+            return this.$store.state.gallery.showAside
         }
     },
     methods: {

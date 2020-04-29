@@ -68,3 +68,14 @@
     margin: 0;
     padding: 0 var(--grid-column-width);
 }
+
+/* DETAIL FOCUS */
+.l-gallery--show .l-gallery__aside {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.l-gallery--show .l-gallery__stream {
+    left: 0;
+    width: 100%;
+}

@@ -2,7 +2,7 @@
     <div class="o-countrySlide">
         <div class="u-row u-row--centerY">
             <div class="u-col u-col--offset" style="--span:5;--offset:2">
-                <figure><img class="a-photo" :src="getImageUrl(`cover/${country.cover}?w=800&h=700&quality=80&f=auto`)" /></figure>
+                <nuxt-link :to="`/${country.id}`"><img class="a-photo" :src="getImageUrl(`cover/${country.cover}?w=800&h=700&quality=80&f=auto`)" /></nuxt-link>
             </div>
             <div class="u-col u-col--offset">
                 <section>
