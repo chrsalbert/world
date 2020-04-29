@@ -50,10 +50,23 @@
     --body-width: 1400px;
     --body-pad: 0;
 
+    --header-height: 7rem;
+
+    --breakpoint-small: 600px;
+
     --grid-column-width: calc(100% / 12);
-    
-    --image-border-radius: .5em 1em;
-    --card-border-radius: .2rem;
+    --grid-col1: var(--grid-column-width);
+    --grid-col2: calc(var(--grid-column-width) * 2);
+    --grid-col3: calc(var(--grid-column-width) * 3);
+    --grid-col4: calc(var(--grid-column-width) * 4);
+    --grid-col5: calc(var(--grid-column-width) * 5);
+    --grid-col6: calc(var(--grid-column-width) * 6);
+    --grid-col7: calc(var(--grid-column-width) * 7);
+    --grid-col8: calc(var(--grid-column-width) * 8);
+    --grid-col9: calc(var(--grid-column-width) * 9);
+    --grid-col10: calc(var(--grid-column-width) * 10);
+    --grid-col11: calc(var(--grid-column-width) * 11);
+    --grid-col12: 100%;
     
     --transition-default: all .2s ease-in-out;
     
@@ -83,6 +96,7 @@
 
 @media only screen and (max-width: 600px) {
     :root {
+        --header-height: 4rem;
         --body-pad: var(--space)
     }
 }

@@ -16,6 +16,9 @@ export default {
         return {
             countries: Countries
         }
+    },
+    beforeMount() {
+        this.$store.commit('addCountries', this.countries)
     }
 }
 </script>

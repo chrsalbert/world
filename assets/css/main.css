@@ -12,10 +12,7 @@
 @import '~assets/css/molecules/photoRoll.css';
 @import '~assets/css/molecules/sandwich.css';
 @import '~assets/css/molecules/photo.css';
-@import '~assets/css/organisms/countrySlide.css';
 @import '~assets/css/layouts/gallery.css';
-@import '~assets/css/layouts/slider.css';
-
 
 * { box-sizing: border-box; }
 
