@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-    import { mapMutations } from 'vuex'
+    import Countries from '~/static/data/countries.json';
     import WelcomeHero from '~/components/WelcomeHero';
     import CountryItem from '~/components/CountryItem';
     import iconArrowDown from "~/assets/images/icons/arrow-down.svg?raw";
@@ -28,7 +28,7 @@
         },
         data () {
             return {
-                countries: this.$store.state.countries,
+                countries: Countries,
                 iconArrowDown,
                 iconArrowUp
             }
