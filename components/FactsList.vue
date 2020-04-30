@@ -41,7 +41,7 @@ export default {
 </script>
 <style scoped>
     ul {
-        margin: 0 0 calc(var(--space-md) * -1)
+        margin: 0 0 calc(var(--space-md) * -1);
     }
 
     li {
@@ -72,6 +72,13 @@ export default {
         font-size: var(--font-size-sm)
     }
 
+    .horizontal {
+        display: flex;
+    }
+
+    .horizontal li {
+        width: 33%
+    }
     
     @media only screen and (max-width: 900px) {
         ul {
@@ -91,11 +98,5 @@ export default {
         }
     }
 
-    /* .m-facts--x {
-        display: flex;
-    }
 
-    .m-facts--x li {
-        width: 33%
-    } */
 </style>

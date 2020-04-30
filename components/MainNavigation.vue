@@ -20,7 +20,7 @@
                     <div class="a-sectionH1">{{ sectionTitle }}</div>
                 </div>
                 <div class="m-subNav__facts">
-                    <FactsList :facts="facts" classes="m-facts--x" />
+                    <FactsList :facts="facts" mode="horizontal" />
                 </div>
             </div>
             <ul class="m-subNav__sections">
