@@ -1,15 +1,14 @@
 <template>
-    <div class="container" v-bind:class="{ 'l-gallery--show': !showAside }">
-        <aside>
+    <article class="container" v-bind:class="{ 'l-gallery--show': !showAside }">
+        <header>
             <div>
                 <h1 class="a-sectionH1">{{ location }}</h1>
-                <p class="a-subline">Januar 2020</p>
             </div>
             <div>
                 <h2 class="a-sectionH2">Headline</h2>
                 <p>{{ text }}</p>
             </div>
-        </aside>
+        </header>
         <main>
             <figure>
                 <img class="a-photo"
@@ -18,7 +17,7 @@
             </figure>
             <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
         </main>
-    </div>
+    </article>
 </template>
 <script>
 import Countries from '~/static/data/countries.json';
@@ -107,71 +106,84 @@ export default {
 }
 </script>
 <style scoped>
-    .container {
+    article {
         position: relative;
         padding-top: var(--header-height);
         margin: 0 var(--body-pad)
     }
 
-    aside {
+    main {
+        position: relative;
+    }
+
+    header {
         padding: 0 var(--header-height) 0 0 0;
     }
 
-    @media only screen and (min-width: 600px) {
-        .container {
+    figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 var(--grid-column-width)
+    }
+
+    @media only screen and (min-width: 900px) {
+        article {
             min-height: 100vh;
         }
 
-        main {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: var(--grid-col7);
-            margin: 0 0 0 var(--grid-col5);
-            height: calc(100vh - calc(var(--header-height) * 2));
-        }
-
-        figure {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            margin: 0 var(--grid-column-width)
-        }
-
-        aside {
+        header {
             position: fixed;
             display: flex;
             flex-direction: column;
             top: var(--header-height);
             left: var(--body-pad);
             bottom: 0;
-            width: var(--grid-col4);
+            width: var(--grid-col3);
             padding: 0;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--grid-col8);
+            margin: 0 0 0 var(--grid-col4);
+            height: calc(100vh - calc(var(--header-height) * 2));
+        }
+
+        figure {
+            height: 100%;
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
         figure {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 50vh;
-            margin: var(--space-md) auto;
         }
         main {
-            margin-bottom: var(--space-md)
+            margin-bottom: var(--space-3xl)
         }
-        .container {
+        article {
             display: flex;
             flex-direction: column-reverse;
         }
-        aside {
+        header {
             text-align: center;
             padding: 0 0 var(--space-xl)
         }
         img {
             display: block;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        main {
+            margin-bottom: var(--space-xl)
+        }
+        figure {
+            padding: 0;
+            margin: var(--space-md) auto;
         }
     }
 </style>

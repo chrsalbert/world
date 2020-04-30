@@ -3,7 +3,6 @@
         <aside>
             <div>
                 <h1 class="a-sectionH1">{{ title }}</h1>
-                <p class="a-subline">Januar 2020</p>
             </div>
             <div class="filter">
                 <FilterList :locations="locations" @filter="setFilter" />

@@ -1,5 +1,5 @@
 <template>
-    <ul class="m-filter" v-bind:class="{ 'm-filter--active': filter != '' }">
+    <ul>
         <li v-for="(location, index) of locations" :key="index">
             <input 
                 :id="index" 
@@ -39,3 +39,22 @@ export default {
     }
 }
 </script>
+<style scoped>
+    label {
+        transition: .1s color linear;
+        color: var(--color-text-light)
+    }
+
+    label:hover,
+    input:checked + label {
+        color: var(--color-text)
+    }
+
+    input {
+        display: none
+    }
+
+    li {
+        margin-bottom: var(--space-sm);
+    }
+</style>

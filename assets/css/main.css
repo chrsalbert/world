@@ -6,7 +6,6 @@
 @import '~assets/css/atoms/button.css';
 @import '~assets/css/atoms/text.css';
 @import '~assets/css/atoms/photo.css';
-@import '~assets/css/molecules/filter.css';
 @import '~assets/css/molecules/mainNav.css';
 
 * { box-sizing: border-box; }
