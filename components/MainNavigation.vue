@@ -68,6 +68,8 @@
 <style scoped>
     header {
         position: fixed;
+        top: 0;
+        left: 0;
         z-index: 99;
         height: var(--header-height);
         padding-left: var(--body-pad);

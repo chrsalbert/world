@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <aside>
-            <div>
+        <div class="sidebar">
+            <div class="header">
                 <h1 class="a-sectionH1">{{ title }}</h1>
             </div>
             <div class="filter">
                 <FilterList :locations="locations" @filter="setFilter" />
             </div>
-        </aside>
-        <main>
+        </div>
+        <div class="list">
             <PhotoList v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
-        </main>
+        </div>
     </div>
 </template>
 <script>
@@ -57,46 +57,34 @@ export default {
 <style scoped>
     .container {
         position: relative;
-        margin: 0 var(--body-pad)
-    }
-
-    aside {
-        padding: var(--header-height) 0 0 0;
+        margin: 0 var(--body-pad);
+        padding: var(--header-height) 0
     }
 
     .filter {
-        height: 100px;
-        overflow-y: scroll
+        display: none
     }
-
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 900px) {
+        .filter {
+            display: block;
+            width: 100%;
+            overflow-y: scroll
+        }
         .container {
             min-height: 100vh;
         }
-
-        aside {
-            position: fixed;
+        .sidebar {
             display: flex;
             flex-direction: column;
-            top: var(--header-height);
+            position: fixed;
+            top: 0;
             left: var(--body-pad);
             bottom: 0;
-            width: var(--grid-col4);
-            padding: 0;
+            width: 26rem;
+            padding: var(--header-height) var(--space-lg) 0 0
         }
-
-        .filter {
-            flex: 1
-        }
-
-        main {
-            padding: var(--header-height) 0 var(--header-height) var(--grid-col5);
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
-        .filter {
-            display: none
+        .list {
+            padding-left: 26rem;
         }
     }
 </style>

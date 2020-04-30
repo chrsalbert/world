@@ -42,9 +42,15 @@
         box-shadow: var(--shadow-lg);
     }
 
-    @media only screen and (min-width: 900px) {
+    @media only screen and (min-width: 600px) {
         ul {
             column-count: 3;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        ul {
+            column-count: 4;
         }
     }
 </style>

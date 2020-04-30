@@ -1,6 +1,14 @@
 <template>
     <article class="container" v-bind:class="{ 'only-photo': !showAside }">
-        <header>
+        <div class="gallery">
+            <figure class="photo">
+                <img class="a-photo"
+                    v-on:click="toggleFullscreen()" 
+                    :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
+            </figure>
+            <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
+        </div>
+        <div class="text">
             <div>
                 <h1 class="a-sectionH1">{{ location }}</h1>
             </div>
@@ -8,15 +16,7 @@
                 <h2 class="a-sectionH2">Headline</h2>
                 <p>{{ text }}</p>
             </div>
-        </header>
-        <main>
-            <figure>
-                <img class="a-photo"
-                    v-on:click="toggleFullscreen()" 
-                    :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
-            </figure>
-            <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
-        </main>
+        </div>
     </article>
 </template>
 <script>
@@ -109,104 +109,61 @@ export default {
 }
 </script>
 <style scoped>
-    article {
-        position: relative;
-        padding-top: var(--header-height);
-        margin: 0 var(--body-pad)
+    .container {
+        padding: var(--header-height) var(--body-pad)
     }
-
-    main {
-        position: relative;
+    .gallery {
+        margin: var(--space-lg) 0
     }
-
-    header {
-        padding: 0 var(--header-height) 0 0 0;
-    }
-
-    figure {
+    .photo {
+        height: 60vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 var(--grid-column-width)
+        margin-bottom: var(--space-sm)
+    }
+    .text {
+        text-align: center
     }
 
-    .only-photo {
-        min-height: 100vh !important;
-        padding: 0 !important;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .only-photo header {
-        display: none
-    }
-
-    .only-photo main {
-        margin: 0;
-        width: 100%;
-    }
-
-    .only-photo figure {
-        height: 75vh
+    @media only screen and (min-width: 600px) {
+        .gallery {
+            position: relative;
+            margin-top: 0;
+            padding: 0 var(--grid-col1);
+        }
+        .photo {
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+        }
     }
 
     @media only screen and (min-width: 900px) {
-        article {
-            min-height: 100vh;
+        .container {
+            height: 100vh
         }
-
-        header {
-            position: fixed;
+        .gallery {
+            height: 100%;
+            position: relative;
+            margin-top: 0;
+            margin-left: 26rem;
+            padding: 0 var(--space-xl);
+        }
+        .text {
             display: flex;
             flex-direction: column;
-            top: var(--header-height);
+            position: fixed;
+            top: 0;
             left: var(--body-pad);
             bottom: 0;
-            width: var(--grid-col3);
-            padding: 0;
+            width: 26rem;
+            padding: var(--header-height) var(--space-lg) 0 0;
+            text-align: left;
         }
-
-        main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: var(--grid-col8);
-            margin: 0 0 0 var(--grid-col4);
-            height: calc(100vh - calc(var(--header-height) * 2));
-        }
-
-        figure {
+        .photo {
+            align-items: flex-start;
             height: 100%;
-        }
-    }
-
-    @media only screen and (max-width: 900px) {
-        figure {
-            height: 50vh;
-        }
-        main {
-            margin-bottom: var(--space-3xl)
-        }
-        article {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-        header {
-            text-align: center;
-            padding: 0 0 var(--space-xl)
-        }
-        img {
-            display: block;
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
-        main {
-            margin-bottom: var(--space-xl)
-        }
-        figure {
-            padding: 0;
-            margin: var(--space-md) auto;
+            margin-bottom: var(--space-lg);
         }
     }
 </style>

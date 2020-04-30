@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="navigation">
         <nuxt-link :to="`/${country.id}/${prevPhotoId}`" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link>
         <span>{{ photoId + 1 }} / {{ albumLength }}</span>
         <nuxt-link :to="`/${country.id}/${nextPhotoId}`" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link>
@@ -47,7 +47,34 @@ export default {
 }
 </script>
 <style scoped>
-    nav {
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 60vw;
+    }
+    
+    @media only screen and (min-width: 600px) {
+        a {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-.5rem, -50%);
+        }
+
+        a:last-of-type {
+            left: auto;
+            right: 0;
+            transform: translate(.5rem, -50%);
+        }
+
+        .navigation {
+            justify-content: center;
+        }
+    }
+
+    /* nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -76,5 +103,5 @@ export default {
             left: 50%;
             transform: translateX(-50%);
         }
-    }
+    } */
 </style>
