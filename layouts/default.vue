@@ -13,3 +13,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+    body {
+        overflow: hidden
+    }
+</style>

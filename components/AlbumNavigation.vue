@@ -64,11 +64,11 @@ export default {
         }
 
         a:first-child {
-            left: 0;
+            left: -.5em;
         }
 
         a:last-child {
-            right: 0;
+            right: -.5rem;
         }
 
         span {

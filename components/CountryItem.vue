@@ -1,9 +1,10 @@
 <template>
     <div class="item">
-        <div class="cover">
+        <figure class="cover">
             <nuxt-link :to="`/${country.id}`"><img class="a-photo" :src="getImageUrl(`cover/${country.cover}?w=800&h=700&quality=80&f=auto`)" /></nuxt-link>
-        </div>
+        </figure>
         <div class="text">
+            <img :src="`/images/countries/${country.id}.svg`" class="map" />
             <h2 class="a-sectionH1">{{ country.title }}</h2>
             <p class="a-subline">{{ country.time.from }} – {{ country.time.to }}</p>
             <FactsList :facts="getFacts" mode="horizontal" />
@@ -41,7 +42,7 @@ export default {
                 }, {
                     icon: 'location',
                     title: `${this.country.stats.cities} Orte`,
-                    sub: 'gin 14 Tagenefahren'
+                    sub: `in ${this.country.stats.days} Tagen`
                 }
             ]
             return facts
@@ -59,60 +60,80 @@ export default {
 </script>
 <style scoped>
     .item {
-        height: 100%;
+        --cover-height: 30vh;
+        height: 100vh;
         display: flex;
         align-items: center;
-        position: relative;
-        z-index: 40;
+        justify-content: center;
+        flex-direction: column;
         padding: var(--header-height) var(--body-pad)
     }
-
+    .cover {
+        margin-bottom: var(--space-2xl);
+        max-height: var(--cover-height);
+    }
+    .cover * {
+        display: block;
+        max-height: var(--cover-height)
+    }
+    .text {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
     .button-more {
-        position: absolute;
-        top: 50%;
-        right: calc(calc(100% / 12) / 2);
-        transform: translateY(-50%);
+        display: none
     }
 
-    @media only screen and (min-width: 1100px) {
-        .cover {
-            margin-left: var(--grid-col2);
-        }
+    .map {
+        position: absolute;
+        opacity: .05;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        max-width: 140%;
+        transform: translate3d(-50%,-30%, 0);
     }
 
     @media only screen and (min-width: 900px) {
-        .item > * {
-            flex: 1;
+        .item {
+            --cover-height: 60vh;
+            flex-direction: row;
         }
         .cover {
             display: flex;
             align-items: center;
-            height: 100%;
+            justify-content: center;
+            margin: 0;
+            flex-shrink: 0;
+            width: var(--grid-col6);
+            margin-left: var(--grid-col1);
+        }
+        .text {
             width: var(--grid-col5);
             margin-left: var(--grid-col1);
+            text-align: left
         }
-        .text {
-            width: var(--grid-col4);
-            margin-left: var(--grid-col1);
+        .map {
+            transform: translate3d(-60%,-70%, 0);
         }
     }
-
-    @media only screen and (max-width: 900px) {
-        .item {
+</style>
+<style>
+    @media only screen and (min-width: 900px) {
+        .facts {
             flex-direction: column;
-            justify-content: center;
         }
-        .cover {
-            margin: -10vh 0 var(--space-lg);
-            height: 30vh;
+        .facts li {
+            position: relative;
+            padding-left: var(--space-lg);
         }
-        .text {
-            text-align: center;
-            width: 100%;
+        .facts li:not(:last-child) {
+            margin-bottom: var(--space-md)
         }
-        .button-more {
-            display: none
+        .facts figure {
+            position: absolute;
+            left: -.3em;
         }
     }
-    
 </style>

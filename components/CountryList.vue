@@ -1,10 +1,12 @@
 <template>
     <div class="container">
-        <div class="section">
-            <WelcomeHero />
-        </div>
-        <div class="section" v-for="(country, index) of countries" :key="index">
-            <CountryItem  v-bind:country="country" />
+        <div class="sections">
+            <!-- <section class="section">
+                <WelcomeHero />
+            </section> -->
+            <section class="section" v-for="(country, index) of countries" :key="index">
+                <CountryItem  v-bind:country="country" />
+            </section>
         </div>
         <div class="button-prev">
             <button class="a-button a-button--icon" v-html="iconArrowUp"></button>
@@ -36,14 +38,18 @@
     }
 </script>
 <style scoped>
-    .container {
-        height: 100vh;
+    .sections {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
     }
 
-    .section {
-        height: inherit;
+    section {
+        height: 100%;
         scroll-snap-align: start
     }
 

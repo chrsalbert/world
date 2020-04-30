@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul :class="mode">
+        <ul :class="mode" class="facts">
             <li v-for="(fact, index) in facts" :key="index">
                 <figure v-html="chooseIcon(fact.icon)"></figure>
                 <strong>{{ fact.title }}</strong>
@@ -8,6 +8,7 @@
             </li>
         </ul>
     </div>
+
 </template>
 <script>
 import iconCard from "~/assets/images/icons/card.svg?raw";
@@ -41,77 +42,34 @@ export default {
     }
 }
 </script>
+<style>
+    .facts svg {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <style scoped>
     ul {
-        margin: 0 0 calc(var(--space-md) * -1);
+        display: flex;
+        justify-content: center;
     }
 
     li {
-        position: relative;
-        margin: 0 0 var(--space-md);
-        padding-left: var(--space-xl);
-        width: 8rem;
-        letter-spacing: .05em;
+        width: 10rem
     }
 
     li > * {
-        display: block;
-        white-space: nowrap;
-    }
-
-    figure {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate3d(0, -50%, 0);
-        opacity: .4
+        display: block
     }
 
     span {
-        margin-top: .2em;
-        color: var(--color-light);
         text-transform: uppercase;
-        font-size: var(--font-size-sm)
+        font-size: var(--font-size-sm);
     }
 
-    .horizontal {
-        display: flex;
+    figure {
+        display: inline-block;
+        width: var(--size-lg);
+        height: var(--size-lg)
     }
-
-    .horizontal li {
-        width: 33%
-    }
-
-    .display {
-        display: flex;
-    }
-
-    .display li {
-        width: 15em
-    }
-
-    .display strong {
-        font-size: var(--font-size-lg);
-        font-weight: 400
-    }
-
-    @media only screen and (max-width: 900px) {
-        ul {
-            display: flex;
-        }
-        
-        li {
-            width: 33.33%;
-            padding: var(--space-xl) 0 0;
-            text-align: center;
-        }
-
-        figure {
-            top: 0;
-            left: 50%;
-            transform: translate3d(-50%, 0, 0) 
-        }
-    }
-
-
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <article class="container" v-bind:class="{ 'l-gallery--show': !showAside }">
+    <article class="container" v-bind:class="{ 'only-photo': !showAside }">
         <header>
             <div>
                 <h1 class="a-sectionH1">{{ location }}</h1>
@@ -29,6 +29,9 @@ export default {
         return { album: data }
     },
     middleware: 'gallery',
+    transition: {
+        mode: ''
+    },
     components: {
         AlbumNavigation
     },
@@ -125,6 +128,26 @@ export default {
         justify-content: center;
         align-items: center;
         margin: 0 var(--grid-column-width)
+    }
+
+    .only-photo {
+        min-height: 100vh !important;
+        padding: 0 !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .only-photo header {
+        display: none
+    }
+
+    .only-photo main {
+        margin: 0;
+        width: 100%;
+    }
+
+    .only-photo figure {
+        height: 75vh
     }
 
     @media only screen and (min-width: 900px) {

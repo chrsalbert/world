@@ -19,6 +19,9 @@ import FilterList from '~/components/FilterList';
 import PhotoList from '~/components/PhotoList';
 
 export default {
+    transition: {
+        mode: ''
+    },
     components: {
         FilterList,
         PhotoList
