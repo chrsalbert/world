@@ -2,11 +2,9 @@
 @import '~assets/css/elements/headlines.css';
 @import '~assets/css/utilities/page.css';
 @import '~assets/css/utilities/grid.css';
-@import '~assets/css/atoms/icon.css';
 @import '~assets/css/atoms/button.css';
 @import '~assets/css/atoms/text.css';
 @import '~assets/css/atoms/photo.css';
-@import '~assets/css/molecules/mainNav.css';
 
 * { box-sizing: border-box; }
 
@@ -61,3 +59,10 @@ strong {
 .layout-leave-active {
     opacity: 0
 }
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

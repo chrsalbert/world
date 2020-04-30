@@ -1,11 +1,13 @@
 <template>
-    <ul :class="mode">
-        <li v-for="(fact, index) in facts" :key="index">
-            <figure v-html="chooseIcon(fact.icon)"></figure>
-            <strong>{{ fact.title }}</strong>
-            <span>{{ fact.sub }}</span>
-        </li>
-    </ul>
+    <div>
+        <ul :class="mode">
+            <li v-for="(fact, index) in facts" :key="index">
+                <figure v-html="chooseIcon(fact.icon)"></figure>
+                <strong>{{ fact.title }}</strong>
+                <span>{{ fact.sub }}</span>
+            </li>
+        </ul>
+    </div>
 </template>
 <script>
 import iconCard from "~/assets/images/icons/card.svg?raw";
@@ -79,7 +81,20 @@ export default {
     .horizontal li {
         width: 33%
     }
-    
+
+    .display {
+        display: flex;
+    }
+
+    .display li {
+        width: 15em
+    }
+
+    .display strong {
+        font-size: var(--font-size-lg);
+        font-weight: 400
+    }
+
     @media only screen and (max-width: 900px) {
         ul {
             display: flex;

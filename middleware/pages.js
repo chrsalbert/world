@@ -1,4 +1,4 @@
 export default function (context) {
-    context.store.commit('navigation/showSubNav', false)
-    context.store.commit('navigation/changeNav', 'default')
+    context.store.commit('navigation/toggleSubNav', false)
+    context.store.commit('navigation/changeContext', 'default')
 }

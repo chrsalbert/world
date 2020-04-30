@@ -1,3 +1,3 @@
 export default function (context) {
-    context.store.commit('navigation/changeNav', 'gallery')
+    context.store.commit('navigation/changeContext', 'gallery')
 }

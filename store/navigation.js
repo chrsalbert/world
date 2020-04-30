@@ -1,13 +1,13 @@
 export const state = () => ({
-    showSubNav: false,
-    currentNav: 'default'
+    isSubNavVisible: false,
+    context: 'default'
   })
 
 export const mutations = {
-    showSubNav(state, val) {
-        state.showSubNav = val
+    toggleSubNav(state, val) {
+        state.isSubNavVisible = val
     },
-    changeNav(state, val) {
-        state.currentNav = val
+    changeContext(state, val) {
+        state.context = val
     }
 }
