@@ -9,19 +9,19 @@
             </div>
         </aside>
         <main>
-            <PhotoRoll v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
+            <PhotoList v-bind:photos="photos" v-bind:countryId="country.id" v-bind:filter="filter" />
         </main>
     </div>
 </template>
 <script>
 import Countries from '~/static/data/countries.json';
 import FilterList from '~/components/FilterList';
-import PhotoRoll from '~/components/PhotoRoll';
+import PhotoList from '~/components/PhotoList';
 
 export default {
     components: {
         FilterList,
-        PhotoRoll
+        PhotoList
     },
     async asyncData (context) {
         const data = require(`~/static/data/albums/${context.params.countryId}.json`)
