@@ -1,7 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g fill-rule="nonzero" fill="#000000" transform="translate(6.000000, 6.000000)">
-            <polygon points="20 1.17660131 18.8405556 0.0197058824 10 8.84339869 1.15941176 0.0197058824 0 1.17660131 8.84058824 10.0003595 0 18.8234314 1.15941176 19.9802941 10 11.1572222 18.8405556 19.9802941 20 18.8234314 11.1587908 10.0003595"></polygon>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" fill="#000000">
+            <g transform="translate(6.000000, 6.000000)">
+                <polygon id="Shape" points="20 1.17660131 18.8405556 0.0197058824 10 8.84339869 1.15941176 0.0197058824 0 1.17660131 8.84058824 10.0003595 0 18.8234314 1.15941176 19.9802941 10 11.1572222 18.8405556 19.9802941 20 18.8234314 11.1587908 10.0003595"></polygon>
+            </g>
         </g>
     </g>
 </svg>
-

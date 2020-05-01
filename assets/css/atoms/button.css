@@ -32,8 +32,12 @@
 
 .a-button--icon svg,
 .a-button--icon img {
-    width: 2rem;
-    height: 2rem;
+    width: var(--font-size-xl);
+    height: var(--font-size-xl);
     vertical-align: middle;
     margin-top: -.3em;
+}
+
+.a-button--soft {
+    opacity: .5
 }

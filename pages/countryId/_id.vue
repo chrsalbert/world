@@ -2,9 +2,7 @@
     <article class="container" v-bind:class="{ 'only-photo': !showAside }">
         <div class="gallery">
             <figure class="photo">
-                <img class="a-photo"
-                    v-on:click="toggleFullscreen()" 
-                    :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
+                <img class="a-photo" :src="getImageUrl(`albums/${country.id}/${photoUrl}?w=1000&h=800&quality=80&f=auto`)" />
             </figure>
             <AlbumNavigation :country="country" :photoId="currentPhotoId" :albumLength="albumLength" />
         </div>
@@ -38,8 +36,7 @@ export default {
     data () {
         return {
             currentPhotoId: this.$route.params.id - 1,
-            country: Countries.find(country => country.id == this.$route.params.countryId),
-            isFullscreen: false
+            country: Countries.find(country => country.id == this.$route.params.countryId)
         }
     },
     computed: {
@@ -63,10 +60,6 @@ export default {
         }
     },
     methods: {
-        toggleFullscreen() {
-            this.isFullscreen == true ? this.closeFullscreen() : this.openFullscreen()
-            this.isFullscreen = !this.isFullscreen
-        },
         getImageUrl(path) {
             return `${process.env.imageUrl}${path}`
         },
@@ -74,30 +67,6 @@ export default {
             let photo = (this.currentPhotoId + 1) == this.album.length ? this.album[0] : this.album[this.currentPhotoId + 1]
             let img = new Image();
             img.src = this.getImageUrl(`albums/${this.country.id}/${photo.url}?w=1000&h=800&quality=80&f=auto`);
-        },
-        openFullscreen() {
-            var elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { 
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            }
-        },
-        closeFullscreen() {
-            var elem = document.documentElement;
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { 
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
         }
     },
     mounted () {
@@ -125,9 +94,20 @@ export default {
     .text {
         text-align: center
     }
+    /* mods */
+    .only-photo .text {
+        display: none
+    }
+
+    .only-photo {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
 
     @media only screen and (min-width: 600px) {
         .gallery {
+            width: 100%;
             position: relative;
             margin-top: 0;
             padding: 0 var(--grid-col1);
@@ -143,6 +123,7 @@ export default {
             height: 100vh
         }
         .gallery {
+            width: auto;
             height: 100%;
             position: relative;
             margin-top: 0;
@@ -164,6 +145,9 @@ export default {
             align-items: flex-start;
             height: 100%;
             margin-bottom: var(--space-lg);
+        }
+        .only-photo .gallery {
+            margin: 0 auto
         }
     }
 </style>
