@@ -1,90 +1,108 @@
 <template>
     <div class="container">
-        <video autoplay muted loop>
-            <source src="/hero.mp4" type="video/mp4">
-        </video>
-        <figure class="worldmap" v-html="WorldMap"></figure>
+        <div class="video">
+            <video autoplay muted loop class="a-photo">
+                <source src="/hero.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="header">
-            <h1>ON A<br/>JOURNEY</h1>
+            <h1>ON A JOURNEY</h1>
             <p>Die Foto-Story über meine Reise nach Osten. Vom 1. Mai 2019 bis vorerst zur weltweiten Reisewarnung am 16. Märzt 2020. Immer der Nase lang.</p>
+            <FactsList :facts="facts" mode="horizontal" />
         </div>
     </div>
 </template>
 <script>
-import WorldMap from "~/assets/images/world-map.svg?raw"
+import FactsList from "~/components/FactsList.vue"
 
 export default {
-    data () {
-        return {
-            WorldMap
+    components: {
+        FactsList
+    },
+    computed: {
+        facts() {
+            return  [
+                {
+                    icon: 'card',
+                    title: `10.000 km`,
+                    sub: 'gefahren'
+                }, {
+                    icon: 'headphones',
+                    title: `30 Std.`,
+                    sub: 'in Bus & Bahn'
+                }, {
+                    icon: 'location',
+                    title: `3 Orte`,
+                    sub: 'in 14 Tagen'
+                }
+            ]
         }
-    }    
+    }
 }
 </script>
 <style scoped>
-    .container {
-        position: relative;
-        background: #281f18;
+    body {
         height: 100vh;
+        overflow: hidden
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        padding: var(--header-height) var(--body-pad);
+        text-align: center
+    }
+
+    .video {
+        height: 30vh;
+        margin: 0 0 var(--space-xl);
+        filter: saturate(.6) brightness(.8) contrast(.8);
     }
 
     .header {
-        position: absolute;
-        color: #fff;
-        top: 50%;
-        left: var(--grid-column-width);
-    }
-
-    h1 {
-        font-weight: 900;
-        font-size: 10rem;
-        color: #fff;
-        line-height: .9;
-        letter-spacing: 0;
-        margin-bottom: 1rem
-    }
-
-    p {
-        max-width: 30em;
-        font-size: var(--font-size-lg)
+        width: 100%;
     }
 
     .worldmap {
-        position: absolute;
-        width: 80%;
-        top: 5rem;
-        left: 10vw;
+        display: none
     }
 
-    svg {
-        width: 100%;
-        height: 100%;
+    h1 {
+        font-size: var(--font-size-3xl);
+        letter-spacing: 0;
+        margin-bottom: var(--space-xs)        
     }
 
-    video {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        filter: saturate(.95) brightness(.6) contrast(.62);
-        opacity: .5;
+    p {
+        max-width: 26rem;
+        margin: 0 auto var(--space-2xl)
     }
 
-    @media only screen and (min-width: 600px) {
-        video {
-            top: 50%
+    @media only screen and (min-width: 900px) {
+        .container {
+            flex-direction: row-reverse;
+            text-align: left;
         }
+
+        .video {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--grid-col6);
+            margin: 0;
+            height: 80vh;
+        }
+
         .header {
-            top: 40%;
+            width: var(--grid-col5);
+            padding-right: var(--space-2xl)
         }
-    }
 
-    @media only screen and (max-width: 600px) {
-        h1 {
-            font-size: var(--font-size-3xl)
-        }
         p {
-            font-size: var(--font-size-md)
+            margin-left: 0
         }
     }
 </style>

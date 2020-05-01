@@ -55,7 +55,7 @@ export default {
     }
 
     li {
-        width: 10rem
+        width: 9rem
     }
 
     li > * {

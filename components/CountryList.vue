@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div class="sections">
-            <!-- <section class="section">
+            <section class="section">
                 <WelcomeHero />
-            </section> -->
+            </section>
             <section class="section" v-for="(country, index) of countries" :key="index">
                 <CountryItem  v-bind:country="country" />
             </section>
@@ -50,6 +50,7 @@
 
     section {
         height: 100%;
+        overflow-x: hidden;
         scroll-snap-align: start
     }
 
