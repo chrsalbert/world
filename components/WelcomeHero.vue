@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="video">
-            <video autoplay muted loop class="a-photo">
+            <video autoplay muted loop playsinline class="a-photo">
                 <source src="/hero.mp4" type="video/mp4">
             </video>
         </div>
@@ -50,7 +50,7 @@ export default {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 100vh;
+        height: 100%;
         overflow: hidden;
         padding: var(--header-height) var(--body-pad);
         text-align: center

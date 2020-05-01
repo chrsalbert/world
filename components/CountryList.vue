@@ -50,7 +50,7 @@
 
     section {
         height: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
         scroll-snap-align: start
     }
 
