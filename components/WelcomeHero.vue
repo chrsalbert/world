@@ -5,9 +5,11 @@
                 <source src="/hero.mp4" type="video/mp4">
             </video>
         </div>
-        <div class="header">
-            <h1>ON A JOURNEY</h1>
-            <p>Die Foto-Story über meine Reise nach Osten. Vom 1. Mai 2019 bis vorerst zur weltweiten Reisewarnung am 16. Märzt 2020. Immer der Nase lang.</p>
+        <div class="text">
+            <div>
+                <h1>ON A JOURNEY</h1>
+                <p>Die Foto-Story über meine Reise nach Osten. Vom 1. Mai 2019 bis vorerst zur weltweiten Reisewarnung am 16. Märzt 2020. Immer der Nase lang.</p>
+            </div>
             <FactsList :facts="facts" mode="horizontal" />
         </div>
     </div>
@@ -48,9 +50,9 @@ export default {
     .container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: column;
-        height: 100%;
+        height: inherit;
         overflow: hidden;
         padding: var(--header-height) var(--body-pad);
         text-align: center
@@ -58,12 +60,16 @@ export default {
 
     .video {
         height: 30vh;
-        margin: 0 0 var(--space-xl);
         filter: saturate(.6) brightness(.8) contrast(.8);
     }
 
-    .header {
+    .text {
         width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: var(--space-lg) 0
     }
 
     .worldmap {
@@ -71,14 +77,14 @@ export default {
     }
 
     h1 {
-        font-size: var(--font-size-3xl);
+        font-size: var(--font-size-xl);
         letter-spacing: 0;
         margin-bottom: var(--space-xs)        
     }
 
     p {
         max-width: 26rem;
-        margin: 0 auto var(--space-2xl)
+        margin: 0 auto var(--space-md)
     }
 
     @media only screen and (min-width: 900px) {
