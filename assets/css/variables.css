@@ -1,23 +1,22 @@
 :root {
-    --color-primary: black;
-    --color-light: gray;
+    --color-primary: #00D4FA;
+    --color-light: #70707C;
     --color-gray: #999;
-    --color-secondary: darkgray;
+    --color-secondary: #222230;
     --color-third: #bbcfff;
-    --color-text: black;
+    --color-text: #fff;
     --color-text-light: #999;
-    --color-link: black;
-    --color-h1: var(--color-primary);
+    --color-link: #1ED9FA;
     
     --space-2xs: .25rem;
     --space-xs: .5rem;
     --space-sm: .75rem;
     --space: 1rem;
     --space-md: 1.5rem;
-    --space-lg: 2.25rem;
-    --space-xl: 3.337rem;
-    --space-2xl: 4.171rem;
-    --space-3xl: 6.256rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    --space-2xl: 5rem;
+    --space-3xl: 6rem;
     
     --size-sm: 1rem;
     --size: 1.5rem;
@@ -30,25 +29,22 @@
     --font-family-scale: 1.414;
     --font-family: 'PT Sans', 'Sans Serif';
     --font-family-alt: 'Playfair Display', 'Sans Serif';
-    --font-size-global: 14px;
+    --font-size-global: 16px;
     --font-size-sm: .8rem;
     --font-size: 1rem;
     --font-size-md: 1.25rem;
-    --font-size-lg: 1.563rem;
-    --font-size-xl: 1.953rem;
-    --font-size-2xl: 2.441rem;
-    --font-size-3xl: 3.052rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-2xl: 2.5rem;
+    --font-size-3xl: 3rem;
     --line-height: 1.5;
     
-    --header-bgColor: #fff;
-    --header-linkColor: var(--color-text);
+    --header-bgColor: var(--color-secondary);
+    --header-linkColor: #fff;
     
-    --footer-bgColor: var(--color-primary);
-    --footer-textColor: #fff;
-    
-    --body-bgColor: #fff;
-    --body-width: 1000px;
-    --body-pad: var(--space-2xl);
+    --body-bgColor: var(--color-secondary);
+    --body-width: 1136px;
+    --body-pad: var(--space-xl);
 
     --header-height: 7rem;
 
@@ -78,19 +74,19 @@
 
 @media only screen and (max-width: 1200px) {
     :root {
-        --body-pad: var(--space-xl)
+        --body-pad: var(--space-lg)
     }
 }
 
 @media only screen and (max-width: 900px) {
     :root {
-        --body-pad: var(--space-lg)
+        --body-pad: var(--space-md)
     }
 }
 
 @media only screen and (max-width: 600px) {
     :root {
-        --body-pad: var(--space-md);
+        --body-pad: var(--space);
         --header-height: 4rem;
         --font-size-global: 12px
     }

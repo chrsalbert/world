@@ -1,24 +1,26 @@
 <template>
-    <header>
+    <header class="c-mainnav">
         <nav v-if="isCurrentContext('default')">
             <div>
                 <div>
-                    <nuxt-link to="/" class="a-button a-button--icon" v-html="iconHome"></nuxt-link>
-                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon" v-html="iconMenu" v-if="!isSubNavVisible"></button>
-                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon" v-html="iconCross" v-if="isSubNavVisible"></button>
+                    <nuxt-link to="/" class="a-button a-button--icon a-button--transparent" v-html="iconHome"></nuxt-link>
+                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconMenu" v-if="!isSubNavVisible"></button>
+                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconCross" v-if="isSubNavVisible"></button>
                 </div>
             </div>
         </nav>
         <nav v-if="isCurrentContext('gallery')">
             <div>
-                <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon" v-html="iconCross"></nuxt-link>
                 <div>
-                    <button v-on:click="toggleColumns()" class="a-button a-button--icon" v-bind:class="{ 'a-button--soft': isAsideVisible }" v-html="iconOneCol"></button>
-                    <button v-on:click="toggleColumns()" class="a-button a-button--icon" v-bind:class="{ 'a-button--soft': !isAsideVisible }" v-html="iconTwoCol"></button>
+                    <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon a-button--transparent" v-html="iconCross"></nuxt-link>
+                </div>
+                <div>
+                    <button v-on:click="toggleColumns()" class="a-button a-button--icon a-button--transparent" v-bind:class="{ 'a-button--soft': isAsideVisible }" v-html="iconOneCol"></button>
+                    <button v-on:click="toggleColumns()" class="a-button a-button--icon a-button--transparent" v-bind:class="{ 'a-button--soft': !isAsideVisible }" v-html="iconTwoCol"></button>
                 </div>
             </div>
             <div>
-                <button v-on:click="toggleFullscreen()" v-show="!isMobileDevice" class="a-button a-button--icon" v-html="iconExpand"></button>
+                <button v-on:click="toggleFullscreen()" v-show="!isMobileDevice" class="a-button a-button--icon a-button--transparent" v-html="iconExpand"></button>
             </div>
         </nav>
         <SubNavigation v-show="isSubNavVisible" />
@@ -113,14 +115,8 @@
 </script>
 <style scoped>
     header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 99;
-        height: var(--header-height);
-        padding: 0 var(--body-pad);
-        margin: 0 -.5rem;
+        /* padding: 0 var(--body-pad); */
+        margin: 0 -.25rem;
     }
 
     nav {
@@ -130,7 +126,8 @@
         justify-content: space-between;
     }
 
-    nav > * {
+    nav > *,
+    nav > * > * {
         display: flex;
     }
 

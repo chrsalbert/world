@@ -2,7 +2,7 @@
     <div class="container">
         <div class="sidebar">
             <div class="header">
-                <h1 class="a-sectionH1">{{ title }}</h1>
+                <h1 class="a-sectionH1"><nuxt-link to="/">{{ title }}</nuxt-link></h1>
             </div>
             <div class="filter">
                 <FilterList :locations="locations" @filter="setFilter" />

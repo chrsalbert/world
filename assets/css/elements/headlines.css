@@ -1,6 +1,8 @@
-h1, h2 {
-    font-size: var(--font-size-xl);
+h1 {
+    font-size: var(--font-size-2xl);
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
+    line-height: calc(var(--font-size-2xl) + var(--space-sm));
+    color: var(--color-primary);
     margin: 0
 }

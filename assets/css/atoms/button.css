@@ -1,13 +1,35 @@
 .a-button {
     display: inline-block;
-    height: var(--font-size-3xl);
-    line-height: var(--font-size-3xl);
-    padding: 0 var(--font-size-sm);
+    height: var(--font-size-2xl);
+    line-height: var(--font-size-2xl);
+    padding: 0 var(--font-size-md);
     background: var(--color-primary);
-    border: 1px black solid;
-    color: #fff;
+    border: 1px var(--color-primary) solid;
+    color: var(--color-secondary);
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
     transition: border-color .1s
+}
+
+.a-button g {
+    fill: #fff
+}
+
+.a-button span svg {
+    width: 1.5em;
+    height: 1.5em;
+    float: right;
+    margin: .4em -.4em 0 .5em;
+}
+
+.a-button span svg g {
+    stroke-width: 2;
+    fill: #fff
+}
+
+.a-button:hover {
+    color: #fff
 }
 
 .a-button--secondary {
@@ -20,12 +42,19 @@
     border-color: black
 }
 
-.a-button--icon {
+.a-button--transparent {
     background: none;
-    width: var(--font-size-3xl);
+    color: black;
+    border-color: transparent
+}
+
+.a-button--transparent g {
+    fill: #fff
+}
+
+.a-button--icon {
+    width: var(--font-size-2xl);
     padding: 0;
-    border-radius: 50%;
-    border-color: transparent;
     text-align: center;
     transition: .1s all linear
 }

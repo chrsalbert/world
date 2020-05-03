@@ -13,8 +13,9 @@ html {
 
 html,
 body {
-    background: #fff;
+    background: var(--body-bgColor);
     font-size: var(--font-size-global);
+    padding: 0 var(--body-pad)
 }
 
 body {
@@ -35,26 +36,75 @@ a:hover {
     color: blue
 }
 
+button {
+    background: none;
+    border: none;
+    color: var(--color-link);
+}
+
 strong {
     font-weight: 600
 }
 
-.page-enter-active,
-.page-leave-active {
-  transition-property: opacity;
-  transition-timing-function: ease-in-out;
-  transition-duration: 1s;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
+.u-scrollContainer {
+    position: absolute;
+    top: 0;
+    right: var(--body-pad);
+    bottom: 0;
+    left: var(--body-pad);
+    overflow-y: scroll;
+    transition: opacity .6s linear
 }
 
-.layout-enter-active, 
-.layout-leave-active {
-    transition: opacity 1s
-  }
-.layout-enter, 
-.layout-leave-active {
-    opacity: 0
+.u-map {
+    max-width: 100%;
+    max-height: 100%;
+    transition: all .6s linear
 }
+
+.u-map polygon,
+.u-map path {
+    stroke-width: 1;
+    transition: all .6s linear
+}
+
+.ghost {
+    --duration: .6s;
+    --delay: 0s;
+    position: relative;
+}
+
+.ghost::before {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    background: var(--body-bgColor);
+    transition: height var(--duration) cubic-bezier(.53,.23,.4,.99) var(--delay)
+}
+
+.page-leave { opacity: 1 }
+.page-leave-to { opacity: 0 }
+.page-leave .ghost::before { height: 0% }
+.page-leave-to .ghost::before { height: 100% }
+.page-leave .u-map { opacity: 1 }
+.page-leave-to .u-map { opacity: 0 }
+.page-leave .u-map polygon,
+.page-leave .u-map path { stroke-dasharray: 0 }
+.page-leave-to .u-map polygon,
+.page-leave-to .u-map path { stroke-dasharray: 100; }
+
+.page-enter { opacity: 0 }
+.page-enter-to { opacity: 1 }
+.page-enter .ghost::before { height: 100% }
+.page-enter-to .ghost::before { height: 0% }
+.page-enter .u-map { opacity: 0 }
+.page-enter-to .u-map { opacity: 1}
+.page-enter .u-map polygon,
+.page-enter .u-map path { stroke-dasharray: 100 }
+.page-enter-to .u-map polygon,
+.page-enter-to .u-map path { stroke-dasharray: 0; }
+

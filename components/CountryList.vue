@@ -5,32 +5,33 @@
                 <WelcomeHero />
             </section>
             <section class="section" v-for="(country, index) of countries" :key="index">
-                <CountryItem  v-bind:country="country" />
+                <CountryItem v-bind:country="country" />
             </section>
         </div>
         <div class="button-prev">
-            <button class="a-button a-button--icon" v-html="iconArrowUp"></button>
+            <button class="a-button a-button--transparent a-button--icon" v-html="iconArrowUp"></button>
         </div>
         <div class="button-next">
-            <button class="a-button a-button--icon" v-html="iconArrowDown"></button>
+            <button class="a-button a-button--transparent a-button--icon" v-html="iconArrowDown"></button>
         </div>
     </div>
 </template>
 <script>
-    import Countries from '~/static/data/countries.json';
     import WelcomeHero from '~/components/WelcomeHero';
     import CountryItem from '~/components/CountryItem';
     import iconArrowDown from "~/assets/images/icons/arrow-down.svg?raw";
     import iconArrowUp from "~/assets/images/icons/arrow-up.svg?raw";
 
     export default {
+        props: {
+            countries: Array
+        },
         components: {
             CountryItem,
             WelcomeHero
         },
         data () {
             return {
-                countries: Countries,
                 iconArrowDown,
                 iconArrowUp
             }

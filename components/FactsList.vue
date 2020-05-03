@@ -47,6 +47,9 @@ export default {
         width: 100%;
         height: 100%;
     }
+    .facts svg g {
+        fill: #fff
+    }
 </style>
 <style scoped>
     ul {
@@ -59,7 +62,7 @@ export default {
     }
 
     li > * {
-        display: block
+        display: block;
     }
 
     span {
