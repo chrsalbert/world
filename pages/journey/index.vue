@@ -100,7 +100,7 @@
                 return numbers[1] ? index : `0${index}`
             },
             coverURL() {
-                return `${process.env.imageUrl}cover/${this.country.cover}`
+                return this.getImageUrl(`cover/${this.country.cover}`)
             },
             facts() {
                 return  [
@@ -120,7 +120,19 @@
                 ]
             }
         },
+        methods: {
+            getImageUrl(path) {
+                return `${process.env.imageUrl}${path}`
+            },
+            preloadNextPhoto() {
+                const url = Countries[this.countryIndex + 1].cover
+                let img = new Image();
+                img.src = this.getImageUrl(`cover/${url}?w=1000&h=800&quality=80&f=auto`);
+            }
+        },
         mounted() {
+            this.preloadNextPhoto()
+
             window.addEventListener('keydown', e => {
                 switch (e.keyCode) {
                     case 37:
@@ -250,6 +262,46 @@
     .progress[value]::-webkit-progress-value {
         transition: all .3s cubic-bezier(.53,.23,.4,.99);
         background-color: var(--color-primary);
+    }
+
+    @media only screen and (max-width: 900px) {
+        .grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid__main {
+            order: 1;
+        }
+
+        .grid__date {
+            display: none
+        }
+
+        .grid__article {
+            order: 2
+        }
+
+        .grid__button {
+            order: 5
+        }
+
+        .grid__progress {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .grid__nav {
+            height: 4rem;
+            order: 1;
+        }
+
+        .grid__cover {
+            order: 4;
+            height: 30vh
+        }
     }
 </style>
 <style>
