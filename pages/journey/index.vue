@@ -32,6 +32,9 @@
                     <nuxt-child />
                 </div>
             </div>
+            <div class="grid__progress">
+                <progress class="progress" :value="progress" max="100"> {{ progress }} </progress>
+            </div>
             <div class="grid__button"><nuxt-link id="button-prev" :to="prevCountryUrl" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link></div>
             <div class="grid__button grid__button--right"><nuxt-link id="button-next" :to="nextCountryUrl" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link></div>
         </div>
@@ -61,7 +64,7 @@
             duration: '600'
         },
         computed: {
-            countriesCount() {
+            countriesLength() {
                 return Countries.length
             },
             country() {
@@ -80,12 +83,15 @@
                 return this.country.teaser
             },
             prevCountryUrl() {
-                const index = this.countryIndex === 0 ? this.countriesCount - 1 : this.countryIndex - 1
+                const index = this.countryIndex === 0 ? this.countriesLength - 1 : this.countryIndex - 1
                 return `/journey/${Countries[index].id}`
             },
             nextCountryUrl() {
-                const index = this.countryIndex === (this.countriesCount - 1) ? 0 : this.countryIndex + 1
+                const index = this.countryIndex === (this.countriesLength - 1) ? 0 : this.countryIndex + 1
                 return `/journey/${Countries[index].id}`
+            },
+            progress() {
+                return Math.round((100/this.countriesLength) * (this.countryIndex + 1))
             },
             step() {
                 let index = this.countryIndex
@@ -150,7 +156,7 @@
         min-height: 100vh;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 80px 1fr repeat(2, 40px);
+        grid-template-rows: 80px 1fr 40px 24px 16px;
         grid-column-gap: 16px;
         grid-row-gap: 0px;
     }
@@ -202,7 +208,8 @@
     .article {
         background: var(--color-secondary);
         padding: var(--space-md);
-        box-shadow: var(--shadow-xl)
+        box-shadow: var(--shadow-xl);
+        overflow: hidden
     }
 
     .grid__button {
@@ -222,6 +229,27 @@
         z-index: 1;
         grid-area: 2 / 8 / 2 / 13;
         text-align: center
+    }
+
+    .grid__progress {
+        grid-area: 5 / 1 / 6 / 14;
+    }
+
+    .progress {
+        width: 100%;
+        height: 8px;
+        margin-bottom: 11px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .progress[value]::-webkit-progress-bar {
+        background-color: transparent;
+    }
+
+    .progress[value]::-webkit-progress-value {
+        transition: all .3s cubic-bezier(.53,.23,.4,.99);
+        background-color: var(--color-primary);
     }
 </style>
 <style>
