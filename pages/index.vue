@@ -51,16 +51,16 @@
                 return  [
                     {
                         icon: 'card',
-                        title: `10.000 km`,
+                        title: `49.350 km`,
                         sub: 'gefahren'
                     }, {
                         icon: 'headphones',
-                        title: `30 Std.`,
+                        title: `480 Std.`,
                         sub: 'in Bus & Bahn'
                     }, {
                         icon: 'location',
-                        title: `3 Orte`,
-                        sub: 'in 14 Tagen'
+                        title: `108 Orte`,
+                        sub: 'in 318 Tagen'
                     }
                 ]
             }
