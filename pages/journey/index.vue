@@ -10,13 +10,13 @@
                 </div>
             </div>
             <div class="grid__cover">      
-                <transition name="cover" mode="out-in">
+                <transition name="cover">
                     <div class="cover u-ghost" :key="title" :style="`--duration: .3s;--delay: .2s;background-image: url('${coverURL}')`">
                     </div>
                 </transition>
             </div>
             <div class="grid__article">
-                <div class="article u-ghost" style="--duration: .3s;--delay: .4s">
+                <div class="article u-ghost" style="--duration: .3s;--delay: .4s;">
                     <transition name="article" mode="out-in"><p :key="title">{{ teaser }}</p></transition>
                 </div>
             </div>
@@ -174,14 +174,20 @@
     }
 
     .grid__cover {
+        position: relative;
         grid-area: 2 / 2 / 2 / 8;
         min-height: 0;
     }
 
     .cover {
-        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         background-size: cover;
         background-position: 50% 50%;
+        box-shadow: var(--shadow-lg)
     }
 
     .grid__article {
@@ -196,6 +202,7 @@
     .article {
         background: var(--color-secondary);
         padding: var(--space-md);
+        box-shadow: var(--shadow-xl)
     }
 
     .grid__button {

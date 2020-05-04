@@ -33,11 +33,17 @@
 .article-leave-to { transform: translateX(-5rem);opacity: 0 }
 
 
-.map-enter-active, .map-leave-active { transition: all 5s cubic-bezier(.53,.23,.4,.99) }
-.map-enter-active * , .map-leave-active * { transition: all 5s cubic-bezier(.53,.23,.4,.99) }
+.map-enter-active, .map-leave-active,
+.map-enter-active *, .map-leave-active * { transition: all .4s cubic-bezier(.53,.23,.4,.99) .05s }
 
-.map-enter #border { stroke-dasharray: var(--length);stroke-dashoffset: var(--length);opacity: 0 }
-.map-enter-to #border { stroke-dasharray: var(--length);stroke-dashoffset: 0;opacity: 1 }
+.map-enter-active circle, .map-leave-active circle { animation-duration: .1s }
 
-.map-leave #border { stroke-dasharray: var(--length);stroke-dashoffset: 0;opacity: 1 }
-.map-leave-to #border { stroke-dasharray: var(--length);stroke-dashoffset: calc(var(--length) * -1);opacity: 0 }
+.map-enter #border, .map-enter #route { stroke-dasharray: var(--length);stroke-dashoffset: var(--length);opacity: .3 }
+.map-enter-to #border, .map-enter-to #route { stroke-dasharray: var(--length);stroke-dashoffset: 0;opacity: 1}
+.map-leave #border, .map-leave #route { stroke-dasharray: var(--length);stroke-dashoffset: 0;opacity: 1 }
+.map-leave-to #border, .map-leave-to #route { stroke-dasharray: var(--length);stroke-dashoffset: calc(var(--length) * -1);opacity: .3 }
+
+.map-enter circle { opacity: 0 }
+.map-enter-to circle { opacity: 1 }
+.map-leave circle { opacity: 1 }
+.map-leave-to circle { opacity: 0 }
