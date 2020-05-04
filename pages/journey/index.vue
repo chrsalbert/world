@@ -1,36 +1,47 @@
 <template>
-    <div id="country" class="u-scrollContainer">
+    <div id="l-journey" class="u-scrollContainer">
         <div class="grid">
-            <div class="nav">
+            <div class="grid__nav">
                 <MainNavigation />
-            </div>        
-            <div class="cover ghost" style="--duration: .3s;--delay: .2s;background-image: url('http://localhost:3000/images/albums/niederlande/amsterdam-centraal-hauptbahnhof.jpg?w=1000&h=800&quality=80&f=auto')">
-            </div>
-            <div class="date">
-                <span class="ghost" style="--duration: .3s;">JANUAR 2019</span>
-            </div>
-            <div class="text">
-                <div class="textbox ghost" style="--duration: .3s;--delay: .4s">
-                    Von Amsterdam aus nahm ich den Zug nach Posen.  Mit 14 Stunden Reisezeit war das meine längste Zufahrt bisher.  Die 2 Stunden Aufenthalt in Berlin habe ich ausgenutzt, um im JAM Mit 14 Stunden Reisezeit war das meine längste Zufahrt bisher.  ein paar Bier zu trinken… 
+            </div>  
+            <div class="grid__date">
+                <div class="u-ghost" style="--duration: .3s;">
+                    <span class="date">{{ country.date.title }}</span>
                 </div>
             </div>
-            <div class="article">
-                <div class="ghost" style="--duration: .6s;--delay:.6s">
-                    <h1>Niederlande</h1>
+            <div class="grid__cover">      
+                <transition name="cover" mode="out-in">
+                    <div class="cover u-ghost" :key="title" :style="`--duration: .3s;--delay: .2s;background-image: url('${coverURL}')`">
+                    </div>
+                </transition>
+            </div>
+            <div class="grid__article">
+                <div class="article u-ghost" style="--duration: .3s;--delay: .4s">
+                    <transition name="article" mode="out-in"><p :key="title">{{ teaser }}</p></transition>
+                </div>
+            </div>
+            <div class="grid__main">
+                <div class="u-ghost" style="--duration: .6s;--delay:.6s">
+                    <transition name="title" mode="out-in">
+                        <h1 :key="title" :data-position="step">{{ title }}</h1>
+                    </transition>
                     <FactsList :facts="facts" />
-                    <div v-html="map"></div>
+                    <transition name="map" mode="out-in">
+                        <CountryMap :map="map" :key="title" />
+                    </transition>
                     <nuxt-child />
                 </div>
             </div>
-            <div class="leftCol"><nuxt-link to="/journey/" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link></div>
-            <div class="rightCol"><nuxt-link to="/journey/lol" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link></div>
+            <div class="grid__button"><nuxt-link id="button-prev" :to="prevCountryUrl" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link></div>
+            <div class="grid__button grid__button--right"><nuxt-link id="button-next" :to="nextCountryUrl" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link></div>
         </div>
     </div>
 </template>
 <script>
+    import Countries from '~/static/data/countries.json';
     import FactsList from "~/components/FactsList.vue";
+    import CountryMap from "~/components/CountryMap.vue";
     import MainNavigation from '~/components/MainNavigation';
-    import PolenMap from '~/static/images/countries/polen.svg?raw';
     import iconArrowLeft from "~/assets/images/icons/arrow-left.svg?raw";
     import iconArrowRight from "~/assets/images/icons/arrow-right.svg?raw";
 
@@ -38,70 +49,99 @@
         components: {
             MainNavigation,
             FactsList,
-            PolenMap
+            CountryMap
         },
         data () {
             return {
-                map: PolenMap,
-                blogIsVisible: false,
                 iconArrowLeft,
-                iconArrowRight
+                iconArrowRight,
             }
         },
         transition: {
             duration: '600'
         },
         computed: {
+            countriesCount() {
+                return Countries.length
+            },
+            country() {
+                return Countries.find(obj => obj.id == this.$store.state.journey.id)
+            },
+            countryIndex() {
+                return Countries.findIndex(obj => obj.id == this.country.id)
+            },
+            map() {
+                return this.country.map
+            },
+            title() {
+                return this.country.id
+            },
+            teaser() {
+                return this.country.teaser
+            },
+            prevCountryUrl() {
+                const index = this.countryIndex === 0 ? this.countriesCount - 1 : this.countryIndex - 1
+                return `/journey/${Countries[index].id}`
+            },
+            nextCountryUrl() {
+                const index = this.countryIndex === (this.countriesCount - 1) ? 0 : this.countryIndex + 1
+                return `/journey/${Countries[index].id}`
+            },
+            step() {
+                let index = this.countryIndex
+                index++
+                let numbers = index.toString().split('')
+                return numbers[1] ? index : `0${index}`
+            },
+            coverURL() {
+                return `${process.env.imageUrl}cover/${this.country.cover}`
+            },
             facts() {
                 return  [
                     {
                         icon: 'card',
-                        title: `10.000 km`,
+                        title: `${this.country.stats.distance} km`,
                         sub: 'gefahren'
                     }, {
                         icon: 'headphones',
-                        title: `30 Std.`,
+                        title: `${this.country.stats.transportHours} Std.`,
                         sub: 'in Bus & Bahn'
                     }, {
                         icon: 'location',
-                        title: `3 Orte`,
-                        sub: 'in 14 Tagen'
+                        title: `${this.country.stats.cities} Orte`,
+                        sub: `in ${this.country.stats.days} tagen`
                     }
                 ]
-            }       
-        },
-        methods: {
-            toggleBlog() {
-                this.blogIsVisible = !this.blogIsVisible
             }
+        },
+        mounted() {
+            window.addEventListener('keydown', e => {
+                switch (e.keyCode) {
+                    case 37:
+                        document.getElementById('button-prev').click()
+                        break;
+                    case 39:
+                        document.getElementById('button-next').click()
+                        break;
+                }
+            })
         }
     }
 </script>
 <style scoped>
-    .leftCol,
-    .rightCol {
-        display: flex;
-        align-items: center;
+    h1 {
         position: relative;
-        z-index: 3;
-        grid-area: 2 / 1 / 3 / 1;
+        padding: var(--space-md) 0 var(--space-xl)
     }
 
-    .rightCol {
-        grid-area: 2 / 13 / 4 / 14;
-    }
-    .blog {
+    h1::before {
+        z-index: -1;
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: var(--color-secondary);
-        overflow-y: scroll;
-        height: 100%;
-        padding: var(--space-md);
-        font-size: var(--font-size-md);
-        line-height: 2;
+        font-size: 2.5em;
+        font-weight: 600;
+        margin-left: -.5em;
+        content: attr(data-position);
+        opacity: .1;
     }
 
     .grid {
@@ -115,25 +155,36 @@
         grid-row-gap: 0px;
     }
 
-    .nav { 
+    .grid__nav { 
         display: flex;
         align-items: center;
         grid-area: 1 / 1 / 2 / 13; 
+        padding-left: var(--space-md)
+    }
+
+    .grid__date {
+        grid-area: 2 / 1 / 3 / 1;
+        padding-left: var(--space-md)
     }
 
     .date {
-        grid-area: 2 / 1 / 3 / 1;
+        text-transform: uppercase;
         writing-mode: vertical-lr;
+        transform: rotate(180deg)
     }
-    
-    .cover {
+
+    .grid__cover {
         grid-area: 2 / 2 / 2 / 8;
-        background-size: cover;
-        background-position: 50% 50%;
         min-height: 0;
     }
 
-    .text {
+    .cover {
+        height: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .grid__article {
         position: relative;
         z-index: 1;
         grid-area: 2 / 1 / 4 / 5;
@@ -142,54 +193,32 @@
         transition: all 1s linear;
     }
 
-    .textbox {
+    .article {
         background: var(--color-secondary);
-        padding: var(--space-md)
+        padding: var(--space-md);
     }
 
-    .article {
+    .grid__button {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 3;
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    .grid__button--right {
+        grid-area: 2 / 13 / 4 / 14;
+    }
+
+    .grid__main {
         position: relative;
         z-index: 1;
         grid-area: 2 / 8 / 2 / 13;
         text-align: center
     }
-
-    h1 {
-        position: relative;
-        padding: var(--space-md) 0 var(--space-xl)
-    }
-
-    h1::before {
-        z-index: -1;
-        position: absolute;
-        font-size: 2em;
-        font-weight: 600;
-        margin-left: -.5em;
-        content: '02';
-        opacity: .1;
-    }
 </style>
 <style>
-    #country .facts {
+    #l-journey .facts {
         margin-bottom: var(--space-lg)
-    }
-
-    #posen,
-    #warschau,
-    #krakau {
-        animation: example 8s infinite;
-        animation-timing-function: cubic-bezier(.3,1.01,.56,.96)
-    }
-
-    #posen:hover,
-    #warschau:hover,
-    #krakau:hover {
-        fill: var(--color-primary)
-    }
-
-    @keyframes example {
-        0% {rx: 8;ry: 8;}
-        50% {rx: 16;ry: 16;}
-        100% {rx: 8;ry: 8;}
     }
 </style>

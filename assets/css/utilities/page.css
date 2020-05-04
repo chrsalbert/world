@@ -1,7 +1,14 @@
-.u-sidebar {
-    padding: 7rem 0 0 calc(calc(100% / 12) / 2)
+.u-scrollContainer {
+    position: absolute;
+    top: 0;
+    right: var(--body-pad);
+    bottom: 0;
+    left: var(--body-pad);
+    overflow-y: scroll;
+    transition: opacity .6s linear
 }
 
-.u-content {
-    padding: 7rem 0
+.u-fluid {
+    max-width: 100%;
+    max-height: 100%;
 }

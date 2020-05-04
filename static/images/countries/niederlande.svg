@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="324px" height="300px" viewBox="0 0 324 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-    <title>NL</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
+<svg class="u-fluid map" width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-2" transform="translate(-88.000000, 0.000000)" fill="#000000">
-            <polygon id="NL" points="320.727273 183.636364 373.454545 183.636364 393.454545 141.818182 411.636364 40 393.454545 3.63636364 322.545455 0 204.363636 47.2727273 133.454545 209.090909 88 240 88 240 153.454545 249.090909 233.454545 225.454545 289.818182 274.545455 340.727273 300 320.727273 183.636364"></polygon>
+        <g id="Artboard-5-Copy">
+            <polyline id="route" stroke="#00D4FA" points="304 119 154 125 253 225"></polyline>
+            <circle id="amsterdam" stroke="#34DCFB" fill="#222230" cx="154" cy="125" r="8"></circle>
+            <polygon id="border" stroke="#FFFFFF" stroke-linejoin="round" points="274 168 287 122 265 104 283 89 293 35 258 16 192 32 208 96 175.060606 135 149.848485 59.969697 88.3939394 200.212121 49 227 105.727273 234.878788 175.060606 214.393939 214 247 211 287 232 283 232 178.151515"></polygon>
         </g>
     </g>
 </svg>

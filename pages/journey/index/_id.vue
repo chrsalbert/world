@@ -1,5 +1,9 @@
 <template>
     <div>
-        {{ $route.params }}
     </div>
 </template>
+<script>
+export default {
+    middleware: 'journey'
+}
+</script>

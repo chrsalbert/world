@@ -5,22 +5,22 @@
                 <MainNavigation />
             </div>
             <div class="video">
-                <div class="ghost" style="--delay: .16s;--duration: .44s">
+                <div class="u-ghost" style="--delay: .16s;--duration: .44s">
                     <video autoplay muted loop playsinline>
                         <source src="/hero.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
-            <div class="text ghost" style="--delay: .08s;--duration: .52s">
+            <div class="text u-ghost" style="--delay: .08s;--duration: .52s">
                 <h1>1x Ost-Europa, Kaukasus, Asien & zurück</h1>
                 <FactsList :facts="facts" mode="horizontal" />
             </div>
             <div class="date">
-                <span class="ghost" style="--duration: .6s">MAI 2019 – MÄRZ 2020</span>
+                <span class="u-ghost" style="--duration: .6s">MAI 2019 – MÄRZ 2020</span>
             </div>
             <div class="worldmap" v-html="worldmap"></div>
             <div class="button">
-                <nuxt-link to="/journey" class="a-button">Start</nuxt-link>
+                <nuxt-link to="/journey/niederlande" class="a-button">Start</nuxt-link>
             </div>
         </div>
     </div>
