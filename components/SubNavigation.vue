@@ -1,24 +1,20 @@
 <template>
-    <div>
-        <nav>
-            <div class="header">
-                <div>
-                    <transition name="fade">
-                        <div class="a-sectionH1">{{ sectionTitle }}</div>
-                    </transition>
-                </div>
-                <div>
-                    <FactsList :facts="facts" mode="display" />
-                </div>
-            </div>
-            <ol role="navigation">
-                <li v-for="(country, index) in countries" :key="index">
-                    <span v-on:mouseover="showDetails(country.title, country.stats)" v-on:mouseout="showTrip()">
-                        <nuxt-link class="a-sectionH2" :to="`/${ country.id }`">{{ country.title }}</nuxt-link>
-                    </span>
-                </li>
-            </ol>
-        </nav>
+    <div class="subNav">
+        <div>
+            <transition name="fade">
+                <div class="a-sectionH1">{{ sectionTitle }}</div>
+            </transition>
+        </div>
+        <div>
+            <FactsList :facts="facts" mode="display" />
+        </div>
+        <ol role="navigation">
+            <li v-for="(country, index) in countries" :key="index">
+                <span v-on:mouseover="showDetails(country.title, country.stats)" v-on:mouseout="showTrip()">
+                    <nuxt-link class="a-sectionH2" :to="`/${ country.id }`">{{ country.title }}</nuxt-link>
+                </span>
+            </li>
+        </ol>
     </div>
 </template>
 <script>
@@ -72,7 +68,7 @@
     }
 </script>
 <style scoped>
-    .a-sectionH2 {
+    /* .a-sectionH2 {
         font-size: var(--font-size-md);
     }
 
@@ -132,5 +128,5 @@
         ol { 
             column-count: 2;
         }
-    }
+    } */
 </style>

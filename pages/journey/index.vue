@@ -15,19 +15,19 @@
                     </div>
                 </transition>
             </div>
-            <div class="grid__article">
+            <div class="grid__article" >
                 <div class="article u-ghost" style="--duration: .3s;--delay: .4s;">
                     <transition name="article" mode="out-in"><p :key="title">{{ teaser }}</p></transition>
                 </div>
             </div>
             <div class="grid__main">
-                <div class="u-ghost" style="--duration: .6s;--delay:.6s">
+                <div class="main u-ghost" style="--duration: .6s;--delay:.6s">
                     <transition name="title" mode="out-in">
                         <h1 :key="title" :data-position="step">{{ title }}</h1>
                     </transition>
                     <FactsList :facts="facts" />
                     <transition name="map" mode="out-in">
-                        <CountryMap :map="map" :key="title" />
+                        <CountryMap :map="map" :key="title" class="map" />
                     </transition>
                     <nuxt-child />
                 </div>
@@ -165,12 +165,12 @@
     .grid {
         max-width: var(--body-width);
         margin: 0 auto;
-        min-height: 100vh;
+        height: 100vh;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: 80px 1fr 40px 24px 16px;
         grid-column-gap: 16px;
-        grid-row-gap: 0px;
+        grid-row-gap: 0
     }
 
     .grid__nav { 
@@ -233,24 +233,40 @@
     }
 
     .grid__button--right {
-        grid-area: 2 / 13 / 4 / 14;
+        grid-area: 2 / 12 / 3 / 13;
+        justify-content: flex-end;
     }
 
     .grid__main {
         position: relative;
         z-index: 1;
         grid-area: 2 / 8 / 2 / 13;
-        text-align: center
+        min-height: 0;
+        overflow: hidden;
+        text-align: center;
+        padding: var(--space-md)
+    }
+
+    .map {
+        margin: 0 auto
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     .grid__progress {
-        grid-area: 5 / 1 / 6 / 14;
+        grid-area: 5 / 1 / 5 / 13;
+        min-height: 0;
+        overflow: hidden
     }
 
     .progress {
+        display: block;
         width: 100%;
         height: 8px;
-        margin-bottom: 11px;
         -webkit-appearance: none;
         appearance: none;
     }
@@ -264,7 +280,30 @@
         background-color: var(--color-primary);
     }
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1100px) and (orientation: portrait) {
+        .grid {
+            grid-template-rows: 80px 1fr 1fr 16px;
+        }
+        .grid__cover {
+            grid-area: 2 / 2 / 2 / 11;
+        }
+        .grid__article {
+            grid-area: 3 / 1 / 4 / 6;
+            align-items: start;
+            padding: 80px var(--space-md) 0;
+        }
+        .article {
+            box-shadow: none;
+            padding: 0
+        }
+        .grid__main {
+            grid-area: 3 / 6 / 3 / 13;
+            background: var(--color-secondary);
+            margin-top: -80px;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
         .grid {
             display: flex;
             flex-direction: column;

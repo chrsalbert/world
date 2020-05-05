@@ -22,7 +22,7 @@
             </div>
             <div class="grid__map" v-html="worldmap"></div>
             <div class="grid__button">
-                <nuxt-link to="/journey/niederlande" class="a-button">Start</nuxt-link>
+                <nuxt-link to="/journey/niederlande" class="a-button a-button--large"><span>Tour starten</span></nuxt-link>
             </div>
         </div>
     </div>
@@ -113,11 +113,16 @@
 
     .grid__button { 
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        align-items: flex-end;
+        justify-content: center;
         position: relative;
         z-index: 2;
-        grid-area: 1 / 11 / 6 / 13;
+        grid-area: 3 / 7 / 4 / 13;
+        padding-bottom: var(--space-lg);
+    }
+
+    .a-button {
+        box-shadow: var(--shadow-lg)
     }
 
     .grid__date { 

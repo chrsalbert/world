@@ -43,12 +43,14 @@
     --header-linkColor: #fff;
     
     --body-bgColor: var(--color-secondary);
-    --body-width: 1136px;
-    --body-pad: var(--space-xl);
+    --body-width: 1392px;
+    --body-pad: var(--space-md);
 
     --header-height: 7rem;
 
-    --breakpoint-small: 600px;
+    --breakpoint: 1200px;
+    --breakpoint-sm: 900px;
+    --breakpoint-xs: 600px;
 
     --grid-column-width: calc(100% / 12);
     --grid-col1: var(--grid-column-width);
@@ -74,20 +76,16 @@
 
 @media only screen and (max-width: 1200px) {
     :root {
-        --body-pad: var(--space-lg)
     }
 }
 
 @media only screen and (max-width: 900px) {
     :root {
-        --body-pad: var(--space-md)
     }
 }
 
 @media only screen and (max-width: 600px) {
     :root {
-        --body-pad: var(--space);
-        --header-height: 4rem;
         --font-size-global: 12px
     }
 }

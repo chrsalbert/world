@@ -1,9 +1,10 @@
 .u-scrollContainer {
     position: absolute;
     top: 0;
-    right: var(--body-pad);
+    right: 0;
     bottom: 0;
-    left: var(--body-pad);
+    left: 0;
+    padding: 0 var(--body-pad);
     overflow-y: scroll;
     transition: opacity .6s linear
 }
