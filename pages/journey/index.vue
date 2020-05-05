@@ -25,7 +25,9 @@
                     <transition name="title" mode="out-in">
                         <h1 :key="title" :data-position="step">{{ title }}</h1>
                     </transition>
-                    <FactsList :facts="facts" />
+                    <div class="facts">
+                        <FactsList :facts="facts" />
+                    </div>
                     <transition name="map" mode="out-in">
                         <CountryMap :map="map" :key="title" class="map" />
                     </transition>
@@ -186,6 +188,8 @@
     }
 
     .date {
+        position: relative;
+        z-index: 1000;
         text-transform: uppercase;
         writing-mode: vertical-lr;
         transform: rotate(180deg)
@@ -228,7 +232,7 @@
         display: flex;
         align-items: center;
         position: relative;
-        z-index: 3;
+        z-index: 1000;
         grid-area: 2 / 1 / 3 / 1;
     }
 
@@ -247,6 +251,10 @@
         padding: var(--space-md)
     }
 
+    .facts {
+        margin-bottom: var(--space-lg)
+    }
+
     .map {
         margin: 0 auto
     }
@@ -258,6 +266,8 @@
     }
 
     .grid__progress {
+        position: relative;
+        z-index: 1000;
         grid-area: 5 / 1 / 5 / 13;
         min-height: 0;
         overflow: hidden
@@ -305,24 +315,39 @@
 
     @media only screen and (max-width: 600px) {
         .grid {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 80px min-content min-content min-content;
+            height: auto;
+            min-height: 100vh;
+            padding-bottom: var(--space-xl)
         }
 
         .grid__main {
-            order: 1;
+            grid-area: 3 / 1 / 4 / 7;
+            margin: 0;
+        }
+
+        .grid__main svg {
+            width: auto;
+            height: auto
         }
 
         .grid__date {
-            display: none
+            grid-area: 3 / 1 / 4 / 2;
+            padding: var(--space-md) 0 0 0;
         }
 
         .grid__article {
-            order: 2
+            grid-area: 4 / 1 / 5 / 7;
+            padding: 0 var(--space-md);
         }
 
         .grid__button {
-            order: 5
+            grid-area: 2 / 1 / 3 / 2
+        }
+
+        .grid__button--right {
+            grid-area: 2 / 6 / 3 / 7
         }
 
         .grid__progress {
@@ -333,18 +358,12 @@
         }
 
         .grid__nav {
-            height: 4rem;
-            order: 1;
+            grid-area: 1 / 1 / 2 / 7;
         }
 
         .grid__cover {
-            order: 4;
-            height: 30vh
+            grid-area: 2 / 1 / 3 / 7;
+            height: 30vh;
         }
-    }
-</style>
-<style>
-    #l-journey .facts {
-        margin-bottom: var(--space-lg)
     }
 </style>
