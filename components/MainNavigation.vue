@@ -1,6 +1,6 @@
 <template>
-    <header class="c-mainnav">
-        <nav v-if="isCurrentContext('default')">
+    <header class="nav">
+        <nav class="mainNav" v-if="isCurrentContext('default')">
             <div>
                 <div>
                     <nuxt-link to="/" class="a-button a-button--icon a-button--transparent" v-html="iconHome"></nuxt-link>
@@ -9,7 +9,7 @@
                 </div>
             </div>
         </nav>
-        <nav v-if="isCurrentContext('gallery')">
+        <nav class="subNav" v-if="isCurrentContext('gallery')">
             <div>
                 <div>
                     <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon a-button--transparent" v-html="iconCross"></nuxt-link>
@@ -114,6 +114,19 @@
     }
 </script>
 <style scoped>
+    .nav {
+        position: relative;
+        z-index: 999;
+    }
+    .subNav {
+        background: var(--color-secondary);
+        top: 80px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: scroll;
+    }
     header {
         /* padding: 0 var(--body-pad); */
         margin: 0 -.25rem;

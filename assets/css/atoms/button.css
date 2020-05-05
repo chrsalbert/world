@@ -12,6 +12,12 @@
     transition: border-color .1s
 }
 
+.a-button--large {
+    height: var(--font-size-3xl);
+    line-height: var(--font-size-3xl);
+    padding: 0 var(--font-size-lg);
+}
+
 .a-button g {
     fill: #fff
 }
@@ -29,7 +35,12 @@
 }
 
 .a-button:hover {
-    color: #fff
+    color: var(--color-secondary)
+}
+
+.a-button:hover span {
+    text-shadow: 2px 2px var(--color-primary), 2px -2px var(--color-primary), -2px 2px var(--color-primary), -2px -2px var(--color-primary);
+    border-bottom: 2px solid currentColor;
 }
 
 .a-button--secondary {
