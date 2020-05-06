@@ -22,7 +22,10 @@
             </div>
             <div class="grid__map" v-html="worldmap"></div>
             <div class="grid__button">
-                <nuxt-link to="/journey/niederlande" class="a-button a-button--large"><span>Tour starten</span></nuxt-link>
+                <div class="grid__button__inner">
+                    <img class="avatar" src="/images/avatar.webp" />
+                    <div><p class="cta">Viel Spaß beim Anschauen! Christian.</p><nuxt-link to="/journey/niederlande" class="a-button a-button--large"><span>Tour starten</span></nuxt-link></div>
+                </div>
             </div>
         </div>
     </div>
@@ -121,8 +124,25 @@
         padding-bottom: var(--space-lg);
     }
 
+    .grid__button__inner {
+        display: flex;
+        align-items: center;
+    }
+
     .a-button {
         box-shadow: var(--shadow-lg)
+    }
+
+    .avatar {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        margin-right: var(--space-md);
+        box-shadow: var(--shadow-md)
+    }
+
+    .cta {
+        margin-bottom: var(--space)
     }
 
     .grid__date { 
