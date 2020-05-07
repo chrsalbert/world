@@ -79,7 +79,7 @@
                 return this.country.map
             },
             title() {
-                return this.country.id
+                return this.country.title
             },
             teaser() {
                 return this.country.teaser
