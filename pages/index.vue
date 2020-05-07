@@ -13,7 +13,7 @@
             </div>
             <div class="grid__main">
                 <div class="main u-ghost" style="--delay: .08s;--duration: .52s">
-                    <h1>1x Ost-Europa, Kaukasus, Asien & zurück</h1>
+                    <h1>1x Ost-Europa, Kaukasus, Asien <nobr>& zurück</nobr></h1>
                     <FactsList :facts="facts" mode="horizontal" />
                 </div>
             </div>
@@ -21,8 +21,8 @@
                 <span class="date u-ghost" style="--duration: .6s">Mai 2019 – März 2020</span>
             </div>
             <div class="grid__map" v-html="worldmap"></div>
-            <div class="grid__button">
-                <div class="grid__button__inner">
+            <div class="grid__cta">
+                <div class="grid__cta__inner">
                     <img class="avatar" src="/images/avatar.webp" />
                     <div><p class="cta">Viel Spaß beim Anschauen! Christian.</p><nuxt-link to="/journey/niederlande" class="a-button a-button--large"><span>Tour starten</span></nuxt-link></div>
                 </div>
@@ -78,10 +78,11 @@
     .grid {
         max-width: var(--body-width);
         margin: 0 auto;
-        min-height: 100vh;
+        height: 100vh;
+        max-height: 52rem;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 80px minmax(10rem, 2fr) min-content minmax(0, 1fr);
+        grid-template-rows: 80px 5fr 2fr 80px;
         gap: 0px 16px;
     }
 
@@ -93,7 +94,8 @@
     }
 
     .grid__video { 
-        grid-area: 2 / 5 / 5 / 13;
+        position: relative;
+        grid-area: 2 / 5 / 3 / 13;
         padding: 0 var(--space-md);
     }
 
@@ -102,9 +104,12 @@
     }
 
     .grid__main { 
+        grid-area: 2 / 2 / 4 / 7;
         position: relative;
         z-index: 1;
-        grid-area: 3 / 2 / 4 / 7;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     .main {
@@ -114,17 +119,16 @@
         box-shadow: var(--shadow-xl)
     }
 
-    .grid__button { 
+    .grid__cta { 
+        grid-area: 3 / 7 / 4 / 13;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
         position: relative;
         z-index: 2;
-        grid-area: 3 / 7 / 4 / 13;
-        padding-bottom: var(--space-lg);
     }
 
-    .grid__button__inner {
+    .grid__cta__inner {
         display: flex;
         align-items: center;
     }
@@ -146,7 +150,7 @@
     }
 
     .grid__date { 
-        grid-area: 2 / 1 / 5 / 2; 
+        grid-area: 2 / 1 / 5 / 3; 
         padding-left: var(--space-md)
     }
 
@@ -157,8 +161,94 @@
     }
 
     .grid__map { 
+        grid-area: 2 / 2 / 5 / 13; 
         position: relative;
         z-index: 1;
-        grid-area: 2 / 2 / 5 / 13; 
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+
+    @media only screen and (max-width: 1100px) and (orientation: portrait) {
+        .grid {
+            grid-template-rows: 80px 1fr 1fr;
+        }
+
+        .grid__video {
+            grid-area: 2 / 1 / 3 / 13
+        }
+
+        .grid__map {
+            grid-area: 2 / 1 / 3 / 13;
+        }
+
+        .grid__main {
+            grid-area: 3 / 3 / 4 / 11;
+            margin-top: calc(var(--space-2xl) * -1);
+            justify-content: flex-start;
+        }
+
+        .grid__date {
+            grid-area: 3 / 1 / 4 / 2;
+            padding-top: var(--space-md)
+        }
+
+        .grid__cta {
+            grid-area: 4 / 1 / 5 / 13;
+            padding-top: var(--space-2xl)
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        h1 {
+            font-size: var(--font-size-xl);
+            line-height: 1.25;
+        }
+
+        .grid {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 56px min-content min-content min-content;
+            height: auto;
+            min-height: 100vh;
+            max-height: unset;
+            padding-bottom: var(--space-xl)
+        }
+
+        .grid__nav {
+            grid-area: 1 / 1 / 2 / 7;
+            padding: 0;
+        }
+
+        .grid__video {
+            grid-area: 2 / 1 / 3 / 7;
+            padding: 0;
+        }
+
+        .grid__main {
+            grid-area: 3 / 1 / 4 / 7
+        }
+
+        .main {
+            box-shadow: none;
+            padding-top: var(--space-xl)
+        }
+
+        .grid__map {
+            display: none;
+            grid-area: 2 / 2 / 3 / 7
+        }
+
+        .grid__cta {
+            grid-area: 4 / 1 / 5 / 7;
+            padding-top: var(--space-xl)
+        }
+
+        .grid__date {
+            grid-area: 3 / 1 / 4 / 2;
+            z-index: 99;
+            padding: var(--space-md) 0 0;
+            opacity: .5;
+        }
     }
 </style>

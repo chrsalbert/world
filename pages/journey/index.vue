@@ -183,7 +183,7 @@
     }
 
     .grid__date {
-        grid-area: 2 / 1 / 3 / 1;
+        grid-area: 2 / 1 / 3 / 3;
         padding-left: var(--space-md)
     }
 
@@ -316,7 +316,7 @@
     @media only screen and (max-width: 600px) {
         .grid {
             grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: 80px min-content min-content min-content;
+            grid-template-rows: 56px min-content min-content min-content;
             height: auto;
             min-height: 100vh;
             padding-bottom: var(--space-xl)
@@ -359,6 +359,7 @@
 
         .grid__nav {
             grid-area: 1 / 1 / 2 / 7;
+            padding: 0;
         }
 
         .grid__cover {
