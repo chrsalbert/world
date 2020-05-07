@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>slowakei</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="slowakei">
+            <polygon id="SK" stroke="#FFFFFF" stroke-linejoin="round" points="380 115.292035 315.854545 85.1681416 271.345455 95.6460177 239.927273 87.7876106 203.272727 104.814159 167.927273 76 143.054545 87.7876106 139.127273 82.5486726 119.490909 82.5486726 111.636364 96.9557522 97.2363636 100.884956 94.6181818 119.221239 82.8363636 123.150442 81.5272727 131.00885 60.5818182 138.867257 31.7818182 137.557522 23.9272727 155.893805 20 166.371681 29.1636364 193.876106 63.2 214.831858 88.0727273 224 141.745455 213.522124 145.672727 197.80531 170.545455 195.185841 200.654545 182.088496 208.509091 187.327434 237.309091 178.159292 250.4 158.513274 271.345455 153.274336 343.345455 178.159292 356.436364 170.300885 365.6 137.557522 380 115.292035"></polygon>
+            <polyline id="route" stroke="#00D4FA" points="6 192 39 199 97 132 301 142 305 185"></polyline>
+            <circle id="trencin" stroke="#34DCFB" fill="#222230" cx="97" cy="132" r="8"></circle>
+            <circle id="kosice" stroke="#34DCFB" fill="#222230" cx="301" cy="142" r="8"></circle>
+            <circle id="bratislava" stroke="#34DCFB" fill="#222230" cx="39" cy="199" r="8"></circle>
+        </g>
+    </g>
+</svg>

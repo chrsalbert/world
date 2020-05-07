@@ -6,7 +6,7 @@
             </div>  
             <div class="grid__date">
                 <div class="u-ghost" style="--duration: .3s;">
-                    <span class="date">{{ country.date.title }}</span>
+                    <span class="date" v-html="country.date.title"></span>
                 </div>
             </div>
             <div class="grid__cover">      
@@ -127,9 +127,9 @@
                 return `${process.env.imageUrl}${path}`
             },
             preloadNextPhoto() {
-                const url = Countries[this.countryIndex + 1].cover
-                let img = new Image();
-                img.src = this.getImageUrl(`cover/${url}?w=1000&h=800&quality=80&f=auto`);
+                // const url = Countries[this.countryIndex + 1].cover
+                // let img = new Image();
+                // img.src = this.getImageUrl(`cover/${url}?w=1000&h=800&quality=80&f=auto`);
             }
         },
         mounted() {

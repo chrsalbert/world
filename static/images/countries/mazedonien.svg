@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>mazedonien</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mazedonien">
+            <polygon id="MK" stroke="#FFFFFF" stroke-linejoin="round" points="337.217897 86.2922144 268.208797 37 209.05814 39.4646107 167.159757 49.3230536 140.049039 54.252275 68.5753286 78.8983822 66.1107179 108.473711 48.8584429 108.473711 48.8584429 108.473711 39 160.230536 61.1814965 224.310415 117.867543 263.744186 199.199697 248.956522 246.0273 216.916582 315.0364 219.381193 332.288675 192.270475 356.934783 187.341254"></polygon>
+            <polyline id="route" stroke="#00D4FA" points="25 177 161 89 150 31"></polyline>
+            <circle id="skopje" stroke="#34DCFB" fill="#222230" cx="161" cy="89" r="8"></circle>
+        </g>
+    </g>
+</svg>

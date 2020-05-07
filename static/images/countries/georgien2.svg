@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>georgien</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="georgien">
+            <polygon id="GE" stroke="#FFFFFF" stroke-linejoin="round" points="217.459459 116.351351 140.432432 86.5675676 61.3513514 76.2972973 15.1351351 65 10 72.1891892 32.5945946 91.7027027 63.4054054 98.8918919 98.3243243 122.513514 119.891892 165.648649 116.810811 193.378378 172.27027 190.297297 229.783784 221.108108 300.648649 210.837838 311.945946 200.567568 355.081081 219.054054 383.837838 223.162162 390 215.972973 357.135135 181.054054 368.432432 171.810811 332.486486 157.432432 310.918919 131.756757 258.540541 118.405405 228.756757 128.675676"></polygon>
+            <path d="M400,217 L288,182 L171,154 L288,182 C288,182 347.404547,185.929486 348,186 C348.595453,186.070514 288,182 288,182 L298,226" id="route" stroke="#00D4FA"></path>
+            <ellipse id="sighnaghi" stroke="#34DCFB" fill="#222230" cx="347.992008" cy="186" rx="7.99200799" ry="8"></ellipse>
+            <circle id="kutaissi" stroke="#34DCFB" fill="#222230" cx="171" cy="154" r="8"></circle>
+            <circle id="tiflis" stroke="#34DCFB" fill="#222230" cx="288" cy="182" r="8"></circle>
+        </g>
+    </g>
+</svg>

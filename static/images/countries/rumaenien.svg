@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>rumaenien</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="rumaenien">
+            <polygon id="RO" stroke="#FFFFFF" stroke-linejoin="round" points="246.5 45 230.75 45 223.25 56.25 196.25 60.75 184.25 67.5 166.25 56.25 142.25 56.25 118.25 51 104 60.75 82.25 70.5 68 102 48.5 134.25 20 142.5 41.75 161.25 47.75 175.5 71.75 186.75 77 205.5 100.25 219 110.75 209.25 121.25 214.5 113 222.75 120.5 230.25 134 249.75 148.25 246 178.25 253.5 234.5 255.75 251.75 243.75 295.25 233.25 325.25 249.75 347.75 255 350.75 199.5 362.75 203.25 380 193.5 377 181.5 359 173.25 342.5 180.75 324.5 172.5 314.75 151.5 316.25 131.25 311.75 111 286.25 83.25 272 63.75 258.5 49.5"></polygon>
+            <polyline id="route" stroke="#00D4FA" points="8 130 53 158 162 158 217 158 240 218 199 266"></polyline>
+            <ellipse id="bukarest" stroke="#34DCFB" fill="#222230" cx="239.992008" cy="218" rx="7.99200799" ry="8"></ellipse>
+            <ellipse id="brasov" stroke="#34DCFB" fill="#222230" cx="216.992008" cy="158" rx="7.99200799" ry="8"></ellipse>
+            <ellipse id="sibiu" stroke="#34DCFB" fill="#222230" cx="161.992008" cy="158" rx="7.99200799" ry="8"></ellipse>
+            <circle id="timisoara" stroke="#34DCFB" fill="#222230" cx="53" cy="158" r="8"></circle>
+        </g>
+    </g>
+</svg>
