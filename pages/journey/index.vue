@@ -16,7 +16,7 @@
                 </transition>
             </div>
             <div class="grid__article" >
-                <div class="article u-ghost" style="--duration: .3s;--delay: .4s;">
+                <div id="article" class="article u-ghost" style="--duration: .3s;--delay: .4s;">
                     <transition name="article" mode="out-in"><p :key="title">{{ teaser }}</p></transition>
                 </div>
             </div>
@@ -36,6 +36,7 @@
             </div>
             <div class="grid__progress">
                 <progress class="progress" :value="progress" max="100"> {{ progress }} </progress>
+                <!-- <div class="progress" v-html="iconBus" :data-length="progress"></div> -->
             </div>
             <div class="grid__button"><nuxt-link id="button-prev" :to="prevCountryUrl" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link></div>
             <div class="grid__button grid__button--right"><nuxt-link id="button-next" :to="nextCountryUrl" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link></div>
@@ -59,7 +60,7 @@
         data () {
             return {
                 iconArrowLeft,
-                iconArrowRight,
+                iconArrowRight
             }
         },
         transition: {
@@ -222,10 +223,45 @@
     }
 
     .article {
+        position: relative;
         background: var(--color-secondary);
         padding: var(--space-md);
         box-shadow: var(--shadow-xl);
-        overflow: hidden
+        overflow: hidden;
+        max-height: 12rem;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* width */
+    .article::-webkit-scrollbar {
+    width: .5rem;
+    }
+
+    /* Track */
+    .article::-webkit-scrollbar-track {
+    background: #131a29;
+    }
+
+    /* Handle */
+    .article::-webkit-scrollbar-thumb {
+        background: #1b4361;
+    }
+
+    /* Handle on hover */
+    .article::-webkit-scrollbar-thumb:hover {
+        background: #1b4361;
+    }
+
+    .grid__article::after {
+        content: '';
+        position: absolute;
+        right: var(--space-md);
+        bottom: 0;
+        left: var(--space-md);
+        height: var(--space-md);
+        background: linear-gradient(to bottom, rgba(21, 30, 48, 0) 0%, rgba(21, 30, 48, 1) 90%)
     }
 
     .grid__button {
