@@ -5,11 +5,12 @@
     padding: 0 var(--font-size-md);
     background: var(--color-primary);
     border: 1px var(--color-primary) solid;
+    border-radius: var(--border-radius-xs);
     color: var(--color-secondary);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
-    transition: border-color .1s
+    transition: border-color .1s;
 }
 
 .a-button--large {

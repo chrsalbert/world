@@ -1,30 +1,12 @@
 <template>
-    <header class="nav">
-        <nav class="mainNav" v-if="isCurrentContext('default')">
-            <div>
-                <div>
-                    <nuxt-link to="/" class="a-button a-button--icon a-button--transparent" v-html="iconHome"></nuxt-link>
-                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconMenu" v-if="!isSubNavVisible"></button>
-                    <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconCross" v-if="isSubNavVisible"></button>
-                </div>
-            </div>
-        </nav>
-        <nav class="subNav" v-if="isCurrentContext('gallery')">
-            <div>
-                <div>
-                    <nuxt-link :to="`/${$route.params.countryId}`" class="a-button a-button--icon a-button--transparent" v-html="iconCross"></nuxt-link>
-                </div>
-                <div>
-                    <button v-on:click="toggleColumns()" class="a-button a-button--icon a-button--transparent" v-bind:class="{ 'a-button--soft': isAsideVisible }" v-html="iconOneCol"></button>
-                    <button v-on:click="toggleColumns()" class="a-button a-button--icon a-button--transparent" v-bind:class="{ 'a-button--soft': !isAsideVisible }" v-html="iconTwoCol"></button>
-                </div>
-            </div>
-            <div>
-                <button v-on:click="toggleFullscreen()" v-show="!isMobileDevice" class="a-button a-button--icon a-button--transparent" v-html="iconExpand"></button>
-            </div>
+    <div class="container">
+        <nav class="nav">
+            <nuxt-link to="/" class="a-button a-button--icon a-button--transparent" v-html="iconHome"></nuxt-link>
+            <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconMenu" v-if="!isSubNavVisible"></button>
+            <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconCross" v-if="isSubNavVisible"></button>
         </nav>
         <SubNavigation v-show="isSubNavVisible" />
-    </header>
+    </div>
 </template>
 <script>
     import { mapMutations } from 'vuex'
@@ -32,9 +14,6 @@
     import iconHome from "~/assets/images/icons/home.svg?raw"
     import iconMenu from "~/assets/images/icons/menu.svg?raw"
     import iconCross from "~/assets/images/icons/cross.svg?raw"
-    import iconOneCol from "~/assets/images/icons/1col.svg?raw"
-    import iconTwoCol from "~/assets/images/icons/2col.svg?raw"
-    import iconExpand from "~/assets/images/icons/expand.svg?raw"
 
     export default {
         data () {
@@ -42,9 +21,6 @@
                 iconMenu,
                 iconHome,
                 iconCross,
-                iconOneCol,
-                iconTwoCol,
-                iconExpand,
                 isFullscreen: false
             }
         },
@@ -114,37 +90,18 @@
     }
 </script>
 <style scoped>
-    .nav {
+    .container {
         position: relative;
-        z-index: 999;
-    }
-    .subNav {
-        background: var(--color-secondary);
-        top: 80px;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow-y: scroll;
-    }
-    header {
-        /* padding: 0 var(--body-pad); */
-        margin: 0 -.25rem;
-    }
-
-    nav {
+        z-index: 10000;
         height: inherit;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        padding: 0 var(--body-pad);
     }
 
-    nav > *,
-    nav > * > * {
+    nav {
         display: flex;
-    }
-
-    nav > * > *:not(:last-child) {
-        margin-right: var(--space-md)
+        align-items: center;
+        margin-left: -.25rem
     }
 </style>

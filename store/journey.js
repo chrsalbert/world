@@ -1,5 +1,5 @@
 export const state = () => ({
-    id: 'foo'
+    id: 'niederlande'
 })
   
 export const mutations = {

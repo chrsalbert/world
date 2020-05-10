@@ -52,19 +52,11 @@
     --breakpoint-sm: 900px;
     --breakpoint-xs: 600px;
 
-    --grid-column-width: calc(100% / 12);
-    --grid-col1: var(--grid-column-width);
-    --grid-col2: calc(var(--grid-column-width) * 2);
-    --grid-col3: calc(var(--grid-column-width) * 3);
-    --grid-col4: calc(var(--grid-column-width) * 4);
-    --grid-col5: calc(var(--grid-column-width) * 5);
-    --grid-col6: calc(var(--grid-column-width) * 6);
-    --grid-col7: calc(var(--grid-column-width) * 7);
-    --grid-col8: calc(var(--grid-column-width) * 8);
-    --grid-col9: calc(var(--grid-column-width) * 9);
-    --grid-col10: calc(var(--grid-column-width) * 10);
-    --grid-col11: calc(var(--grid-column-width) * 11);
-    --grid-col12: 100%;
+    --grid-column-gap: 16px;
+
+    --border-radius-xs: var(--space-2xs);
+    --border-radius-sm: var(--space-xs);
+    --border-radius: var(--space-sm);
     
     --transition-default: all .2s ease-in-out;
     

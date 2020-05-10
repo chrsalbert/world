@@ -1,35 +1,27 @@
 <template>
-    <div id="index" class="u-scrollContainer">
-        <div class="grid">
-            <div class="grid__nav">
-                <MainNavigation />
+    <div class="grid">
+        <div class="grid__date">
+            <span class="date">Mai 2019 – März 2020</span>
+        </div>
+        <div class="grid__video">
+            <video class="video u-fluid" autoplay muted loop playsinline>
+                <source src="/hero.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid__main">
+            <div class="main">
+                <h1 class="title">1x Ost-Europa, Kaukasus, Asien <nobr>& zurück</nobr></h1>
+                <p class="text">
+                    Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise führte, erfährst du hier.
+                </p>
+                <nuxt-link to="/journey/niederlande" class="a-button a-button--large">
+                    <span>Tour starten</span>
+                </nuxt-link>
             </div>
-            <div class="grid__video">
-                <div class="video-wrapper">
-                    <!-- <div class="u-ghost" style="--delay: .16s;--duration: .44s"> -->
-                        <video class="u-fluid" autoplay muted loop playsinline>
-                            <source src="/hero.mp4" type="video/mp4">
-                        </video>
-                    <!-- </div> -->
-                </div>
-            </div>
-            <div class="grid__main">
-                <div class="main u-ghost" style="--delay: .08s;--duration: .52s">
-                    <h1>1x Ost-Europa, Kaukasus, Asien <nobr>& zurück</nobr></h1>
-                    <!-- <FactsList :facts="facts" mode="horizontal" /> -->
-                    <div class="grid__cta__inner">
-                        <!-- <img class="avatar" src="/images/avatar.webp" style="flex-shrink: 0"/> -->
-                        <div><p class="cta">Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise führte, erfährst du hier.</p><nuxt-link to="/journey/niederlande" class="a-button a-button--large"><span>Tour starten</span></nuxt-link></div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid__date">
-                <span class="date u-ghost" style="--duration: .6s">Mai 2019 – März 2020</span>
-            </div>
-            <div class="grid__map" v-html="worldmap"></div>
-            <div class="grid__cta">
-                <FactsList :facts="facts" mode="horizontal" />
-            </div>
+        </div>
+        <div class="grid__map" v-html="worldmap"></div>
+        <div class="grid__facts">
+            <FactsList :facts="facts" mode="horizontal" />
         </div>
     </div>
 </template>
@@ -74,60 +66,44 @@
     }
 </script>
 <style scoped>
-    h1 {
-        margin: 0 0 var(--space-lg);
-        text-align: center;
-    }
-
     .grid {
-        max-width: var(--body-width);
-        margin: 0 auto;
-        height: 100vh;
-        max-height: 52rem;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 5rem minmax(0, 1fr) minmax(0, 1fr) 10rem 5rem;
+        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 10rem 5rem;
         gap: 0px 16px;
     }
 
-    /* .grid > *:nth-child(1) { background: blue }
-    .grid > *:nth-child(2) { background: yellow }
-    .grid > *:nth-child(3) { background: green }
-    .grid > *:nth-child(4) { background: white }
-    .grid > *:nth-child(5) { background: rgba(40,60,20,.5) }
-    .grid > *:nth-child(6) { background: turquoise } */
+    .title {
+        margin: 0 0 var(--space-sm);
+        text-align: center;
+    }
 
-    .grid__nav { 
-        display: flex;
-        align-items: center;
-        grid-area: 1 / 1 / 2 / 13; 
-        padding-left: var(--space-md)
+    .text {
+        margin-bottom: var(--space-lg)
+    }
+
+    .main {
+        padding: var(--space-md);
+        background: var(--body-bgColor);
+        box-shadow: var(--shadow-xl);
+        border-radius: var(--space-sm);
+        text-align: center;
     }
 
     .grid__video { 
         position: relative;
-        grid-area: 2 / 5 / 4 / 13;
+        grid-area: 1 / 5 / 3 / 13;
         padding: 0 var(--space-md);
         overflow: hidden
     }
 
-    .video-wrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     .video {
         box-shadow: var(--shadow-lg);
+        border-radius: var(--space-sm)
     }
 
     .grid__main { 
-        grid-area: 3 / 2 / 5 / 7;
+        grid-area: 2 / 2 / 4 / 7;
         position: relative;
         z-index: 1;
         display: flex;
@@ -135,47 +111,23 @@
         justify-content: flex-end;
     }
 
-    .main {
-        padding: var(--space-md);
-        background: var(--body-bgColor);
-        box-shadow: var(--shadow-xl)
-    }
-
-    .grid__cta { 
-        grid-area: 4 / 7 / 5 / 13;
+    .grid__facts { 
+        grid-area: 3 / 6 / 4 / 13;
+        position: relative;
+        z-index: 2;
         display: flex;
         align-items: flex-end;
         justify-content: center;
         text-align: center;
-        position: relative;
-        z-index: 2;
         padding-bottom: var(--space-md)
-    }
-
-    .grid__cta__inner {
-        display: flex;
-        align-items: center;
-        text-align: center
     }
 
     .a-button {
         box-shadow: var(--shadow-lg)
     }
 
-    .avatar {
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        margin-right: var(--space-md);
-        box-shadow: var(--shadow-md)
-    }
-
-    .cta {
-        margin-bottom: var(--space)
-    }
-
     .grid__date { 
-        grid-area: 2 / 1 / 5 / 3; 
+        grid-area: 1 / 1 / 4 / 3; 
         padding-left: var(--space-md)
     }
 
@@ -186,7 +138,7 @@
     }
 
     .grid__map { 
-        grid-area: 2 / 2 / 4 / 13; 
+        grid-area: 1 / 2 / 3 / 13; 
         position: relative;
         z-index: 1;
     }
@@ -216,7 +168,7 @@
             padding-top: var(--space-md)
         }
 
-        .grid__cta {
+        .grid__facts {
             grid-area: 4 / 1 / 5 / 13;
             padding-top: var(--space-2xl)
         }
@@ -261,7 +213,7 @@
             grid-area: 2 / 2 / 3 / 7
         }
 
-        .grid__cta {
+        .grid__facts {
             grid-area: 4 / 1 / 5 / 7;
             padding-top: var(--space-xl)
         }

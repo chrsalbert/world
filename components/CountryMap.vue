@@ -1,9 +1,9 @@
 <template>
     <svg v-if="map" class="u-fluid" width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke-width="1" fill="none" fill-rule="evenodd">
-            <polyline id="route" :style="`--length:200`" stroke="#00D4FA" :points="map.route"></polyline>
-            <polygon id="border" :style="`--length:1000`" ref="circle" stroke="#FFFFFF" stroke-linejoin="round" :points="map.border"></polygon>
-            <circle :style="`--delay:${index * .5}s`" v-for="(location, index) in map.locations" :key="index" stroke="#34DCFB" fill="#222230" :cx="location.cx" :cy="location.cy" r="8"></circle>
+            <polyline id="route" :style="`--length:9999`" stroke="#00D4FA" :points="map.route"></polyline>
+            <polygon id="border" :style="`--length:9999`" ref="circle" stroke="#FFFFFF" stroke-linejoin="round" :points="map.border"></polygon>
+            <circle :style="`--delay:${index * .5}s`" v-for="(location, index) in map.locations" :key="index" stroke="#34DCFB" fill="#151e30" :cx="location.cx" :cy="location.cy" r="8"></circle>
         </g>
     </svg>
 </template>
@@ -25,15 +25,3 @@ export default {
     }
 }
 </script>
-<style scoped>
-    circle {
-        --delay: 0;
-        animation: example 10s ease-in-out infinite;
-        animation-delay: var(--delay);
-    }
-    @keyframes example {
-        20% {r: 8;}
-        25% {r: 12;}
-        30% {r: 8;}
-    }
-</style>
