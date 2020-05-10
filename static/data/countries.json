@@ -2,6 +2,7 @@
     {
         "id": "niederlande",
         "title": "Niederlande",
+        "teaser": "Los geht die Reise in den Niederlanden. Hier war ich in den letzten 13 Jahren sozusagen Stammgast. Nicht zuletzt, weil meine Freundin 4 Jahre lang in Emmen studierte. Amsterdam hatten wir zu Beginn der Reise zusammen besucht, um noch einmal eine King Shiloh Soundsystem Party zu besuchen. Übernachtet haben wir, wie auch die letzten Jahre, auf dem Vliegenbos-Campingplatz in Noord.",
         "cover": "niederlande.webp",
         "date": {
             "title": "Mai 2019",
@@ -24,12 +25,11 @@
                     "cy": "125"
                 }
             ]
-        },
-        "teaser": "In den Niederlanden war ich in den letzten 13 Jahren sozusagen Stammgast. Nicht zuletzt, weil meine Freundin 4 Jahre lang in Emmen studierte. Amsterdam hatten wir zu Beginn der Reise zusammen besucht, um noch einmal eine King Shiloh Soundsystem Party zu besuchen.",
-        "text": "Die Unterkunft war natürlich wieder low-budget auf dem Vliegenbos Campingplatz in Noord. Wie mir zuletzt jemand erzählte, gehört der Platz wohl der Gemeinde. Das jedenfalls spricht auch dafür, dass sich der Preis für eine Nacht in den letzten 13 Jahren nicht bemerkbar erhöht hat."
+        }
     }, {
         "id": "polen",
         "title": "Polen",
+        "teaser": "Mit dem Zug fuhr ich 14 Stunden von Amsterdam nach Posen. Von dort wollte ich über spontane Zwischenstopps auf dem Landweg bis nach Belarus. Tja, zu spät habe ich gelesen, dass ich dafür ein Visum benötigen würde. Weil die Einreise über den Flughafen Minsk aber mit Visa on Arrival möglich sein würde, suchte ich mir Kiev in der Ukraine als Etappenziel aus. Auf dem Weg dorthin besuchte ich Breslau und Krakau.",
         "cover": "polen.webp",
         "date": {
             "title": "Mai 2019",
@@ -60,11 +60,11 @@
                     "cy": "122"
                 }
             ]
-        },
-        "teaser": "Eigentlich wollte ich ich quer durch Polen nach Belarus fahren. Dass ich für den Grenzübergang per Land ein Visum benötigen würde, ahnte ich jedoch nicht. Also änderte ich meinen Plan und zog von Posen, über Breslau und Krakau, in Richtung Ukraine. Von Kiew ist es mit dem Flieger nur einen Katzensprung nach Minsk und ich konnte visafrei einreisen."
+        }
     }, {
         "id": "ukraine",
         "title": "Ukraine",
+        "teaser": "Mit einer Mitfahrgelegenheit fuhr ich von Krakau nach Lwiw. Mein Fahrer war Student aus der Ukraine und fuhr mit einem alten Auto, welches er für 500€ in der Ukraine geschossen hatte und nun als Uber-Fahrzeug nutzt, nach Hause, um seine Freundin mit einem Heiratsantrag zu überraschen. Mit dieser netten Geschichte kam ich in Lwiw an, einer Stadt, in die man sich auch schnell verlieben kann. Es folgten noch vier Nächte in Kiew, bevor es nach Belarus gehen sollte.",
         "date": {
             "title": "Mai 2019",
             "from": "18.5.2019",
@@ -91,11 +91,11 @@
                     "cy": "120"
                 }
             ]
-        },
-        "teaser": "Von Krakau reiste ich mit einer Mitfahrgelegenheit nach Kiew. Viele Ukrainische Studenten arbeiten nebenbei in Polen, habe ich erfahren. Ich verliebte mich in Lwiw und bekam einen ersten Eindruck von Kiew. Ich komme noch einmal zurück."
+        }
     }, {
         "id": "belarus",
         "title": "Belarus",
+        "teaser": "Nur etwa eine Stunde dauert es mit dem Flieger von Kiew nach Minsk. Die Hauptstadt war mit ihren breiten Straßen und makellosen Bauten der Sowjetmoderne der erste starke Kontrast auf meiner Reise. In Grodno, Brest und Witzebsk bekam ich einige sowjetische Denkmäler und Gebäude im brutalistischem Stil zu sehen. Zwischen den größeren Städten lies es sich sehr bequem im Nachtzug reisen.",
         "date": {
             "title": "Juni 2019",
             "from": "28.5.2019",
@@ -134,6 +134,7 @@
     }, {
         "id": "litauen",
         "title": "Litauen",
+        "teaser": "Weil ich auch über Minsk wieder ausreisen musste, suchte ich mir Vilnius als nächstes Ziel aus. Nach nur 30 Minuten landete ich wieder in der EU. Der Tapetenwechsel war merkbar, denn Vilnius ist eine viel lebendigere Stadt als die vorherigen in Belarus und auch die allgemeine Stimmung war trotz baltischer Kälte wieder besser. Ich besuchte den geografischen Mittelpunkt Europas und eine Gedenkstätte in Kaunas.",
         "date": {
             "title": "Juni 2019",
             "from": "11.6.2019",
@@ -164,7 +165,8 @@
     }, {
         "id": "polen2",
         "title": "Polen",
-        "cover": "polen.webp",
+        "teaser": "Von Vilnius nahm ich den Zug nach Bialsystok, dem Geburtsort von Ludwik Lejzer Zamenhof. Er war der Autor der Plansprache „Esperanto” und wollte mit dieser für mehr Völkerverständigung sorgen. Das Street-Art-Bild auf dem Foto ist noch in polnisch und fordert auf, mal wieder eine Postkarte an Oma zu schreiben. Weil ich schon einmal in Warschau war, fuhr ich über Lodz bis nach Danzig – meiner neuen Lieblingsstadt in Polen.",
+        "cover": "polen2.webp",
         "date": {
             "title": "Juni 2019",
             "from": "17.06.2019",
@@ -194,17 +196,17 @@
                     "cy": "40"
                 }
             ]
-        },
-        "teaser": "…."
+        }
     }, {
         "id": "deutschland",
         "title": "Deutschland",
+        "teaser": "Von Danzig aus fuhr ich mit dem Zug nach Neustrelitz, um mich zum Fusion-Festival zu treffen. Es folgte ein längerer Aufenthalt zurück in Köln, bevor ich noch einmal in die Heimat nach Gera und zu Freunden nach Leipzig fuhr. Von dort ging es weiter nach Prag.",
         "date": {
             "title": "Juni&thinsp;/&thinsp;Juli 2019",
             "from": "26.06.19",
             "to": "20.07.19"
         },
-        "cover": "tschechien.webp",
+        "cover": "deutschland.webp",
         "stats": {
             "days": "24",
             "distance": "1315",
@@ -233,11 +235,11 @@
                     "cy": "137"
                 }
             ]
-        },
-        "teaser": "…."
+        }
     }, {
         "id": "tschechien",
         "title": "Tschechien",
+        "teaser": "Mit dem Bus fuhr ich in vier Stunden von Leipzig nach Prag. Hier besuchte ich alle tollen Parks und Cafès wieder, die ich bei meinem ersten Besuch vor einigen Jahren schon entdeckt hatte. Ich trank Mineralwasser aus den vielen Quellen in Karlsbad und entspannte vier Tage in Krumau an der Moldau, einer historischen Kleinstadt umgeben von grünen Hügeln, mit kleinen Altstadtgassen und einer großen Schlossanlage.",
         "date": {
             "title": "Juli 2019",
             "from": "20.07.19",
@@ -268,17 +270,17 @@
                     "cy": "227"
                 }
             ]
-        },
-        "teaser": "…."
+        }
     }, {
         "id": "slowakei",
         "title": "Slowakei",
+        "teaser": "Mit dem Bus fuhr ich von Krumau über Wien nach Bratislava. Im Gegensatz zu Prag war mein zweiter Besuch in Bratislava nicht mehr so interessant wie der Erste. Neue Eindrücke bekam ich dafür in Trencin und in Kosice. Die Reise mit dem Zug durch die Slowakei führte durch die Täler des Tatra-Gebirges und war eine Sehenswürdigkeit für sich.",
         "date": {
             "title": "August 2019",
             "from": "2.8.2019",
             "to": "8.8.2019"
         },
-        "cover": "litauen.jpg",
+        "cover": "slowakei.webp",
         "stats": {
             "days": "6",
             "distance": "450",
@@ -307,12 +309,13 @@
     }, {
         "id": "ungarn",
         "title": "Ungarn",
+        "teaser": "Mit langsamen Zügen fuhr ich von Kosice weiter nach Debrecen, einer Universitäts-Stadt in Ungarn. Ich hatte für dieses Land nicht viel Zeit eingeplant und so blieb es bei einer schnellen Durchreise. Neben einem Vogel-Naturschutzgebiet besuchte ich außerdem die Stadt Szeget, wo ich zum ersten Mal Courchsurfer war. Szeget hat mich in seiner flachen Bauweise und den alleeartigen Straßen sehr beeindruckt.",
         "date": {
             "title": "August 2019",
             "from": "8.8.2019",
             "to": "12.8.2019"
         },
-        "cover": "litauen.jpg",
+        "cover": "ungarn.webp",
         "stats": {
             "days": "4",
             "distance": "266",
@@ -337,12 +340,13 @@
     }, {
         "id": "rumaenien",
         "title": "Rumänien",
+        "teaser": "Weil es trotz der geringen Entfernung von Szeget nach Novi Sad in Serbien keine gute Verbindung gab, fuhr ich nach Timisoara. Am flexibelsten und schnellsten kommt man in Rumänien mit einer Mitfahrgelegenheit vorran. Beim Sicherheitsgefühl musste ich dabei aber leider Abstriche machen, denn die Fahrstile waren doch sehr speziell. Über Sibiu und Brasov fuhr ich so bis nach Bukarest.",
         "date": {
             "title": "August 2019",
             "from": "12.8.2019",
             "to": "22.8.2019"
         },
-        "cover": "litauen.jpg",
+        "cover": "rumaenien.webp",
         "stats": {
             "days": "10",
             "distance": "595",
@@ -375,12 +379,13 @@
     }, {
         "id": "bulgarien",
         "title": "Bulgarien",
+        "teaser": "Mit dem Bus fuhr ich von Bukarest nach Sofia. An den alten osmanischen Bauwerken in Bulgarien konnte ich mich kaum satt sehen und durch die großartige Kaffeekultur gab es auch überall ausreichend Plätze zum verweilen und beobachten. Über Plovdiv, einer Stadt voller Streetart, fuhr ich bis ans Meer nach Burgas, dort wo zu der Zeit Pauschalurlauber ihre Plautze in die Sonne hielten. Auf dem Rückweg hielt ich in szenischen Orten wie Weliko Tarnovo und Kropiwschiza.",
         "date": {
             "title": "August&thinsp;/&thinsp;September 2019",
             "from": "22.8.2019",
             "to": "6.9.2019"
         },
-        "cover": "litauen.jpg",
+        "cover": "bulgarien.webp",
         "stats": {
             "days": "15",
             "distance": "950",
@@ -417,12 +422,13 @@
     }, {
         "id": "serbien",
         "title": "Serbien",
+        "teaser": "Mit dem Zug fuhr ich mit durchschnittlich 40 km/h von Sofia nach Nis. Leider erwischte mich eine Erkältung, weshalb ich hier ein paar Tage im Bett verbrachte. Nach vier Tagen fuhr ich weiter nach Novi Sad und drei Tage später wieder ein Stück zurück nach Belgrad. Die Hauptstadt war ein kleines Highlight für mich. Mit ihren vielen Cafès, Märkten und Kneipen war es einfach, ein paar schöne Tage dort zu verbringen.",
         "date": {
             "title": "September 2019",
             "from": "6.09.19",
             "to": "15.09.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "serbien.webp",
         "stats": {
             "days": "9",
             "distance": "400",
@@ -451,12 +457,13 @@
     }, {
         "id": "nordmazedonien",
         "title": "Nordmazedonien",
+        "teaser": "Als kleine Unterbrechung der langen Fahrt von Belgrad nach Albanien, blieb ich eine Nacht in Skopje. Hier war ich schon einmal und konnte deswegen gleich an meine Lieblingsorte zurückkehren. Wegen knapper Zeitplanung lies ich auch auch dieses Mal wieder Ohrid, eine Kleinstadt am Ohridsee, aus. Beim nächsten Mal dann!",
         "date": {
             "title": "September 2019",
             "from": "15.09.19",
             "to": "16.09.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "nordmazedonien.webp",
         "stats": {
             "days": "1",
             "distance": "0",
@@ -477,12 +484,13 @@
     }, {
         "id": "albanien",
         "title": "Albanien",
+        "teaser": "Von Skopje aus nahm ich den Bus nach Tirana. Weil ich Tirana bereits auf meiner letzten Balkanreise besucht habe, reiste ich bereits einen Tag später weiter nach Berat, ein Ort bekannt als Stadt der tausend Fenster. Über Gjirokaster, bekannt für seine Burg und Altstadt, fuhr ich mit dem Minibus weiter nach Saranda. Am Meer angekommen suchte ich mir später weiter nördlich den Ort Dhermi aus um eine kurze Woche am türkisblauen Wasser zu entspannen.",
         "date": {
             "title": "September 2019",
             "from": "16.09.19",
             "to": "29.09.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "albanien.webp",
         "stats": {
             "days": "13",
             "distance": "430",
@@ -519,12 +527,13 @@
     }, {
         "id": "griechenland",
         "title": "Griechenland",
+        "teaser": "Ich nahm den Bus von Seranda und fuhr nach Ioannina. Dort mietete ich mir einen Kleinwagen, um zwei Wochen entlang der Peloponnes Halbinsel zu fahren. Ich fuhr vorwiegend mautfrei durch Berge und Dörfer und suchte mir täglich spontan einen Campingplatz zum Übernachten. Ich besuchte alte Tempel, raue Buchten und Strände mit klasklarem Wasser. Außerdem auch die tiefste Schlucht der Welt – die Vikos-Schlucht.",
         "date": {
             "title": "September&thinsp;/&thinsp;Oktober 2019",
             "from": "29.09.19",
             "to": "15.10.19"
         },
-        "cover": "griechenland.jpg",
+        "cover": "griechenland.webp",
         "stats": {
             "days": "16",
             "distance": "2424",
@@ -593,12 +602,13 @@
     }, {
         "id": "georgien",
         "title": "Georgien",
+        "teaser": "Von Thessaloniki aus flog ich auf kurzem Wege nach Kutaisi. Dort traf ich mich später mit meiner Freundin, um Georgien und Armenien mit ihr gemeinsam zu entdecken. In Georgien ist es beinahe egal, welchen Wein man aus dem Regal nimmt – Sie sind weltklasse. Mit dem Minibus fuhren wir nach Bordschomi, ein Ort bekannt für sein Quellwasser, bevor wir weiter mit dem Zug in die Hauptstadt Tiflis fuhren.",
         "date": {
             "title": "Oktober 2019",
             "from": "15.10.19",
             "to": "27.10.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "georgien.webp",
         "stats": {
             "days": "13",
             "distance": "479",
@@ -631,13 +641,14 @@
     }, {
         "id": "armenien",
         "title": "Armenien",
+        "teaser": "Von Tiflis aus nahmen wir wieder einen Minibus und fuhren auf einen 5-tägigen Ausflug nach Yerewan. Von dort aus unternahmen wir einige Tagesausflüge, bevor wir auf selbem Wege zurück nach Georgien fuhren.",
         "date": {
             "from": "27.10.19",
             "to": "1.11.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "armenien.webp",
         "stats": {
-            "days": "4",
+            "days": "5",
             "distance": "0",
             "cities": "1",
             "transportHours": "0"
@@ -656,12 +667,13 @@
     }, {
         "id": "georgien2",
         "title": "Georgien",
+        "teaser": "Zurück in Tiflis besuchten wir noch ein Schwefelbad und zogen für drei Nächte weiter in die Weinregion nach Signaghi, eine Kleinstadt am Rande des Kaukasus mit brillianter Aussicht. Nachdem ich meine Freundin zurück nach Kutaisi brachte, stieg ich ein paar Tage später in Tiflis in den Nachtzug nach Baku in Aserbaidschan.",
         "date": {
             "title": "November 2019",
             "from": "1.11.19",
             "to": "14.11.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "georgien2.webp",
         "stats": {
             "days": "13",
             "distance": "678",
@@ -690,11 +702,12 @@
     }, {
         "id": "aserbaidschan",
         "title": "Aserbaidschan",
+        "teaser": "Nach der 12-stündigen Zugfahrt von Tiflis kam ich am Morgen in Baku an. Die Hauptstadt protzt nahezu mit ihren makelosen Fassaden. Baku ist Kepab-Heaven und so wurde dies zu meinem Hauptgericht in allen möglichen Formen. Ich besuchte die Kleinstadt Sheki und unternahm einen Tagesauflug auf's Land. Die zehn Zentimeter Neuschnee sagten mir, dass ich bald weiter Richtung Osten sollte und so fuhr ich wenige Tage später von Baku zurück nach Tiflis, um meinen Weiterflug anzutreten.",
         "date": {
             "from": "15.11.19",
             "to": "26.11.19"
         },
-        "cover": "litauen.jpg",
+        "cover": "aserbaidschan.webp",
         "stats": {
             "days": "11",
             "distance": "650",
@@ -716,41 +729,43 @@
                 }
             ]
         }
-        }, {
-            "id": "georgien3",
-            "title": "Georgien",
-            "date": {
-                "title": "November 2019",
-                "from": "27.11.19",
-                "to": "30.11.19"
-            },
-            "cover": "litauen.jpg",
-            "stats": {
-                "days": "3",
-                "distance": "0",
-                "cities": "1",
-                "transportHours": "0"
-            },
-            "map": {
-                "border": "217.459459 116.351351 140.432432 86.5675676 61.3513514 76.2972973 15.1351351 65 10 72.1891892 32.5945946 91.7027027 63.4054054 98.8918919 98.3243243 122.513514 119.891892 165.648649 116.810811 193.378378 172.27027 190.297297 229.783784 221.108108 300.648649 210.837838 311.945946 200.567568 355.081081 219.054054 383.837838 223.162162 390 215.972973 357.135135 181.054054 368.432432 171.810811 332.486486 157.432432 310.918919 131.756757 258.540541 118.405405 228.756757 128.675676",
-                "route": "358 232 288 182 400 221",
-                "locations": [
-                    {
-                        "title": "Tiflis",
-                        "cx": "288",
-                        "cy": "182"
-                    }
-                ]
-            }
-        }, {
+    }, {
+        "id": "georgien3",
+        "title": "Georgien",
+        "teaser": "Mit dem Nachtzug zurück aus Baku, blieb ich noch drei Tage in Tiflis und erkundete weitere Ecken der Stadt, die ich vorher noch nicht gesehen hatte. Eigentlich wollte ich von Aserbaidschan weiter in den Iran, aber wegen neu aufkommender Proteste, durch die es später auch einen mehrtägigen Shutdown des Internets vor Ort geben sollte, änderte ich mein Reiseziel erneut – ich flog nach Indien.",
+        "date": {
+            "title": "November 2019",
+            "from": "27.11.19",
+            "to": "30.11.19"
+        },
+        "cover": "georgien3.webp",
+        "stats": {
+            "days": "3",
+            "distance": "0",
+            "cities": "1",
+            "transportHours": "0"
+        },
+        "map": {
+            "border": "217.459459 116.351351 140.432432 86.5675676 61.3513514 76.2972973 15.1351351 65 10 72.1891892 32.5945946 91.7027027 63.4054054 98.8918919 98.3243243 122.513514 119.891892 165.648649 116.810811 193.378378 172.27027 190.297297 229.783784 221.108108 300.648649 210.837838 311.945946 200.567568 355.081081 219.054054 383.837838 223.162162 390 215.972973 357.135135 181.054054 368.432432 171.810811 332.486486 157.432432 310.918919 131.756757 258.540541 118.405405 228.756757 128.675676",
+            "route": "358 232 288 182 400 221",
+            "locations": [
+                {
+                    "title": "Tiflis",
+                    "cx": "288",
+                    "cy": "182"
+                }
+            ]
+        }
+    }, {
         "id": "indien",
         "title": "Indien",
+        "teaser": "Von Tiflis flog ich über Almaty nach Neu Delhi. Auf die zahlreichen Scams hatte ich mich vorbereitet und so viel es mir nicht sonderlich schwer, mich zurechtzufinden. Ich besuchte Jaipur, den Taj Mahal und Varanassi. Den einen oder anderen Kulturschock gab es frei Haus. Weil die Züge regelmäßig ausgebucht sind, flog ich in den Süden, um Berge, Teeplantagen und Strände zu besuchen sowie die Club-Szene in Bangalore kennenzulernen. Indien hat erstaunlich viel zu bieten!",
         "date": {
             "title": "Dezember 2019",
             "from": "31.11.19",
             "to": "29.12.19"
         },
-        "cover": "indien.jpg",
+        "cover": "indien.webp",
         "stats": {
             "days": "29",
             "distance": "4061",
@@ -803,12 +818,13 @@
     }, {
         "id": "thailand",
         "title": "Thailand",
+        "teaser": "Am letzten Tag meines 30-tägigen Visums flog ich von Chennai nach Bangkok und verbrachte dort die Tage um Silvester. Ich besuchte Lopburi, die Stadt der Affen, sah prunkvolle Tempel und fuhr über Phitsanulok in den Norden nach Chiang Mai. Weil ich mich schon sehr zeitnah mit meiner Freundin in Kambodscha treffen wollte, entschied ich mich, über Phrae zurück nach Bangkok zu fahren und von dort aus zu fliegen.",
         "date": {
             "title": "Dezember&thinsp;/&thinsp;Januar 2019",
             "from": "30.12.19",
             "to": "20.01.20"
         },
-        "cover": "indien.jpg",
+        "cover": "thailand.webp",
         "stats": {
             "days": "21",
             "distance": "1522",
@@ -845,12 +861,13 @@
     }, {
         "id": "kambodscha",
         "title": "Kambodscha",
+        "teaser": "Von Bangkok nahm ich einen kurzen Flug nach Phnom Penh. Am nächsten Tag kam meine Freundin an und wir starteten unsere 3-wöchige Rundreise. Wir aßen Krabben in Kep, fuhren mit dem Boot auf den Flußarmen des Preaek Thom River in Kampot und hatten sonnige Strandtage auf der Insel Koh Rong Samolem. Außerdem sahen wir tausende von Fledermäußen in Battambang und ließen natürlich auch Ankor Wat nicht aus. Zum Abschluss konnten wir noch Fluss-Delfine in Kratie beobachten.",
         "date": {
             "title": "Januar 2019&thinsp;/&thinsp;Februar 2020",
             "from": "20.01.20",
             "to": "12.02.20"
         },
-        "cover": "indien.jpg",
+        "cover": "kambodscha.webp",
         "stats": {
             "days": "23",
             "distance": "1703",
@@ -895,12 +912,13 @@
     }, {
         "id": "vietnam",
         "title": "Vietnam",
+        "teaser": "Mit dem Bus ging es nach Verabschiedung meiner Freundin von Phnom Penh nach Ho-Chi-Minh Stadt. Von Vietnam aus sind die Flugtickets nach Taiwan günstiger und ich konnte bis zu 14 Tage visafrei bleiben. Ich blieb die ganze Zeit im Mekong-Delta um Ben Tre und Can Tho und bekam das erste Mal einen Flug storniert. Weil auch die nachfolgenden Flüge wild verschoben wurden, flog ich ein paar Tage früher als geplant.",
         "date": {
             "title": "Februar 2020",
             "from": "12.02.20",
             "to": "23.02.20"
         },
-        "cover": "indien.jpg",
+        "cover": "vietnam.webp",
         "stats": {
             "days": "11",
             "distance": "375",
@@ -929,12 +947,13 @@
     }, {
         "id": "taiwan",
         "title": "Taiwan",
+        "teaser": "Nach einem 4-stündigen Flug von Ho-Chi-Minh kam ich in abends Taipeh an. In drei Wochen plante ich einmal um die Insel zu fahren. So besuchte ich die lebendige Stadt Taichung, die Natur rund um Puli und dem Sun Moon Lake, Tainan und Kaohsiung, bis ich am südlichsten Ende in Kenting ankam. Dort fuhr ich zum ersten mal E-Scooter, yey! Auf dem Rückweg machte ich Stopp in Taitung und Hualien, bevor ich wieder in Taipeh ankam.",
         "date": {
             "title": "Februar&thinsp;/&thinsp;März 2020",
             "from": "23.02.20",
             "to": "16.03.20"
         },
-        "cover": "taiwan.jpg",
+        "cover": "taiwan.webp",
         "stats": {
             "days": "22",
             "distance": "1143",
@@ -983,11 +1002,13 @@
     }, {
         "id": "japan",
         "title": "Japan",
+        "teaser": "Nachdem mir aufgrund von Corona mehrmals abgeraten wurde, nach Japan zu fliegen, flog ich trotzdem und musste es schnell bereuhen. Aufgrund der weltweiten Reisewarnung des Auswärtigen Amtes – einen Tag nach meiner Ankunft – erlischte meine Auslandskrankenversicherung und ich musste mich um einen Rückflug nach Deutschland kümmern. Ich schaffte es noch ein bisschen von Osaka zu sehen, die Kirschblüten in Kyoto zu erahnen und den Schinkansen Zug nach Tokio zu fahren.",
         "date": {
+            "title": "März 2020",
             "from": "16.03.20",
             "to": "23.03.20"
         },
-        "cover": "litauen.jpg",
+        "cover": "japan.webp",
         "stats": {
             "days": "7",
             "distance": "580",
