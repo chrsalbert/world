@@ -153,7 +153,6 @@
     .grid__date {
         position: relative;
         grid-area: 1 / 1 / 2 / 3;
-        padding-left: var(--space-md)
     }
 
     .date {
