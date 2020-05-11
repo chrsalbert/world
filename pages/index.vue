@@ -4,8 +4,9 @@
             <span class="date">Mai 2019 – März 2020</span>
         </div>
         <div class="grid__video">
-            <video class="video u-fluid" autoplay muted loop playsinline>
+            <video id="video" class="video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
                 <source src="/hero.mp4" type="video/mp4">
+                <img src="/images/video-fallback.webp" />
             </video>
         </div>
         <div class="grid__main">
@@ -62,6 +63,12 @@
                     }
                 ]
             }
+        },
+        mounted() {
+            const video = document.getElementById("video")
+            video.onloadeddata = function() {
+                video.classList.add('video--loaded');
+            }
         }
     }
 </script>
@@ -98,8 +105,16 @@
     }
 
     .video {
+        width: 100%;
         box-shadow: var(--shadow-lg);
-        border-radius: var(--space-sm)
+        border-radius: var(--space-sm);
+        background: #1B263D;
+        object-fit: none;
+        transition: all 3s linear
+    }
+
+    .video--loaded {
+        object-fit: fill;
     }
 
     .grid__main { 
