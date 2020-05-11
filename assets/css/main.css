@@ -34,7 +34,7 @@ a {
 }
 
 a:hover {
-    color: blue
+    color: #00BFE0
 }
 
 button {
@@ -53,18 +53,3 @@ strong {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
-
-
-
-
-/* .page-enter .u-map #border,
-.page-enter-active .u-map #border { transition: all 3s ease-in-out .1s; }
-.page-enter-active .u-map #border,
-.page-enter-to .u-map #border { --dashoffset: 0 } */
-
-/* 
-.page-enter .u-map polygon,
-.page-enter .u-map path { stroke-dasharray: 100 }
-.page-enter-to .u-map polygon,
-.page-enter-to .u-map path { stroke-dasharray: 0; } */
-

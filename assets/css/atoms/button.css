@@ -20,7 +20,7 @@
 }
 
 .a-button g {
-    fill: #fff
+    fill: var(--color-secondary)
 }
 
 .a-button span svg {
@@ -36,7 +36,7 @@
 }
 
 .a-button:hover {
-    color: var(--color-secondary)
+    background: #00BFE0
 }
 
 .a-button:hover span {
@@ -44,24 +44,18 @@
     border-bottom: 2px solid currentColor;
 }
 
-.a-button--secondary {
-    background: none;
-    color: black;
-    border-color: #ccc
-}
-
-.a-button--secondary:hover {
-    border-color: black
-}
-
 .a-button--transparent {
     background: none;
-    color: black;
+    color: #fff;
     border-color: transparent
 }
 
 .a-button--transparent g {
     fill: #fff
+}
+
+.a-button--transparent:hover {
+    background: rgba(255,255,255,.1)
 }
 
 .a-button--icon {
