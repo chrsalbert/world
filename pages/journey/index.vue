@@ -65,13 +65,17 @@
             countryIndex() {
                 return Countries.findIndex(obj => obj.id == this.country.id)
             },
+            prevCountryIndex() {
+                return this.countryIndex === 0 ? Countries.length - 1 : this.countryIndex - 1
+            },
+            nextCountryIndex() {
+                return this.countryIndex === (Countries.length - 1) ? 0 : this.countryIndex + 1
+            },
             prevCountryUrl() {
-                const index = this.countryIndex === 0 ? Countries.length - 1 : this.countryIndex - 1
-                return `/journey/${Countries[index].id}`
+                return `/journey/${Countries[this.prevCountryIndex].id}`
             },
             nextCountryUrl() {
-                const index = this.countryIndex === (Countries.length - 1) ? 0 : this.countryIndex + 1
-                return `/journey/${Countries[index].id}`
+                return `/journey/${Countries[this.nextCountryIndex].id}`
             },
             progress() {
                 return Math.round((100/Countries.length) * (this.countryIndex + 1))
@@ -103,17 +107,22 @@
             }
         },
         methods: {
-            preloadNextPhoto() {
-                // const url = Countries[this.countryIndex + 1].cover
-                // let img = new Image();
-                // img.src = this.getImageUrl(`cover/${url}?w=1000&h=800&quality=80&f=auto`);
+            preloadPhotos() {
+                let images = [
+                    Countries[this.nextCountryIndex].cover,
+                    Countries[this.prevCountryIndex].cover
+                ]
+                images.forEach((image) => {
+                    let img = new Image()
+                    img.src = `${process.env.imageUrl}/cover/${image}`
+                })
             },
             formatNumber(num) {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
             }
         },
         mounted() {
-            this.preloadNextPhoto()
+            this.preloadPhotos()
 
             window.addEventListener('keydown', e => {
                 switch (e.keyCode) {
@@ -125,6 +134,9 @@
                         break;
                 }
             })
+        },
+        updated() {
+            this.preloadPhotos()
         }
     }
 </script>
