@@ -2,7 +2,7 @@
     <div class="grid">
         <div class="grid__date">
             <transition name="date">
-                <span class="date" v-html="country.date.title" :key="country.date.title"></span>
+                <span class="date" v-html="formateDate(country.date.from, country.date.to)" :key="country.date.from"></span>
             </transition>
         </div>
         <div class="grid__cover">      
@@ -119,6 +119,24 @@
             },
             formatNumber(num) {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+            },
+            formateDate(from, to) {
+                const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+                const dates = [from, to]
+                const newDates = []
+                dates.forEach((date) => {
+                    var date = date.split('.')
+                    const dateEN = `${date[1]}/${date[0]}/${date[2]}`
+                    const month = months[new Date(dateEN).getMonth()]
+                    const newDate = `${month} ${date[2]}`
+                    newDates.push(newDate)
+                })
+                var newDate = newDates[0]
+                if(newDates[0] != newDates[1]) {
+                    newDate = newDate.concat('&thinsp;/&thinsp;')
+                    newDate = newDate.concat(newDates[1])
+                }
+                return newDate
             }
         },
         mounted() {
