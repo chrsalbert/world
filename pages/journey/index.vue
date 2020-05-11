@@ -158,6 +158,8 @@
 
     .date {
         position: absolute;
+        top: 0;
+        left: var(--space-md);
         text-transform: uppercase;
         writing-mode: vertical-lr;
         transform: rotate(180deg);
