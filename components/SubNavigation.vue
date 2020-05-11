@@ -10,7 +10,7 @@
                 </ol>
             </div>
             <div>
-                <nuxt-link to="/impressum">Impressum</nuxt-link>
+                <nuxt-link to="/ueber-diese-seite">Über diese Seite</nuxt-link> – <nuxt-link to="/impressum">Impressum</nuxt-link>
             </div>
         </div>
     </div>
