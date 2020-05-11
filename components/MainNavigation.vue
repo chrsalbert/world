@@ -5,7 +5,9 @@
             <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconMenu" v-if="!isSubNavVisible"></button>
             <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconCross" v-if="isSubNavVisible"></button>
         </nav>
-        <SubNavigation v-show="isSubNavVisible" />
+        <transition name="fade">
+            <SubNavigation v-show="isSubNavVisible" />
+        </transition>
     </div>
 </template>
 <script>
@@ -103,5 +105,9 @@
         display: flex;
         align-items: center;
         margin-left: -.25rem
+    }
+
+    nav > * {
+        margin-right: var(--space-xs)
     }
 </style>
