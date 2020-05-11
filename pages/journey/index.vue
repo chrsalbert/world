@@ -86,7 +86,7 @@
                 return index < 10 ?  `0${index}` : index
             },
             coverURL() {
-                return `${process.env.imageUrl}/cover/${this.country.cover}`
+                return `${process.env.imageUrl}/cover/${this.country.cover}?quality=80&f=auto`
             },
             facts() {
                 return  [
@@ -114,7 +114,7 @@
                 ]
                 images.forEach((image) => {
                     let img = new Image()
-                    img.src = `${process.env.imageUrl}/cover/${image}`
+                    img.src = `${process.env.imageUrl}/cover/${image}?quality=80&f=auto`
                 })
             },
             formatNumber(num) {
