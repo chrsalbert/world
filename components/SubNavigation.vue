@@ -1,12 +1,17 @@
 <template>
     <div class="subnavigation">
         <div class="body">
-            <h2 class="a-sectionH2">Alle Stopps</h2>
-            <ol class="nav" role="navigation">
-                <li v-for="(country, index) in countries" :key="index">
-                    <nuxt-link class="a-sectionH2" :to="`/journey/${ country.id }`">{{ country.title }}</nuxt-link>
-                </li>
-            </ol>
+            <div>
+                <h2 class="a-sectionH2">Alle Stopps</h2>
+                <ol class="nav" role="navigation">
+                    <li v-for="(country, index) in countries" :key="index">
+                        <nuxt-link class="a-sectionH2" :to="`/journey/${ country.id }`">{{ country.title }}</nuxt-link>
+                    </li>
+                </ol>
+            </div>
+            <div>
+                <nuxt-link to="/impressum">Impressum</nuxt-link>
+            </div>
         </div>
     </div>
 </template>
@@ -33,7 +38,6 @@
         right: 0;
         left: 0;
         background: var(--color-secondary);
-        padding: 0 var(--body-pad);
         height: calc(100vh - 80px);
         overflow-y: scroll;
     }
@@ -49,6 +53,11 @@
     }
 
     .body {
-        max-width: var(--body-width)
+        max-width: var(--body-width);
+        padding: 0 var(--body-pad) var(--space-xl);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 </style>
