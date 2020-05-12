@@ -4,7 +4,9 @@
             <MainNavigation />
         </div>
         <div class="grid__body">
-            <nuxt/>
+            <div class="body">
+                <nuxt/>
+            </div>
         </div>
     </div>
 </template>
@@ -35,7 +37,17 @@ export default {
         height: 100%;
     }
 
-    .grid__body > * {
-        height: 100%
+    .grid__body {
+        display: flex;
+        align-items: center;
+    }
+
+    .body {
+        height: 100%;
+        max-height: 48rem;
+    }
+
+    .body > * {
+        height: 100%;
     }
 </style>

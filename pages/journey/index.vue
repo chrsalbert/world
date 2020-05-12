@@ -301,6 +301,8 @@
     .title-enter-to::before { transform: translateX(0);opacity: .1 }
 
     .facts {
+        width: 100%;
+        max-width: 22rem;
         margin-bottom: var(--space-lg)
     }
 

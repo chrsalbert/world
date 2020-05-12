@@ -118,7 +118,7 @@
     }
 
     .grid__main { 
-        grid-area: 2 / 2 / 4 / 7;
+        grid-area: 2 / 2 / 4 / 6;
         position: relative;
         z-index: 1;
         display: flex;
@@ -127,7 +127,7 @@
     }
 
     .grid__facts { 
-        grid-area: 3 / 6 / 4 / 13;
+        grid-area: 3 / 7 / 4 / 11;
         position: relative;
         z-index: 2;
         display: flex;
