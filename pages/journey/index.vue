@@ -2,7 +2,7 @@
     <div class="grid">
         <div class="grid__date">
             <transition name="date">
-                <span class="date" v-html="formateDate(country.date.from, country.date.to)" :key="country.date.from"></span>
+                <span class="date" v-html="date" :key="country.date.from"></span>
             </transition>
         </div>
         <div class="grid__cover">      
@@ -45,6 +45,14 @@
     import iconArrowRight from "~/assets/images/icons/arrow-right.svg?raw";
 
     export default {
+        head () {
+            return {
+                title: `${this.country.title} ${this.formateDate(this.country.date.from, this.country.date.to, '/')} – ON A JOURNEY`,
+                meta: [
+                    { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
+                ]
+            }
+        },
         transition: {
             duration: '600'
         },
@@ -59,6 +67,9 @@
             }
         },
         computed: {
+            date() {
+                return this.formateDate(this.country.date.from, this.country.date.to)
+            },
             country() {
                 return Countries.find(obj => obj.id == this.$store.state.journey.id)
             },
@@ -120,7 +131,7 @@
             formatNumber(num) {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
             },
-            formateDate(from, to) {
+            formateDate(from, to, dash = '&thinsp;/&thinsp;') {
                 const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
                 const dates = [from, to]
                 const newDates = []
@@ -133,7 +144,7 @@
                 })
                 var newDate = newDates[0]
                 if(newDates[0] != newDates[1]) {
-                    newDate = newDate.concat('&thinsp;/&thinsp;')
+                    newDate = newDate.concat(dash)
                     newDate = newDate.concat(newDates[1])
                 }
                 return newDate

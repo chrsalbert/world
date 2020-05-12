@@ -33,6 +33,12 @@
     import MainNavigation from '~/components/MainNavigation';
 
     export default {
+        head: {
+            title: 'ON A JOURNEY – Reisedokumentation & Lern-Projekt',
+            meta: [
+                { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
+            ]
+        },
         data () {
             return {
                 worldmap: WorldMap
@@ -119,7 +125,7 @@
     }
 
     .grid__main { 
-        grid-area: 2 / 2 / 4 / 6;
+        grid-area: 2 / 2 / 4 / 7;
         position: relative;
         z-index: 2;
         display: flex;
@@ -128,7 +134,7 @@
     }
 
     .grid__facts { 
-        grid-area: 3 / 7 / 4 / 11;
+        grid-area: 3 / 8 / 4 / 12;
         position: relative;
         z-index: 2;
         display: flex;
@@ -160,10 +166,6 @@
     }
 
     @media only screen and (max-width: 1280px) {
-        .grid__main {
-            grid-area: 2 / 1 / 4 / 7
-        }
-        
         .grid__facts {
             grid-area: 3 / 8 / 4 / 13
         }

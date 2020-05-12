@@ -26,8 +26,9 @@ export default {
 </script>
 <style scoped>
     .layout {
+        box-sizing: content-box;
         display: grid;
-        grid-template-rows: 80px minmax(0, 1fr);
+        grid-template-rows: var(--header-height) minmax(0, 1fr);
         grid-template-columns: 1fr;
         height: 100vh;
         max-width: var(--body-width);
@@ -62,7 +63,7 @@ export default {
 
     @media only screen and (max-width: 600px) {
         .layout {
-            grid-template-rows: 48px minmax(0, 1fr);
+            grid-template-rows: minmax(0, var(--header-height)) minmax(0, 1fr);
         }
     }
 </style>

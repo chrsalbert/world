@@ -94,7 +94,7 @@
 <style scoped>
     .container {
         position: relative;
-        z-index: 10000;
+        z-index: 2000;
         height: inherit;
         display: flex;
         align-items: center;
@@ -102,12 +102,23 @@
     }
 
     nav {
+        position: relative;
+        z-index: 1001;
         display: flex;
         align-items: center;
-        margin-left: -.25rem
+        margin-left: -.25rem;
+        background: var(--color-secondary);
+        width: 100%;
+        height: 100%;
     }
 
     nav > * {
         margin-right: var(--space-xs)
+    }
+
+    @media only screen and (max-width: 600px) {
+        .container {
+            padding: 0
+        }
     }
 </style>

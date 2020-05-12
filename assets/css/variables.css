@@ -41,12 +41,12 @@
     
     --header-bgColor: var(--color-secondary);
     --header-linkColor: #fff;
+    --header-height: 5rem;
     
     --body-bgColor: var(--color-secondary);
     --body-width: 1280px;
     --body-pad: var(--space-md);
 
-    --header-height: 7rem;
 
     --breakpoint: 1200px;
     --breakpoint-sm: 900px;
@@ -66,18 +66,9 @@
     --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);;
 }
 
-@media only screen and (max-width: 1200px) {
-    :root {
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    :root {
-    }
-}
-
 @media only screen and (max-width: 600px) {
     :root {
-        --font-size-global: 12px
+        --font-size-global: 12px;
+        --header-height: 4rem;
     }
 }
