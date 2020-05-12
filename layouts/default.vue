@@ -1,9 +1,9 @@
 <template>
-    <div class="grid">
-        <div class="grid__nav">
+    <div class="layout">
+        <div class="layout__nav">
             <MainNavigation />
         </div>
-        <div class="grid__body">
+        <div class="layout__body">
             <div class="body">
                 <nuxt/>
             </div>
@@ -25,19 +25,22 @@ export default {
 }
 </script>
 <style scoped>
-    .grid {
+    .layout {
         display: grid;
         grid-template-rows: 80px minmax(0, 1fr);
         grid-template-columns: 1fr;
         height: 100vh;
+        max-width: var(--body-width);
+        margin: 0 auto;
+        padding: 0 var(--body-pad)
     }
 
-    .grid__nav {
+    .layout__nav {
         grid-area: 1 / 1 / 2 / 2;
         height: 100%;
     }
 
-    .grid__body {
+    .layout__body {
         display: flex;
         align-items: center;
     }
@@ -49,5 +52,17 @@ export default {
 
     .body > * {
         height: 100%;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .layout {
+            height: auto
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .layout {
+            grid-template-rows: 48px minmax(0, 1fr);
+        }
     }
 </style>

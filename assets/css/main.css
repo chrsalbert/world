@@ -17,7 +17,6 @@ html,
 body {
     background: var(--body-bgColor);
     font-size: var(--font-size-global);
-    padding: 0 var(--body-pad)
 }
 
 body {

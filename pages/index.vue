@@ -75,7 +75,7 @@
 <style scoped>
     .grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
         grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 10rem 5rem;
         gap: 0px 16px;
     }
@@ -101,11 +101,12 @@
         position: relative;
         grid-area: 1 / 5 / 3 / 13;
         padding: 0 var(--space-md);
-        overflow: hidden
+        overflow: hidden;
+        display: flex;
     }
 
     .video {
-        width: 100%;
+        flex: 1;
         box-shadow: var(--shadow-lg);
         border-radius: var(--space-sm);
         background: #1B263D;
@@ -114,13 +115,13 @@
     }
 
     .video--loaded {
-        object-fit: fill;
+        object-fit: cover;
     }
 
     .grid__main { 
         grid-area: 2 / 2 / 4 / 6;
         position: relative;
-        z-index: 1;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -158,86 +159,81 @@
         z-index: 1;
     }
 
-
-    @media only screen and (max-width: 1100px) and (orientation: portrait) {
-        .grid {
-            grid-template-rows: 80px 1fr 1fr;
-        }
-
-        .grid__video {
-            grid-area: 2 / 1 / 3 / 13
-        }
-
-        .grid__map {
-            grid-area: 2 / 1 / 3 / 13;
-        }
-
+    @media only screen and (max-width: 1280px) {
         .grid__main {
-            grid-area: 3 / 3 / 4 / 11;
-            margin-top: calc(var(--space-2xl) * -1);
-            justify-content: flex-start;
+            grid-area: 2 / 1 / 4 / 7
+        }
+        
+        .grid__facts {
+            grid-area: 3 / 8 / 4 / 13
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .grid {
+            grid-template-rows: 8rem 10rem 10rem min-content min-content min-content
         }
 
         .grid__date {
-            grid-area: 3 / 1 / 4 / 2;
-            padding-top: var(--space-md)
+            grid-area: 2 / 1 / 4 / 2
+        }
+
+        .grid__main {
+            grid-area: 3 / 1 / 5 / 9
+        }
+
+        .grid__video {
+            grid-area: 1 / 4 / 4 / 13;
+            padding: 0
+        }
+
+        .grid__map {
+            grid-area: 1 / 1 / 3 / 13
         }
 
         .grid__facts {
-            grid-area: 4 / 1 / 5 / 13;
-            padding-top: var(--space-2xl)
+            grid-area: 5 / 1 / 6 / 13;
+            padding: var(--space-xl) 0
         }
     }
 
     @media only screen and (max-width: 600px) {
-        h1 {
-            font-size: var(--font-size-xl);
-            line-height: 1.25;
-        }
-
         .grid {
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: 56px min-content min-content min-content;
-            height: auto;
-            min-height: 100vh;
-            max-height: unset;
-            padding-bottom: var(--space-xl)
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-rows: 24vh min-content min-content
         }
 
-        .grid__nav {
-            grid-area: 1 / 1 / 2 / 7;
-            padding: 0;
+        .grid__date {
+            grid-area: 2 / 1 / 3 / 7;
+            text-align: center;
+            padding: var(--space-md);
+        }
+
+        .date {
+            writing-mode: unset;
+            transform: rotate(0deg);
         }
 
         .grid__video {
-            grid-area: 2 / 1 / 3 / 7;
-            padding: 0;
-        }
-
-        .grid__main {
-            grid-area: 3 / 1 / 4 / 7
-        }
-
-        .main {
-            box-shadow: none;
-            padding-top: var(--space-xl)
+            grid-area: 1 / 1 / 2 / 7
         }
 
         .grid__map {
-            display: none;
-            grid-area: 2 / 2 / 3 / 7
+            display: none
+        }
+
+        .grid__main {
+            grid-area: 3 / 1 / 4 / 7;
+        }
+
+        .main {
+            background: none;
+            box-shadow: none
         }
 
         .grid__facts {
             grid-area: 4 / 1 / 5 / 7;
-            padding-top: var(--space-xl)
-        }
-
-        .grid__date {
-            grid-area: 3 / 1 / 4 / 2;
-            z-index: 99;
-            padding: var(--space-md) 0 0;
-            opacity: .5;
+            padding: var(--space-xl) 0
         }
     }
 </style>
