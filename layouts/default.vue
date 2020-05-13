@@ -45,6 +45,7 @@ export default {
 
     .layout__body {
         display: flex;
+        justify-content: center;
         align-items: center;
     }
 

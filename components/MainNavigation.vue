@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <nav class="nav">
-            <nuxt-link to="/" class="a-button a-button--icon a-button--transparent" v-html="iconHome"></nuxt-link>
-            <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconMenu" v-if="!isSubNavVisible"></button>
-            <button v-on:click="toggleSubNav()" class="a-button a-button--icon a-button--transparent" v-html="iconCross" v-if="isSubNavVisible"></button>
+            <LinkButton href="/" type="transparent" icon="home"></LinkButton>
+            <ClickButton v-on:click.native="toggleSubNav()" type="transparent" icon="menu" v-if="!isSubNavVisible"></ClickButton>
+            <ClickButton v-on:click.native="toggleSubNav()" type="transparent" icon="cross" v-if="isSubNavVisible"></ClickButton>
         </nav>
         <transition name="fade">
             <SubNavigation v-show="isSubNavVisible" />
@@ -13,21 +13,19 @@
 <script>
     import { mapMutations } from 'vuex'
     import SubNavigation from '~/components/SubNavigation'
-    import iconHome from "~/assets/images/icons/home.svg?raw"
-    import iconMenu from "~/assets/images/icons/menu.svg?raw"
-    import iconCross from "~/assets/images/icons/cross.svg?raw"
+    import LinkButton from '~/components/LinkButton'
+    import ClickButton from '~/components/ClickButton'
 
     export default {
         data () {
             return {
-                iconMenu,
-                iconHome,
-                iconCross,
                 isFullscreen: false
             }
         },
         components: {
-            SubNavigation
+            SubNavigation,
+            LinkButton,
+            ClickButton
         },
         computed: {
             isSubNavVisible() {

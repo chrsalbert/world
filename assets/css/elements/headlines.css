@@ -4,12 +4,10 @@ h1 {
     letter-spacing: .05em;
     line-height: calc(var(--font-size-2xl) + var(--space-sm));
     color: var(--color-primary);
-    margin: 0;
     word-break: break-word;
 }
 
 h2 {
-    font-size: var(--font-size-xl);
-    line-height: calc(var(--font-size-2xl) + var(--space-sm));
-    margin: var(--space-xl) 0 var(--space-m)
+    font-size: var(--font-size-lg);
+    line-height: calc(var(--font-size-lg) + var(--space-sm));
 }

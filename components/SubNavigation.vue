@@ -2,7 +2,7 @@
     <div class="subnavigation">
         <div class="subnavigation__body">
             <div>
-                <h2 class="a-sectionH2">Alle Stopps</h2>
+                <h2>Alle Stopps</h2>
                 <ol class="menu" role="navigation">
                     <li v-for="(country, index) in countries" :key="index">
                         <nuxt-link :to="`/journey/${ country.id }`" :data-position="getStepNum(index)">{{ country.title }}</nuxt-link>

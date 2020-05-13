@@ -15,9 +15,9 @@
                 <p class="text">
                     Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise führte, erfährst du hier.
                 </p>
-                <nuxt-link to="/journey/niederlande" class="a-button a-button--large">
-                    <span>Tour starten</span>
-                </nuxt-link>
+                <LinkButton href="/journey/niederlande">
+                    Tour starten
+                </LinkButton>
             </div>
         </div>
         <div class="grid__map" v-html="worldmap"></div>
@@ -27,10 +27,11 @@
     </div>
 </template>
 <script>
-    import Countries from '~/static/data/countries.json';
-    import WorldMap from '~/static/images/world-map.svg?raw';
-    import FactsList from "~/components/FactsList.vue";
-    import MainNavigation from '~/components/MainNavigation';
+    import Countries from '~/static/data/countries.json'
+    import WorldMap from '~/static/images/world-map.svg?raw'
+    import FactsList from "~/components/FactsList.vue"
+    import MainNavigation from '~/components/MainNavigation'
+    import LinkButton from '~/components/LinkButton'
 
     export default {
         head: {
@@ -49,7 +50,8 @@
         },
         components: {
             FactsList,
-            MainNavigation
+            MainNavigation,
+            LinkButton
         },
         computed: {
             facts() {
@@ -142,10 +144,6 @@
         justify-content: center;
         text-align: center;
         padding-bottom: var(--space-md)
-    }
-
-    .a-button {
-        box-shadow: var(--shadow-lg)
     }
 
     .grid__date { 

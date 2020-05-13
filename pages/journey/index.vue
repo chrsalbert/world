@@ -33,16 +33,19 @@
         <div class="grid__progress">
             <progress class="progress" :value="progress" max="100">{{ progress }}</progress>
         </div>
-        <div class="grid__button"><nuxt-link id="button-prev" :to="prevCountryUrl" class="a-button a-button--icon" v-html="iconArrowLeft"></nuxt-link></div>
-        <div class="grid__button grid__button--right"><nuxt-link id="button-next" :to="nextCountryUrl" class="a-button a-button--icon" v-html="iconArrowRight"></nuxt-link></div>
+        <div class="grid__button">
+            <LinkButton :href="prevCountryUrl" icon="arrowLeft"></LinkButton>
+        </div>
+        <div class="grid__button grid__button--right">
+            <LinkButton :href="nextCountryUrl" icon="arrowRight"></LinkButton>
+        </div>
     </div>
 </template>
 <script>
     import Countries from '~/static/data/countries.json';
     import FactsList from "~/components/FactsList.vue";
     import CountryMap from "~/components/CountryMap.vue";
-    import iconArrowLeft from "~/assets/images/icons/arrow-left.svg?raw";
-    import iconArrowRight from "~/assets/images/icons/arrow-right.svg?raw";
+    import LinkButton from '~/components/LinkButton'
 
     export default {
         head () {
@@ -58,13 +61,8 @@
         },
         components: {
             FactsList,
-            CountryMap
-        },
-        data () {
-            return {
-                iconArrowLeft,
-                iconArrowRight
-            }
+            CountryMap,
+            LinkButton
         },
         computed: {
             date() {
