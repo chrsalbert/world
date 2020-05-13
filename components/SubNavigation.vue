@@ -90,8 +90,6 @@
         opacity: .3
     }
 
-
-
     @media only screen and (max-width: 1240px) {
         .menu {
             column-count: 4
@@ -106,7 +104,6 @@
             margin-bottom: var(--space-md)
         }
     }
-
 
     @media only screen and (max-width: 600px) {
         .menu {

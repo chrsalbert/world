@@ -17,18 +17,18 @@
                 </transition>
             </div>
         </div>
-        <div class="grid__main">
-            <div class="main">
-                <transition name="title" mode="out-in">
-                    <h1 class="title" :data-position="step" :key="country.title">{{ country.title }}</h1>
-                </transition>
-                <div class="facts">
-                    <FactsList :facts="facts" />
-                </div>
-                <transition name="map" mode="out-in">
-                    <CountryMap class="map" :map="country.map" :key="country.title" />
-                </transition>
-            </div>
+        <div class="grid__title">
+            <transition name="title" mode="out-in">
+                <h1 class="title" :data-position="step" :key="country.title">{{ country.title }}</h1>
+            </transition>
+        </div>
+        <div class="grid__stats">
+            <FactsList :facts="facts" />
+        </div>
+        <div class="grid__map">
+            <transition name="map" mode="out-in">
+                <CountryMap class="map" :map="country.map" :key="country.title" />
+            </transition>
         </div>
         <div class="grid__progress">
             <progress class="progress" :value="progress" max="100">{{ progress }}</progress>
@@ -173,8 +173,8 @@
     .grid {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 1fr 40px 24px 16px;
-        grid-column-gap: var(--grid-row-gap);
+        grid-template-rows: 1fr 1fr min-content 40px 40px;
+        grid-column-gap: var(--grid-column-gap);
         grid-row-gap: 0;
         --timing-function: cubic-bezier(.53,.23,.4,.99)
     }
@@ -192,6 +192,7 @@
         writing-mode: vertical-lr;
         transform: rotate(180deg);
         transition: all .3s var(--timing-function);
+        color: var(--color-text-light)
     }
 
     .date-enter { transform: rotate(180deg) translateX(-1rem);opacity: 0 }
@@ -200,7 +201,7 @@
     .date-leave-to { transform: rotate(180deg) translateX(1rem);opacity: 0 }
 
     .grid__cover {
-        grid-area: 1 / 2 / 2 / 8;
+        grid-area: 1 / 2 / 4 / 8;
         position: relative;
     }
 
@@ -212,7 +213,7 @@
         left: 0;
         background-size: cover;
         background-position: 50% 50%;
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow);
         border-radius: var(--border-radius);
         transition: all .4s var(--timing-function);
     }
@@ -226,16 +227,27 @@
     .grid__article {
         position: relative;
         z-index: 1;
-        grid-area: 1 / 1 / 3 / 5;
+        grid-area: 1 / 1 / 5 / 5;
         display: flex;
         align-items: flex-end;
+    }
+
+    .grid__article::after {
+        content: '';
+        position: absolute;
+        right: var(--space-md);
+        bottom: 0;
+        left: var(--space-md);
+        height: var(--space-md);
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(21, 30, 48, 0) 0%, rgba(21, 30, 48, 1) 90%)
     }
 
     .article {
         position: relative;
         background: var(--color-secondary);
         padding: var(--space-md);
-        box-shadow: var(--shadow-xl);
+        box-shadow: var(--shadow-lg);
         border-radius: var(--border-radius-sm);
         overflow: hidden;
         max-height: 12rem;
@@ -253,41 +265,21 @@
     .article__text-leave { transform: translateX(0);opacity: 1 }
     .article__text-leave-to { transform: translateX(-5rem);opacity: 0 }
 
-    .article::-webkit-scrollbar { width: .5rem }
+    /* .article::-webkit-scrollbar { width: .5rem }
     .article::-webkit-scrollbar-track { background: #131a29 }
     .article::-webkit-scrollbar-thumb { background: #1b4361 }
-    .article::-webkit-scrollbar-thumb:hover { background: #1b4361 }
+    .article::-webkit-scrollbar-thumb:hover { background: #1b4361 } */
 
-    .grid__article::after {
-        content: '';
-        position: absolute;
-        right: var(--space-md);
-        bottom: 0;
-        left: var(--space-md);
-        height: var(--space-md);
-        background: linear-gradient(to bottom, rgba(21, 30, 48, 0) 0%, rgba(21, 30, 48, 1) 90%)
-    }
-
-    .grid__main {
-        position: relative;
-        z-index: 1;
+    .grid__title {
         grid-area: 1 / 8 / 2 / 13;
-        min-height: 0;
-        overflow: hidden;
         text-align: center;
-        padding: var(--space-md)
-    }
-
-    .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
     }
 
     .title {
         position: relative;
-        padding: var(--space-md) 0 var(--space-xl);
+        z-index: 1;
+        margin: var(--space-xl) 0;
+        padding-left: 1em;
         transition: all .3s var(--timing-function)
     }
 
@@ -311,34 +303,46 @@
     .title-enter::before { transform: translateX(-4rem);opacity: 0 }
     .title-enter-to::before { transform: translateX(0);opacity: .1 }
 
-    .facts {
-        width: 100%;
-        max-width: 22rem;
-        margin-bottom: var(--space-lg)
+    .grid__stats {
+        grid-area: 3 / 8 / 4 / 13;
+        padding-bottom: var(--space-md)
+    }
+    
+    .grid__stats > * {
+        max-width: 26rem;
+        margin: 0 auto
+    }
+
+    .grid__map {
+        grid-area: 2 / 8 / 3 / 13;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: var(--space-md)
     }
 
     .grid__button {
+        grid-area: 1 / 1 / 4 / 2;
         display: flex;
         align-items: center;
         position: relative;
         z-index: 1000;
-        grid-area: 1 / 1 / 2 / 2;
     }
 
     .grid__button--right {
-        grid-area: 1 / 12 / 2 / 13;
+        grid-area: 1 / 12 / 4 / 13;
         justify-content: flex-end;
     }
 
     .grid__progress {
-        grid-area: 5 / 1 / 5 / 13;
-        min-height: 0;
-        overflow: hidden
+        grid-area: 5 / 1 / 6 / 13;
+        display: flex;
+        align-items: flex-end;
     }
 
     .progress {
         width: 100%;
-        height: 8px;
+        height: 4px;
         -webkit-appearance: none;
         appearance: none;
     }
@@ -352,81 +356,104 @@
         background-color: var(--color-primary);
     }
 
-    @media only screen and (max-width: 1100px) and (orientation: portrait) {
+    @media only screen and (orientation: portrait) {
         .grid {
-            grid-template-rows: 80px 1fr 1fr 16px;
-        }
-        .grid__cover {
-            grid-area: 2 / 2 / 2 / 11;
-        }
-        .grid__article {
-            grid-area: 3 / 1 / 4 / 6;
-            align-items: start;
-            padding: 80px var(--space-md) 0;
-        }
-        .article {
-            box-shadow: none;
-            padding: 0
-        }
-        .grid__main {
-            grid-area: 3 / 6 / 3 / 13;
-            background: var(--color-secondary);
-            margin-top: -80px;
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
-        .grid {
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: 56px min-content min-content min-content;
-            height: auto;
-            min-height: 100vh;
-            padding-bottom: var(--space-xl)
-        }
-
-        .grid__main {
-            grid-area: 3 / 1 / 4 / 7;
-            margin: 0;
-        }
-
-        .grid__main svg {
-            width: auto;
-            height: auto
+            grid-template-rows: 30vh min-content min-content 1fr 40px;
         }
 
         .grid__date {
-            grid-area: 3 / 1 / 4 / 2;
-            padding: var(--space-md) 0 0 0;
+            grid-area: 3 / 1 / 5 / 6;
+        }
+
+        .date {
+            transform: rotate(0deg);
+            writing-mode: unset;
+            font-size: var(--font-size-small);
+        }
+
+        .grid__cover {
+            grid-area: 1 / 1 / 2 / 13;
+        }
+
+        .cover {
+            left: var(--space-md);
+            right: var(--space-md)
+        }
+
+        .grid__title {
+            grid-area: 2 / 1 / 3 / 13;
         }
 
         .grid__article {
-            grid-area: 4 / 1 / 5 / 7;
+            grid-area: 3 / 1 / 5 / 6;
+            align-items: flex-start;
+            padding: 2.4rem 0 0 0;
+        }
+
+        .article {
+            background: none;
+            box-shadow: none;
             padding: 0 var(--space-md);
+            max-height: 100%
+        }
+
+        .grid__stats {
+            grid-area: 3 / 6 / 4 / 13;
+        }
+
+        .grid__map {
+            grid-area: 4 / 6 / 5 / 13;
+            align-items: flex-start;
+        }
+
+        .grid__progress {
+            grid-area: 5 / 1 / 6 / 13
         }
 
         .grid__button {
-            grid-area: 2 / 1 / 3 / 2
+            grid-area: 2 / 1 / 3 / 13
+        }
+    }
+
+    @media only screen and (orientation: portrait) and (max-width: 600px) {
+        .grid {
+            grid-template-rows: 30vh min-content min-content min-content min-content min-content 40px;
         }
 
-        .grid__button--right {
-            grid-area: 2 / 6 / 3 / 7
+        .grid__button {
+            grid-area: 1 / 1 / 2 / 13
+        }
+
+        .grid__stats {
+            grid-area: 3 / 1 / 4 / 13
+        }
+
+        .grid__map {
+            grid-area: 4 / 1 / 5 / 13
+        }
+
+        .grid__date {
+            grid-area: 5 / 1 / 6 / 13
+        }
+
+        .grid__article {
+            grid-area: 6 / 1 / 7 / 13
+        }
+
+        .grid__article::after {
+            display: none
+        }
+
+        .article {
+            min-height: auto;
+            overflow: visible
         }
 
         .grid__progress {
             position: fixed;
             bottom: 0;
-            right: 0;
             left: 0;
-        }
-
-        .grid__nav {
-            grid-area: 1 / 1 / 2 / 7;
-            padding: 0;
-        }
-
-        .grid__cover {
-            grid-area: 2 / 1 / 3 / 7;
-            height: 30vh;
+            right: 0;
         }
     }
 </style>

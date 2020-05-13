@@ -30,10 +30,12 @@ export default {
         display: grid;
         grid-template-rows: var(--header-height) minmax(0, 1fr);
         grid-template-columns: 1fr;
+        min-height: 100vh;
         height: 100vh;
         max-width: var(--body-width);
         margin: 0 auto;
-        padding: 0 var(--body-pad)
+        padding: 0 var(--body-pad);
+        overflow-x: hidden
     }
 
     .layout__nav {
@@ -55,15 +57,16 @@ export default {
         height: 100%;
     }
 
-    @media only screen and (max-width: 900px) {
-        .layout {
-            height: auto
+    @media only screen and (orientation: portrait) {
+        .body {
+            max-height: none;
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (orientation: portrait) and (max-width: 600px) {
         .layout {
             grid-template-rows: minmax(0, var(--header-height)) minmax(0, 1fr);
+            height: auto
         }
     }
 </style>

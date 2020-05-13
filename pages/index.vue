@@ -98,7 +98,7 @@
     .main {
         padding: var(--space-md);
         background: var(--body-bgColor);
-        box-shadow: var(--shadow-xl);
+        box-shadow: var(--shadow-lg);
         border-radius: var(--space-sm);
         text-align: center;
     }
@@ -181,7 +181,7 @@
         }
 
         .grid__main {
-            grid-area: 3 / 1 / 5 / 9
+            grid-area: 3 / 2 / 5 / 10
         }
 
         .grid__video {

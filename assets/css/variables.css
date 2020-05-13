@@ -5,8 +5,12 @@
     --color-secondary: #151e30;
     --color-third: #bbcfff;
     --color-text: #fff;
-    --color-text-light: #999;
+    --color-text-light: #8a8f98;
     --color-link: #1ED9FA;
+
+    --color-secondary-t100: #2c3545;
+    --color-secondary-t200: #444b59;
+    --color-secondary-t300: #5b626e;
     
     --space-2xs: .25rem;
     --space-xs: .5rem;
@@ -60,10 +64,10 @@
     
     --transition-default: all .2s ease-in-out;
     
-    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);;
+    --shadow: 0 1px 3px 0 rgba(6,0,14,.3), 0 1px 2px 0 rgba(6,0,14,.09);
+    --shadow-md: 0 4px 6px -1px rgba(6,0,14,.3), 0 2px 4px -1px rgba(6,0,14,.09);
+    --shadow-lg: 0 10px 15px -3px rgba(6,0,14,.3), 0 4px 6px -2px rgba(6,0,14,.09);
+    --shadow-xl: 0 25px 50px -12px rgba(6,0,14,.1);
 }
 
 @media only screen and (max-width: 600px) {

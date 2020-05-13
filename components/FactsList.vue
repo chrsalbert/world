@@ -57,6 +57,7 @@ export default {
 
     li {
         width: 33.33%;
+        text-align: center;
     }
 
     li > * {
@@ -66,6 +67,7 @@ export default {
     span {
         text-transform: uppercase;
         font-size: var(--font-size-sm);
+        color: var(--color-text-light)
     }
 
     figure {
