@@ -200,7 +200,8 @@
         grid-area: 1 / 2 / 4 / 8;
         position: relative;
         border-radius: var(--border-radius);
-        overflow: hidden
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black); /* safari fix overflow border radius transition */
     }
 
     .cover {
