@@ -1,13 +1,18 @@
 <template>
     <div class="grid">
-        <div class="grid__date">
-            <transition name="date">
-                <span class="date" v-html="date" :key="country.date.from"></span>
+        <div class="grid__title">
+            <transition name="title" mode="out-in">
+                <h1 class="title" :data-position="step" :key="country.title">{{ country.title }}</h1>
             </transition>
         </div>
         <div class="grid__cover">      
             <transition name="cover">
                 <div class="cover" :key="coverURL" :style="`background-image: url('${coverURL}')`"></div>
+            </transition>
+        </div>
+        <div class="grid__date">
+            <transition name="date">
+                <span class="date" v-html="date" :key="date"></span>
             </transition>
         </div>
         <div class="grid__article" >
@@ -16,11 +21,6 @@
                     <p class="article__text" :key="country.teaser">{{ country.teaser }}</p>
                 </transition>
             </div>
-        </div>
-        <div class="grid__title">
-            <transition name="title" mode="out-in">
-                <h1 class="title" :data-position="step" :key="country.title">{{ country.title }}</h1>
-            </transition>
         </div>
         <div class="grid__stats">
             <FactsList :facts="facts" />
@@ -55,9 +55,6 @@
                     { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
                 ]
             }
-        },
-        transition: {
-            duration: '600'
         },
         components: {
             FactsList,
@@ -189,7 +186,7 @@
         text-transform: uppercase;
         writing-mode: vertical-lr;
         transform: rotate(180deg);
-        transition: all .3s var(--timing-function);
+        transition: all .2s var(--timing-function) .4s;
         color: var(--color-text-light)
     }
 
@@ -201,26 +198,28 @@
     .grid__cover {
         grid-area: 1 / 2 / 4 / 8;
         position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden
     }
 
     .cover {
         position: absolute;
         top: 0;
-        right: 0;
         bottom: 0;
         left: 0;
+        width: 100%;
         background-size: cover;
         background-position: 50% 50%;
         box-shadow: var(--shadow);
-        border-radius: var(--border-radius);
-        transition: all .4s var(--timing-function);
+        transition: all .2s var(--timing-function);
+        transition-delay: .2s
     }
 
-    .cover-enter-active { z-index: 1 }
-    .cover-enter { opacity: 0 }
-    .cover-enter-to { opacity: 1 }
     .cover-leave { opacity: 1 }
-    .cover-leave-to { opacity: 0 }
+    .cover-leave-to { opacity: 0;left: -100% }
+    .cover-enter-active { z-index: 1 }
+    .cover-enter { opacity: 0;left: 100% }
+    .cover-enter-to { opacity: 1;left: 0 }
 
     .grid__article {
         position: relative;
@@ -258,10 +257,11 @@
         transition: all .3s var(--timing-function)
     }
 
-    .article__text-enter { transform: translateX(5rem);opacity: 0 }
+    .article__text-enter { transform: translateX(1em);opacity: 0 }
     .article__text-enter-to { transform: translateX(0);opacity: 1 }
+    .article__text-leave-active { transition-delay: .25s }
     .article__text-leave { transform: translateX(0);opacity: 1 }
-    .article__text-leave-to { transform: translateX(-5rem);opacity: 0 }
+    .article__text-leave-to { transform: translateX(-1em);opacity: 0 }
 
     /* .article::-webkit-scrollbar { width: .5rem }
     .article::-webkit-scrollbar-track { background: #131a29 }
@@ -278,7 +278,7 @@
         z-index: 1;
         margin: var(--space-xl) 0;
         padding-left: 1em;
-        transition: all .3s var(--timing-function)
+        transition: all .15s var(--timing-function)
     }
 
     .title::before {
@@ -289,17 +289,17 @@
         margin-left: -.5em;
         content: attr(data-position);
         opacity: .1;
-        transition: all .3s var(--timing-function)
+        transition: all .15s var(--timing-function)
     }
 
     .title-leave { transform: translateX(0);opacity: 1 }
-    .title-leave-to { transform: translateX(-8rem);opacity: 0 }
-    .title-leave::before { transform: translateX(0);opacity: .1 }
-    .title-leave-to::before { transform: translateX(4rem);opacity: 0 }
-    .title-enter { transform: translateX(8rem);opacity: 0 }
+    .title-leave-to { transform: translateX(-2em);opacity: 0 }
+    .title-enter { transform: translateX(2em);opacity: 0 }
     .title-enter-to { transform: translateX(0);opacity: 1 }
-    .title-enter::before { transform: translateX(-4rem);opacity: 0 }
-    .title-enter-to::before { transform: translateX(0);opacity: .1 }
+    .title-leave::before { transform: translateX(0) scale(1);opacity: .1 }
+    .title-leave-to::before { transform: translateX(-.25em) scale(.8);opacity: 0 }
+    .title-enter::before { transform: translateX(.25em) scale(.8);opacity: 0 }
+    .title-enter-to::before { transform: translateX(0) scale(1);opacity: .1 }
 
     .grid__stats {
         grid-area: 3 / 8 / 4 / 13;
@@ -456,15 +456,15 @@
     }
 </style>
 <style>
-    .map-enter-active, .map-leave-active { transition: all .4s var(--timing-function) .05s }
+    .map-enter-active, .map-leave-active { transition: all .7s var(--timing-function) .05s }
     
     .map-leave-active #route { transition-duration: .2s;transition-delay: .05s }
-    .map-leave-active circle { transition-duration: .15s;transition-delay: .1s }
-    .map-leave-active #border { transition-duration: .25s;transition-delay: .15s }
+    .map-leave-active circle { transition-duration: .2s;transition-delay: .05s }
+    .map-leave-active #border { transition-duration: .2s;transition-delay: .05s }
 
-    .map-enter-active #border { transition-duration: .3s;transition-delay: .05s }
-    .map-enter-active circle { transition-duration: .15s;transition-delay: .1s }
-    .map-enter-active #route { transition-duration: .25s;transition-delay: .15s }
+    .map-enter-active #border { transition-duration: .4s;transition-delay: .05s }
+    .map-enter-active circle { transition-duration: .4s;transition-delay: .05s }
+    .map-enter-active #route { transition-duration: .4s;transition-delay: .05s }
 
     .map-enter #border, .map-enter #route { stroke-dasharray: var(--length);stroke-dashoffset: var(--length);opacity: .3 }
     .map-enter-to #border, .map-enter-to #route { stroke-dasharray: var(--length);stroke-dashoffset: 0;opacity: 1}
