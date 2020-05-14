@@ -34,10 +34,10 @@
             <progress class="progress" :value="progress" max="100">{{ progress }}</progress>
         </div>
         <div class="grid__button">
-            <LinkButton :href="prevCountryUrl" icon="arrowLeft"></LinkButton>
+            <LinkButton id="button-prev" :href="prevCountryUrl" icon="arrowLeft"></LinkButton>
         </div>
         <div class="grid__button grid__button--right">
-            <LinkButton :href="nextCountryUrl" icon="arrowRight"></LinkButton>
+            <LinkButton id="button-next" :href="nextCountryUrl" icon="arrowRight"></LinkButton>
         </div>
     </div>
 </template>
@@ -171,7 +171,7 @@
         grid-template-rows: 1fr 1fr min-content 40px 40px;
         grid-column-gap: var(--grid-column-gap);
         grid-row-gap: 0;
-        --timing-function: cubic-bezier(.53,.23,.4,.99)
+        --timing-function: cubic-bezier(.3,1.01,.56,.96)
     }
 
     .grid__date {
@@ -211,10 +211,11 @@
         background-size: cover;
         background-position: 50% 50%;
         box-shadow: var(--shadow);
-        transition: all .2s var(--timing-function);
+        transition: all .4s var(--timing-function);
         transition-delay: .2s
     }
 
+    .cover-leave-active { transition-duration: .6s; }
     .cover-leave { opacity: 1 }
     .cover-leave-to { opacity: 0;left: -100% }
     .cover-enter-active { z-index: 1 }
@@ -222,14 +223,27 @@
     .cover-enter-to { opacity: 1;left: 0 }
 
     .grid__article {
-        position: relative;
-        z-index: 1;
         grid-area: 1 / 1 / 5 / 5;
         display: flex;
         align-items: flex-end;
     }
 
-    .grid__article::after {
+    .article {
+        position: relative;
+        z-index: 4;
+        background: var(--color-secondary);
+        padding: var(--space-md);
+        box-shadow: var(--shadow-lg);
+        border-radius: var(--border-radius-sm);
+        overflow: hidden;
+        max-height: 12rem;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        transition: max-height .6s var(--timing-function);
+    }
+
+    .article::after {
         content: '';
         position: absolute;
         right: var(--space-md);
@@ -240,17 +254,8 @@
         background: linear-gradient(to bottom, rgba(21, 30, 48, 0) 0%, rgba(21, 30, 48, 1) 90%)
     }
 
-    .article {
-        position: relative;
-        background: var(--color-secondary);
-        padding: var(--space-md);
-        box-shadow: var(--shadow-lg);
-        border-radius: var(--border-radius-sm);
-        overflow: hidden;
-        max-height: 12rem;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
+    .article:hover {
+        max-height: 100%;
     }
 
     .article__text {
@@ -278,7 +283,7 @@
         z-index: 1;
         margin: var(--space-xl) 0;
         padding-left: 1em;
-        transition: all .15s var(--timing-function)
+        transition: all .2s var(--timing-function)
     }
 
     .title::before {
@@ -289,7 +294,7 @@
         margin-left: -.5em;
         content: attr(data-position);
         opacity: .1;
-        transition: all .15s var(--timing-function)
+        transition: all .2s var(--timing-function)
     }
 
     .title-leave { transform: translateX(0);opacity: 1 }
@@ -321,10 +326,10 @@
 
     .grid__button {
         grid-area: 1 / 1 / 4 / 2;
+        position: relative;
+        z-index: 3;
         display: flex;
         align-items: center;
-        position: relative;
-        z-index: 1000;
     }
 
     .grid__button--right {
