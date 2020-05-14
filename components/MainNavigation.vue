@@ -104,7 +104,7 @@
         z-index: 1001;
         display: flex;
         align-items: center;
-        margin-left: -.25rem;
+        margin-left: -.5rem;
         background: var(--color-secondary);
         width: 100%;
         height: 100%;

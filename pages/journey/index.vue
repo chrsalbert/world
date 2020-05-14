@@ -20,6 +20,7 @@
                 <transition name="article__text" mode="out-in">
                     <p class="article__text" :key="country.teaser">{{ country.teaser }}</p>
                 </transition>
+                <LinkButton id="nextCountryBtn" :href="nextCountryUrl">Nächstes Land</LinkButton>
             </div>
         </div>
         <div class="grid__stats">
@@ -359,6 +360,10 @@
         background-color: var(--color-primary);
     }
 
+    #nextCountryBtn {
+        display: none
+    }
+
     @media only screen and (orientation: portrait) {
         .grid {
             grid-template-rows: 30vh min-content min-content 1fr 40px;
@@ -376,11 +381,7 @@
 
         .grid__cover {
             grid-area: 1 / 1 / 2 / 13;
-        }
-
-        .cover {
-            left: var(--space-md);
-            right: var(--space-md)
+            margin: 0 var(--space-md)
         }
 
         .grid__title {
@@ -449,7 +450,12 @@
 
         .article {
             min-height: auto;
-            overflow: visible
+            overflow: visible;
+            padding-bottom: var(--space-xl)
+        }
+
+        .article__text {
+            margin-bottom: var(--space-lg)
         }
 
         .grid__progress {
@@ -457,6 +463,10 @@
             bottom: 0;
             left: 0;
             right: 0;
+        }
+
+        #nextCountryBtn {
+            display: inline-block
         }
     }
 </style>

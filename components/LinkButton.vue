@@ -76,6 +76,12 @@ export default {
     .is-transparent:hover {
         background: rgba(255,255,255,.1)
     }
+
+    @media screen and (max-width: 600px) {
+        .has-icon {
+            padding: .5rem 0
+        }
+    }
 </style>
 <style>
     .button svg {
@@ -83,5 +89,12 @@ export default {
     }
     .button.is-transparent svg g {
         fill: #fff
+    }
+
+    @media screen and (max-width: 600px) {
+        .button svg {
+            width: 2rem;
+            height: 2rem;
+        }
     }
 </style>

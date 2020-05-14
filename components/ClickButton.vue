@@ -58,6 +58,12 @@ export default {
         padding: var(--space-xs) 0;
         text-align: center;
     }
+
+    @media screen and (max-width: 600px) {
+        .has-icon {
+            padding: .25rem 0
+        }
+    }
 </style>
 <style>
     .button svg {
@@ -74,5 +80,12 @@ export default {
 
     .button.transparent:hover {
         background: rgba(255,255,255,.1)
+    }
+
+    @media screen and (max-width: 600px) {
+        .button svg {
+            width: 2rem;
+            height: 2rem;
+        }
     }
 </style>
