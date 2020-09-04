@@ -20,11 +20,11 @@
                 <transition name="article__text" mode="out-in">
                     <p class="article__text" :key="country.teaser">{{ country.teaser }}</p>
                 </transition>
-                <LinkButton id="nextCountryBtn" :href="nextCountryUrl">Nächstes Land</LinkButton>
+                <app-button id="nextCountryBtn" :href="nextCountryUrl">Nächstes Land</app-button>
             </div>
         </div>
         <div class="grid__stats">
-            <FactsList :facts="facts" />
+            <facts-list :facts="facts" />
         </div>
         <div class="grid__map">
             <transition name="map" mode="out-in">
@@ -35,135 +35,127 @@
             <progress class="progress" :value="progress" max="100">{{ progress }}</progress>
         </div>
         <div class="grid__button">
-            <LinkButton id="button-prev" :href="prevCountryUrl" icon="arrowLeft"></LinkButton>
+            <app-button id="button-prev" :href="prevCountryUrl" icon="arrowLeft"></app-button>
         </div>
         <div class="grid__button grid__button--right">
-            <LinkButton id="button-next" :href="nextCountryUrl" icon="arrowRight"></LinkButton>
+            <app-button id="button-next" :href="nextCountryUrl" icon="arrowRight"></app-button>
         </div>
     </div>
 </template>
 <script>
-    import Countries from '~/static/data/countries.json';
-    import FactsList from "~/components/FactsList.vue";
-    import CountryMap from "~/components/CountryMap.vue";
-    import LinkButton from '~/components/LinkButton'
+import Countries from '~/static/data/countries.json';
 
-    export default {
-        head () {
-            return {
-                title: `${this.country.title} ${this.formateDate(this.country.date.from, this.country.date.to, '/')} – ON A JOURNEY`,
-                meta: [
-                    { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
-                ]
-            }
+export default {
+    head () {
+        return {
+            title: `${this.country.title} ${this.formateDate(this.country.date.from, this.country.date.to, '/')} – ON A JOURNEY`,
+            meta: [
+                { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
+            ]
+        }
+    },
+    computed: {
+        date() {
+            return this.formateDate(this.country.date.from, this.country.date.to)
         },
-        components: {
-            FactsList,
-            CountryMap,
-            LinkButton
+        country() {
+            return Countries.find(obj => obj.id == this.$store.state.journey.id)
         },
-        computed: {
-            date() {
-                return this.formateDate(this.country.date.from, this.country.date.to)
-            },
-            country() {
-                return Countries.find(obj => obj.id == this.$store.state.journey.id)
-            },
-            countryIndex() {
-                return Countries.findIndex(obj => obj.id == this.country.id)
-            },
-            prevCountryIndex() {
-                return this.countryIndex === 0 ? Countries.length - 1 : this.countryIndex - 1
-            },
-            nextCountryIndex() {
-                return this.countryIndex === (Countries.length - 1) ? 0 : this.countryIndex + 1
-            },
-            prevCountryUrl() {
-                return `/journey/${Countries[this.prevCountryIndex].id}`
-            },
-            nextCountryUrl() {
-                return `/journey/${Countries[this.nextCountryIndex].id}`
-            },
-            progress() {
-                return Math.round((100/Countries.length) * (this.countryIndex + 1))
-            },
-            step() {
-                let index = this.countryIndex
-                index++
-                return index < 10 ?  `0${index}` : index
-            },
-            coverURL() {
-                return `${process.env.imageUrl}/cover/${this.country.cover}?quality=80&f=auto`
-            },
-            facts() {
-                return  [
-                    {
-                        icon: 'card',
-                        title: `${this.formatNumber(this.country.stats.distance)} km`,
-                        sub: 'gefahren'
-                    }, {
-                        icon: 'headphones',
-                        title: `${this.country.stats.transportHours} Std.`,
-                        sub: 'in Bus & Bahn'
-                    }, {
-                        icon: 'location',
-                        title: `${this.country.stats.cities} Orte`,
-                        sub: `in ${this.country.stats.days} tagen`
-                    }
-                ]
-            }
+        countryIndex() {
+            return Countries.findIndex(obj => obj.id == this.country.id)
         },
-        methods: {
-            preloadPhotos() {
-                let images = [
-                    Countries[this.nextCountryIndex].cover,
-                    Countries[this.prevCountryIndex].cover
-                ]
-                images.forEach((image) => {
-                    let img = new Image()
-                    img.src = `${process.env.imageUrl}/cover/${image}?quality=80&f=auto`
-                })
-            },
-            formatNumber(num) {
-                return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-            },
-            formateDate(from, to, dash = '&thinsp;/&thinsp;') {
-                const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-                const dates = [from, to]
-                const newDates = []
-                dates.forEach((date) => {
-                    var date = date.split('.')
-                    const dateEN = `${date[1]}/${date[0]}/${date[2]}`
-                    const month = months[new Date(dateEN).getMonth()]
-                    const newDate = `${month} ${date[2]}`
-                    newDates.push(newDate)
-                })
-                var newDate = newDates[0]
-                if(newDates[0] != newDates[1]) {
-                    newDate = newDate.concat(dash)
-                    newDate = newDate.concat(newDates[1])
+        prevCountryIndex() {
+            return this.countryIndex === 0 ? Countries.length - 1 : this.countryIndex - 1
+        },
+        nextCountryIndex() {
+            return this.countryIndex === (Countries.length - 1) ? 0 : this.countryIndex + 1
+        },
+        prevCountryUrl() {
+            return `/journey/${Countries[this.prevCountryIndex].id}`
+        },
+        nextCountryUrl() {
+            return `/journey/${Countries[this.nextCountryIndex].id}`
+        },
+        progress() {
+            return Math.round((100/Countries.length) * (this.countryIndex + 1))
+        },
+        step() {
+            let index = this.countryIndex
+            index++
+            return index < 10 ?  `0${index}` : index
+        },
+        coverURL() {
+            return `${process.env.imageUrl}/cover/${this.country.cover}?quality=80&f=auto`
+        },
+        facts() {
+            return  [
+                {
+                    icon: 'card',
+                    title: `${this.formatNumber(this.country.stats.distance)} km`,
+                    sub: 'gefahren'
+                }, {
+                    icon: 'headphones',
+                    title: `${this.country.stats.transportHours} Std.`,
+                    sub: 'in Bus & Bahn'
+                }, {
+                    icon: 'location',
+                    title: `${this.country.stats.cities} Orte`,
+                    sub: `in ${this.country.stats.days} tagen`
                 }
-                return newDate
-            }
-        },
-        mounted() {
-            this.preloadPhotos()
-
-            window.addEventListener('keydown', e => {
-                switch (e.keyCode) {
-                    case 37:
-                        document.getElementById('button-prev').click()
-                        break;
-                    case 39:
-                        document.getElementById('button-next').click()
-                        break;
-                }
+            ]
+        }
+    },
+    methods: {
+        preloadPhotos() {
+            let images = [
+                Countries[this.nextCountryIndex].cover,
+                Countries[this.prevCountryIndex].cover
+            ]
+            images.forEach((image) => {
+                let img = new Image()
+                img.src = `${process.env.imageUrl}/cover/${image}?quality=80&f=auto`
             })
         },
-        updated() {
-            this.preloadPhotos()
+        formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+        },
+        formateDate(from, to, dash = '&thinsp;/&thinsp;') {
+            const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            const dates = [from, to]
+            const newDates = []
+            dates.forEach((date) => {
+                var date = date.split('.')
+                const dateEN = `${date[1]}/${date[0]}/${date[2]}`
+                const month = months[new Date(dateEN).getMonth()]
+                const newDate = `${month} ${date[2]}`
+                newDates.push(newDate)
+            })
+            var newDate = newDates[0]
+            if(newDates[0] != newDates[1]) {
+                newDate = newDate.concat(dash)
+                newDate = newDate.concat(newDates[1])
+            }
+            return newDate
         }
+    },
+    mounted() {
+        this.preloadPhotos()
+
+        window.addEventListener('keydown', e => {
+            switch (e.keyCode) {
+                case 37:
+                    document.getElementById('button-prev').click()
+                    break;
+                case 39:
+                    document.getElementById('button-next').click()
+                    break;
+            }
+        })
+    },
+    updated() {
+        this.preloadPhotos()
     }
+}
 </script>
 <style scoped>
     .grid {
@@ -233,7 +225,7 @@
     .article {
         position: relative;
         z-index: 4;
-        background: var(--color-secondary);
+        background: var(--color-secondary-darker);
         padding: var(--space-md);
         box-shadow: var(--shadow-lg);
         border-radius: var(--border-radius-sm);

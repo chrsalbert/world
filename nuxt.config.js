@@ -24,6 +24,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  components: true,
   router: {
     middleware: 'pages'
   },

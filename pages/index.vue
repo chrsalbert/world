@@ -4,10 +4,12 @@
             <span class="date">Mai 2019 – März 2020</span>
         </div>
         <div class="grid__video">
-            <video id="video" class="video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
-                <source src="/hero.mp4" type="video/mp4">
-                <img src="/images/video-fallback.webp" />
-            </video>
+            <div class="grid__videoWrapper">
+                <video id="video" class="video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
+                    <source src="/hero.mp4" type="video/mp4">
+                    <img src="/images/video-fallback.webp" />
+                </video>
+            </div>
         </div>
         <div class="grid__main">
             <div class="main">
@@ -15,23 +17,20 @@
                 <p class="text">
                     Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise führte, erfährst du hier.
                 </p>
-                <LinkButton href="/journey/niederlande">
+                <app-button href="/journey/niederlande">
                     Tour starten
-                </LinkButton>
+                </app-button>
             </div>
         </div>
         <div class="grid__map" v-html="worldmap"></div>
         <div class="grid__facts">
-            <FactsList :facts="facts" mode="horizontal" />
+            <facts-list :facts="facts" mode="horizontal" />
         </div>
     </div>
 </template>
 <script>
     import Countries from '~/static/data/countries.json'
     import WorldMap from '~/static/images/world-map.svg?raw'
-    import FactsList from "~/components/FactsList.vue"
-    import MainNavigation from '~/components/MainNavigation'
-    import LinkButton from '~/components/LinkButton'
 
     export default {
         head: {
@@ -47,11 +46,6 @@
         },
         transition: {
             duration: '600'
-        },
-        components: {
-            FactsList,
-            MainNavigation,
-            LinkButton
         },
         computed: {
             facts() {
@@ -83,7 +77,7 @@
 <style scoped>
     .grid {
         display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-template-columns: repeat(12, 1fr);
         grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 10rem 5rem;
         gap: 0px 16px;
     }
@@ -99,7 +93,7 @@
 
     .main {
         padding: var(--space-md);
-        background: var(--body-bgColor);
+        background: var(--color-secondary-darker);
         box-shadow: var(--shadow-lg);
         border-radius: var(--space-sm);
         text-align: center;
@@ -111,15 +105,26 @@
         padding: 0 var(--space-md);
         overflow: hidden;
         display: flex;
+        mix-blend-mode: screen;
+    }
+
+    .grid__videoWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 
     .video {
-        flex: 1;
+        width: 100%;
+        height: 100%;
         box-shadow: var(--shadow-lg);
-        border-radius: var(--space-sm);
-        background: #1B263D;
-        object-fit: none;
-        transition: all 3s linear
+        border-radius: var(--space-xl) var(--space-xs) var(--space-xl) var(--space-xs);
+        background: var(--color-gray-darker);
+        object-fit: cover;
+        transition: all 3s linear;
+        opacity: .6
     }
 
     .video--loaded {
@@ -133,6 +138,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        background: var(--color-gray-darker)
     }
 
     .grid__facts { 
@@ -147,7 +153,7 @@
     }
 
     .grid__date { 
-        grid-area: 1 / 1 / 4 / 3; 
+        grid-area: 2 / 1 / 4 / 3; 
         padding-left: var(--space-md)
     }
 

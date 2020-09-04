@@ -4,9 +4,6 @@
 .page-enter { opacity: 0 }
 .page-enter-to { opacity: 1 }
 
-
-
-
 .page-leave .u-ghost::before { height: 0% }
 .page-leave-to .u-ghost::before { height: 100% }
 .page-leave .u-map { opacity: 1 }
@@ -15,7 +12,6 @@
 .page-leave .u-map path { stroke-dasharray: 0 }
 .page-leave-to .u-map polygon,
 .page-leave-to .u-map path { stroke-dasharray: 100; }
-
 
 .page-enter .u-ghost::before { height: 100% }
 .page-enter-to .u-ghost::before { height: 0% }

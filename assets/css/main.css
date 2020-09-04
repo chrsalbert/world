@@ -12,7 +12,7 @@ html {
 
 html,
 body {
-    background: var(--body-bgColor);
+    background: var(--color-gray-darkest);
     font-size: var(--font-size-global);
 }
 

@@ -1,19 +1,28 @@
 :root {
-    --color-primary: #00D4FA;
-    --color-light: #70707C;
-    --color-gray: #999;
-    --color-secondary: #151e30;
-    --color-third: #bbcfff;
+    --color-primary-darkest: #001519;
+    --color-primary-darker: #005564;
+    --color-primary-dark: #0094af;
+    --color-primary: #00d4fa;
+    --color-primary-light: #4de1fc;
+    --color-primary-lighter: #99eefd;
+    --color-primary-lightest: #e6fbff;
+
+    --color-gray-darkest: #0F1522;
+    --color-gray-darkest-rgb: 15,21,34;
+    --color-gray-darker: #151e30;
+    --color-gray-dark: #2c3545;
+    --color-gray: #5b626e;
+    --color-gray-light: #8a8f98;
+    --color-gray-lighter: #b9bcc1;
+    --color-gray-lightest: #e8e9ea;
+
+    --color-white: #fdfdff;
+    --color-black: #020204;
     --color-text: #fff;
     --color-text-light: #8a8f98;
     --color-link: #1ED9FA;
 
-    --color-primary-s200: #00aac8;
-
-    --color-secondary-t100: #2c3545;
-    --color-secondary-t200: #444b59;
-    --color-secondary-t300: #5b626e;
-    
+    /* SPACES */
     --space-2xs: .25rem;
     --space-xs: .5rem;
     --space-sm: .75rem;
@@ -23,6 +32,21 @@
     --space-xl: 4rem;
     --space-2xl: 5rem;
     --space-3xl: 6rem;
+
+    /* TEXT & LINKS */
+    --text-color-lighter: var(--color-gray);
+    --text-color-light: var(--color-gray-dark);
+    --text-color: var(--color-gray-darker);
+    --link-color: var(--color-primary);
+    --link-color-hover: var(--color-primary-dark);
+    --link-color-light: var(--color-gray);
+    --link-color-light-hover: var(--color-gray-dark);
+
+    /* FORMS */
+    --control-height: 40px;
+    --control-height-md: 48px;
+    --control-height-lg: 64px;
+    --control-height-xl: 80px;
     
     --size-sm: 1rem;
     --size: 1.5rem;
@@ -43,16 +67,17 @@
     --font-size-xl: 2rem;
     --font-size-2xl: 2.5rem;
     --font-size-3xl: 3rem;
+    --font-weight-regular: 400;
+    --font-weight-bold: 500;
+    --font-weight-heavy: 900;
     --line-height: 1.5;
     
     --header-bgColor: var(--color-secondary);
     --header-linkColor: #fff;
     --header-height: 5rem;
     
-    --body-bgColor: var(--color-secondary);
     --body-width: 1280px;
     --body-pad: var(--space-md);
-
 
     --breakpoint: 1200px;
     --breakpoint-sm: 900px;
@@ -63,11 +88,44 @@
     --border-radius-xs: var(--space-2xs);
     --border-radius-sm: var(--space-xs);
     --border-radius: var(--space-sm);
+    --border-radius-md: var(--space-md);
+    --border-radius-lg: var(--space-lg);
+    --border-radius-xl: var(--space-xl);
     
     --shadow: 0 1px 3px 0 rgba(6,0,14,.3), 0 1px 2px 0 rgba(6,0,14,.09);
     --shadow-md: 0 4px 6px -1px rgba(6,0,14,.3), 0 2px 4px -1px rgba(6,0,14,.09);
     --shadow-lg: 0 10px 15px -3px rgba(6,0,14,.3), 0 4px 6px -2px rgba(6,0,14,.09);
     --shadow-xl: 0 25px 50px -12px rgba(6,0,14,.1);
+
+    --timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    /* BUTTONS */
+    --button-primary-border-color: transparent;
+    --button-primary-hover-border-color: var(--color-primary-dark);
+    --button-primary-focus-border-color: var(--color-primary-dark);
+    --button-primary-bg-color: var(--color-primary);
+    --button-primary-hover-bg-color: var(--color-primary-dark);
+    --button-primary-focus-bg-color: var(--color-primary-dark);
+    --button-primary-text-color: var(--color-white);
+    --button-primary-hover-text-color: var(--color-white);
+
+    --button-secondary-border-color: transparent;
+    --button-secondary-hover-border-color: transparent;
+    --button-secondary-focus-border-color: transparent;
+    --button-secondary-bg-color: var(--color-gray-darker);
+    --button-secondary-hover-bg-color: var(--color-gray-dark);
+    --button-secondary-focus-bg-color: var(--color-gray-dark);
+    --button-secondary-text-color: var(--color-white);
+    --button-secondary-hover-text-color: var(--color-white);
+
+    --button-ghost-border-color: transparent;
+    --button-ghost-hover-border-color: var(--color-gray-darker);
+    --button-ghost-focus-border-color: var(--color-gray-lighter);
+    --button-ghost-bg-color: transparent;
+    --button-ghost-hover-bg-color: var(--color-gray-darker);
+    --button-ghost-focus-bg-color: var(--color-gray-darker);
+    --button-ghost-text-color: var(--color-primary);
+    --button-ghost-hover-text-color: var(--color-gray-darkest);
 }
 
 @media only screen and (max-width: 600px) {

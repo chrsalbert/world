@@ -1,31 +1,23 @@
 <template>
-    <div class="container">
-        <nav class="nav">
-            <LinkButton href="/" type="transparent" icon="home"></LinkButton>
-            <ClickButton v-on:click.native="toggleSubNav()" type="transparent" icon="menu" v-if="!isSubNavVisible"></ClickButton>
-            <ClickButton v-on:click.native="toggleSubNav()" type="transparent" icon="cross" v-if="isSubNavVisible"></ClickButton>
+    <div class="c-navigation">
+        <nav class="c-navigation__group">
+            <app-button href="/" type="ghost" icon="home" />
+            <app-button v-on:click.native="toggleSubNav()" tag="button" type="ghost" icon="menu" v-if="!isSubNavVisible" />
+            <app-button v-on:click.native="toggleSubNav()" tag="button" type="ghost" icon="cross" v-if="isSubNavVisible" />
         </nav>
-        <transition name="fade">
-            <SubNavigation v-show="isSubNavVisible" />
-        </transition>
+        <!-- <transition name="fade">
+            <sub-navigation v-show="isSubNavVisible" />
+        </transition> -->
     </div>
 </template>
 <script>
     import { mapMutations } from 'vuex'
-    import SubNavigation from '~/components/SubNavigation'
-    import LinkButton from '~/components/LinkButton'
-    import ClickButton from '~/components/ClickButton'
 
     export default {
         data () {
             return {
                 isFullscreen: false
             }
-        },
-        components: {
-            SubNavigation,
-            LinkButton,
-            ClickButton
         },
         computed: {
             isSubNavVisible() {
@@ -90,33 +82,15 @@
     }
 </script>
 <style scoped>
-    .container {
+    .c-navigation {
         position: relative;
-        z-index: 2000;
-        height: inherit;
+        z-index: 90;
+        padding-top: var(--space-md)
+    }
+
+    .c-navigation__group {
         display: flex;
         align-items: center;
-        padding: 0 var(--body-pad);
-    }
-
-    nav {
-        position: relative;
-        z-index: 1001;
-        display: flex;
-        align-items: center;
-        margin-left: -.5rem;
-        background: var(--color-secondary);
-        width: 100%;
-        height: 100%;
-    }
-
-    nav > * {
-        margin-right: var(--space-xs)
-    }
-
-    @media only screen and (max-width: 600px) {
-        .container {
-            padding: 0
-        }
+        flex-direction: column;
     }
 </style>
