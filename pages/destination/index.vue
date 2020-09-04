@@ -15,10 +15,10 @@
             <destination-date :country="country" />
         </template>
         <template slot="prev">
-            <app-button icon="arrowLeft" :href="prevCountryUrl"></app-button>
+            <app-button icon="arrowLeft" :href="prevCountryUrl" ref="prev"></app-button>
         </template>
         <template slot="next">
-            <app-button icon="arrowRight" :href="nextCountryUrl"></app-button>
+            <app-button icon="arrowRight" :href="nextCountryUrl" ref="next"></app-button>
         </template>
     </layout-destination>
 </template>
@@ -49,6 +49,18 @@ export default {
         nextCountryUrl() {
             return `/destination/${this.countries[this.nextCountryIndex].id}`
         }
+    },
+    mounted() {
+        window.addEventListener('keydown', e => {
+            switch (e.keyCode) {
+                case 37:
+                    this.$router.push({ path: this.prevCountryUrl })
+                    break;
+                case 39:
+                    this.$router.push({ path: this.nextCountryUrl })
+                    break;
+            }
+        })
     }
 }
 </script>
