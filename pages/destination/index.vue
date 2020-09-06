@@ -8,7 +8,7 @@
         </template>
         <template slot="header">
             <destination-title :countries="countries" :country="country" />
-            <destination-map :country="country" />
+            <destination-map :countries="countries" :country="country" />
             <destination-stats :country="country" />
         </template>
         <template slot="date">

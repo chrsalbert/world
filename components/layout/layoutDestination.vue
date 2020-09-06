@@ -65,9 +65,9 @@
 
 .l-destination__header {
     grid-area: 1 / 8 / 2 / 13;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    overflow: hidden;
     padding-bottom: calc(var(--space-md) + var(--space-xs))
 }
 

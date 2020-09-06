@@ -1,5 +1,9 @@
 <template>
-    <div class="c-destinationMap" v-html="map" :style="{ '--position': country.map.position }">
+    <div 
+        class="c-destinationMap" 
+        :class="`c-destinationMap--${country.id}`" 
+        :style="{ '--position': country.map.position, '--scale': country.map.scale }">
+        <figure><destination-map-svg :countries="countries" :currentCountry="country" /></figure>
     </div>
 </template>
 <script>
@@ -9,6 +13,10 @@ export default {
     props: {
         country: {
             type: Object,
+            required: true
+        },
+        countries: {
+            type: Array,
             required: true
         }
     },
@@ -23,7 +31,6 @@ export default {
 .c-destinationMap {
     position: relative;
     z-index: 1;
-    flex: 1;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -32,6 +39,7 @@ export default {
 .c-destinationMap::before {
     content:'';
     position: absolute;
+    pointer-events: none;
     z-index: 1;
     top: 0;
     right: 0;
@@ -54,14 +62,12 @@ export default {
         )
 }
 .c-destinationMap >>> svg {
-    min-width: 100%;
-    height: auto;
-    flex: 1;
+    position: relative;
+    left: calc(calc(100% * var(--scale) - 100%) / -2);
+    width: calc(100% * var(--scale));
+    height: unset;
     transform: var(--position);
-    transition: transform 1s var(--timing-function)
-}
-.c-destinationMap >>> svg g {
-    stroke: var(--color-white)
+    transition: all 1s var(--timing-function);
 }
 
 @media only screen and (orientation: portrait) {
