@@ -1,84 +1,87 @@
 <template>
     <svg viewBox="0 0 1000 429" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke-width="1" fill="none">
-            <g>
-                <template v-for="country in countries">
-                    <path 
-                        v-if="country.map.path" 
-                        :key="country.id" 
-                        :id="country.id" 
-                        :d="country.map.path"
+            <g id="places">
+                <template v-for="map in countryMaps">
+                    <component 
+                        :id="map.id" 
                         class="country"
-                        :class="{ 'country--active': country.id === currentCountry.id }"
-                        vector-effect="non-scaling-stroke" />
-                    <polygon 
-                        v-if="country.map.polygon" 
-                        :key="country.id" 
-                        :id="country.id" 
-                        :points="country.map.polygon"
-                        class="country"
-                        :class="{ 'country--active': country.id === currentCountry.id }"
-                        vector-effect="non-scaling-stroke" />
+                        :class="{ 'country--active': map.id === currentCountry.id }"
+                        vector-effect="non-scaling-stroke"
+                        :key="map.id" 
+                        :is="map.tag"
+                        :d="map.d"
+                        :points="map.points"
+                        />
                 </template>
             </g>
-            <g>
-                <template v-for="country in countries">
+            <g id="activeplaces">
+                <template v-for="map in countryMaps">
                     <use 
-                        v-if="country.id === currentCountry.id"
-                        :key="country.id" 
-                        :data-country="country.id" 
-                        :xlink:href="`#${country.id}`"  />
+                        v-if="map.id === currentCountry.id"
+                        :key="map.id"
+                        :xlink:href="`#${map.id}`"  />
                 </template>
             </g>
-            <g transform="translate(9, 38)">
-                <template v-for="location in locations">
+            <g id="route" transform="translate(1, 1)">
+                <template v-for="(route, index) in routes">
                     <line 
-                        v-if="location.linkCoordinates" 
-                        :key="location.id" 
-                        :x1="location.cx" 
-                        :y1="location.cy" 
-                        :x2="location.linkCoordinates.cx" 
-                        :y2="location.linkCoordinates.cy"
+                        v-if="routes[index+1]"
+                        :key="index" 
+                        :x1="route.cx" 
+                        :y1="route.cy" 
+                        :x2="routes[index+1].cx" 
+                        :y2="routes[index+1].cy"
                         class="line" 
+                        :class="{ 
+                            'line--active': route.countryId === currentCountry.id || routes[index+1].countryId === currentCountry.id 
+                        }"
+                        :data-lol="index"
                         vector-effect="non-scaling-stroke" />
                 </template>
+            </g>
+            <g id="places" transform="translate(1, 1)">
                 <circle
-                    v-for="location in locations" :key="`${location.cx}${location.cy}`"
-                    :data-country="location.title"
-                    :cx="location.cx"
-                    :cy="location.cy"
-                    r="2"
-                    class="location"
+                    v-for="place in places" 
+                    :key="`${place.cx}${place.cy}`"
+                    :cx="place.cx"
+                    :cy="place.cy"
+                    class="place"
+                    :class="{ 'place--active': place.countryId === currentCountry.id }"
                     vector-effect="non-scaling-stroke"
-                    @click="alert('yolo')"
                 />
             </g>
         </g>
     </svg>
 </template>
 <script>
+import countryMaps from '~/static/data/countryMaps.json';
+import route from '~/static/data/route.json';
+import places from '~/static/data/places.json';
+
 export default {
     props: {
-        countries: {
-            type: Array,
-            required: true
-        },
         currentCountry: {
             type: Object,
             required: true
         }
     },
+    data() {
+        return {
+            countryMaps: countryMaps,
+            places: places,
+            route: route
+        }
+    },
     computed: {
-        locations() {
-            let locations = [].concat.apply([],Array.from(this.countries, x => x.map.locations))
-            let unique = [...new Set(locations)]
-            unique.forEach(location => {
-                if(!location.link) return
-                const link = locations.find(link => link.id === location.link)
-                if(!link) return
-                location.linkCoordinates = { 'cx': link.cx, 'cy': link.cy }
+        routes() {
+            let routes = []
+            route.forEach(stop => {
+                let place = places.find(el => el.id === stop)
+                if(!place) return console.error(`error while adding route stop: no place found "${stop}"`)
+                routes.push(place)
             })
-            return unique
+            return routes
         }
     }
 }
@@ -94,15 +97,21 @@ export default {
         stroke: red
     }
     .line {
+        stroke: var(--color-gray);
+    }
+    .line--active {
         stroke: var(--color-primary);
     }
-    .location {
+    .place {
         r: calc(16 / var(--scale));
-        stroke: var(--color-primary);
+        stroke: var(--color-gray);
         fill: var(--color-gray-darkest);
         transition: all 1s var(--timing-function);
     }
-    .location:hover {
+    .place--active {
+        stroke: var(--color-primary);
+    }
+    .place:hover {
         transition-duration: .15s;
         r: calc(32 / var(--scale));
     }

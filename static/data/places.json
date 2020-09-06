@@ -1,0 +1,86 @@
+[
+    {
+        "id": "amsterdam",
+        "countryId": "netherlands",
+        "title": "Amsterdam",
+        "cx": "9",
+        "cy": "41"
+    },
+    {
+        "id": "posan",
+        "countryId": "poland",
+        "title": "Posen",
+        "cx": "89",
+        "cy": "41"
+    }, 
+    {
+        "id": "wroclaw",
+        "countryId": "poland",
+        "title": "Breslau",
+        "cx": "90",
+        "cy": "55"
+    }, 
+    {
+        "id": "krakov",
+        "countryId": "poland",
+        "title": "Krakau",
+        "cx": "111",
+        "cy": "64"
+    },
+    {
+        "id": "lviv",
+        "countryId": "ukraine",
+        "title": "Lviw",
+        "cx": "139",
+        "cy": "64"
+    },
+    {
+        "id": "kiev",
+        "countryId": "ukraine",
+        "title": "Kiew",
+        "cx": "182",
+        "cy": "58"
+    },
+    {
+        "id": "minsk",
+        "countryId": "belarus",
+        "title": "Minsk",
+        "cx": "158",
+        "cy": "25"
+    },
+    {
+        "id": "grodno",
+        "countryId": "belarus",
+        "title": "Grodno",
+        "cx": "134",
+        "cy": "28"
+    },
+    {
+        "id": "brest",
+        "countryId": "belarus",
+        "title": "Brest",
+        "cx": "135",
+        "cy": "43"
+    },
+    {
+        "id": "wizebsk",
+        "countryId": "belarus",
+        "title": "Wizebsk",
+        "cx": "173",
+        "cy": "11"
+    },
+    {
+        "id": "kaunas",
+        "countryId": "lithuania",
+        "title": "Kaunas",
+        "cx": "134",
+        "cy": "15"
+    },
+    {
+        "id": "vilnius",
+        "countryId": "lithuania",
+        "title": "Vilnius",
+        "cx": "142",
+        "cy": "16"
+    }
+]

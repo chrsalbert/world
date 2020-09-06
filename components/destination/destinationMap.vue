@@ -3,12 +3,10 @@
         class="c-destinationMap" 
         :class="`c-destinationMap--${country.id}`" 
         :style="{ '--position': country.map.position, '--scale': country.map.scale }">
-        <figure><destination-map-svg :countries="countries" :currentCountry="country" /></figure>
+        <figure><destination-map-svg :currentCountry="country" /></figure>
     </div>
 </template>
 <script>
-import worldmap from '~/static/images/world-map-new.svg?raw'
-
 export default {
     props: {
         country: {
@@ -18,11 +16,6 @@ export default {
         countries: {
             type: Array,
             required: true
-        }
-    },
-    data() {
-        return {
-            map: worldmap
         }
     }
 }
