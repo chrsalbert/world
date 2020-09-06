@@ -1,21 +1,29 @@
 <template>
     <div 
         class="c-destinationMap" 
-        :class="`c-destinationMap--${country.id}`" 
-        :style="{ '--position': country.map.position, '--scale': country.map.scale }">
-        <figure><destination-map-svg :currentCountry="country" /></figure>
+        :class="`c-destinationMap--${currentDestination.id}`" 
+        :style="{ '--position': currentCountryMap.translate3d, '--scale': currentCountryMap.scale }">
+        <figure><destination-map-svg :currentDestination="currentDestination" /></figure>
     </div>
 </template>
 <script>
+import countryMaps from '~/static/data/countryMaps.json';
+
 export default {
+    data() {
+        return {
+            countryMaps: countryMaps
+        }
+    },
     props: {
-        country: {
+        currentDestination: {
             type: Object,
             required: true
-        },
-        countries: {
-            type: Array,
-            required: true
+        }
+    },
+    computed: {
+        currentCountryMap() {
+            return countryMaps.find(el => el.id === this.currentDestination.id)
         }
     }
 }
@@ -59,7 +67,7 @@ export default {
     left: calc(calc(100% * var(--scale) - 100%) / -2);
     width: calc(100% * var(--scale));
     height: unset;
-    transform: var(--position);
+    transform: translate3d(var(--position));
     transition: all 1s var(--timing-function);
 }
 

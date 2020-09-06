@@ -1,5 +1,12 @@
 [
     {
+        "id": "cologne",
+        "countryId": "germany",
+        "title": "Köln",
+        "cx": "23",
+        "cy": "51"
+    },
+    {
         "id": "amsterdam",
         "countryId": "netherlands",
         "title": "Amsterdam",
@@ -26,6 +33,13 @@
         "title": "Krakau",
         "cx": "111",
         "cy": "64"
+    },
+    {
+        "id": "bialystok",
+        "countryId": "polan",
+        "title": "Bilaystok",
+        "cx": "128",
+        "cy": "31"
     },
     {
         "id": "lviv",

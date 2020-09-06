@@ -1,26 +1,28 @@
 <template>
     <transition name="title" mode="out-in">
-        <h1 class="c-destinationTitle" :data-position="step" :key="country.title"><span :data-position="step" :key="country.title">{{ country.title }}</span></h1>
+        <h1 class="c-destinationTitle" 
+            :key="title">
+            <span :data-position="step" :key="title">
+                {{ title }}
+            </span>
+        </h1>
     </transition>
 </template>
 <script>
 export default {
     props: {
-        countries: {
-            type: Array,
+        title: {
+            type: String,
             required: true
         },
-        country: {
-            type: Object,
+        currentDestinationIndex: {
+            type: Number,
             required: true
         }
     },
     computed: {
-        countryIndex() {
-            return this.countries.findIndex(country => country.id == this.country.id)
-        },
         step() {
-            let index = this.countryIndex
+            let index = this.currentDestinationIndex
             index++
             return index < 10 ?  `0${index}` : index
         }

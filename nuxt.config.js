@@ -1,9 +1,9 @@
 import axios from 'axios'
-import Countries from './static/data/countries.json'
+import destinations from './static/data/destinations.json'
 
 const dynamicRoutes = [];
-Countries.forEach(el => {
-  dynamicRoutes.push(`journey/${el.id}`)
+destinations.forEach(el => {
+  dynamicRoutes.push(`destination/${el.id}`)
   // let album = require(`./static/data/albums/${el.id}.json`)
   // for(var i = 1; i <= album.length; i++) {
   //   dynamicRoutes.push(`${el.id}/${i}`)

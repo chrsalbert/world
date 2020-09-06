@@ -6,7 +6,7 @@
                     <component 
                         :id="map.id" 
                         class="country"
-                        :class="{ 'country--active': map.id === currentCountry.id }"
+                        :class="{ 'country--active': map.id === currentDestination.id }"
                         vector-effect="non-scaling-stroke"
                         :key="map.id" 
                         :is="map.tag"
@@ -18,12 +18,16 @@
             <g id="activeplaces">
                 <template v-for="map in countryMaps">
                     <use 
-                        v-if="map.id === currentCountry.id"
+                        v-if="map.id === currentDestination.id"
                         :key="map.id"
                         :xlink:href="`#${map.id}`"  />
                 </template>
             </g>
             <g id="route" transform="translate(1, 1)">
+                <polyline 
+                    class="line" 
+                    :points="routePoints"
+                    vector-effect="non-scaling-stroke"></polyline>
                 <template v-for="(route, index) in routes">
                     <line 
                         v-if="routes[index+1]"
@@ -34,7 +38,7 @@
                         :y2="routes[index+1].cy"
                         class="line" 
                         :class="{ 
-                            'line--active': route.countryId === currentCountry.id || routes[index+1].countryId === currentCountry.id 
+                            'line--active': route.countryId === currentDestination.id || routes[index+1].countryId === currentDestination.id 
                         }"
                         :data-lol="index"
                         vector-effect="non-scaling-stroke" />
@@ -47,7 +51,7 @@
                     :cx="place.cx"
                     :cy="place.cy"
                     class="place"
-                    :class="{ 'place--active': place.countryId === currentCountry.id }"
+                    :class="{ 'place--active': place.countryId === currentDestination.id }"
                     vector-effect="non-scaling-stroke"
                 />
             </g>
@@ -61,7 +65,7 @@ import places from '~/static/data/places.json';
 
 export default {
     props: {
-        currentCountry: {
+        currentDestination: {
             type: Object,
             required: true
         }
@@ -82,6 +86,15 @@ export default {
                 routes.push(place)
             })
             return routes
+        },
+        routePoints() {
+            let points = ""
+            route.forEach(stop => {
+                let place = places.find(el => el.id === stop)
+                if(!place) return console.error(`error while adding route points: no place found "${stop}"`)
+                points += ` ${place.cx} ${place.cy}`
+            })
+            return points
         }
     }
 }
@@ -92,9 +105,6 @@ export default {
     }
     .country--active {
         stroke: var(--color-gray-lightest)
-    }
-    .countryFoo {
-        stroke: red
     }
     .line {
         stroke: var(--color-gray);

@@ -1,6 +1,6 @@
 <template>
     <ul class="c-destinationStats">
-        <li class="c-destinationStats__item" v-for="(stat, index) of stats" :key="index">
+        <li class="c-destinationStats__item" v-for="(stat, index) of formattedStats" :key="index">
             <app-icon class="c-destinationStats__icon" :icon="stat.icon" />
             <strong class="c-destinationStats__value">{{ stat.title }}</strong>
             <span class="c-destinationStats__key">{{ stat.sub }}</span>
@@ -10,26 +10,25 @@
 <script>
 export default {
     props: {
-        country: {
+        stats: {
             type: Object,
             required: true
         }
     },
     computed: {
-        stats() {
+        formattedStats() {
             return  [
                 {
                     icon: 'building',
-                    title: `${this.country.stats.cities} Orte`,
-                    sub: `in ${this.country.stats.days} tagen`
-                },
-                {
+                    title: `${this.stats.cities} Orte`,
+                    sub: `in ${this.stats.days} tagen`
+                }, {
                     icon: 'route',
-                    title: `${this.formatNumber(this.country.stats.distance)} km`,
+                    title: `${this.formatNumber(this.stats.distance)} km`,
                     sub: 'gefahren'
                 }, {
                     icon: 'transport',
-                    title: `${this.country.stats.transportHours} Std.`,
+                    title: `${this.stats.transportHours} Std.`,
                     sub: 'in Bus & Bahn'
                 }
             ]

@@ -16,12 +16,12 @@
     </div>
 </template>
 <script>
-    import Countries from '~/static/data/countries.json';
+    import destinations from '~/static/data/destinations.json';
 
     export default {
         data () {
             return {
-                countries: Countries
+                destinations: destinations
             }
         },
         methods: {

@@ -1,63 +1,63 @@
 <template>
     <layout-destination>
         <template slot="cover">
-            <destination-cover :country="country" />
+            <destination-cover :country="currentDestination" />
         </template>
         <template slot="article">
-            <destination-article :country="country" />
+            <destination-article :country="currentDestination" />
         </template>
         <template slot="header">
-            <destination-title :countries="countries" :country="country" />
-            <destination-map :countries="countries" :country="country" />
-            <destination-stats :country="country" />
+            <destination-title :title="currentDestination.title" :currentDestinationIndex="currentDestinationIndex" />
+            <destination-map :countries="destinations" :currentDestination="currentDestination" />
+            <destination-stats :stats="currentDestination.stats" />
         </template>
         <template slot="date">
-            <destination-date :country="country" />
+            <destination-date :country="currentDestination" />
         </template>
         <template slot="prev">
-            <app-button icon="arrowLeft" :href="prevCountryUrl" ref="prev"></app-button>
+            <app-button icon="arrowLeft" :href="prevDestinationUrl" ref="prev"></app-button>
         </template>
         <template slot="next">
-            <app-button icon="arrowRight" :href="nextCountryUrl" ref="next"></app-button>
+            <app-button icon="arrowRight" :href="nextDestinationUrl" ref="next"></app-button>
         </template>
     </layout-destination>
 </template>
 <script>
-import countries from '~/static/data/countries.json';
+import destinations from '~/static/data/destinations.json';
 
 export default {
     layout: 'destinations',
     asyncData () {
-        return { countries }
+        return { destinations }
     },
     computed: {
-        country() {
-            return this.countries.filter(country => country.id === this.$route.params.id)[0]
+        currentDestination() {
+            return this.destinations.filter(destination => destination.id === this.$route.params.id)[0]
         },
-        countryIndex() {
-            return this.countries.findIndex(country => country.id == this.country.id)
+        currentDestinationIndex() {
+            return this.destinations.findIndex(destination => destination.id == this.currentDestination.id)
         },
-        prevCountryIndex() {
-            return this.countryIndex === 0 ? this.countries.length - 1 : this.countryIndex - 1
+        prevDestinationIndex() {
+            return this.currentDestinationIndex === 0 ? this.destinations.length - 1 : this.currentDestinationIndex - 1
         },
-        nextCountryIndex() {
-            return this.countryIndex === (this.countries.length - 1) ? 0 : this.countryIndex + 1
+        nextDestinationIndex() {
+            return this.currentDestinationIndex === (this.destinations.length - 1) ? 0 : this.currentDestinationIndex + 1
         },
-        prevCountryUrl() {
-            return `/destination/${this.countries[this.prevCountryIndex].id}`
+        prevDestinationUrl() {
+            return `/destination/${this.destinations[this.prevDestinationIndex].id}`
         },
-        nextCountryUrl() {
-            return `/destination/${this.countries[this.nextCountryIndex].id}`
+        nextDestinationUrl() {
+            return `/destination/${this.destinations[this.nextDestinationIndex].id}`
         }
     },
     mounted() {
         window.addEventListener('keydown', e => {
             switch (e.keyCode) {
                 case 37:
-                    this.$router.push({ path: this.prevCountryUrl })
+                    this.$router.push({ path: this.prevDestinationUrl })
                     break;
                 case 39:
-                    this.$router.push({ path: this.nextCountryUrl })
+                    this.$router.push({ path: this.nextDestinationUrl })
                     break;
             }
         })

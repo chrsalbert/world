@@ -43,7 +43,7 @@
     </div>
 </template>
 <script>
-import Countries from '~/static/data/countries.json';
+import Countries from '~/static/data/destinations.json';
 
 export default {
     head () {

@@ -29,7 +29,6 @@
     </div>
 </template>
 <script>
-    import Countries from '~/static/data/countries.json'
     import WorldMap from '~/static/images/world-map.svg?raw'
 
     export default {
