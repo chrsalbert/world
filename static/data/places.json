@@ -4,6 +4,27 @@
         "countryId": "germany",
         "title": "Köln",
         "cx": "23",
+        "cy": "57"
+    },
+    {
+        "id": "neustrelitz",
+        "countryId": "germany",
+        "title": "Neustrelitz",
+        "cx": "61",
+        "cy": "31"
+    },
+    {
+        "id": "gera",
+        "countryId": "germany",
+        "title": "Gera",
+        "cx": "57",
+        "cy": "56"
+    },
+    {
+        "id": "leipzig",
+        "countryId": "germany",
+        "title": "Leipzig",
+        "cx": "59",
         "cy": "51"
     },
     {
@@ -36,10 +57,24 @@
     },
     {
         "id": "bialystok",
-        "countryId": "polan",
+        "countryId": "poland",
         "title": "Bilaystok",
         "cx": "128",
         "cy": "31"
+    },
+    {
+        "id": "lodz",
+        "countryId": "poland",
+        "title": "Łódź",
+        "cx": "106",
+        "cy": "48"
+    },
+    {
+        "id": "gdansk",
+        "countryId": "poland",
+        "title": "Danzig",
+        "cx": "99",
+        "cy": "23"
     },
     {
         "id": "lviv",
@@ -56,18 +91,18 @@
         "cy": "58"
     },
     {
-        "id": "minsk",
-        "countryId": "belarus",
-        "title": "Minsk",
-        "cx": "158",
-        "cy": "25"
-    },
-    {
         "id": "grodno",
         "countryId": "belarus",
         "title": "Grodno",
         "cx": "134",
         "cy": "28"
+    },
+    {
+        "id": "minsk",
+        "countryId": "belarus",
+        "title": "Minsk",
+        "cx": "158",
+        "cy": "25"
     },
     {
         "id": "brest",
@@ -96,5 +131,579 @@
         "title": "Vilnius",
         "cx": "142",
         "cy": "16"
+    },
+    {
+        "id": "krumlov",
+        "countryId": "czechrepublic",
+        "title": "Krumau an der Moldau",
+        "cx": "74",
+        "cy": "76"
+    },
+    {
+        "id": "prague",
+        "countryId": "czechrepublic",
+        "title": "Prag",
+        "cx": "75",
+        "cy": "64"
+    },
+    {
+        "id": "carlsbad",
+        "countryId": "czechrepublic",
+        "title": "Karlsbad",
+        "cx": "63",
+        "cy": "62"
+    },
+    {
+        "id": "bratislava",
+        "countryId": "slovakia",
+        "title": "Bratislava",
+        "cx": "94",
+        "cy": "82"
+    },
+    {
+        "id": "trencin",
+        "countryId": "slovakia",
+        "title": "Trenčín",
+        "cx": "100",
+        "cy": "78"
+    },
+    {
+        "id": "kosice",
+        "countryId": "slovakia",
+        "title": "Košice",
+        "cx": "121",
+        "cy": "77"
+    },
+    {
+        "id": "debrecen",
+        "countryId": "hungary",
+        "title": "Košice",
+        "cx": "124",
+        "cy": "88"
+    },
+    {
+        "id": "szeget",
+        "countryId": "hungary",
+        "title": "Szeget",
+        "cx": "115",
+        "cy": "100"
+    },
+    {
+        "id": "brasov",
+        "countryId": "romania",
+        "title": "Brasov",
+        "cx": "153",
+        "cy": "104"
+    },
+    {
+        "id": "sibiu",
+        "countryId": "romania",
+        "title": "Sibiu",
+        "cx": "141",
+        "cy": "104"
+    },
+    {
+        "id": "bukarest",
+        "countryId": "romania",
+        "title": "Bukarest",
+        "cx": "157",
+        "cy": "115"
+    },
+    {
+        "id": "timisoara",
+        "countryId": "romania",
+        "title": "Timisoara",
+        "cx": "121",
+        "cy": "104"
+    },
+    {
+        "id": "ioannina",
+        "countryId": "greek",
+        "title": "Ioannina",
+        "cx": "123",
+        "cy": "160"
+    },
+    {
+        "id": "amfilochia",
+        "countryId": "greek",
+        "title": "Amfilochia",
+        "cx": "126",
+        "cy": "167"
+    },
+    {
+        "id": "palouki",
+        "countryId": "greek",
+        "title": "Palouki",
+        "cx": "129",
+        "cy": "176"
+    },
+    {
+        "id": "tholo",
+        "countryId": "greek",
+        "title": "Tholo",
+        "cx": "131",
+        "cy": "181"
+    },
+    {
+        "id": "gialova",
+        "countryId": "greek",
+        "title": "Gialova",
+        "cx": "131",
+        "cy": "185"
+    },
+    {
+        "id": "kalamata",
+        "countryId": "greek",
+        "title": "Kalamata",
+        "cx": "134",
+        "cy": "183"
+    },
+    {
+        "id": "gythionbay",
+        "countryId": "greek",
+        "title": "Gythion Bay",
+        "cx": "137",
+        "cy": "186"
+    },
+    {
+        "id": "nafplio",
+        "countryId": "greek",
+        "title": "Nafplio",
+        "cx": "139",
+        "cy": "179"
+    },
+    {
+        "id": "korinth",
+        "countryId": "greek",
+        "title": "Korinth",
+        "cx": "137",
+        "cy": "175"
+    },
+    {
+        "id": "delphi",
+        "countryId": "greek",
+        "title": "Delphi",
+        "cx": "136",
+        "cy": "172"
+    },
+    {
+        "id": "kalambaka",
+        "countryId": "greek",
+        "title": "Kalambaka",
+        "cx": "139",
+        "cy": "160"
+    },
+    {
+        "id": "athens",
+        "countryId": "greek",
+        "title": "Athen",
+        "cx": "144",
+        "cy": "175"
+    },
+    {
+        "id": "thessaloniki",
+        "countryId": "greek",
+        "title": "Thessaloniki",
+        "cx": "138",
+        "cy": "151"
+    },
+    {
+        "id": "sofia",
+        "countryId": "bulgaria",
+        "title": "Sofia",
+        "cx": "139",
+        "cy": "132"
+    },
+    {
+        "id": "plovdiv",
+        "countryId": "bulgaria",
+        "title": "Plovdiv",
+        "cx": "149",
+        "cy": "137"
+    },
+    {
+        "id": "burgas",
+        "countryId": "bulgaria",
+        "title": "Burgas",
+        "cx": "168",
+        "cy": "134"
+    },
+    {
+        "id": "velikotarnovo",
+        "countryId": "bulgaria",
+        "title": "Veliko Tarnovo",
+        "cx": "155",
+        "cy": "128"
+    },
+    {
+        "id": "kopriwschtiza",
+        "countryId": "bulgaria",
+        "title": "Kopriwschtiza",
+        "cx": "148",
+        "cy": "132"
+    },
+    {
+        "id": "gjirokastra",
+        "countryId": "albania",
+        "title": "Gjirokaster",
+        "cx": "117",
+        "cy": "155"
+    },
+    {
+        "id": "tirana",
+        "countryId": "albania",
+        "title": "Tirana",
+        "cx": "115",
+        "cy": "144"
+    },
+    {
+        "id": "saranda",
+        "countryId": "albania",
+        "title": "Saranda",
+        "cx": "117",
+        "cy": "158"
+    },
+    {
+        "id": "dhermi",
+        "countryId": "albania",
+        "title": "Dhërmi",
+        "cx": "114",
+        "cy": "155"
+    },
+    {
+        "id": "berat",
+        "countryId": "albania",
+        "title": "Berat",
+        "cx": "116",
+        "cy": "150"
+    },
+    {
+        "id": "belgrade",
+        "countryId": "serbia",
+        "title": "belgrade",
+        "cx": "118",
+        "cy": "114"
+    },
+    {
+        "id": "novisad",
+        "countryId": "serbia",
+        "title": "Novi Sad",
+        "cx": "113",
+        "cy": "109"
+    },
+    {
+        "id": "nis",
+        "countryId": "serbia",
+        "title": "Niš",
+        "cx": "129",
+        "cy": "127"
+    },
+    {
+        "id": "skopje",
+        "countryId": "nordmazedonia",
+        "title": "Skopje",
+        "cx": "126",
+        "cy": "139"
+    },
+    {
+        "id": "sugdidi",
+        "countryId": "georgia",
+        "title": "Sugdidi",
+        "cx": "266",
+        "cy": "131"
+    },
+    {
+        "id": "kutaissi",
+        "countryId": "georgia",
+        "title": "Kutaissi",
+        "cx": "273",
+        "cy": "133"
+    },
+    {
+        "id": "borjomi",
+        "countryId": "georgia",
+        "title": "Bordschomi",
+        "cx": "278",
+        "cy": "136"
+    },
+    {
+        "id": "tblisi",
+        "countryId": "georgia",
+        "title": "Tiflis",
+        "cx": "288",
+        "cy": "137"
+    },
+    {
+        "id": "signaghi",
+        "countryId": "georgia",
+        "title": "Signaghi",
+        "cx": "296",
+        "cy": "137"
+    },
+    {
+        "id": "yerevan",
+        "countryId": "armenia",
+        "title": "Jerewan",
+        "cx": "286",
+        "cy": "151"
+    },
+    {
+        "id": "baku",
+        "countryId": "azerbaijan",
+        "title": "Baku",
+        "cx": "327",
+        "cy": "149"
+    },
+    {
+        "id": "saki",
+        "countryId": "azerbaijan",
+        "title": "Sheki",
+        "cx": "306",
+        "cy": "142"
+    },
+    {
+        "id": "delhi",
+        "countryId": "india",
+        "title": "Neu-Delhi",
+        "cx": "538",
+        "cy": "249"
+    },
+    {
+        "id": "jaipur",
+        "countryId": "india",
+        "title": "Jaipur",
+        "cx": "529",
+        "cy": "263"
+    },
+    {
+        "id": "agra",
+        "countryId": "india",
+        "title": "Agra",
+        "cx": "545",
+        "cy": "260"
+    },
+    {
+        "id": "varanasi",
+        "countryId": "india",
+        "title": "Varanasi",
+        "cx": "583",
+        "cy": "272"
+    },
+    {
+        "id": "bangalore",
+        "countryId": "india",
+        "title": "Bangalore",
+        "cx": "550",
+        "cy": "373"
+    },
+    {
+        "id": "munnar",
+        "countryId": "india",
+        "title": "Munnar",
+        "cx": "547",
+        "cy": "396"
+    },
+    {
+        "id": "alappuzha",
+        "countryId": "india",
+        "title": "Alappuzha",
+        "cx": "541",
+        "cy": "400"
+    },
+    {
+        "id": "poducherry",
+        "countryId": "india",
+        "title": "Pondicherry",
+        "cx": "567",
+        "cy": "380"
+    },
+    {
+        "id": "chennai",
+        "countryId": "india",
+        "title": "Chennai",
+        "cx": "570",
+        "cy": "371"
+    },
+    {
+        "id": "bangkok",
+        "countryId": "thailand",
+        "title": "Bangkok",
+        "cx": "719",
+        "cy": "365"
+    },
+    {
+        "id": "phrae",
+        "countryId": "thailand",
+        "title": "Phrae",
+        "cx": "714",
+        "cy": "329"
+    },
+    {
+        "id": "chiangmai",
+        "countryId": "thailand",
+        "title": "Chiang Mai",
+        "cx": "705",
+        "cy": "325"
+    },
+    {
+        "id": "phitsanulok",
+        "countryId": "thailand",
+        "title": "Phitsanulok",
+        "cx": "715",
+        "cy": "341"
+    },
+    {
+        "id": "lopburi",
+        "countryId": "thailand",
+        "title": "Lopburi",
+        "cx": "719",
+        "cy": "357"
+    },
+    {
+        "id": "phnompenh",
+        "countryId": "cambodia",
+        "title": "Phnom Penh",
+        "cx": "751",
+        "cy": "381"
+    },
+    {
+        "id": "kampot",
+        "countryId": "cambodia",
+        "title": "Kampot",
+        "cx": "745",
+        "cy": "389"
+    },
+    {
+        "id": "kep",
+        "countryId": "cambodia",
+        "title": "kep",
+        "cx": "748",
+        "cy": "390"
+    },
+    {
+        "id": "kohrongsanloem",
+        "countryId": "cambodia",
+        "title": "Koh Rong Sanloem",
+        "cx": "739",
+        "cy": "389"
+    },
+    {
+        "id": "kratie",
+        "countryId": "cambodia",
+        "title": "Kratie",
+        "cx": "760",
+        "cy": "373"
+    },
+    {
+        "id": "siemreap",
+        "countryId": "cambodia",
+        "title": "Siem Reap",
+        "cx": "743",
+        "cy": "366"
+    },
+    {
+        "id": "batambang",
+        "countryId": "cambodia",
+        "title": "Batambang",
+        "cx": "738",
+        "cy": "368"
+    },
+    {
+        "id": "cantho",
+        "countryId": "vietnam",
+        "title": "Cần Thơ",
+        "cx": "758",
+        "cy": "393"
+    },
+    {
+        "id": "bentre",
+        "countryId": "vietnam",
+        "title": "Ben Tre",
+        "cx": "762",
+        "cy": "392"
+    },
+    {
+        "id": "hochiminh",
+        "countryId": "vietnam",
+        "title": "Ho-Chi-Minh-Stadt",
+        "cx": "764",
+        "cy": "387"
+    },
+    {
+        "id": "taipei",
+        "countryId": "taiwan",
+        "title": "Taipeh",
+        "cx": "846",
+        "cy": "283"
+    },
+    {
+        "id": "taichung",
+        "countryId": "taiwan",
+        "title": "Taichung",
+        "cx": "840",
+        "cy": "293"
+    },
+    {
+        "id": "puli",
+        "countryId": "taiwan",
+        "title": "Puli",
+        "cx": "843",
+        "cy": "294"
+    },
+    {
+        "id": "tainan",
+        "countryId": "taiwan",
+        "title": "Tainan",
+        "cx": "839",
+        "cy": "304"
+    },
+    {
+        "id": "kaohsiung",
+        "countryId": "taiwan",
+        "title": "Kaohsiung",
+        "cx": "840",
+        "cy": "307"
+    },
+    {
+        "id": "kenting",
+        "countryId": "taiwan",
+        "title": "Kenting",
+        "cx": "844",
+        "cy": "312"
+    },
+    {
+        "id": "hualien",
+        "countryId": "taiwan",
+        "title": "Hualien",
+        "cx": "847",
+        "cy": "293"
+    },
+    {
+        "id": "taitung",
+        "countryId": "taiwan",
+        "title": "Taitung",
+        "cx": "846",
+        "cy": "304"
+    },
+    {
+        "id": "tokyo",
+        "countryId": "japan",
+        "title": "Tokio",
+        "cx": "975",
+        "cy": "162"
+    },
+    {
+        "id": "osaka",
+        "countryId": "japan",
+        "title": "Osaka",
+        "cx": "947",
+        "cy": "175"
+    },
+    {
+        "id": "kyoto",
+        "countryId": "japan",
+        "title": "Kyoto",
+        "cx": "949",
+        "cy": "171"
     }
 ]

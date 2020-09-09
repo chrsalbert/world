@@ -8,7 +8,7 @@
         </template>
         <template slot="header">
             <destination-title :title="currentDestination.title" :currentDestinationIndex="currentDestinationIndex" />
-            <destination-map :countries="destinations" :currentDestination="currentDestination" />
+            <destination-map :places="places" :countries="countries" :destinations="destinations" :currentDestination="currentDestination" />
             <destination-stats :stats="currentDestination.stats" />
         </template>
         <template slot="date">
@@ -24,11 +24,13 @@
 </template>
 <script>
 import destinations from '~/static/data/destinations.json';
+import countries from '~/static/data/countries.json';
+import places from '~/static/data/places.json';
 
 export default {
     layout: 'destinations',
     asyncData () {
-        return { destinations }
+        return { destinations, countries, places }
     },
     computed: {
         currentDestination() {

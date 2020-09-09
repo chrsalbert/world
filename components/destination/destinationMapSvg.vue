@@ -1,57 +1,59 @@
 <template>
     <svg viewBox="0 0 1000 429" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke-width="1" fill="none">
-            <g id="places">
-                <template v-for="map in countryMaps">
+            <g class="visually-hidden">
+                <template v-for="country in countries">
                     <component 
-                        :id="map.id" 
-                        class="country"
-                        :class="{ 'country--active': map.id === currentDestination.id }"
+                        :id="country.id" 
+                        :key="country.id" 
+                        :is="country.tag"
+                        :d="country.d"
+                        :points="country.points"
                         vector-effect="non-scaling-stroke"
-                        :key="map.id" 
-                        :is="map.tag"
-                        :d="map.d"
-                        :points="map.points"
                         />
                 </template>
             </g>
-            <g id="activeplaces">
-                <template v-for="map in countryMaps">
+            <g id="allCountries">
+                <template v-for="country in countries">
                     <use 
-                        v-if="map.id === currentDestination.id"
-                        :key="map.id"
-                        :xlink:href="`#${map.id}`"  />
+                        class="country"
+                        :key="country.id"
+                        :xlink:href="`#${country.id}`"  />
                 </template>
             </g>
-            <g id="route" transform="translate(1, 1)">
-                <polyline 
-                    class="line" 
+            <g id="activeCountries">
+                <template v-for="map in countries">
+                    <transition name="country--active" :key="map.id">
+                        <use 
+                            class="country country--active"
+                            v-if="map.id === currentDestination.countryId"
+                            :xlink:href="`#${map.id}`"  />
+                    </transition>
+                </template>
+            </g>
+            <g id="route" transform="translate(2, 2)">
+                <polyline
+                    class="route"
                     :points="routePoints"
                     vector-effect="non-scaling-stroke"></polyline>
-                <template v-for="(route, index) in routes">
-                    <line 
-                        v-if="routes[index+1]"
-                        :key="index" 
-                        :x1="route.cx" 
-                        :y1="route.cy" 
-                        :x2="routes[index+1].cx" 
-                        :y2="routes[index+1].cy"
-                        class="line" 
-                        :class="{ 
-                            'line--active': route.countryId === currentDestination.id || routes[index+1].countryId === currentDestination.id 
-                        }"
-                        :data-lol="index"
-                        vector-effect="non-scaling-stroke" />
-                </template>
             </g>
-            <g id="places" transform="translate(1, 1)">
+            <g id="activeRoute" transform="translate(2, 2)">
+                <transition name="route--active">
+                    <polyline 
+                        class="route route--active"
+                        :key="currentRoutePoints"
+                        :points="currentRoutePoints"
+                        vector-effect="non-scaling-stroke"></polyline>
+                </transition>
+            </g>
+            <g id="places" transform="translate(2, 2)">
                 <circle
                     v-for="place in places" 
                     :key="`${place.cx}${place.cy}`"
                     :cx="place.cx"
                     :cy="place.cy"
                     class="place"
-                    :class="{ 'place--active': place.countryId === currentDestination.id }"
+                    :class="{ 'place--active': placeInCurrentDestination(place.id) }"
                     vector-effect="non-scaling-stroke"
                 />
             </g>
@@ -59,64 +61,97 @@
     </svg>
 </template>
 <script>
-import countryMaps from '~/static/data/countryMaps.json';
-import route from '~/static/data/route.json';
-import places from '~/static/data/places.json';
-
 export default {
     props: {
+        places: {
+            type: Array,
+            required: true
+        },
+        countries: {
+            type: Array,
+            required: true
+        },
+        destinations: {
+            type: Array,
+            required: true
+        },
         currentDestination: {
             type: Object,
             required: true
         }
     },
-    data() {
-        return {
-            countryMaps: countryMaps,
-            places: places,
-            route: route
-        }
-    },
     computed: {
-        routes() {
-            let routes = []
-            route.forEach(stop => {
-                let place = places.find(el => el.id === stop)
-                if(!place) return console.error(`error while adding route stop: no place found "${stop}"`)
-                routes.push(place)
-            })
-            return routes
+        route() {
+            return this.destinations.map(el => el.route).flat()
         },
         routePoints() {
-            let points = ""
-            route.forEach(stop => {
-                let place = places.find(el => el.id === stop)
-                if(!place) return console.error(`error while adding route points: no place found "${stop}"`)
+            return this.getRoutePoints(this.route)
+        },
+        prevRoutePoints() {
+            let index = this.destinations.findIndex(el => el.id === this.currentDestination.id)
+            let route = []
+            for(let i = 0; i <= index; i++) {
+                if(!this.destinations[i].route) continue
+                route.push(this.destinations[i].route)
+            }
+            route = route.flat()
+            return this.getRoutePoints(route)
+        },
+        currentRoutePoints() {
+            return this.getRoutePoints(this.currentDestination.route)
+        }
+    },
+    methods: {
+        getRoutePoints(route = []) {
+            let points = ''
+            route.forEach(placeId => {
+                let place = this.places.find(el => el.id === placeId)
+                if(!place) return console.error(`no place found "${placeId}" while generating route points`)
                 points += ` ${place.cx} ${place.cy}`
             })
             return points
+        },
+        placeInCurrentDestination(id) {
+            if(!this.currentDestination.route) return console.error(`no routes found for currentDestination "${this.currentDestination.id}"`)
+            return this.currentDestination.route.some(el => el === id)
         }
     }
 }
 </script>
 <style scoped>
+    .visually-hidden {
+        visibility: hidden;
+    }
+
     .country {
-        stroke: var(--color-gray)
+        stroke: var(--color-gray-dark);
     }
     .country--active {
-        stroke: var(--color-gray-lightest)
+        stroke: var(--color-gray-lightest);
+        transition: all .3s var(--timing-function);
     }
-    .line {
-        stroke: var(--color-gray);
+    .country--active-leave { opacity: 1 }
+    .country--active-leave-to { opacity: 0 }
+    .country--active-enter { opacity: 0 }
+    .country--active-enter-to { opacity: 1 }
+
+    .route {
+        stroke: var(--color-gray-dark);
     }
-    .line--active {
+    .route--active {
         stroke: var(--color-primary);
+        transition: all .3s var(--timing-function);
     }
+    .route--active-leave { opacity: 1 }
+    .route--active-leave-to { opacity: 0 }
+    .route--active-enter { opacity: 0 }
+    .route--active-enter-to { opacity: 1 }
+
     .place {
-        r: calc(16 / var(--scale));
-        stroke: var(--color-gray);
+        r: calc(12 / var(--scale));
+        stroke: var(--color-gray-dark);
         fill: var(--color-gray-darkest);
-        transition: all 1s var(--timing-function);
+        transition-duration: .4s;
     }
     .place--active {
         stroke: var(--color-primary);

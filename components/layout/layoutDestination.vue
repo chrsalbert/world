@@ -88,6 +88,10 @@
     justify-content: center;
 }
 
+.l-destination__next {
+    align-items: flex-end;
+}
+
 @media only screen and (orientation: portrait) {
     .l-destination {
         position: static

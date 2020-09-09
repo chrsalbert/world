@@ -1,5 +1,15 @@
 <template>
-    <div class="grid">
+    <div>
+        <transition-group name="yolo">
+            <p :font-size="yoloSize" v-if="yoloSize === 20" class="yolo" key="20">yolo</p>
+            <p :font-size="yoloSize"  v-if="yoloSize === 30" class="yolo" key="30">moloo</p>
+        </transition-group>
+        <button @click="foo">foooo</button>
+        <transition name="yolo">
+            <p :font-size="yoloSize" class="yolo" :key="yoloSize">yolo {{ yoloSize }}</p>
+        </transition>
+    </div>
+    <!-- <div class="grid">
         <div class="grid__date">
             <span class="date">Mai 2019 – März 2020</span>
         </div>
@@ -26,7 +36,7 @@
         <div class="grid__facts">
             <facts-list :facts="facts" mode="horizontal" />
         </div>
-    </div>
+    </div> -->
 </template>
 <script>
     import WorldMap from '~/static/images/world-map.svg?raw'
@@ -40,7 +50,8 @@
         },
         data () {
             return {
-                worldmap: WorldMap
+                worldmap: WorldMap,
+                yoloSize: 20
             }
         },
         transition: {
@@ -65,15 +76,28 @@
                 ]
             }
         },
-        mounted() {
-            const video = document.getElementById("video")
-            video.onloadeddata = function() {
-                video.classList.add('video--loaded');
+        methods: {
+            foo() {
+                this.yoloSize = 30
             }
+        },
+        mounted() {
+            // const video = document.getElementById("video")
+            // video.onloadeddata = function() {
+            //     video.classList.add('video--loaded');
+            // }
         }
     }
 </script>
 <style scoped>
+    .yolo {
+        transition: all 3s var(--timing-function);
+    }
+    .yolo-leave { opacity: 1 }
+    .yolo-leave-to { opacity: 0 }
+    .yolo-enter { opacity: 0 }
+    .yolo-enter-to { opacity: 1 }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
