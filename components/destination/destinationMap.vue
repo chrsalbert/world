@@ -3,7 +3,14 @@
         class="c-destinationMap" 
         :class="`c-destinationMap--${currentDestination.id}`" 
         :style="{ '--position': position, '--scale': scale }">
-        <figure><destination-map-svg :places="places" :countries="countries" :destinations="destinations" :currentDestination="currentDestination" /></figure>
+        <figure>
+            <destination-map-svg 
+                :places="places" 
+                :countries="countries" 
+                :destinations="destinations" 
+                :currentDestination="currentDestination"
+                :currentDestinationIndex="currentDestinationIndex" />
+        </figure>
     </div>
 </template>
 <script>
@@ -23,6 +30,10 @@ export default {
         },
         currentDestination: {
             type: Object,
+            required: true
+        },
+        currentDestinationIndex: {
+            type: Number,
             required: true
         }
     },

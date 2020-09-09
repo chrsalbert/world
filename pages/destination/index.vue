@@ -7,8 +7,15 @@
             <destination-article :country="currentDestination" />
         </template>
         <template slot="header">
-            <destination-title :title="currentDestination.title" :currentDestinationIndex="currentDestinationIndex" />
-            <destination-map :places="places" :countries="countries" :destinations="destinations" :currentDestination="currentDestination" />
+            <destination-title 
+                :title="currentDestination.title" 
+                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-map 
+                :places="places" 
+                :countries="countries" 
+                :destinations="destinations" 
+                :currentDestination="currentDestination" 
+                :currentDestinationIndex="currentDestinationIndex" />
             <destination-stats :stats="currentDestination.stats" />
         </template>
         <template slot="date">

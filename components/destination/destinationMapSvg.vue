@@ -78,6 +78,10 @@ export default {
         currentDestination: {
             type: Object,
             required: true
+        },
+        currentDestinationIndex: {
+            type: Number,
+            required: true
         }
     },
     computed: {
@@ -98,7 +102,17 @@ export default {
             return this.getRoutePoints(route)
         },
         currentRoutePoints() {
-            return this.getRoutePoints(this.currentDestination.route)
+            let prevDestinationId = this.currentDestinationIndex === 0 ? this.destinations.length - 1 : this.currentDestinationIndex - 1
+            let prevStop = this.destinations[prevDestinationId].route.slice(-1)
+            let prevStopPoints = this.getRoutePoints(prevStop)
+
+            let nextDestinationId = this.currentDestinationIndex === (this.destinations.length - 1) ? 0 : this.currentDestinationIndex + 1
+            let nextStop = [this.destinations[nextDestinationId].route[0]]
+            let nextStopPoints = this.getRoutePoints(nextStop)
+
+            let currentStopPoints = this.getRoutePoints(this.currentDestination.route)
+            
+            return `${prevStopPoints} ${currentStopPoints} ${nextStopPoints}`
         }
     },
     methods: {
