@@ -2,7 +2,7 @@
     <div class="l-destination">
         <div class="l-destination__grid">
             <div class="l-destination__nav">
-                <the-nav />
+                <slot name="nav"></slot>
             </div>
             <div class="l-destination__date">
                 <slot name="date"></slot>

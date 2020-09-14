@@ -1,5 +1,13 @@
 <template>
     <layout-destination>
+        <template slot="nav">
+            <the-nav 
+                :places="places" 
+                :countries="countries" 
+                :destinations="destinations" 
+                :currentDestination="currentDestination" 
+                :currentDestinationIndex="currentDestinationIndex" />
+        </template>
         <template slot="cover">
             <destination-cover :country="currentDestination" />
         </template>

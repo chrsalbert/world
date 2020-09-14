@@ -47,8 +47,7 @@
                 </transition>
             </g>
             <g id="places" transform="translate(2, 2)">
-                <circle
-                    v-for="place in places" 
+                <circle v-for="place in places"
                     :key="`${place.cx}${place.cy}`"
                     :cx="place.cx"
                     :cy="place.cy"
@@ -150,7 +149,7 @@ export default {
     .country--active-enter-to { opacity: 1 }
 
     .route {
-        stroke: var(--color-gray-dark);
+        stroke: var(--color-gray);
     }
     .route--active {
         stroke: var(--color-primary);
@@ -163,15 +162,12 @@ export default {
 
     .place {
         r: calc(12 / var(--scale));
-        stroke: var(--color-gray-dark);
+        stroke: var(--color-gray);
         fill: var(--color-gray-darkest);
         transition-duration: .4s;
+        box-shadow: 10px 10px 10px red
     }
     .place--active {
         stroke: var(--color-primary);
-    }
-    .place:hover {
-        transition-duration: .15s;
-        r: calc(32 / var(--scale));
     }
 </style>
