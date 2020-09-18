@@ -60,7 +60,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px red solid */
+    height: 60vw;
 }
 .c-destinationMap::before {
     content:'';
@@ -121,10 +121,10 @@ export default {
     transition: all 1s var(--timing-function);
 }
 
-@media only screen and (orientation: portrait) {
+/* @media only screen and (orientation: portrait) {
     .c-destinationMap {
         flex: auto;
         height: 60vw;
     }
-}
+} */
 </style>

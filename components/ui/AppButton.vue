@@ -107,8 +107,8 @@ export default {
 	color: var(--button-secondary-text-color)
 }
 .c-button--secondary:hover:not(:disabled) >>> .c-icon svg {
-	stroke: var(--button-secondary-text-color);
-	color: var(--button-secondary-text-color)
+	stroke: var(--button-secondary-hover-text-color);
+	color: var(--button-secondary-hover-text-color)
 }
 
 /* type play */
@@ -127,8 +127,8 @@ export default {
 	color: var(--button-play-text-color)
 }
 .c-button--play:hover:not(:disabled) >>> .c-icon svg {
-	stroke: var(--button-play-text-color);
-	color: var(--button-play-text-color)
+	stroke: var(--button-play-hover-text-color);
+	color: var(--button-play-hover-text-color)
 }
 
 /* type ghost */
@@ -147,8 +147,8 @@ export default {
 	color: var(--button-ghost-text-color)
 }
 .c-button--ghost:hover:not(:disabled) >>> .c-icon svg {
-	stroke: var(--button-ghost-text-color);
-	color: var(--button-ghost-text-color)
+	stroke: var(--button-ghost-hover-text-color);
+	color: var(--button-ghost-hover-text-color)
 }
 
 /* size md */
@@ -156,7 +156,7 @@ export default {
 	height: var(--control-height-md);
 	line-height: calc(var(--control-height-md) - 4px);
 	padding: 0 calc(var(--control-height-md) / 2);
-	font-size: var(--font-size-md)
+	font-size: var(--font-size)
 }
 .c-button--md >>> .c-icon {
 	width: calc(var(--control-height-md) / 1.6);
@@ -172,6 +172,7 @@ export default {
 	height: var(--control-height-lg);
 	line-height: calc(var(--control-height-lg) - 4px);
 	padding: 0 calc(var(--control-height-lg) / 2);
+	font-size: var(--font-size)
 }
 .c-button--lg >>> .c-icon {
 	width: calc(var(--control-height-lg) / 1.6);
@@ -180,21 +181,6 @@ export default {
 }
 .c-button--lg.c-button--icon {
 	width: var(--control-height-lg);
-}
-
-/* size xl */
-.c-button--xl {
-	height: var(--control-height-xl);
-	line-height: calc(var(--control-height-xl) - 4px);
-	padding: 0 calc(var(--control-height-xl) / 2);
-}
-.c-button--xl >>> .c-icon {
-	width: calc(var(--control-height-xl) / 1.6);
-	height: calc(var(--control-height-xl) / 1.6);
-	margin-top: 0
-}
-.c-button--xl.c-button--icon {
-	width: var(--control-height-xl);
 }
 
 /* outstanding */

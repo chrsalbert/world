@@ -1,13 +1,5 @@
 <template>
     <layout-destination>
-        <template slot="nav">
-            <the-nav 
-                :places="places" 
-                :countries="countries" 
-                :destinations="destinations" 
-                :currentDestination="currentDestination" 
-                :currentDestinationIndex="currentDestinationIndex" />
-        </template>
         <template slot="cover">
             <destination-cover :country="currentDestination" />
         </template>
@@ -27,13 +19,30 @@
             <destination-stats :stats="currentDestination.stats" />
         </template>
         <template slot="date">
-            <destination-date :country="currentDestination" />
+            <destination-date 
+                :country="currentDestination" />
         </template>
         <template slot="prev">
-            <app-button icon="arrowLeft" :href="prevDestinationUrl" ref="prev"></app-button>
+            <app-button 
+                icon="arrowLeft" 
+                :href="prevDestinationUrl" 
+                ref="prev">
+            </app-button>
         </template>
         <template slot="next">
-            <app-button icon="arrowRight" :href="nextDestinationUrl" ref="next"></app-button>
+            <app-button 
+                icon="arrowRight" 
+                :href="nextDestinationUrl" 
+                ref="next">
+            </app-button>
+        </template>
+        <template slot="menu">
+            <the-menu 
+                :currentDestination="currentDestination" 
+                :currentDestinationIndex="currentDestinationIndex" />
+        </template>
+        <template slot="nav">
+            <the-nav />
         </template>
     </layout-destination>
 </template>
@@ -43,7 +52,7 @@ import countries from '~/static/data/countries.json';
 import places from '~/static/data/places.json';
 
 export default {
-    layout: 'destinations',
+    layout: 'destination',
     asyncData () {
         return { destinations, countries, places }
     },

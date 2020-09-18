@@ -74,6 +74,6 @@ export default {
     }
 
     .c-destinationStats >>> .c-icon svg {
-        stroke: var(--color-white)
+        stroke: var(--color-gray-lighter)
     }
 </style>

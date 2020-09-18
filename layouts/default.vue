@@ -1,58 +1,44 @@
 <template>
-    <div class="c-layout">
-        <div class="c-layout__nav">
-            <the-navigation />
-        </div>
-        <div class="c-layout__body">
-            <div class="body">
-                <nuxt/>
+    <div class="l-default">
+        <app-grid>
+            <div class="l-default__nav">
+                <the-nav />
             </div>
-        </div>
+            <div class="l-destination__menu" v-show="isMenuVisible" key="menu">
+                <the-menu />
+            </div>
+            <div class="l-default__body">
+                <Nuxt />
+            </div>
+        </app-grid>
     </div>
 </template>
+<script>
+export default {
+    computed: {
+        isMenuVisible() {
+            return this.$store.state.navigation.isMenuVisible
+        }
+    }
+}
+</script>
 <style scoped>
-.c-layout {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(12, 1fr);
-    min-height: 100vh;
-    height: 100vh;
-    max-width: var(--body-width);
-    margin: 0 auto;
-    padding: 0 var(--body-pad);
-    overflow-x: hidden
+.l-default {
+    padding: var(--space-md)
 }
 
-.c-layout__nav {
+.l-default__nav {
     grid-area: 1 / 1 / 2 / 2;
 }
 
-.c-layout__body {
-    grid-area: 1 / 1 / 2 / 13;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.l-default__body {
+    grid-area: 1 / 2 / 2 / 13
 }
 
-.body {
-    height: 100%;
-    max-height: 48rem;
-}
-
-.body > * {
-    height: 100%;
-}
-
-@media only screen and (orientation: portrait) {
-    .body {
-        max-height: none;
-    }
-}
-
-@media only screen and (orientation: portrait) and (max-width: 600px) {
-    .c-layout {
-        grid-template-rows: minmax(0, var(--header-height)) minmax(0, 1fr);
-        height: auto
-    }
+.l-destination__menu {
+    grid-area: 1 / 2 / 2 / 13;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
 }
 </style>

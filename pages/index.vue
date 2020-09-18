@@ -1,45 +1,54 @@
 <template>
-    <div>
-        <transition-group name="yolo">
-            <p :font-size="yoloSize" v-if="yoloSize === 20" class="yolo" key="20">yolo</p>
-            <p :font-size="yoloSize"  v-if="yoloSize === 30" class="yolo" key="30">moloo</p>
-        </transition-group>
-        <button @click="foo">foooo</button>
-        <transition name="yolo">
-            <p :font-size="yoloSize" class="yolo" :key="yoloSize">yolo {{ yoloSize }}</p>
-        </transition>
-    </div>
-    <!-- <div class="grid">
-        <div class="grid__date">
-            <span class="date">Mai 2019 – März 2020</span>
-        </div>
-        <div class="grid__video">
-            <div class="grid__videoWrapper">
-                <video id="video" class="video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
-                    <source src="/hero.mp4" type="video/mp4">
-                    <img src="/images/video-fallback.webp" />
-                </video>
-            </div>
-        </div>
-        <div class="grid__main">
-            <div class="main">
-                <h1 class="title">1x Ost-Europa, Kaukasus, Asien <nobr>& zurück</nobr></h1>
-                <p class="text">
-                    Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise führte, erfährst du hier.
-                </p>
-                <app-button href="/journey/niederlande">
-                    Tour starten
-                </app-button>
-            </div>
-        </div>
-        <div class="grid__map" v-html="worldmap"></div>
-        <div class="grid__facts">
+    <layout-welcome>
+        <template slot="nav">
+            <the-nav />
+            <app-button href="/destination/netherlands" type="secondary">
+                Tour starten
+            </app-button>
+        </template>
+        <template slot="article">
+            <main class="c-welcome">
+                <div>
+                    <h1>1x Ost-Europa, Kaukasus, Asien & zurück</h1>
+                    <p>
+                        Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise bisher führte, erfährst du hier.
+                    </p>
+                    <p>
+                        <app-button href="/destination/netherlands" size="md">
+                            Tour starten
+                        </app-button>
+                    </p>
+                </div>
+            </main>
+        </template>
+        <template slot="video">
+            <video id="video" class="c-welcome__video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
+                <img src="/images/video-fallback.webp" />
+                <source src="/hero.mp4" type="video/mp4">
+            </video>
+        </template>
+        <!-- <template slot="menu">
+            <the-menu 
+                :currentDestination="currentDestination" 
+                :currentDestinationIndex="currentDestinationIndex" />
+        </template> -->
+        <template slot="map">
+            <figure>
+                <destination-map-svg 
+                    :places="places" 
+                    :countries="countries" 
+                    :destinations="destinations" />
+            </figure>
+        </template>
+        <template slot="stats">
             <facts-list :facts="facts" mode="horizontal" />
-        </div>
-    </div> -->
+        </template>
+    </layout-welcome>
 </template>
 <script>
-    import WorldMap from '~/static/images/world-map.svg?raw'
+    import destinations from '~/static/data/destinations.json';
+    import countries from '~/static/data/countries.json';
+    import places from '~/static/data/places.json';
 
     export default {
         head: {
@@ -48,14 +57,11 @@
                 { hid: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
             ]
         },
-        data () {
+        layout: 'welcome',
+        data() {
             return {
-                worldmap: WorldMap,
-                yoloSize: 20
+                destinations, countries, places
             }
-        },
-        transition: {
-            duration: '600'
         },
         computed: {
             facts() {
@@ -75,194 +81,38 @@
                     }
                 ]
             }
-        },
-        methods: {
-            foo() {
-                this.yoloSize = 30
-            }
-        },
-        mounted() {
-            // const video = document.getElementById("video")
-            // video.onloadeddata = function() {
-            //     video.classList.add('video--loaded');
-            // }
         }
     }
 </script>
 <style scoped>
-    .yolo {
-        transition: all 3s var(--timing-function);
-    }
-    .yolo-leave { opacity: 1 }
-    .yolo-leave-to { opacity: 0 }
-    .yolo-enter { opacity: 0 }
-    .yolo-enter-to { opacity: 1 }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 10rem 5rem;
-        gap: 0px 16px;
-    }
-
-    .title {
-        margin: 0 0 var(--space-sm);
-        text-align: center;
-    }
-
-    .text {
-        margin-bottom: var(--space-lg)
-    }
-
-    .main {
-        padding: var(--space-md);
-        background: var(--color-secondary-darker);
+    .c-welcome {
+        /* display: flex;
+        place-items: center;
+        padding: var(--space-lg);
+        background: var(--color-gray-darker);
         box-shadow: var(--shadow-lg);
-        border-radius: var(--space-sm);
+        border-radius: var(--space-xs) var(--space-md) var(--space-xs) var(--space-md);
+        text-align: center; */
         text-align: center;
     }
-
-    .grid__video { 
-        position: relative;
-        grid-area: 1 / 5 / 3 / 13;
-        padding: 0 var(--space-md);
-        overflow: hidden;
+    .c-welcome p:first-of-type {
+        margin: var(--space-md) 0;
+        color: var(--color-gray-lighter)
+    }
+    .c-welcome p:last-of-type {
+        text-align: center;
+        margin: var(--space-xl) 0;
+    }
+    .c-welcome__video {
         display: flex;
-        mix-blend-mode: screen;
-    }
-
-    .grid__videoWrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-    .video {
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 100%;
         box-shadow: var(--shadow-lg);
-        border-radius: var(--space-xl) var(--space-xs) var(--space-xl) var(--space-xs);
+        border-radius: var(--border-radius-xs) var(--border-radius-xs);
         background: var(--color-gray-darker);
         object-fit: cover;
         transition: all 3s linear;
-        opacity: .6
-    }
-
-    .video--loaded {
-        object-fit: cover;
-    }
-
-    .grid__main { 
-        grid-area: 2 / 2 / 4 / 7;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        background: var(--color-gray-darker)
-    }
-
-    .grid__facts { 
-        grid-area: 3 / 8 / 4 / 12;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        text-align: center;
-        padding-bottom: var(--space-md)
-    }
-
-    .grid__date { 
-        grid-area: 2 / 1 / 4 / 3; 
-        padding-left: var(--space-md)
-    }
-
-    .date {
-        text-transform: uppercase;
-        writing-mode: vertical-lr;
-        transform: rotate(180deg)
-    }
-
-    .grid__map { 
-        grid-area: 1 / 2 / 3 / 13; 
-        position: relative;
-        z-index: 1;
-    }
-
-    @media only screen and (max-width: 1280px) {
-        .grid__facts {
-            grid-area: 3 / 8 / 4 / 13
-        }
-    }
-
-    @media only screen and (max-width: 900px) {
-        .grid {
-            grid-template-rows: 8rem 10rem 10rem min-content min-content min-content
-        }
-
-        .grid__date {
-            grid-area: 2 / 1 / 4 / 2
-        }
-
-        .grid__main {
-            grid-area: 3 / 2 / 5 / 10
-        }
-
-        .grid__video {
-            grid-area: 1 / 4 / 4 / 13;
-            padding: 0
-        }
-
-        .grid__map {
-            grid-area: 1 / 1 / 3 / 13
-        }
-
-        .grid__facts {
-            grid-area: 5 / 1 / 6 / 13;
-            padding: var(--space-xl) 0
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
-        .grid {
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            grid-template-rows: 24vh min-content min-content
-        }
-
-        .grid__date {
-            grid-area: 2 / 1 / 3 / 7;
-            text-align: center;
-            padding: var(--space-md);
-        }
-
-        .date {
-            writing-mode: unset;
-            transform: rotate(0deg);
-        }
-
-        .grid__video {
-            grid-area: 1 / 1 / 2 / 7
-        }
-
-        .grid__map {
-            display: none
-        }
-
-        .grid__main {
-            grid-area: 3 / 1 / 4 / 7;
-        }
-
-        .main {
-            background: none;
-            box-shadow: none
-        }
-
-        .grid__facts {
-            grid-area: 4 / 1 / 5 / 7;
-            padding: var(--space-xl) 0
-        }
-    }
+    } 
 </style>

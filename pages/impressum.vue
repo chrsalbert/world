@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="l-default__body">
         <h1>Impressum</h1>
         <p>
             Informationspflicht laut § 5 TMG.

@@ -32,10 +32,10 @@ export default {
     .c-destinationTitle {
         position: relative;
         z-index: 2;
-        margin: var(--space-xl) 0 0;
+        margin: calc(var(--space-lg) * -1) 0 var(--space-sm);
         text-align: center;
-        font-size: var(--font-size-3xl);
-        transition: all .3s var(--timing-function)
+        font-size: var(--font-size-2xl);
+        transition: all .3s var(--timing-function);
     }
     .c-destinationTitle > span {
         display: inline-block;
@@ -61,8 +61,22 @@ export default {
     .title-leave-to { transform: translateX(-2em);opacity: 0 }
     .title-enter { transform: translateX(2em);opacity: 0 }
     .title-enter-to { transform: translateX(0);opacity: 1 }
-    .title-leave > span::before { transform: translateX(-.5em);opacity: 1 }
-    .title-leave-to > span::before { transform: translateX(-2.5em);opacity: 0 }
-    .title-enter > span::before { transform: translateX(1.5em);opacity: 0 }
-    .title-enter-to > span::before { transform: translateX(-.5em);opacity: 1 }
+
+    @media only screen and (orientation: landscape) {
+        .title-leave > span::before { transform: translateX(-.5em);opacity: 1 }
+        .title-leave-to > span::before { transform: translateX(-2.5em);opacity: 0 }
+        .title-enter > span::before { transform: translateX(1.5em);opacity: 0 }
+        .title-enter-to > span::before { transform: translateX(-.5em);opacity: 1 }
+    }
+
+    @media only screen and (orientation: portrait) {
+        .c-destinationTitle > span::before {
+            transform: translateX(0);
+            left: 50%
+        }
+        .title-leave > span::before { left: 50%;opacity: 1 }
+        .title-leave-to > span::before { left: 60%;opacity: 0 }
+        .title-enter > span::before { left: 40%;opacity: 0 }
+        .title-enter-to > span::before { left: 50%;opacity: 1 }
+    }
 </style>

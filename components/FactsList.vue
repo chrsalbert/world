@@ -1,5 +1,5 @@
 <template>
-    <ul :class="mode" class="facts">
+    <ul :class="mode" class="c-facts">
         <li v-for="(fact, index) in facts" :key="index">
             <figure v-html="chooseIcon(fact.icon)"></figure>
             <strong>{{ fact.title }}</strong>
@@ -39,15 +39,6 @@ export default {
     }
 }
 </script>
-<style>
-    .facts svg {
-        width: 100%;
-        height: 100%;
-    }
-    .facts svg g {
-        fill: #fff
-    }
-</style>
 <style scoped>
     ul {
         width: 100%;
@@ -73,6 +64,10 @@ export default {
     figure {
         display: inline-block;
         width: var(--size-lg);
-        height: var(--size-lg)
+        height: var(--size-lg);
+    }
+
+    figure >>> svg {
+        stroke: var(--color-gray)
     }
 </style>

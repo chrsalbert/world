@@ -1,5 +1,6 @@
 h1 {
     font-family: var(--font-family-alt);
+    font-weight: var(--font-weight-alt-bold);
     font-size: var(--font-size-2xl);
     line-height: calc(var(--font-size-2xl) + var(--space-sm));
     color: var(--color-primary);

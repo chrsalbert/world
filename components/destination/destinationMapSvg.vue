@@ -21,7 +21,7 @@
                         :xlink:href="`#${country.id}`"  />
                 </template>
             </g>
-            <g id="activeCountries">
+            <g id="activeCountries" v-if="currentDestination">
                 <template v-for="map in countries">
                     <transition name="country--active" :key="map.id">
                         <use 
@@ -37,7 +37,7 @@
                     :points="routePoints"
                     vector-effect="non-scaling-stroke"></polyline>
             </g>
-            <g id="activeRoute" transform="translate(2, 2)">
+            <g id="activeRoute" transform="translate(2, 2)" v-if="currentDestination">
                 <transition name="route--active">
                     <polyline 
                         class="route route--active"
@@ -75,12 +75,10 @@ export default {
             required: true
         },
         currentDestination: {
-            type: Object,
-            required: true
+            type: Object
         },
         currentDestinationIndex: {
-            type: Number,
-            required: true
+            type: Number
         }
     },
     computed: {
@@ -125,6 +123,7 @@ export default {
             return points
         },
         placeInCurrentDestination(id) {
+            if(!this.currentDestination) return false
             if(!this.currentDestination.route) return console.error(`no routes found for currentDestination "${this.currentDestination.id}"`)
             return this.currentDestination.route.some(el => el === id)
         }
@@ -140,7 +139,7 @@ export default {
         stroke: var(--color-gray-dark);
     }
     .country--active {
-        stroke: var(--color-gray-lightest);
+        stroke: var(--color-gray-lighter);
         transition: all .3s var(--timing-function);
     }
     .country--active-leave { opacity: 1 }

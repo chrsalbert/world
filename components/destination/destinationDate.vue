@@ -1,5 +1,5 @@
 <template>
-    <span class="c-destinationDate">{{ date }}</span>
+    <span class="c-destinationDate" v-html="date"></span>
 </template>
 <script>
 export default {

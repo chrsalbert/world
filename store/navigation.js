@@ -1,9 +1,9 @@
 export const state = () => ({
-    isSubNavVisible: false,
+    isMenuVisible: false,
   })
 
 export const mutations = {
-    toggleSubNav(state, val) {
-        state.isSubNavVisible = val
+    SET_IS_MENU_VISIBLE(state, val) {
+        state.isMenuVisible = val
     }
 }

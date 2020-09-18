@@ -27,9 +27,9 @@ export default {
     width: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    box-shadow: var(--shadow);
     transition: all .4s var(--timing-function);
-    transition-delay: .2s
+    transition-delay: .2s;
+    border-radius: var(--border-radius-xs)
 }
 
 .cover-leave-active { transition-duration: .6s; }
@@ -39,10 +39,4 @@ export default {
 .cover-enter { opacity: .5;left: 100% }
 .cover-enter-to { opacity: 1;left: 0 }
 
-@media only screen and (orientation: portrait) {
-    .c-destinationCover {
-        height: 50vw;
-        border-radius: var(--border-radius) var(--border-radius-lg) var(--border-radius) var(--border-radius)
-    }
-}
 </style>
