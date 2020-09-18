@@ -23,15 +23,10 @@
         </template>
         <template slot="video">
             <video id="video" class="c-welcome__video u-fluid" poster="/images/loader.svg" preload="auto" autoplay muted loop playsinline>
-                <img src="/images/video-fallback.webp" />
+                <!-- <img src="/images/video-fallback.webp" /> -->
                 <source src="/hero.mp4" type="video/mp4">
             </video>
         </template>
-        <!-- <template slot="menu">
-            <the-menu 
-                :currentDestination="currentDestination" 
-                :currentDestinationIndex="currentDestinationIndex" />
-        </template> -->
         <template slot="map">
             <figure>
                 <destination-map-svg 
