@@ -6,16 +6,20 @@
         <template slot="article">
             <destination-article :country="currentDestination" />
         </template>
-        <template slot="header">
+        <template slot="title">
             <destination-title 
                 :title="currentDestination.title" 
                 :currentDestinationIndex="currentDestinationIndex" />
+        </template>
+        <template slot="map">
             <destination-map 
                 :places="places" 
                 :countries="countries" 
                 :destinations="destinations" 
                 :currentDestination="currentDestination" 
                 :currentDestinationIndex="currentDestinationIndex" />
+        </template>
+        <template slot="stats">
             <destination-stats :stats="currentDestination.stats" />
         </template>
         <template slot="date">

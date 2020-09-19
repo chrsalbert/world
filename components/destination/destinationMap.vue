@@ -1,7 +1,7 @@
 <template>
     <div 
-        class="c-destinationMap" 
-        :class="`c-destinationMap--${currentDestination.id}`" 
+        class="c-destination__map" 
+        :class="`c-destination__map--${currentDestination.id}`" 
         :style="{ '--position': position, '--scale': scale }">
         <figure>
             <destination-map-svg 
@@ -53,16 +53,15 @@ export default {
 }
 </script>
 <style scoped>
-.c-destinationMap {
+.c-destination__map {
     position: relative;
-    z-index: 1;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vw;
+    height: 100%;
 }
-.c-destinationMap::before {
+.c-destination__map::before {
     content:'';
     position: absolute;
     pointer-events: none;
@@ -87,7 +86,7 @@ export default {
             rgba(var(--color-gray-darkest-rgb),1) 99%
         )
 }
-/* .c-destinationMap::after {
+/* .c-destination__map::after {
     content:'';
     z-index: -1;
     position: absolute;
@@ -99,7 +98,7 @@ export default {
     bottom: 20%;
     left: 20%;
 }
-.c-destinationMap::before {
+.c-destination__map::before {
     content:'';
     z-index: -1;
     position: absolute;
@@ -112,7 +111,7 @@ export default {
     left: 15%;
     background: none
 } */
-.c-destinationMap >>> svg {
+.c-destination__map >>> svg {
     position: relative;
     left: calc(calc(100% * var(--scale) - 100%) / -2);
     width: calc(100% * var(--scale));
@@ -122,7 +121,7 @@ export default {
 }
 
 /* @media only screen and (orientation: portrait) {
-    .c-destinationMap {
+    .c-destination__map {
         flex: auto;
         height: 60vw;
     }

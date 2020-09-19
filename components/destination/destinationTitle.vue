@@ -1,9 +1,7 @@
 <template>
-    <transition name="title" mode="out-in">
-        <h1 class="c-destinationTitle" :key="currentDestinationIndex">
-            <span :data-position="step">
-                {{ title }}
-            </span>
+    <transition name="c-destination__title" mode="out-in">
+        <h1 class="c-destination__title" :key="currentDestinationIndex">
+            {{ title }}
         </h1>
     </transition>
 </template>
@@ -29,20 +27,22 @@ export default {
 }
 </script>
 <style scoped>
-    .c-destinationTitle {
+    .c-destination__title {
         position: relative;
-        z-index: 2;
-        margin: calc(var(--space-lg) * -1) 0 var(--space-sm);
-        text-align: center;
+        overflow: hidden;
         font-size: var(--font-size-2xl);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transform: translateX(0); /* looks unnecessary but fixes a bug where the text has an after bouncing after transition end */
         transition: all .3s var(--timing-function);
     }
-    .c-destinationTitle > span {
+    /* .c-destination__title > span {
         display: inline-block;
         position: relative;
         z-index: 1;
     }
-    .c-destinationTitle > span::before {
+    .c-destination__title > span::before {
+        display: none;
         z-index: -1;
         position: absolute;
         transform: translateX(-.5em);
@@ -55,28 +55,28 @@ export default {
         color: var(--color-gray-darker);
         transition: all .2s var(--timing-function);
         white-space: nowrap;
-    }
+    } */
 
-    .title-leave { transform: translateX(0);opacity: 1 }
-    .title-leave-to { transform: translateX(-2em);opacity: 0 }
-    .title-enter { transform: translateX(2em);opacity: 0 }
-    .title-enter-to { transform: translateX(0);opacity: 1 }
+    .c-destination__title-leave { transform: translateX(0);opacity: 1 }
+    .c-destination__title-leave-to { transform: translateX(-2em);opacity: 0 }
+    .c-destination__title-enter { transform: translateX(2em);opacity: 0 }
+    .c-destination__title-enter-to { transform: translateX(0);opacity: 1 }
 
-    @media only screen and (orientation: landscape) {
-        .title-leave > span::before { transform: translateX(-.5em);opacity: 1 }
-        .title-leave-to > span::before { transform: translateX(-2.5em);opacity: 0 }
-        .title-enter > span::before { transform: translateX(1.5em);opacity: 0 }
-        .title-enter-to > span::before { transform: translateX(-.5em);opacity: 1 }
+    /* @media only screen and (orientation: landscape) {
+        .c-destination__title-leave > span::before { transform: translateX(-.5em);opacity: 1 }
+        .c-destination__title-leave-to > span::before { transform: translateX(-2.5em);opacity: 0 }
+        .c-destination__title-enter > span::before { transform: translateX(1.5em);opacity: 0 }
+        .c-destination__title-enter-to > span::before { transform: translateX(-.5em);opacity: 1 }
     }
 
     @media only screen and (orientation: portrait) {
-        .c-destinationTitle > span::before {
+        .c-destination__title > span::before {
             transform: translateX(0);
             left: 50%
         }
-        .title-leave > span::before { left: 50%;opacity: 1 }
-        .title-leave-to > span::before { left: 60%;opacity: 0 }
-        .title-enter > span::before { left: 40%;opacity: 0 }
-        .title-enter-to > span::before { left: 50%;opacity: 1 }
-    }
+        .c-destination__title-leave > span::before { left: 50%;opacity: 1 }
+        .c-destination__title-leave-to > span::before { left: 60%;opacity: 0 }
+        .c-destination__title-enter > span::before { left: 40%;opacity: 0 }
+        .c-destination__title-enter-to > span::before { left: 50%;opacity: 1 }
+    } */
 </style>

@@ -5,26 +5,22 @@
             <slot name="nav"></slot>
             <slot name="next"></slot>
         </div>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-destination__cover">
-                <div class="l-destination__coverWrapper">
-                    <slot name="cover"></slot>
-                </div>
+        <div class="l-destination__cover">
+            <div class="l-destination__coverWrapper">
+                <slot name="cover"></slot>
             </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-destination__header" v-show="!isMenuVisible">
-                <slot name="header"></slot>
-            </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-destination__article" v-show="!isMenuVisible">
-                <slot name="article"></slot>
-            </div>
-        </transition>
-        <div class="l-destination__next">
         </div>
-        <div class="l-destination__prev" >
+        <div class="l-destination__title">
+            <slot name="title"></slot>
+        </div>
+        <div class="l-destination__map">
+            <slot name="map"></slot>
+        </div>
+        <div class="l-destination__stats">
+            <slot name="stats"></slot>
+        </div>
+        <div class="l-destination__article">
+            <slot name="article"></slot>
         </div>
         <!-- <div class="l-destination__date" v-show="!isMenuVisible">
             <slot name="date"></slot>
@@ -44,10 +40,9 @@ export default {
 .l-destination__grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 60vw min-content  1fr;
+    grid-template-rows: 32vh 2rem min-content 32vh min-content;
     column-gap: var(--space);
     padding-bottom: calc(var(--space-xs) + var(--control-height));
-    overflow: hidden
 }
 
 .l-destination__nav {
@@ -60,17 +55,29 @@ export default {
     justify-content: space-between;
     background: var(--color-gray-darkest);
     padding: var(--space-xs);
-    border-top: 1px var(--color-gray-dark) solid;
+}
+
+.l-destination__nav::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    border-bottom: 1px var(--color-gray-dark) solid;
+    height: 3rem;
+    background: linear-gradient(rgba(var(--color-gray-darkest-rgb), 0) 0%, rgba(var(--color-gray-darkest-rgb), 1) 90%)
 }
 
 .l-destination__cover {
     position: relative;
-    grid-area: 1 / 1 / 2 / 13;
+    grid-area: 1 / 1 / 3 / 13;
 }
 
 .l-destination__cover::after {
     content: '';
     position: absolute;
+    z-index: 1;
     right: 0;
     bottom: 0;
     left: 0;
@@ -78,27 +85,24 @@ export default {
     background: linear-gradient(rgba(var(--color-gray-darkest-rgb), 0) 0%, rgba(var(--color-gray-darkest-rgb), 1) 90%)
 }
 
-.l-destination__coverWrapper {
+.l-destination__title {
     position: relative;
-    height: 100%;
-    margin: 0 auto;
-    max-width: 70vw;
+    z-index: 1;
+    grid-area: 2 / 1 / 4 / 13;
+    text-align: center;
 }
 
-.l-destination__header {
-    grid-area: 2 / 1 / 3 / 13;
+.l-destination__map {
+    grid-area: 4 / 1 / 5 / 13;
+}
+
+.l-destination__stats {
+    grid-area: 5 / 1 / 6 / 13;
 }
 
 .l-destination__article {
-    grid-area: 3 / 1 / 4 / 13;
-}
-
-.l-destination__prev {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.l-destination__next {
-    grid-area: 1 / 12 / 2 / 13;
+    grid-area: 6 / 1 / 7 / 13;
+    padding: var(--space-lg) 0
 }
 
 .u-animation-leave-active,

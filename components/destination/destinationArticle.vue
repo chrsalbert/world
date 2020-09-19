@@ -1,9 +1,7 @@
 <template>
-    <div class="c-destinationArticle" >
-        <transition name="article" mode="out-in">
-            <p :key="country.teaser" v-html="country.teaser"></p>
-        </transition>
-    </div>
+    <transition name="c-destination__article" mode="out-in">
+        <p class="c-destination__article" :key="country.teaser" v-html="country.teaser"></p>
+    </transition>
 </template>
 <script>
 export default {
@@ -16,29 +14,22 @@ export default {
 }
 </script>
 <style scoped>
-.c-destinationArticle {
+.c-destination__article {
     position: relative;
     z-index: 1;
-    background: var(--color-gray-darkest);
-    padding: var(--space-md);
-    overflow-y: scroll;
-    transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    border-radius: var(--border-radius-lg) var(--border-radius) var(--border-radius);
     color: var(--color-gray-lighter);
+    transform: translateX(0);
+    transition: all .3s var(--timing-function) .3s;
 }
 
-.c-destinationArticle p {
-    transition: all .3s var(--timing-function)
-}
-
-.article-enter { transform: translateX(1em);opacity: 0 }
-.article-enter-to { transform: translateX(0);opacity: 1 }
-.article-leave-active { transition-delay: .25s }
-.article-leave { transform: translateX(0);opacity: 1 }
-.article-leave-to { transform: translateX(-1em);opacity: 0 }
-
+.c-destination__article-enter { transform: translateX(2em);opacity: 0 }
+.c-destination__article-enter-to { transform: translateX(0);opacity: 1 }
+.c-destination__article-leave-active { transition-delay: .25s }
+.c-destination__article-leave { transform: translateX(0);opacity: 1 }
+.c-destination__article-leave-to { transform: translateX(-2em);opacity: 0 }
+/* 
 @media only screen and (orientation: landscape) {
-    .c-destinationArticle {
+    .c-destination__article {
         position: absolute;
         right: var(--space-md);
         bottom: var(--space-md);
@@ -47,11 +38,11 @@ export default {
         border-radius: var(--border-radius-sm);
     }
 
-    .c-destinationArticle:hover {
+    .c-destination__article:hover {
         max-height: 100%
     }
 
-    .c-destinationArticle::after {
+    .c-destination__article::after {
         content: '';
         position: absolute;
         right: 0;
@@ -60,5 +51,5 @@ export default {
         height: 2rem;
         background-image: linear-gradient(to bottom, rgba(var(--color-gray-darkest-rgb), 0), var(--color-gray-darkest))
     }
-}
+} */
 </style>

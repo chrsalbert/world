@@ -5,7 +5,8 @@
 </template>
 <style scoped>
 .l-destination {
-    padding: var(--space-md)
+    padding: var(--space-md);
+    overflow: hidden;
 }
 
 @media only screen and (orientation: landscape) {
