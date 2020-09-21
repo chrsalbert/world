@@ -6,9 +6,7 @@
             <slot name="next"></slot>
         </div>
         <div class="l-destination__cover">
-            <div class="l-destination__coverWrapper">
-                <slot name="cover"></slot>
-            </div>
+            <slot name="cover"></slot>
         </div>
         <div class="l-destination__title">
             <slot name="title"></slot>

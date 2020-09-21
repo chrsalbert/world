@@ -80,6 +80,15 @@ export default {
             return `/destination/${this.destinations[this.nextDestinationIndex].id}`
         }
     },
+    methods: {
+        updateCurrentDestination() {
+            this.$store.commit('destination/SET_CURRENT_DESTINATION', this.currentDestination)
+            this.$store.commit('destination/SET_CURRENT_DESTINATION_INDEX', this.currentDestinationIndex)
+        }
+    },
+    updated() {
+        this.updateCurrentDestination()
+    },
     mounted() {
         window.addEventListener('keydown', e => {
             switch (e.keyCode) {

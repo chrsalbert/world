@@ -218,91 +218,91 @@
     },
     {
         "id": "ioannina",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Ioannina",
         "cx": "123",
         "cy": "160"
     },
     {
         "id": "amfilochia",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Amfilochia",
         "cx": "126",
         "cy": "167"
     },
     {
         "id": "palouki",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Palouki",
         "cx": "129",
         "cy": "176"
     },
     {
         "id": "tholo",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Tholo",
         "cx": "131",
         "cy": "181"
     },
     {
         "id": "gialova",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Gialova",
         "cx": "131",
         "cy": "185"
     },
     {
         "id": "kalamata",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Kalamata",
         "cx": "134",
         "cy": "183"
     },
     {
         "id": "gythionbay",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Gythion Bay",
         "cx": "137",
         "cy": "186"
     },
     {
         "id": "nafplio",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Nafplio",
         "cx": "139",
         "cy": "179"
     },
     {
         "id": "korinth",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Korinth",
         "cx": "137",
         "cy": "175"
     },
     {
         "id": "delphi",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Delphi",
         "cx": "136",
         "cy": "172"
     },
     {
         "id": "kalambaka",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Kalambaka",
         "cx": "139",
         "cy": "160"
     },
     {
         "id": "athens",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Athen",
         "cx": "144",
         "cy": "175"
     },
     {
         "id": "thessaloniki",
-        "countryId": "greek",
+        "countryId": "greece",
         "title": "Thessaloniki",
         "cx": "138",
         "cy": "151"
@@ -675,15 +675,15 @@
         "id": "hualien",
         "countryId": "taiwan",
         "title": "Hualien",
-        "cx": "847",
-        "cy": "293"
+        "cx": "849",
+        "cy": "294"
     },
     {
         "id": "taitung",
         "countryId": "taiwan",
         "title": "Taitung",
-        "cx": "846",
-        "cy": "304"
+        "cx": "848",
+        "cy": "305"
     },
     {
         "id": "tokyo",

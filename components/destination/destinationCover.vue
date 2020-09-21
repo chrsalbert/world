@@ -1,6 +1,6 @@
 <template>
-    <transition name="c-destinationCover">
-        <figure class="c-destinationCover" :key="coverURL" :style="`background-image: url('${coverURL}')`"></figure>
+    <transition name="c-destination__cover">
+        <figure class="c-destination__cover" :key="coverURL" :style="`background-image: url('${coverURL}')`"></figure>
     </transition>
 </template>
 <script>
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 <style scoped>
-.c-destinationCover {
+.c-destination__cover {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -32,10 +32,10 @@ export default {
     border-radius: var(--border-radius-xs)
 }
 
-.c-destinationCover-enter-active { z-index: 1 }
-.c-destinationCover-leave { opacity: 1 }
-.c-destinationCover-leave-to { opacity: 0; }
-.c-destinationCover-enter { opacity: 0 }
-.c-destinationCover-enter-to { opacity: 1;}
+.c-destination__cover-enter-active { z-index: 1 }
+.c-destination__cover-leave { opacity: 1 }
+.c-destination__cover-leave-to { opacity: 0; }
+.c-destination__cover-enter { opacity: 0 }
+.c-destination__cover-enter-to { opacity: 1;}
 
 </style>

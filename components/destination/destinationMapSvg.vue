@@ -1,7 +1,17 @@
 <template>
-    <svg viewBox="0 0 1000 429" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g stroke-width="1" fill="none">
-            <g class="visually-hidden">
+    <svg 
+        class="c-worldmap" 
+        :style="{ 
+            '--position': position, 
+            '--scale': scale,
+            '--place-radius': placeRadius
+        }"
+        viewBox="0 0 1000 429" 
+        version="1.1" 
+        xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke-width="1" fill="none" transform="translate(500, 215)">
+            <g class="c-worldmap__countrySprite">
                 <template v-for="country in countries">
                     <component 
                         :id="country.id" 
@@ -31,13 +41,13 @@
                     </transition>
                 </template>
             </g>
-            <g id="route" transform="translate(2, 2)">
+            <g id="route">
                 <polyline
                     class="route"
                     :points="routePoints"
                     vector-effect="non-scaling-stroke"></polyline>
             </g>
-            <g id="activeRoute" transform="translate(2, 2)" v-if="currentDestination">
+            <g id="activeRoute" v-if="currentDestination">
                 <transition name="route--active">
                     <polyline 
                         class="route route--active"
@@ -46,42 +56,77 @@
                         vector-effect="non-scaling-stroke"></polyline>
                 </transition>
             </g>
-            <g id="places" transform="translate(2, 2)">
-                <circle v-for="place in places"
+            <g id="places">
+                <circle 
+                    v-for="place in places"
                     :key="`${place.cx}${place.cy}`"
-                    :cx="place.cx"
-                    :cy="place.cy"
-                    class="place"
-                    :class="{ 'place--active': placeInCurrentDestination(place.id) }"
-                    vector-effect="non-scaling-stroke"
-                />
+                    :cx="place.cx" 
+                    :cy="place.cy" 
+                    class="c-worldmap__place"
+                    :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
+                    vector-effect="non-scaling-stroke" />
+                <!-- <path v-for="place in places"
+                    class="place" 
+                    :key="`${place.cx}${place.cy}`"
+                    vector-effect="non-scaling-stroke" 
+                    :d="`
+                        M ${place.cx}, ${place.cy}
+                        a 10,10 0 1,1 20,0
+                        a 10,10 0 1,1 -20,0
+                    `" /> -->
+                <!-- <line v-for="place in places"
+                    :key="`${place.cx}${place.cy}`"
+                    :x1="place.cx - 0.01"
+                    :x2="place.cx"
+                    :y1="place.cy"
+                    :y2="place.cy"
+                    class="c-worldmap__place c-worldmap__place--outline"
+                    :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
+                    vector-effect="non-scaling-stroke" />
+                <line v-for="place in places"
+                    :key="`${place.cx}${place.cy}2`"
+                    :x1="place.cx - 0.01"
+                    :x2="place.cx"
+                    :y1="place.cy"
+                    :y2="place.cy"
+                    class="c-worldmap__place"
+                    :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
+                    vector-effect="non-scaling-stroke" /> -->
             </g>
         </g>
     </svg>
 </template>
 <script>
+import destinations from '~/static/data/destinations.json';
+import countries from '~/static/data/countries.json';
+import places from '~/static/data/places.json';
+
 export default {
     props: {
-        places: {
-            type: Array,
-            required: true
-        },
-        countries: {
-            type: Array,
-            required: true
-        },
-        destinations: {
-            type: Array,
-            required: true
-        },
-        currentDestination: {
-            type: Object
-        },
-        currentDestinationIndex: {
-            type: Number
+        currentDestination: Object,
+        currentDestinationIndex: Number
+    },
+    data() {
+        return {
+            destinations, countries, places
         }
     },
     computed: {
+        currentCountryMap() {
+            if(!this.currentDestination) return null
+            return this.countries.find(el => el.id === this.currentDestination.countryId)
+        },
+        position() {
+            if(!this.currentCountryMap) return '0, 0, 0'
+            return this.currentCountryMap.translate3d
+        },
+        scale() {
+            if(!this.currentCountryMap) return 1
+            return this.currentCountryMap.scale
+        },
+        placeRadius() {
+            return 3 / parseInt(this.scale)
+        },
         route() {
             return this.destinations.map(el => el.route).flat()
         },
@@ -131,8 +176,30 @@ export default {
 }
 </script>
 <style scoped>
-    .visually-hidden {
+    .c-worldmap {
+        width: 100%;
+        height: 100%;
+    }
+
+    .c-worldmap g {
+        transform: scale(var(--scale)) translate3d(var(--position));
+        transition: all 1s var(--timing-function)
+    }
+
+    .c-worldmap__countrySprite {
         visibility: hidden;
+    }
+
+    .c-worldmap__place {
+        stroke: var(--color-gray);
+        fill: var(--color-gray-darkest);
+        stroke-width: 1;
+        r: var(--place-radius);
+        transform: translate(.5px, .5px);
+        transition-duration: .4s;
+    }
+    .c-worldmap__place--active {
+        stroke: var(--color-primary);
     }
 
     .country {
@@ -149,6 +216,7 @@ export default {
 
     .route {
         stroke: var(--color-gray);
+        transform: translate(.5px, .5px);
     }
     .route--active {
         stroke: var(--color-primary);
@@ -159,14 +227,5 @@ export default {
     .route--active-enter { opacity: 0 }
     .route--active-enter-to { opacity: 1 }
 
-    .place {
-        r: calc(12 / var(--scale));
-        stroke: var(--color-gray);
-        fill: var(--color-gray-darkest);
-        transition-duration: .4s;
-        box-shadow: 10px 10px 10px red
-    }
-    .place--active {
-        stroke: var(--color-primary);
-    }
+
 </style>

@@ -1,33 +1,13 @@
 <template>
-    <div 
-        class="c-destination__map" 
-        :class="`c-destination__map--${currentDestination.id}`" 
-        :style="{ '--position': position, '--scale': scale }">
-        <figure>
-            <destination-map-svg 
-                :places="places" 
-                :countries="countries" 
-                :destinations="destinations" 
-                :currentDestination="currentDestination"
-                :currentDestinationIndex="currentDestinationIndex" />
-        </figure>
+    <div class="c-destination__map">
+        <destination-map-svg 
+            :currentDestination="currentDestination"
+            :currentDestinationIndex="currentDestinationIndex" />
     </div>
 </template>
 <script>
 export default {
     props: {
-        countries: {
-            type: Array,
-            required: true
-        },
-        places: {
-            type: Array,
-            required: true
-        },
-        destinations: {
-            type: Array,
-            required: true
-        },
         currentDestination: {
             type: Object,
             required: true
@@ -36,19 +16,6 @@ export default {
             type: Number,
             required: true
         }
-    },
-    computed: {
-        currentCountryMap() {
-            return this.countries.find(el => el.id === this.currentDestination.countryId)
-        },
-        position() {
-            if(!this.currentCountryMap) return '0, 0, 0'
-            return this.currentCountryMap.translate3d
-        },
-        scale() {
-            if(!this.currentCountryMap) return 0
-            return this.currentCountryMap.scale
-        }
     }
 }
 </script>
@@ -56,10 +23,9 @@ export default {
 .c-destination__map {
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
+    width: calc(32vh * 1.25);
+    margin: 0 auto;
 }
 .c-destination__map::before {
     content:'';
@@ -111,14 +77,6 @@ export default {
     left: 15%;
     background: none
 } */
-.c-destination__map >>> svg {
-    position: relative;
-    left: calc(calc(100% * var(--scale) - 100%) / -2);
-    width: calc(100% * var(--scale));
-    height: unset;
-    transform: translate3d(var(--position));
-    transition: all 1s var(--timing-function);
-}
 
 /* @media only screen and (orientation: portrait) {
     .c-destination__map {

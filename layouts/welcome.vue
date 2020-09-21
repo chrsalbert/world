@@ -10,7 +10,7 @@
 
 @media only screen and (orientation: landscape) {
     /* 100vh work around to set "real" 100vh in iOS safari and other mobile browsers */
-    .l-welcome {
+    /* .l-welcome {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -18,7 +18,7 @@
         height: min(100vh, 1000px);
         width: 100%;
         max-width: calc(min(100vh, 1000px) * 1.77);
-    }
+    } */
 }
 
 @media only screen and (orientation: landscape) and (max-height: 600px) {
