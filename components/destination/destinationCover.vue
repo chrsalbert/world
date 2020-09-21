@@ -1,6 +1,9 @@
 <template>
     <transition name="c-destination__cover">
-        <figure class="c-destination__cover" :key="coverURL" :style="`background-image: url('${coverURL}')`"></figure>
+        <figure 
+            class="c-destination__cover" 
+            :key="coverURL" 
+            :style="`background-image: url('${coverURL}')`"></figure>
     </transition>
 </template>
 <script>
@@ -13,7 +16,16 @@ export default {
     },
     computed: {
         coverURL() {
-            return `${process.env.imageUrl}/cover/${this.country.cover}?quality=80&f=auto`
+            let filetype = this.supportsWebp ? 'webp' : 'jpg'
+            return `${process.env.imageUrl}/cover/${this.country.id}.${filetype}?quality=80&f=auto`
+        },
+        supportsWebp() {
+            if (process.client) {
+                let elem = window.document.createElement('canvas')
+                if (!!(elem.getContext && elem.getContext('2d')))
+                    return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+                return false
+            }
         }
     }
 }

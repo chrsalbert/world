@@ -4,7 +4,6 @@
         "countryId": "netherlands",
         "title": "Niederlande",
         "teaser": "Los geht die Reise in den Niederlanden. Hier war ich in den letzten 13 Jahren sozusagen Stammgast. Nicht zuletzt, weil meine Freundin 4 Jahre lang in Emmen studierte. Amsterdam hatten wir zu Beginn der Reise zusammen besucht, um noch einmal eine King Shiloh Soundsystem Party zu besuchen. Übernachtet haben wir, wie auch die letzten Jahre, auf dem Vliegenbos-Campingplatz in Noord.",
-        "cover": "niederlande.webp",
         "date": {
             "from": "3.5.2019",
             "to": "6.5.2019"
@@ -24,7 +23,6 @@
         "countryId": "poland",
         "title": "Polen 1/2",
         "teaser": "Mit dem Zug fuhr ich 14 Stunden von Amsterdam nach Posen. Von dort wollte ich über spontane Zwischenstopps auf dem Landweg bis nach Belarus. Tja, zu spät habe ich gelesen, dass ich dafür ein Visum benötigen würde. Weil die Einreise über den Flughafen Minsk aber mit Visa on Arrival möglich sein würde, suchte ich mir Kiev in der Ukraine als Etappenziel aus. Auf dem Weg dorthin besuchte ich Breslau und Krakau.",
-        "cover": "polen.webp",
         "date": {
             "from": "6.5.2019",
             "to": "19.5.2019"
@@ -49,7 +47,6 @@
             "from": "18.5.2019",
             "to": "28.5.2019"
         },
-        "cover": "ukraine.webp",
         "stats": {
             "days": "9",
             "distance": "470",
@@ -69,7 +66,6 @@
             "from": "28.5.2019",
             "to": "11.6.2019"
         },
-        "cover": "belarus.webp",
         "stats": {
             "days": "14",
             "distance": "1440",
@@ -92,7 +88,6 @@
             "from": "11.6.2019",
             "to": "17.6.2019"
         },
-        "cover": "litauen.webp",
         "stats": {
             "days": "6",
             "distance": "105",
@@ -108,7 +103,6 @@
         "countryId": "poland",
         "title": "Polen 2/2",
         "teaser": "Von Vilnius nahm ich den Zug nach Bialsystok, dem Geburtsort von Ludwik Lejzer Zamenhof. Er war der Autor der Plansprache „Esperanto” und wollte mit dieser für mehr Völkerverständigung sorgen. Das Street-Art-Bild auf dem Foto ist noch in polnisch und fordert auf, mal wieder eine Postkarte an Oma zu schreiben. Weil ich schon einmal in Warschau war, fuhr ich über Lodz bis nach Danzig – meiner neuen Lieblingsstadt in Polen.",
-        "cover": "polen2.webp",
         "date": {
             "from": "17.06.2019",
             "to": "26.06.2019"
@@ -133,7 +127,6 @@
             "from": "26.06.2019",
             "to": "20.07.2019"
         },
-        "cover": "deutschland.webp",
         "stats": {
             "days": "24",
             "distance": "1315",
@@ -155,7 +148,6 @@
             "from": "20.07.2019",
             "to": "2.8.2019"
         },
-        "cover": "tschechien.webp",
         "stats": {
             "days": "13",
             "distance": "430",
@@ -177,7 +169,6 @@
             "from": "2.8.2019",
             "to": "8.8.2019"
         },
-        "cover": "slowakei.webp",
         "stats": {
             "days": "6",
             "distance": "450",
@@ -198,7 +189,6 @@
             "from": "8.8.2019",
             "to": "12.8.2019"
         },
-        "cover": "ungarn.webp",
         "stats": {
             "days": "4",
             "distance": "266",
@@ -218,7 +208,6 @@
             "from": "12.8.2019",
             "to": "22.8.2019"
         },
-        "cover": "rumaenien.webp",
         "stats": {
             "days": "10",
             "distance": "595",
@@ -240,7 +229,6 @@
             "from": "22.8.2019",
             "to": "6.9.2019"
         },
-        "cover": "bulgarien.webp",
         "stats": {
             "days": "15",
             "distance": "950",
@@ -264,7 +252,6 @@
             "from": "6.09.2019",
             "to": "15.09.2019"
         },
-        "cover": "serbien.webp",
         "stats": {
             "days": "9",
             "distance": "400",
@@ -285,7 +272,6 @@
             "from": "15.09.2019",
             "to": "16.09.2019"
         },
-        "cover": "nordmazedonien.webp",
         "stats": {
             "days": "1",
             "distance": "0",
@@ -304,7 +290,6 @@
             "from": "16.09.2019",
             "to": "29.09.2019"
         },
-        "cover": "albanien.webp",
         "stats": {
             "days": "13",
             "distance": "430",
@@ -320,15 +305,14 @@
             "saranda"
         ]
     }, {
-        "id": "greek",
-        "countryId": "greek",
+        "id": "greece",
+        "countryId": "greece",
         "title": "Griechenland",
         "teaser": "Ich nahm den Bus von Seranda und fuhr nach Ioannina. Dort mietete ich mir einen Kleinwagen, um zwei Wochen entlang der Peloponnes Halbinsel zu fahren. Ich fuhr vorwiegend mautfrei durch Berge und Dörfer und suchte mir täglich spontan einen Campingplatz zum Übernachten. Ich besuchte alte Tempel, raue Buchten und Strände mit klasklarem Wasser. Außerdem auch die tiefste Schlucht der Welt – die Vikos-Schlucht.",
         "date": {
             "from": "29.09.2019",
             "to": "15.10.2019"
         },
-        "cover": "griechenland.webp",
         "stats": {
             "days": "16",
             "distance": "2424",
@@ -360,7 +344,6 @@
             "from": "15.10.2019",
             "to": "27.10.2019"
         },
-        "cover": "georgien.webp",
         "stats": {
             "days": "13",
             "distance": "479",
@@ -368,7 +351,7 @@
             "transportHours": "40"
         },
         "route": [
-            "signaghi",
+            "sugdidi",
             "kutaissi",
             "borjomi",
             "tblisi"
@@ -382,7 +365,6 @@
             "from": "27.10.2019",
             "to": "1.11.2019"
         },
-        "cover": "armenien.webp",
         "stats": {
             "days": "5",
             "distance": "0",
@@ -401,7 +383,6 @@
             "from": "1.11.2019",
             "to": "14.11.2019"
         },
-        "cover": "georgien2.webp",
         "stats": {
             "days": "13",
             "distance": "678",
@@ -424,7 +405,6 @@
             "from": "15.11.2019",
             "to": "26.11.2019"
         },
-        "cover": "aserbaidschan.webp",
         "stats": {
             "days": "11",
             "distance": "650",
@@ -445,7 +425,6 @@
             "from": "27.11.2019",
             "to": "30.11.2019"
         },
-        "cover": "georgien3.webp",
         "stats": {
             "days": "3",
             "distance": "0",
@@ -464,7 +443,6 @@
             "from": "31.11.2019",
             "to": "29.12.2019"
         },
-        "cover": "indien.webp",
         "stats": {
             "days": "29",
             "distance": "4061",
@@ -491,7 +469,6 @@
             "from": "30.12.2019",
             "to": "20.01.20"
         },
-        "cover": "thailand.webp",
         "stats": {
             "days": "21",
             "distance": "1522",
@@ -515,7 +492,6 @@
             "from": "20.01.20",
             "to": "12.02.20"
         },
-        "cover": "kambodscha.webp",
         "stats": {
             "days": "23",
             "distance": "1703",
@@ -541,7 +517,6 @@
             "from": "12.02.20",
             "to": "23.02.20"
         },
-        "cover": "vietnam.webp",
         "stats": {
             "days": "11",
             "distance": "375",
@@ -563,7 +538,6 @@
             "from": "23.02.20",
             "to": "16.03.20"
         },
-        "cover": "taiwan.webp",
         "stats": {
             "days": "22",
             "distance": "1143",
@@ -590,7 +564,6 @@
             "from": "16.03.20",
             "to": "23.03.20"
         },
-        "cover": "japan.webp",
         "stats": {
             "days": "7",
             "distance": "580",
