@@ -73,7 +73,7 @@
     --font-weight-heavy: 600;
     --line-height: 1.6;
     
-    --body-width: 1280px;
+    --body-width: 1180px;
     --body-pad: var(--space-md);
 
     --breakpoint: 1200px;

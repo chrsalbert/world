@@ -36,7 +36,7 @@
             </figure>
         </template>
         <template slot="stats">
-            <facts-list :facts="facts" mode="horizontal" />
+            <destination-stats :stats="stats" />
         </template>
     </layout-welcome>
 </template>
@@ -59,22 +59,13 @@
             }
         },
         computed: {
-            facts() {
-                return  [
-                    {
-                        icon: 'card',
-                        title: `49.350 km`,
-                        sub: 'gefahren'
-                    }, {
-                        icon: 'headphones',
-                        title: `480 Std.`,
-                        sub: 'in Bus & Bahn'
-                    }, {
-                        icon: 'location',
-                        title: `108 Orte`,
-                        sub: 'in 318 Tagen'
-                    }
-                ]
+            stats() {
+                return  {
+                    distance: 49350,
+                    transportHours: 480,
+                    cities: 108,
+                    days: 318
+                }
             }
         }
     }
@@ -96,7 +87,7 @@
     }
     .c-welcome p:last-of-type {
         text-align: center;
-        margin: var(--space-xl) 0;
+        
     }
     .c-welcome__video {
         display: flex;

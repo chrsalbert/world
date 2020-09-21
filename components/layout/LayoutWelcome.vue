@@ -76,7 +76,8 @@ export default {
 .l-welcome__article {
     grid-area: 4 / 1 / 5 / 13;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    margin-bottom: var(--space-xl);
     /* border: 2px indianred solid */
 }
 /* 
@@ -92,7 +93,53 @@ export default {
     /* border: 2px purple solid */
 }
 
-@media only screen and (orientation: portrait) {
+
+@media only screen and (min-width: 600px) {
+    .l-welcome__grid {
+        grid-template-rows: 30vh 15vh 1fr;
+        column-gap: var(--space);
+    }
+
+    .l-welcome__video {
+        grid-area: 1 / 1 / 3 / 13
+    }
+
+    .l-welcome__article {
+        grid-area: 2 / 3 / 4 / 11;
+        background: var(--color-gray-darker);
+        border-radius: var(--border-radius);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .l-welcome__stats {
+        grid-area: 4 / 1 / 5 / 13;
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 900px) {
+    .l-welcome__grid {
+        grid-template-rows: 20vh 15vh;
+        column-gap: var(--space);
+    }
     
+    .l-welcome__video {
+        grid-area: 1 / 5 / 3 / 12
+    }
+
+    .l-welcome__article {
+        grid-area: 2 / 2 / 4 / 8;
+        margin: 0;
+    }
+
+    .l-welcome__stats {
+        grid-area: 3 / 8 / 3 / 12;
+    }
+
+    .l-welcome__map {
+        grid-area: 1 / 2 / 3 / 12;
+        z-index: 1;
+        margin: 0;
+    }
 }
 </style>

@@ -5,7 +5,9 @@
 </template>
 <style scoped>
 .l-welcome {
-    padding: var(--space-lg)
+    max-width: var(--body-width);
+    padding: var(--space-lg);
+    margin: 0 auto
 }
 
 @media only screen and (orientation: landscape) {
@@ -21,7 +23,4 @@
     } */
 }
 
-@media only screen and (orientation: landscape) and (max-height: 600px) {
-    
-}
 </style>

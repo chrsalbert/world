@@ -110,4 +110,16 @@ export default {
 .u-animation-enter { opacity: 0 }
 .u-animation-enter-to { opacity: 1 }
 
+
+@media only screen and (orientation: landscape) {
+    .l-destination__grid {
+        grid-template-rows: 1fr 1fr 1fr;
+        column-gap: var(--space);
+    }
+
+    .l-destination__cover {
+        position: relative;
+        grid-area: 1 / 6 / 3 / 13;
+    }
+}
 </style>
