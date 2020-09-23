@@ -111,15 +111,26 @@ export default {
 .u-animation-enter-to { opacity: 1 }
 
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width: 900px) {
     .l-destination__grid {
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 30vh 15vh 1fr;
         column-gap: var(--space);
     }
 
     .l-destination__cover {
-        position: relative;
-        grid-area: 1 / 6 / 3 / 13;
+        grid-area: 1 / 1 / 3 / 13
+    }
+
+    .l-destination__article {
+        grid-area: 2 / 3 / 4 / 11;
+        background: var(--color-gray-darker);
+        border-radius: var(--border-radius);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .l-destination__stats {
+        grid-area: 4 / 1 / 5 / 13;
     }
 }
 </style>
