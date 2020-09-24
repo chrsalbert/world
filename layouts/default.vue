@@ -24,7 +24,9 @@ export default {
 </script>
 <style scoped>
 .l-default {
-    padding: var(--space-md)
+    padding: var(--space-md);
+    max-width: var(--body-width);
+    margin: 0 auto
 }
 
 .l-default__nav {

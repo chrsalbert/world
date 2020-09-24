@@ -1,9 +1,11 @@
 <template>
     <div class="l-destination__grid">
         <div class="l-destination__nav">
-            <slot name="prev"></slot>
-            <slot name="nav"></slot>
-            <slot name="next"></slot>
+            <div class="l-destination__navInner">
+                <slot name="prev"></slot>
+                <slot name="nav"></slot>
+                <slot name="next"></slot>
+            </div>
         </div>
         <div class="l-destination__cover">
             <slot name="cover"></slot>
@@ -18,7 +20,9 @@
             <slot name="stats"></slot>
         </div>
         <div class="l-destination__article">
-            <slot name="article"></slot>
+            <div class="l-destination__article__card">
+                <slot name="article"></slot>
+            </div>
         </div>
         <!-- <div class="l-destination__date" v-show="!isMenuVisible">
             <slot name="date"></slot>
@@ -49,10 +53,15 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+    background: var(--color-gray-darkest);
+}
+
+.l-destination__navInner {
     display: flex;
     justify-content: space-between;
-    background: var(--color-gray-darkest);
-    padding: var(--space-xs);
+    max-width: var(--body-width);
+    margin: 0 auto;
+    padding: var(--space-xs) var(--space-md);
 }
 
 .l-destination__nav::before {
@@ -99,6 +108,8 @@ export default {
 }
 
 .l-destination__article {
+    position: relative;
+    z-index: 1;
     grid-area: 6 / 1 / 7 / 13;
     padding: var(--space-lg) 0
 }
@@ -111,26 +122,70 @@ export default {
 .u-animation-enter-to { opacity: 1 }
 
 
+@media only screen and (min-width: 600px) {
+    .l-destination__grid {
+        grid-template-rows: min-content 30vh min-content 20vh 20vh min-content;
+    }
+    .l-destination__title {
+        grid-area: 1 / 1 / 2 / 13;
+        padding: var(--space-lg) 0 var(--space-md)
+    }
+    .l-destination__map {
+        grid-area: 2 / 2 / 3 / 13
+    }
+    .l-destination__stats {
+        grid-area: 3 / 1 / 4 / 13;
+        padding: 0 0 var(--space-2xl)
+    }
+    .l-destination__cover {
+        grid-area: 4 / 1 / 6 / 7
+    }
+    .l-destination__cover::after {
+        display: none
+    }
+    .l-destination__article {
+        grid-area: 5 / 6 / 7 / 13;
+        padding: 0;
+    }
+}
+
 @media only screen and (min-width: 900px) {
     .l-destination__grid {
-        grid-template-rows: 30vh 15vh 1fr;
-        column-gap: var(--space);
+        height: calc(100vh - 56px)
     }
-
-    .l-destination__cover {
-        grid-area: 1 / 1 / 3 / 13
+    .l-destination__grid {
+        grid-template-rows: auto 1fr min-content;
     }
-
-    .l-destination__article {
-        grid-area: 2 / 3 / 4 / 11;
-        background: var(--color-gray-darker);
-        border-radius: var(--border-radius);
-        padding: var(--space-lg);
-        box-shadow: var(--shadow-lg);
+    .l-destination__title {
+        grid-area: 1 / 8 / 2 / 13;
+        padding: var(--space-2xl) 0 0
     }
-
+    .l-destination__map {
+        grid-area: 2 / 8 / 3 / 13
+    }
     .l-destination__stats {
-        grid-area: 4 / 1 / 5 / 13;
+        grid-area: 3 / 8 / 4 / 13;
+        padding: 0 0 var(--space-xl);
+    }
+    .l-destination__cover {
+        grid-area: 1 / 1 / 4 / 8
+    }
+    .l-destination__cover::after {
+        display: none
+    }
+    .l-destination__article {
+        grid-area: 1 / 1 / 4 / 8;
+        display: flex;
+        align-items: flex-end;
+        padding: var(--space-sm)
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-height: 600px) {
+    .l-destination__grid {
+        height: auto;
+        grid-template-rows: min-content minmax(10rem, 1fr) min-content;
+        min-height: calc(100vh - 56px)
     }
 }
 </style>

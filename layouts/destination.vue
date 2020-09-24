@@ -6,6 +6,8 @@
 <style scoped>
 .l-destination {
     padding: var(--space-md);
+    max-width: var(--body-width);
+    margin: 0 auto;
     overflow: hidden;
 }
 
