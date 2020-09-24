@@ -24,7 +24,7 @@ export default {
     position: relative;
     overflow: hidden;
     height: 100%;
-    width: calc(32vh * 1.25);
+    width: 32vh;
     margin: 0 auto;
 }
 .c-destination__map::before {
@@ -52,6 +52,12 @@ export default {
             rgba(var(--color-gray-darkest-rgb),1) 99%
         )
 }
+
+@media only screen and (min-width: 900px) {
+    .c-destination__map {
+        width: max(40vh, 12rem)
+    }
+}
 /* .c-destination__map::after {
     content:'';
     z-index: -1;
@@ -76,12 +82,5 @@ export default {
     bottom: 15%;
     left: 15%;
     background: none
-} */
-
-/* @media only screen and (orientation: portrait) {
-    .c-destination__map {
-        flex: auto;
-        height: 60vw;
-    }
 } */
 </style>

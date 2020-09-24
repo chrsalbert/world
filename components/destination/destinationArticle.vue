@@ -22,6 +22,7 @@ export default {
 }
 .c-destination__article__text {
     color: var(--color-gray-lighter);
+    font-size: var(--font-size-sm);
     transform: translateX(0);
     transition: all .15s var(--timing-function) .3s;
 }
@@ -44,30 +45,9 @@ export default {
     .c-destination__article {
         overflow-y: scroll;
         scroll-behavior: smooth;
-        max-height: max(10rem, 22vh);
+        max-height: 10rem;
         transition: max-height .6s var(--timing-function)
     }
-    .c-destination__article:hover {
-        max-height: 60vh
-    }
-}
-
-
-/* 
-@media only screen and (orientation: landscape) {
-    .c-destination__article {
-        position: absolute;
-        right: var(--space-md);
-        bottom: var(--space-md);
-        left: var(--space-md);
-        max-height: calc(calc(3rem * var(--line-height)) + calc(var(--space-md) * 2));
-        border-radius: var(--border-radius-sm);
-    }
-
-    .c-destination__article:hover {
-        max-height: 100%
-    }
-
     .c-destination__article::after {
         content: '';
         position: absolute;
@@ -75,7 +55,10 @@ export default {
         bottom: 0;
         left: 0;
         height: 2rem;
-        background-image: linear-gradient(to bottom, rgba(var(--color-gray-darkest-rgb), 0), var(--color-gray-darkest))
+        background-image: linear-gradient(to bottom, rgba(var(--color-gray-darker-rgb), 0), var(--color-gray-darker))
     }
-} */
+    .c-destination__article:hover {
+        max-height: 60vh
+    }
+}
 </style>

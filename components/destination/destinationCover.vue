@@ -41,7 +41,7 @@ export default {
     background-position: 50% 50%;
     transition: all .6s var(--timing-function);
     /* transition-delay: .2s; */
-    border-radius: var(--border-radius-xs)
+    border-radius: var(--border-radius)
 }
 
 .c-destination__cover-enter-active { z-index: 1 }

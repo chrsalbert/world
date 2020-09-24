@@ -8,8 +8,7 @@
         </template>
         <template slot="title">
             <destination-title 
-                :title="currentDestination.title" 
-                :currentDestinationIndex="currentDestinationIndex" />
+                :title="currentDestination.title" />
         </template>
         <template slot="map">
             <destination-map 
@@ -25,6 +24,11 @@
         <template slot="date">
             <destination-date 
                 :country="currentDestination" />
+        </template>
+        <template slot="step">
+            <destination-step 
+                :destinations="destinations"
+                :currentDestinationIndex="currentDestinationIndex" />
         </template>
         <template slot="prev">
             <app-button 

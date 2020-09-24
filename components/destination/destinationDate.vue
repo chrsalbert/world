@@ -39,9 +39,6 @@ export default {
 <style scoped>
 .c-destinationDate {
     text-transform: uppercase;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
     transition: all .2s var(--timing-function) .4s;
-    color: var(--color-text-light)
 }
 </style>

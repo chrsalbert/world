@@ -2,9 +2,17 @@
     <div class="l-destination__grid">
         <div class="l-destination__nav">
             <div class="l-destination__navInner">
-                <slot name="prev"></slot>
-                <slot name="nav"></slot>
-                <slot name="next"></slot>
+                <div class="l-destination__navInner__date">
+                    <slot name="date"></slot>
+                </div>
+                <div class="l-destination__navInner__controls">
+                    <slot name="prev"></slot>
+                    <slot name="nav"></slot>
+                    <slot name="next"></slot>
+                </div>
+                <div class="l-destination__navInner__step">
+                    <slot name="step"></slot>
+                </div>
             </div>
         </div>
         <div class="l-destination__cover">
@@ -24,9 +32,6 @@
                 <slot name="article"></slot>
             </div>
         </div>
-        <!-- <div class="l-destination__date" v-show="!isMenuVisible">
-            <slot name="date"></slot>
-        </div> -->
     </div>
 </template>
 <script>
@@ -58,6 +63,7 @@ export default {
 
 .l-destination__navInner {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     max-width: var(--body-width);
     margin: 0 auto;
@@ -74,6 +80,27 @@ export default {
     border-bottom: 1px var(--color-gray-dark) solid;
     height: 3rem;
     background: linear-gradient(rgba(var(--color-gray-darkest-rgb), 0) 0%, rgba(var(--color-gray-darkest-rgb), 1) 90%)
+}
+
+.l-destination__navInner__controls {
+    display: flex;
+}
+
+.l-destination__navInner__controls > * {
+    margin: 0 var(--space-xs)
+}
+
+.l-destination__navInner__date,
+.l-destination__navInner__step {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-gray)
+}
+
+.l-destination__navInner__step {
+    text-align: right
 }
 
 .l-destination__cover {
@@ -121,40 +148,12 @@ export default {
 .u-animation-enter { opacity: 0 }
 .u-animation-enter-to { opacity: 1 }
 
-
-@media only screen and (min-width: 600px) {
-    .l-destination__grid {
-        grid-template-rows: min-content 30vh min-content 20vh 20vh min-content;
-    }
-    .l-destination__title {
-        grid-area: 1 / 1 / 2 / 13;
-        padding: var(--space-lg) 0 var(--space-md)
-    }
-    .l-destination__map {
-        grid-area: 2 / 2 / 3 / 13
-    }
-    .l-destination__stats {
-        grid-area: 3 / 1 / 4 / 13;
-        padding: 0 0 var(--space-2xl)
-    }
-    .l-destination__cover {
-        grid-area: 4 / 1 / 6 / 7
-    }
-    .l-destination__cover::after {
-        display: none
-    }
-    .l-destination__article {
-        grid-area: 5 / 6 / 7 / 13;
-        padding: 0;
-    }
-}
-
 @media only screen and (min-width: 900px) {
     .l-destination__grid {
         height: calc(100vh - 56px)
     }
     .l-destination__grid {
-        grid-template-rows: auto 1fr min-content;
+        grid-template-rows: auto 1fr 10rem;
     }
     .l-destination__title {
         grid-area: 1 / 8 / 2 / 13;
@@ -165,7 +164,9 @@ export default {
     }
     .l-destination__stats {
         grid-area: 3 / 8 / 4 / 13;
-        padding: 0 0 var(--space-xl);
+        display: flex;
+        align-items: center;
+        padding: 0 0 var(--space-sm) 0
     }
     .l-destination__cover {
         grid-area: 1 / 1 / 4 / 8
@@ -178,6 +179,12 @@ export default {
         display: flex;
         align-items: flex-end;
         padding: var(--space-sm)
+    }
+}
+
+@media only screen and (min-width: 900px) and (min-height: 600px) {
+    .l-destination__nav::before {
+        background: none
     }
 }
 

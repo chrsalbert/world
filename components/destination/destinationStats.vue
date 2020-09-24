@@ -61,7 +61,6 @@ export default {
     }
 
     .c-destinationStats__key {
-        text-transform: uppercase;
         font-size: var(--font-size-sm);
         color: var(--color-text-light)
     }
