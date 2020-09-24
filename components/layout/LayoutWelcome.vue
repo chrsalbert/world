@@ -1,8 +1,5 @@
 <template>
     <div class="l-welcome__grid">
-        <div class="l-welcome__nav">
-            <slot name="nav"></slot>
-        </div>
         <transition name="u-animation" mode="out-in">
             <div class="l-welcome__menu" v-show="isMenuVisible" key="menu">
                 <slot name="menu"></slot>
@@ -45,21 +42,6 @@ export default {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: min-content 44vw var(--space-lg) min-content min-content;
     column-gap: var(--space);
-    padding-bottom: calc(var(--space-xs) + var(--control-height))
-}
-
-.l-welcome__nav {
-    z-index: 900;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    background: var(--color-gray-darkest);
-    padding: var(--space-xs);
-    border-top: 1px var(--color-gray-dark) solid;
-    /* border: 2px yellow solid */
 }
 
 .l-welcome__map {
@@ -70,7 +52,6 @@ export default {
 
 .l-welcome__video {
     grid-area: 2 / 1 / 3 / 13;
-    /* border: 2px mediumspringgreen solid */
 }
 
 .l-welcome__article {
@@ -78,19 +59,13 @@ export default {
     position: relative;
     z-index: 2;
     margin-bottom: var(--space-xl);
-    /* border: 2px indianred solid */
 }
-/* 
-.l-welcome__article > * {
-    flex: 1
-} */
 
 .l-welcome__stats {
     grid-area: 5 / 1 / 6 / 13;
     display: flex;
     align-items: flex-end;
     padding-bottom: var(--space-lg);
-    /* border: 2px purple solid */
 }
 
 

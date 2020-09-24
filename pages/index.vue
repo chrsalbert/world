@@ -1,11 +1,5 @@
 <template>
     <layout-welcome>
-        <template slot="nav">
-            <the-nav />
-            <app-button href="/destination/netherlands" type="secondary">
-                Tour starten
-            </app-button>
-        </template>
         <template slot="article">
             <main class="c-welcome">
                 <div>
