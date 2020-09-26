@@ -1,9 +1,6 @@
 <template>
     <div class="l-default">
         <app-grid>
-            <div class="l-default__nav">
-                <the-nav />
-            </div>
             <div class="l-destination__menu" v-show="isMenuVisible" key="menu">
                 <the-menu />
             </div>

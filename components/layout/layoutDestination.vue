@@ -1,19 +1,10 @@
 <template>
     <div class="l-destination__grid">
-        <div class="l-destination__nav">
-            <div class="l-destination__navInner">
-                <div class="l-destination__navInner__date">
-                    <slot name="date"></slot>
-                </div>
-                <div class="l-destination__navInner__controls">
-                    <slot name="prev"></slot>
-                    <slot name="nav"></slot>
-                    <slot name="next"></slot>
-                </div>
-                <div class="l-destination__navInner__step">
-                    <slot name="step"></slot>
-                </div>
-            </div>
+        <div class="l-destination__footer">
+            <destination-footer 
+                :destinations="destinations"
+                :currentDestination="currentDestination"
+                :currentDestinationIndex="currentDestinationIndex" />
         </div>
         <div class="l-destination__cover">
             <slot name="cover"></slot>
@@ -28,17 +19,23 @@
             <slot name="stats"></slot>
         </div>
         <div class="l-destination__article">
-            <div class="l-destination__article__card">
-                <slot name="article"></slot>
-            </div>
+            <slot name="article"></slot>
         </div>
     </div>
 </template>
 <script>
+import destinations from '~/static/data/destinations.json';
+
 export default {
+    data () {
+        return { destinations }
+    },
     computed: {
-        isMenuVisible() {
-            return this.$store.state.navigation.isMenuVisible
+        currentDestination() {
+            return this.destinations.filter(destination => destination.id === this.$route.params.id)[0]
+        },
+        currentDestinationIndex() {
+            return this.destinations.findIndex(destination => destination.id == this.currentDestination.id)
         }
     }
 }
@@ -47,12 +44,12 @@ export default {
 .l-destination__grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 32vh 2rem min-content 32vh min-content;
+    grid-template-rows: 50vw 2rem min-content 32vh min-content;
     column-gap: var(--space);
-    padding-bottom: calc(var(--space-xs) + var(--control-height));
+    padding-bottom: calc(var(--space-md) + var(--control-height) + calc(var(--space-xs) * 2));
 }
 
-.l-destination__nav {
+.l-destination__footer {
     z-index: 900;
     position: fixed;
     right: 0;
@@ -61,46 +58,15 @@ export default {
     background: var(--color-gray-darkest);
 }
 
-.l-destination__navInner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: var(--body-width);
-    margin: 0 auto;
-    padding: var(--space-xs) var(--space-md);
-}
-
-.l-destination__nav::before {
+.l-destination__footer::before {
     content: '';
     position: absolute;
     right: 0;
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    border-bottom: 1px var(--color-gray-dark) solid;
     height: 3rem;
     background: linear-gradient(rgba(var(--color-gray-darkest-rgb), 0) 0%, rgba(var(--color-gray-darkest-rgb), 1) 90%)
-}
-
-.l-destination__navInner__controls {
-    display: flex;
-}
-
-.l-destination__navInner__controls > * {
-    margin: 0 var(--space-xs)
-}
-
-.l-destination__navInner__date,
-.l-destination__navInner__step {
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--color-gray)
-}
-
-.l-destination__navInner__step {
-    text-align: right
 }
 
 .l-destination__cover {
@@ -150,10 +116,11 @@ export default {
 
 @media only screen and (min-width: 900px) {
     .l-destination__grid {
-        height: calc(100vh - 56px)
-    }
-    .l-destination__grid {
         grid-template-rows: auto 1fr 10rem;
+        height: 100vh;
+        padding-top: var(--space-md);
+        padding-right: var(--space-md);
+        padding-left: var(--space-md)
     }
     .l-destination__title {
         grid-area: 1 / 8 / 2 / 13;
@@ -183,7 +150,7 @@ export default {
 }
 
 @media only screen and (min-width: 900px) and (min-height: 600px) {
-    .l-destination__nav::before {
+    .l-destination__footer::before {
         background: none
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <transition name="c-destination__title" mode="out-in">
         <h1 class="c-destination__title" :key="title">
-            {{ title }}
+            {{ $store.state.navigation.isMenuVisible }}
         </h1>
     </transition>
 </template>

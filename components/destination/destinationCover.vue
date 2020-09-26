@@ -40,8 +40,6 @@ export default {
     background-size: cover;
     background-position: 50% 50%;
     transition: all .6s var(--timing-function);
-    /* transition-delay: .2s; */
-    border-radius: var(--border-radius)
 }
 
 .c-destination__cover-enter-active { z-index: 1 }
@@ -50,4 +48,9 @@ export default {
 .c-destination__cover-enter { opacity: 0 }
 .c-destination__cover-enter-to { opacity: 1;}
 
+@media screen and (min-width: 900px) {
+    .c-destination__cover {
+        border-radius: var(--border-radius)
+    }
+}
 </style>
