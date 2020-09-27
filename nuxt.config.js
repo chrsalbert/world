@@ -25,9 +25,6 @@ export default {
     ]
   },
   components: true,
-  router: {
-    middleware: 'pages'
-  },
   generate: {
     routes: dynamicRoutes
   },

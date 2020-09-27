@@ -25,6 +25,7 @@ import { mapGetters } from 'vuex'
 
 export default {
     layout: 'destination',
+    middleware: ['destination'],
     computed: {
         stats() {
             return this.currentDestination.stats
@@ -32,19 +33,6 @@ export default {
         ...mapGetters({
             currentDestination: 'destination/getCurrentDestination'
         })
-    },
-    methods: {
-        setCurrentDestination() {
-            this.$store.commit('destination/SET_CURRENT_DESTINATION', this.$route.params.id)
-        }
-    },
-    watch: {
-        '$route' (to, from) {
-            this.setCurrentDestination()
-        }
-    },
-    created() {
-        this.setCurrentDestination()
     }
 }
 </script>
