@@ -2,7 +2,7 @@
     <div class="l-default">
         <app-grid>
             <div class="l-destination__menu" v-show="isMenuVisible" key="menu">
-                <the-menu />
+                <!-- <the-menu /> -->
             </div>
             <div class="l-default__body">
                 <Nuxt />
