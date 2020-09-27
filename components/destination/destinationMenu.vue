@@ -1,8 +1,10 @@
 <template>
 	<transition name="c-menu">
-		<ol class="c-menu" key="currentDestinationIndex">
-			<li v-for="destination in destinations" 
+		<ol id="menu" class="c-menu" key="currentDestinationIndex" :style="{ '--offsetLeft': `${offsetLeft * -1}px` }">
+			<li v-for="(destination, index) in destinations" 
 				:key="destination.id"
+				:id="`destination${index}`"
+				:ref="`destination${index}`"
 				:style="{ '--width': `${destination.stats.days * 1.5}vw` }"
 				class="c-menu__item">
 				<nuxt-link class="c-menu__title" :to="`/destination/${destination.id}`">
@@ -17,24 +19,46 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import countries from '~/static/data/countries.json';
-import places from '~/static/data/places.json';
 
 export default {
-    data () {
-        return { countries, places }
+	data() {
+		return {
+			offsetLeft: 0
+		}
+	},
+	mounted() {
+		this.scrollToCurrentDestination()
 	},
 	computed: {
         ...mapGetters({
             currentDestinationIndex: 'destination/getCurrentDestinationIndex',
             currentDestination: 'destination/getCurrentDestination',
-            destinations: 'destination/getDestinations',
+			destinations: 'destination/getDestinations',
+			places: 'destination/getPlaces',
+			countries: 'destination/getCountries',
         })
 	},
 	methods: {
-		getStepNum(index) {
-			index++
-			return index < 10 ?  `0${index}` : index
+		scrollToCurrentDestination() {
+			let currentNode = document.querySelector(`#destination${this.currentDestinationIndex}`).getBoundingClientRect().x
+			let firstNode = document.querySelector(`#destination0`).getBoundingClientRect().x
+			let offset = currentNode - firstNode
+			document.querySelector('#menu').scrollTo({
+				left: offset,
+				behavior: 'smooth'
+			});
+		}
+	},
+	watch: {
+		'$store.state.navigation.isMenuVisible': {
+			handler: function(nv) {
+				this.scrollToCurrentDestination()
+			}
+		},
+		'$store.state.destination.currentDestinationIndex': {
+			handler: function(nv) {
+				this.scrollToCurrentDestination()
+			}
 		}
 	}
 }
@@ -56,7 +80,7 @@ h3 {
 	left: 0;
 	display: flex;
 	background: linear-gradient(rgba(var(--color-gray-darkest-rgb), 0), var(--color-gray-darkest) 50%);
-	transition: all .6s var(--timing-function);
+	transition: transform .6s var(--timing-function);
 	transform: translateY(calc(var(--height) * -1));
 	overflow-x: scroll;
     overflow-y: hidden;
