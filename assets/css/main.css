@@ -1,8 +1,6 @@
 @import '~assets/css/variables.css';
 @import '~assets/css/elements/headlines.css';
 @import '~assets/css/utilities/page.css';
-@import '~assets/css/utilities/animations.css';
-@import '~assets/css/layouts/default.css';
 
 * { box-sizing: border-box; }
 
@@ -30,17 +28,9 @@ a {
 }
 
 a:hover {
-    color: #00BFE0
+    color: var(--color-link-hover)
 }
 
 strong {
-    font-weight: 600
-}
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
-
-.fade-enter, .fade-leave-to {
-    opacity: 0;
+    font-weight: var(--font-weight-bold)
 }

@@ -21,7 +21,8 @@
     --color-black: #001013;
     --color-text: #fff;
     --color-text-light: #8a8f98;
-    --color-link: #1ED9FA;
+    --color-link: #00d4fa;
+    --color-link-hover: #99eefd;
 
     /* SPACES */
     --space-2xs: .25rem;
