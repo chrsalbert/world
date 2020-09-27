@@ -2,22 +2,18 @@
     <transition name="c-destination__cover">
         <figure 
             class="c-destination__cover" 
-            :key="coverURL" 
+            :key="currentDestinationIndex" 
             :style="`background-image: url('${coverURL}')`"></figure>
     </transition>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    props: {
-        country: {
-            type: Object,
-            required: true
-        }
-    },
     computed: {
         coverURL() {
             let filetype = this.supportsWebp ? 'webp' : 'jpg'
-            return `${process.env.imageUrl}/cover/${this.country.id}.${filetype}?quality=80&f=auto`
+            return `${process.env.imageUrl}/cover/${this.currentDestination.id}.${filetype}?quality=80&f=auto`
         },
         supportsWebp() {
             if (process.client) {
@@ -26,7 +22,11 @@ export default {
                     return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
                 return false
             }
-        }
+        },
+        ...mapGetters({
+            currentDestinationIndex: 'destination/getCurrentDestinationIndex',
+            currentDestination: 'destination/getCurrentDestination'
+        })
     }
 }
 </script>

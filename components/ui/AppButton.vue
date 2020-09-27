@@ -16,7 +16,7 @@
 			}
 		}"
 		v-on:click="$event.target.blur()">
-		<app-icon v-bind:icon="icon" v-if="hasIcon" />
+		<app-icon v-bind:icon="icon" v-if="hasIcon" focusable="false" />
 		<span><slot></slot></span>
 	</nuxt-link>
 </template>

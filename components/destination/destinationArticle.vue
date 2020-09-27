@@ -1,17 +1,22 @@
 <template>
     <div class="c-destination__article">
         <transition name="c-destination__article__text" mode="out-in">
-            <p  class="c-destination__article__text" :key="country.teaser" v-html="country.teaser"></p>
+            <p class="c-destination__article__text" :key="currentDestinationIndex" v-html="teaser"></p>
         </transition>
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    props: {
-        country: {
-            type: Object,
-            required: true
-        }
+    computed: {
+        teaser() {
+            return this.currentDestination.teaser
+        },
+        ...mapGetters({
+            currentDestinationIndex: 'destination/getCurrentDestinationIndex',
+            currentDestination: 'destination/getCurrentDestination'
+        })
     }
 }
 </script>

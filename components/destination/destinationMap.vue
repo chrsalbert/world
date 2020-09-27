@@ -1,24 +1,8 @@
 <template>
     <div class="c-destination__map">
-        <destination-map-svg 
-            :currentDestination="currentDestination"
-            :currentDestinationIndex="currentDestinationIndex" />
+        <destination-map-svg />
     </div>
 </template>
-<script>
-export default {
-    props: {
-        currentDestination: {
-            type: Object,
-            required: true
-        },
-        currentDestinationIndex: {
-            type: Number,
-            required: true
-        }
-    }
-}
-</script>
 <style scoped>
 .c-destination__map {
     position: relative;

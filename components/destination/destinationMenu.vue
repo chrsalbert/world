@@ -1,6 +1,6 @@
 <template>
-	<transition name="c-menu" mode="in-out">
-		<ol class="c-menu" :key="currentDestinationIndex">
+	<transition name="c-menu">
+		<ol class="c-menu" key="currentDestinationIndex">
 			<li v-for="destination in destinations" 
 				:key="destination.id"
 				:style="{ '--width': `${destination.stats.days * 1.5}vw` }"
@@ -16,24 +16,21 @@
 	</transition>
 </template>
 <script>
-import destinations from '~/static/data/destinations.json';
+import { mapGetters } from 'vuex'
 import countries from '~/static/data/countries.json';
 import places from '~/static/data/places.json';
 
 export default {
     data () {
-        return { destinations, countries, places }
-    },
-    props: {
-        currentDestination: {
-            type: Object,
-            required: true
-        },
-        currentDestinationIndex: {
-            type: Number,
-            required: true
-        }
-    },
+        return { countries, places }
+	},
+	computed: {
+        ...mapGetters({
+            currentDestinationIndex: 'destination/getCurrentDestinationIndex',
+            currentDestination: 'destination/getCurrentDestination',
+            destinations: 'destination/getDestinations',
+        })
+	},
 	methods: {
 		getStepNum(index) {
 			index++

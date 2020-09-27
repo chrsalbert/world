@@ -8,6 +8,8 @@
     </ul>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     props: {
         stats: {
@@ -16,6 +18,9 @@ export default {
         }
     },
     computed: {
+        ...mapGetters({
+            currentDestination: 'destination/getCurrentDestination'
+        }),
         formattedStats() {
             return  [
                 {

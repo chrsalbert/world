@@ -1,10 +1,7 @@
 <template>
     <div class="l-destination__grid">
         <div class="l-destination__footer">
-            <destination-footer 
-                :destinations="destinations"
-                :currentDestination="currentDestination"
-                :currentDestinationIndex="currentDestinationIndex" />
+            <slot name="footer"></slot>
         </div>
         <div class="l-destination__cover">
             <slot name="cover"></slot>
@@ -23,23 +20,6 @@
         </div>
     </div>
 </template>
-<script>
-import destinations from '~/static/data/destinations.json';
-
-export default {
-    data () {
-        return { destinations }
-    },
-    computed: {
-        currentDestination() {
-            return this.destinations.filter(destination => destination.id === this.$route.params.id)[0]
-        },
-        currentDestinationIndex() {
-            return this.destinations.findIndex(destination => destination.id == this.currentDestination.id)
-        }
-    }
-}
-</script>
 <style scoped>
 .l-destination__grid {
     display: grid;

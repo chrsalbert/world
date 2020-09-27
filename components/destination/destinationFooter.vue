@@ -1,40 +1,25 @@
 <template>
     <div class="c-destination__footer">
         <div class="c-destination__footer__nav">
-            <destination-nav 
-                :destinations="destinations"
-                :currentDestination="currentDestination" 
-                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-nav />
         </div>
         <div class="c-destination__footer__menu">
-            <destination-menu 
-                v-show="isMenuVisible"
-                :key="currentDestinationIndex"
-                :currentDestination="currentDestination" 
-                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-menu v-show="showMenu" />
         </div>
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    props: {
-        destinations: {
-            type: Array,
-            required: true
-        },
-        currentDestination: {
-            type: Object,
-            required: true
-        },
-        currentDestinationIndex: {
-            type: Number,
-            required: true
-        }        
-    },
     computed: {
-        isMenuVisible() {
-            return this.$store.state.navigation.isMenuVisible
-        }
+        teaser() {
+            return this.currentDestination.teaser
+        },
+        ...mapGetters({
+            showMenu: 'navigation/showMenu',
+            currentDestination: 'destination/getCurrentDestination'
+        })
     }
 }
 </script>

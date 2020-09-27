@@ -1,67 +1,40 @@
 <template>
     <div class="c-destination__nav">
         <div class="c-destination__nav__date">
-            <destination-date 
-                :country="currentDestination" />
+            <destination-date />
         </div>
         <div class="c-destination__nav__controls">
-            <app-button 
-                icon="arrowLeft" 
-                :href="prevDestinationUrl" 
-                ref="prev">
-            </app-button>
-            <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="route" v-if="!isMenuVisible" />
-            <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="cross" v-if="isMenuVisible" />
-            <app-button 
-                icon="arrowRight" 
-                :href="nextDestinationUrl" 
-                ref="next">
-            </app-button>
+            <app-button :href="prevDestinationUrl"  icon="arrowLeft" />
+            <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="route" aria-label="Routen-Menü öffnen" v-if="!showMenu" />
+            <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="cross" aria-label="Routen-Menü schließen" v-if="showMenu" />
+            <app-button :href="nextDestinationUrl" icon="arrowRight" />
         </div>
         <div class="c-destination__nav__step">
-            <destination-step 
-                :destinations="destinations"
-                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-step />
         </div>
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
-    props: {
-        destinations: {
-            type: Array,
-            required: true
-        },
-        currentDestination: {
-            type: Object,
-            required: true
-        },
-        currentDestinationIndex: {
-            type: Number,
-            required: true
-        }        
-    },
     computed: {
-        isMenuVisible() {
-            return this.$store.state.navigation.isMenuVisible
-        },
-        prevDestinationIndex() {
-            return this.currentDestinationIndex === 0 ? this.destinations.length - 1 : this.currentDestinationIndex - 1
-        },
-        nextDestinationIndex() {
-            return this.currentDestinationIndex === (this.destinations.length - 1) ? 0 : this.currentDestinationIndex + 1
-        },
-        prevDestinationUrl() {
-            return `/destination/${this.destinations[this.prevDestinationIndex].id}`
-        },
-        nextDestinationUrl() {
-            return `/destination/${this.destinations[this.nextDestinationIndex].id}`
-        }
+        ...mapGetters({
+            showMenu: 'navigation/showMenu',
+            destinations: 'destination/getDestinations',
+            currentDestination: 'destination/getCurrentDestination',
+            currentDestinationIndex: 'destination/getCurrentDestinationIndex',
+            prevDestinationIndex: 'destination/getPrevDestinationIndex',
+            nextDestinationIndex: 'destination/getNextDestinationIndex',
+            prevDestinationUrl: 'destination/getPrevDestinationUrl',
+            nextDestinationUrl: 'destination/getNextDestinationUrl'
+        })
     },
     methods: {
-        toggleMenu() {
-            this.$store.commit('navigation/SET_IS_MENU_VISIBLE', !this.isMenuVisible)
-        }
+        ...mapActions({
+            toggleMenu: 'navigation/toggleMenu'
+        })
     },
     mounted() {
         window.addEventListener('keydown', e => {

@@ -1,65 +1,50 @@
 <template>
     <layout-destination>
         <template slot="cover">
-            <destination-cover :country="currentDestination" />
+            <destination-cover />
         </template>
         <template slot="article">
-            <destination-article :country="currentDestination" />
+            <destination-article />
         </template>
         <template slot="title">
-            <destination-title 
-                :title="currentDestination.title" />
+            <destination-title />
         </template>
         <template slot="map">
-            <destination-map 
-                :places="places" 
-                :countries="countries" 
-                :destinations="destinations" 
-                :currentDestination="currentDestination" 
-                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-map />
         </template>
         <template slot="stats">
-            <destination-stats :stats="currentDestination.stats" />
-        </template>
-        <template slot="date">
+            <destination-stats :stats="stats" />
         </template>
         <template slot="footer">
-            <destination-footer 
-                :destinations="destinations"
-                :currentDestination="currentDestination"
-                :currentDestinationIndex="currentDestinationIndex" />
+            <destination-footer />
         </template>
     </layout-destination>
 </template>
 <script>
-import destinations from '~/static/data/destinations.json';
-import countries from '~/static/data/countries.json';
-import places from '~/static/data/places.json';
+import { mapGetters } from 'vuex'
 
 export default {
     layout: 'destination',
-    asyncData () {
-        return { destinations, countries, places }
-    },
     computed: {
-        currentDestination() {
-            return this.destinations.filter(destination => destination.id === this.$route.params.id)[0]
+        stats() {
+            return this.currentDestination.stats
         },
-        currentDestinationIndex() {
-            return this.destinations.findIndex(destination => destination.id == this.currentDestination.id)
-        }
+        ...mapGetters({
+            currentDestination: 'destination/getCurrentDestination'
+        })
     },
     methods: {
-        updateCurrentDestination() {
-            this.$store.commit('destination/SET_CURRENT_DESTINATION', this.currentDestination)
-            this.$store.commit('destination/SET_CURRENT_DESTINATION_INDEX', this.currentDestinationIndex)
+        setCurrentDestination() {
+            this.$store.commit('destination/SET_CURRENT_DESTINATION', this.$route.params.id)
         }
     },
-    beforeUpdate() {
-        this.updateCurrentDestination()
+    watch: {
+        '$route' (to, from) {
+            this.setCurrentDestination()
+        }
     },
-    beforeMount() {
-        this.updateCurrentDestination()
+    created() {
+        this.setCurrentDestination()
     }
 }
 </script>

@@ -97,20 +97,9 @@
     </svg>
 </template>
 <script>
-import destinations from '~/static/data/destinations.json';
-import countries from '~/static/data/countries.json';
-import places from '~/static/data/places.json';
+import { mapGetters } from 'vuex'
 
 export default {
-    props: {
-        currentDestination: Object,
-        currentDestinationIndex: Number
-    },
-    data() {
-        return {
-            destinations, countries, places
-        }
-    },
     computed: {
         currentCountryMap() {
             if(!this.currentDestination) return null
@@ -144,18 +133,25 @@ export default {
             return this.getRoutePoints(route)
         },
         currentRoutePoints() {
-            let prevDestinationId = this.currentDestinationIndex === 0 ? this.destinations.length - 1 : this.currentDestinationIndex - 1
-            let prevStop = this.destinations[prevDestinationId].route.slice(-1)
+            let prevStop = this.destinations[this.prevDestinationIndex].route.slice(-1)
             let prevStopPoints = this.getRoutePoints(prevStop)
 
-            let nextDestinationId = this.currentDestinationIndex === (this.destinations.length - 1) ? 0 : this.currentDestinationIndex + 1
-            let nextStop = [this.destinations[nextDestinationId].route[0]]
+            let nextStop = [this.destinations[this.nextDestinationIndex].route[0]]
             let nextStopPoints = this.getRoutePoints(nextStop)
 
             let currentStopPoints = this.getRoutePoints(this.currentDestination.route)
             
             return `${prevStopPoints} ${currentStopPoints} ${nextStopPoints}`
-        }
+        },
+        ...mapGetters({
+            countries: 'destination/getCountries',
+            places: 'destination/getPlaces',
+            destinations: 'destination/getDestinations',
+            currentDestination: 'destination/getCurrentDestination',
+            currentDestinationIndex: 'destination/currentDestinationIndex',
+            prevDestinationIndex: 'destination/getPrevDestinationIndex',
+            nextDestinationIndex: 'destination/getNextDestinationIndex'
+        })
     },
     methods: {
         getRoutePoints(route = []) {

@@ -2,17 +2,16 @@
     <span class="c-destinationDate" v-html="date"></span>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    props: {
-        country: {
-            type: Object,
-            required: true
-        }
-    },
     computed: {
         date() {
-            return this.formateDate(this.country.date.from, this.country.date.to)
-        }
+            return this.formateDate(this.currentDestination.date.from, this.currentDestination.date.to)
+        },
+        ...mapGetters({
+            currentDestination: 'destination/getCurrentDestination'
+        })
     },
     methods: {
         formateDate(from, to, dash = '&thinsp;/&thinsp;') {

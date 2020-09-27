@@ -23,10 +23,7 @@
         </template>
         <template slot="map">
             <figure>
-                <destination-map-svg 
-                    :places="places" 
-                    :countries="countries" 
-                    :destinations="destinations" />
+                <destination-map-svg />
             </figure>
         </template>
         <template slot="stats">
@@ -35,10 +32,6 @@
     </layout-welcome>
 </template>
 <script>
-    import destinations from '~/static/data/destinations.json';
-    import countries from '~/static/data/countries.json';
-    import places from '~/static/data/places.json';
-
     export default {
         head: {
             title: 'ON A JOURNEY – Reisedokumentation & Lern-Projekt',
@@ -47,11 +40,6 @@
             ]
         },
         layout: 'welcome',
-        data() {
-            return {
-                destinations, countries, places
-            }
-        },
         computed: {
             stats() {
                 return  {

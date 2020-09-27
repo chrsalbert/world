@@ -1,17 +1,22 @@
 <template>
     <transition name="c-destination__title" mode="out-in">
-        <h1 class="c-destination__title" :key="title">
-            {{ $store.state.navigation.isMenuVisible }}
+        <h1 class="c-destination__title" :key="currentDestinationIndex">
+            {{ title }}
         </h1>
     </transition>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    props: {
-        title: {
-            type: String,
-            required: true
-        }
+    computed: {
+        title() {
+            return this.currentDestination.title
+        },
+        ...mapGetters({
+            currentDestinationIndex: 'destination/getCurrentDestinationIndex',
+            currentDestination: 'destination/getCurrentDestination'
+        })
     }
 }
 </script>
