@@ -26,12 +26,19 @@ import { mapGetters } from 'vuex'
 export default {
     layout: 'destination',
     middleware: ['destination'],
+    head() {
+        return {
+            title: `${this.currentDestinationStep}/${this.destinationsCount} – ${this.currentDestination.title} – ON A JOURNEY`
+        }
+    },
     computed: {
         stats() {
             return this.currentDestination.stats
         },
         ...mapGetters({
-            currentDestination: 'destination/getCurrentDestination'
+            currentDestination: 'destination/getCurrentDestination',
+            destinationsCount: 'destination/getDestinationsCount',
+            currentDestinationStep: 'destination/getCurrentDestinationStep'
         })
     }
 }
