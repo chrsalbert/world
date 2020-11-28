@@ -1,6 +1,6 @@
 <template>
     <span class="c-destination__step">
-        {{ currentDestinationStep }} <em>von</em><span>/</span> {{ destinationsCount }}
+        {{ currentDestinationStep }} <em>of</em><span>/</span> {{ destinationsCount }}
     </span>
 </template>
 <script>

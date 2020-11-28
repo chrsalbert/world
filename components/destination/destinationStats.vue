@@ -25,16 +25,16 @@ export default {
             return  [
                 {
                     icon: 'building',
-                    title: `${this.stats.cities} Orte`,
-                    sub: `in ${this.stats.days} tagen`
+                    title: `${this.stats.cities} cities`,
+                    sub: `in ${this.stats.days} days`
                 }, {
                     icon: 'route',
                     title: `${this.formatNumber(this.stats.distance)} km`,
-                    sub: 'gefahren'
+                    sub: 'driven between all locations'
                 }, {
                     icon: 'transport',
-                    title: `${this.stats.transportHours} Std.`,
-                    sub: 'in Bus & Bahn'
+                    title: `${this.stats.transportHours} hrs`,
+                    sub: 'in public transport'
                 }
             ]
         }
@@ -59,6 +59,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0 var(--space-sm)
     }
 
     .c-destinationStats__item > * {

@@ -2,7 +2,7 @@
     {
         "id": "cologne",
         "countryId": "germany",
-        "title": "Köln",
+        "title": "Cologne",
         "cx": "23",
         "cy": "57"
     },
@@ -37,21 +37,21 @@
     {
         "id": "posan",
         "countryId": "poland",
-        "title": "Posen",
+        "title": "Posan",
         "cx": "89",
         "cy": "41"
     }, 
     {
         "id": "wroclaw",
         "countryId": "poland",
-        "title": "Breslau",
+        "title": "Wroclaw",
         "cx": "90",
         "cy": "55"
     }, 
     {
         "id": "krakov",
         "countryId": "poland",
-        "title": "Krakau",
+        "title": "Krakov",
         "cx": "111",
         "cy": "64"
     },
@@ -72,21 +72,21 @@
     {
         "id": "gdansk",
         "countryId": "poland",
-        "title": "Danzig",
+        "title": "Gdansk",
         "cx": "99",
         "cy": "23"
     },
     {
         "id": "lviv",
         "countryId": "ukraine",
-        "title": "Lviw",
+        "title": "Lviv",
         "cx": "139",
         "cy": "64"
     },
     {
         "id": "kiev",
         "countryId": "ukraine",
-        "title": "Kiew",
+        "title": "Kiev",
         "cx": "182",
         "cy": "58"
     },
@@ -135,21 +135,21 @@
     {
         "id": "krumlov",
         "countryId": "czechrepublic",
-        "title": "Krumau an der Moldau",
+        "title": "Krumlov",
         "cx": "74",
         "cy": "76"
     },
     {
         "id": "prague",
         "countryId": "czechrepublic",
-        "title": "Prag",
+        "title": "Prague",
         "cx": "75",
         "cy": "64"
     },
     {
         "id": "carlsbad",
         "countryId": "czechrepublic",
-        "title": "Karlsbad",
+        "title": "Carlsbad",
         "cx": "63",
         "cy": "62"
     },
@@ -177,7 +177,7 @@
     {
         "id": "debrecen",
         "countryId": "hungary",
-        "title": "Košice",
+        "title": "Debrecen",
         "cx": "124",
         "cy": "88"
     },
@@ -203,9 +203,9 @@
         "cy": "104"
     },
     {
-        "id": "bukarest",
+        "id": "bucharest",
         "countryId": "romania",
-        "title": "Bukarest",
+        "title": "Bucharest",
         "cx": "157",
         "cy": "115"
     },
@@ -296,7 +296,7 @@
     {
         "id": "athens",
         "countryId": "greece",
-        "title": "Athen",
+        "title": "Athens",
         "cx": "144",
         "cy": "175"
     },
@@ -422,14 +422,14 @@
     {
         "id": "borjomi",
         "countryId": "georgia",
-        "title": "Bordschomi",
+        "title": "Borjomi",
         "cx": "278",
         "cy": "136"
     },
     {
         "id": "tblisi",
         "countryId": "georgia",
-        "title": "Tiflis",
+        "title": "Tblisi",
         "cx": "288",
         "cy": "137"
     },
@@ -443,7 +443,7 @@
     {
         "id": "yerevan",
         "countryId": "armenia",
-        "title": "Jerewan",
+        "title": "Yerevan",
         "cx": "286",
         "cy": "151"
     },
@@ -464,7 +464,7 @@
     {
         "id": "delhi",
         "countryId": "india",
-        "title": "Neu-Delhi",
+        "title": "New-Delhi",
         "cx": "538",
         "cy": "249"
     },
@@ -625,14 +625,14 @@
     {
         "id": "hochiminh",
         "countryId": "vietnam",
-        "title": "Ho-Chi-Minh-Stadt",
+        "title": "Ho-Chi-Minh-City",
         "cx": "764",
         "cy": "387"
     },
     {
         "id": "taipei",
         "countryId": "taiwan",
-        "title": "Taipeh",
+        "title": "Taipei",
         "cx": "846",
         "cy": "283"
     },
@@ -688,7 +688,7 @@
     {
         "id": "tokyo",
         "countryId": "japan",
-        "title": "Tokio",
+        "title": "Tokyo",
         "cx": "975",
         "cy": "162"
     },

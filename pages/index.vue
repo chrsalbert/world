@@ -3,13 +3,13 @@
         <template slot="article">
             <main class="c-welcome">
                 <div>
-                    <h1>1x Ost-Europa, Kaukasus, Asien & zurück</h1>
+                    <h1>1x East-Europe, Caucasus, Asia & back</h1>
                     <p>
-                        Hi, ich bin Christian. Fast ein Jahr lang war ich unterwegs in Richtung Ost-Asien. Nun mache ich Corona-Ferien. In welche Länder meine Reise bisher führte, erfährst du hier.
+                        Hi, I'm Christian. For almost a year I was on my way to East Asia. Unfortunately I had to break off my trip due to the global pandemic in March 2020. Here you can find out where my path led me.
                     </p>
                     <p>
                         <app-button href="/destination/netherlands" size="md">
-                            Tour starten
+                            Start tour
                         </app-button>
                     </p>
                 </div>
@@ -20,11 +20,6 @@
                 <!-- <img src="/images/video-fallback.webp" /> -->
                 <source src="/hero.mp4" type="video/mp4">
             </video>
-        </template>
-        <template slot="map">
-            <figure>
-                <destination-map-svg />
-            </figure>
         </template>
         <template slot="stats">
             <destination-stats :stats="stats" />

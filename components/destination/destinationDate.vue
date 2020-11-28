@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         formateDate(from, to, dash = '&thinsp;/&thinsp;') {
-            const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             const dates = [from, to]
             const newDates = []
             dates.forEach((date) => {
