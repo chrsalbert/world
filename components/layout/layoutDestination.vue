@@ -27,6 +27,7 @@
     grid-template-rows: 50vw 2rem min-content 32vh min-content;
     column-gap: var(--space);
     padding-bottom: calc(var(--space-md) + var(--control-height) + calc(var(--space-xs) * 2));
+    transition: all .8s cubic-bezier(0.55, 0.055, 0.675, 0.19)
 }
 
 .l-destination__footer {
@@ -140,6 +141,24 @@
         height: auto;
         grid-template-rows: min-content minmax(10rem, 1fr) min-content;
         min-height: calc(100vh - 56px)
+    }
+}
+</style>
+<style>
+@media only screen and (min-width: 600px) {
+    .layout-enter-active,
+    .layout-leave-active {
+        transition: opacity .85s;
+    }
+
+    .layout-enter .l-destination__grid,
+    .layout-leave-to .l-destination__grid {
+        opacity: 0
+    }
+    
+    .layout-leave .l-destination__grid,
+    .layout-enter-to .l-destination__grid {
+        opacity: 1
     }
 }
 </style>

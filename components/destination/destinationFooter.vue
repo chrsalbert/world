@@ -31,7 +31,7 @@ export default {
 .c-destination__footer__nav {
     position: relative;
     z-index: 2;
-    border-top: 1px var(--color-gray) solid;
+    border-top: 1px var(--color-gray-dark) solid;
     background: var(--color-gray-darkest)
 }
 
