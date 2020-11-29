@@ -26,16 +26,16 @@
             <g id="allCountries">
                 <template v-for="country in countries">
                     <use 
-                        class="country"
+                        class="c-worldmap__country"
                         :key="country.id"
                         :xlink:href="`#${country.id}`"  />
                 </template>
             </g>
             <g id="activeCountries" v-if="currentDestination">
                 <template v-for="map in countries">
-                    <transition name="country--active" :key="map.id">
+                    <transition name="c-worldmap__active" :key="map.id">
                         <use 
-                            class="country country--active"
+                            class="c-worldmap__ c-worldmap__active"
                             v-if="map.id === currentDestination.countryId"
                             :xlink:href="`#${map.id}`"  />
                     </transition>
@@ -43,14 +43,14 @@
             </g>
             <g id="route">
                 <polyline
-                    class="route"
+                    class="c-worldmap__route"
                     :points="routePoints"
                     vector-effect="non-scaling-stroke"></polyline>
             </g>
             <g id="activeRoute" v-if="currentDestination">
-                <transition name="route--active">
+                <transition name="c-worldmap__route--active">
                     <polyline 
-                        class="route route--active"
+                        class="c-worldmap__route c-worldmap__route--active"
                         :key="currentRoutePoints"
                         :points="currentRoutePoints"
                         vector-effect="non-scaling-stroke"></polyline>
@@ -65,33 +65,6 @@
                     class="c-worldmap__place"
                     :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
                     vector-effect="non-scaling-stroke" />
-                <!-- <path v-for="place in places"
-                    class="place" 
-                    :key="`${place.cx}${place.cy}`"
-                    vector-effect="non-scaling-stroke" 
-                    :d="`
-                        M ${place.cx}, ${place.cy}
-                        a 10,10 0 1,1 20,0
-                        a 10,10 0 1,1 -20,0
-                    `" /> -->
-                <!-- <line v-for="place in places"
-                    :key="`${place.cx}${place.cy}`"
-                    :x1="place.cx - 0.01"
-                    :x2="place.cx"
-                    :y1="place.cy"
-                    :y2="place.cy"
-                    class="c-worldmap__place c-worldmap__place--outline"
-                    :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
-                    vector-effect="non-scaling-stroke" />
-                <line v-for="place in places"
-                    :key="`${place.cx}${place.cy}2`"
-                    :x1="place.cx - 0.01"
-                    :x2="place.cx"
-                    :y1="place.cy"
-                    :y2="place.cy"
-                    class="c-worldmap__place"
-                    :class="{ 'c-worldmap__place--active': placeInCurrentDestination(place.id) }"
-                    vector-effect="non-scaling-stroke" /> -->
             </g>
         </g>
     </svg>
@@ -194,34 +167,37 @@ export default {
         transform: translate(.5px, .5px);
         transition-duration: .4s;
     }
+
     .c-worldmap__place--active {
         stroke: var(--color-primary);
     }
 
-    .country {
+    .c-worldmap__country {
         stroke: var(--color-gray-dark);
     }
-    .country--active {
+
+    .c-worldmap__active {
         stroke: var(--color-gray-lighter);
         transition: all .3s var(--timing-function);
     }
-    .country--active-leave { opacity: 1 }
-    .country--active-leave-to { opacity: 0 }
-    .country--active-enter { opacity: 0 }
-    .country--active-enter-to { opacity: 1 }
 
-    .route {
+    .c-worldmap__active-leave { opacity: 1 }
+    .c-worldmap__active-leave-to { opacity: 0 }
+    .c-worldmap__active-enter { opacity: 0 }
+    .c-worldmap__active-enter-to { opacity: 1 }
+
+    .c-worldmap__route {
         stroke: var(--color-gray);
         transform: translate(.5px, .5px);
     }
-    .route--active {
+
+    .c-worldmap__route--active {
         stroke: var(--color-primary);
         transition: all .3s var(--timing-function);
     }
-    .route--active-leave { opacity: 1 }
-    .route--active-leave-to { opacity: 0 }
-    .route--active-enter { opacity: 0 }
-    .route--active-enter-to { opacity: 1 }
 
-
+    .c-worldmap__route--active-leave { opacity: 1 }
+    .c-worldmap__route--active-leave-to { opacity: 0 }
+    .c-worldmap__route--active-enter { opacity: 0 }
+    .c-worldmap__route--active-enter-to { opacity: 1 }
 </style>
