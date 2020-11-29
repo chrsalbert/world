@@ -4,7 +4,8 @@
             <destination-date />
         </div>
         <div class="c-destination__nav__controls">
-            <app-button :href="prevDestinationUrl"  icon="arrowLeft" />
+            <app-button :href="prevDestinationUrl" icon="arrowLeft" />
+            <app-button href="/" type="secondary" icon="home" />
             <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="route" aria-label="Routen-Menü öffnen" v-if="!showMenu" />
             <app-button v-on:click.native="toggleMenu()" tag="button" type="secondary" icon="cross" aria-label="Routen-Menü schließen" v-if="showMenu" />
             <app-button :href="nextDestinationUrl" icon="arrowRight" />
@@ -64,8 +65,8 @@ export default {
     display: flex;
 }
 
-.c-destination__nav__controls > * {
-    margin: 0 var(--space-xs)
+.c-destination__nav__controls > *:not(:last-child) {
+    margin-right: var(--space-xs)
 }
 
 .c-destination__nav__date,
