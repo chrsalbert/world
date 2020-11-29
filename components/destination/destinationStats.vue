@@ -30,7 +30,7 @@ export default {
                 }, {
                     icon: 'route',
                     title: `${this.formatNumber(this.stats.distance)} km`,
-                    sub: 'driven between all locations'
+                    sub: 'within the country'
                 }, {
                     icon: 'transport',
                     title: `${this.stats.transportHours} hrs`,
