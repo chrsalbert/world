@@ -1,13 +1,6 @@
 <template>
     <div class="l-default">
-        <app-grid>
-            <div class="l-destination__menu" v-show="isMenuVisible" key="menu">
-                <!-- <the-menu /> -->
-            </div>
-            <div class="l-default__body">
-                <Nuxt />
-            </div>
-        </app-grid>
+        <Nuxt />
     </div>
 </template>
 <script>
@@ -24,20 +17,5 @@ export default {
     padding: var(--space-md);
     max-width: var(--body-width);
     margin: 0 auto
-}
-
-.l-default__nav {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.l-default__body {
-    grid-area: 1 / 2 / 2 / 13
-}
-
-.l-destination__menu {
-    grid-area: 1 / 2 / 2 / 13;
-    position: relative;
-    z-index: 100;
-    overflow: hidden;
 }
 </style>

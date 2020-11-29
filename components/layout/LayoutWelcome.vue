@@ -9,6 +9,9 @@
                 <slot name="stats"></slot>
             </div>
         </div>
+        <div class="l-welcome__imprint">
+            <slot name="imprint"></slot>
+        </div>
     </div>
 </template>
 <style scoped>
@@ -24,6 +27,12 @@
     position: relative;
     z-index: 1;
     margin-bottom: var(--space-xl)
+}
+
+.l-welcome__imprint {
+    position: fixed;
+    right: var(--space-sm);
+    bottom: var(--space-sm);
 }
 
 .l-welcome__article__stats {

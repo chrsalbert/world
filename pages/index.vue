@@ -23,6 +23,9 @@
         <template slot="stats">
             <welcome-stats />
         </template>
+        <template slot="imprint">
+            <nuxt-link to="/imprint" class="c-imprint">Imprint</nuxt-link>
+        </template>
     </layout-welcome>
 </template>
 <script>
@@ -59,7 +62,14 @@
         width: 100%;
         height: 100%;
         border-radius: var(--border-radius-xs);
-    } 
+    }
+
+    .c-imprint {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-bold);
+        color: #fff;
+        text-shadow: 1px 1px 1px black
+    }
     
     @media only screen and (min-width: 600px) {
         .c-welcome {
