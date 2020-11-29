@@ -3,7 +3,7 @@
         <figure 
             class="c-destination__cover" 
             :key="currentDestinationIndex" 
-            :style="`background-image: url('${coverURL}')`"></figure>
+            :style="coverURL ? { 'background-image': `url('${coverURL}')` } : ''"></figure>
     </transition>
 </template>
 <script>
@@ -12,8 +12,20 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         coverURL() {
-            let filetype = this.supportsWebp ? 'webp' : 'jpg'
-            return `${process.env.imageUrl}/cover/${this.currentDestination.id}.${filetype}?quality=80&f=auto`
+            if(process.client) {
+                let filetype = this.supportsWebp ? 'webp' : 'jpg'
+                let preloadNextImage = new Image()
+                let preloadPrevImage = new Image()
+                preloadNextImage.src = `${process.env.imageUrl}/cover/${this.destinations[this.nextDestinationId].id}.${filetype}?quality=80&f=auto`
+                preloadPrevImage.src = `${process.env.imageUrl}/cover/${this.destinations[this.prevDestinationId].id}.${filetype}?quality=80&f=auto`
+                return `${process.env.imageUrl}/cover/${this.currentDestination.id}.${filetype}?quality=80&f=auto`
+            }
+        },
+        nextDestinationId() {
+            return this.currentDestinationIndex + 1 <= this.destinations.length - 1 ? this.currentDestinationIndex + 1 : 0
+        },
+        prevDestinationId() {
+            return this.currentDestinationIndex - 1 >= 0 ? this.currentDestinationIndex - 1 : this.destinations.length - 1
         },
         supportsWebp() {
             if (process.client) {
@@ -25,7 +37,8 @@ export default {
         },
         ...mapGetters({
             currentDestinationIndex: 'destination/getCurrentDestinationIndex',
-            currentDestination: 'destination/getCurrentDestination'
+            currentDestination: 'destination/getCurrentDestination',
+            destinations: 'destination/getDestinations'
         })
     }
 }
