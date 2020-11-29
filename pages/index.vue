@@ -28,7 +28,7 @@
 <script>
     export default {
         head: {
-            title: 'ON A JOURNEY – Reisedokumentation & Lern-Projekt',
+            title: 'ON A JOURNEY – 318 days from West Europe to East Asia',
             meta: [
                 { id: 'description', name: 'description', content: 'Dokumentation meiner Reise in den Osten vom Mai 2019 bis März 2020. Ein Lern-Projekt für Nuxt.js.' }
             ]
@@ -51,7 +51,7 @@
         position: relative;
         padding-bottom: 56.25%;
     }
-    
+
     .c-video__file {
         position: absolute;
         top: 0;

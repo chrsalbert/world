@@ -2,7 +2,7 @@
     {
         "id": "netherlands",
         "countryId": "netherlands",
-        "title": "Niederlande",
+        "title": "Netherlands",
         "teaser": "The journey starts in the Netherlands. Here I have been a regular guest for the last 13 years. Not least because my girlfriend studied in Emmen for 4 years. We visited Amsterdam together at the beginning of the trip to visit a King Shiloh Soundsystem Party once again. We stayed overnight at the Vliegenbos camping site in Noord, just like the last years.",
         "date": {
             "from": "3.5.2019",
@@ -21,7 +21,7 @@
     }, {
         "id": "poland",
         "countryId": "poland",
-        "title": "Polen 1/2",
+        "title": "Poland",
         "teaser": "The journey by train to Poland took 14 hours. I explored the old town of Poznan and went to a horse race in Wroclaw. One of my most interesting AirBnB experiences was in Krakow. There I spent four nights looking after the owner's three cats. At the end I took a car pooling ride from Krakow to the Ukraine. The driver was on a good mission: a marriage proposal to his girlfriend living in Ukraine.",
         "date": {
             "from": "6.5.2019",
@@ -82,7 +82,7 @@
     }, {
         "id": "lithuania",
         "countryId": "lithuania",
-        "title": "Litauen",
+        "title": "Lithuania",
         "teaser": "Because I also had to leave via Minsk, I chose Vilnius as my next destination. After only 30 minutes I landed back in the EU. The change of scenery was noticeable, because Vilnius is a much livelier city than the previous ones in Belarus and also the general mood was better again despite the Baltic cold mentality. I visited the geographical center of Europe and a memorial site in Kaunas.",
         "date": {
             "from": "11.6.2019",
@@ -101,7 +101,7 @@
     }, {
         "id": "poland2",
         "countryId": "poland",
-        "title": "Polen 2/2",
+        "title": "Poland",
         "teaser": "From Vilnius I took the train to Bialsystok, the birthplace of Ludwik Lejzer Zamenhof. He was the author of the planned language \"Esperanto\" and he wanted to use it to create more international understanding. The street art picture on the photo is still in polish and invites you to write a postcard to grandma.Because I was already in Warsaw, I drove via Lodz to Danzig – my new favorite city in Poland.",
         "date": {
             "from": "17.06.2019",
@@ -121,7 +121,7 @@
     }, {
         "id": "germany",
         "countryId": "germany",
-        "title": "Deutschland",
+        "title": "Germany",
         "teaser": "From Gdansk I took the train to Neustrelitz to meet my friends for the Fusion Festival. This was followed by a longer stay back in Cologne, before I went back home to Gera and visited friends in Leipzig.After almost four weeks in Germany I continued my journey from there and went to Prague.",
         "date": {
             "from": "26.06.2019",
@@ -142,7 +142,7 @@
     }, {
         "id": "czechrepublic",
         "countryId": "czechrepublic",
-        "title": "Tschechien",
+        "title": "Czech Republic",
         "teaser": "It took me only four hours to get back to Prague. Here I visited all the great parks and cafes again, which I had already discovered during my first visit some years ago. I drank mineral water from the many springs in Carlsbad and relaxed for four days in Krumlov on the Vltava River, a historic small town surrounded by green hills, with small alleys in the old town and a large castle complex.",
         "date": {
             "from": "20.07.2019",
@@ -163,7 +163,7 @@
     }, {
         "id": "slovakia",
         "countryId": "slovakia",
-        "title": "Slowakei",
+        "title": "Slovakia",
         "teaser": "By bus I went from Krumlov via Vienna to Bratislava. Unlike Prague, my second visit to Bratislava was not as interesting as the first. But I got new impressions in Trencin and in Kosice. The trip by train through Slovakia led through the valleys of the Tatra Mountains and was a sight in itself.",
         "date": {
             "from": "2.8.2019",
@@ -183,7 +183,7 @@
     }, {
         "id": "hungary",
         "countryId": "hungary",
-        "title": "Ungarn",
+        "title": "Hungary",
         "teaser": "With slow trains I continued from Kosice to Debrecen, a university town in Hungary. I hadn't planned much time for this country and so it was a fast transit. Besides a bird sanctuary I also visited the city of Szeget, where I was a courchsurfer for the first time. Szeget impressed me very much with its flat architecture and the avenue-like streets.",
         "date": {
             "from": "8.8.2019",
@@ -202,7 +202,7 @@
     }, {
         "id": "romania",
         "countryId": "romania",
-        "title": "Rumänien",
+        "title": "Romania",
         "teaser": "Because there was no good connection between Szeget and Novi Sad in Serbia despite the short distance, I went to Timisoara. The most flexible and quickest way to get around in Romania is to take a car pooling ride. But unfortunately I had to compromise on the feeling of safety, because the driving styles were very special. I explored the old town of Sibiu, visited a garden party in Brasov and roamed the streets of Bucharest for some good photos.",
         "date": {
             "from": "12.8.2019",
@@ -223,7 +223,7 @@
     }, {
         "id": "bulgaria",
         "countryId": "bulgaria",
-        "title": "Bulgarien",
+        "title": "Bulgaria",
         "teaser": "I took the bus from Bucharest to Sofia. I could hardly get enough of the old Ottoman buildings in Bulgaria and because of the great coffee culture there were plenty of places to stay and watch everywhere. Via Plovdiv, a city full of street art, I drove all the way to the sea in Burgas, where at that time all-inclusive vacationers held their bellies in the sun. On the way back I stopped in scenic places like Veliko Tarnovo and Kropivshitsa.",
         "date": {
             "from": "22.8.2019",
@@ -246,7 +246,7 @@
     }, {
         "id": "serbia",
         "countryId": "serbia",
-        "title": "Serbien",
+        "title": "Serbia",
         "teaser": "By train I travelled from Sofia to Nis with an average speed of 40 km/h. Unfortunately I caught a cold, so I spent a few days in bed here. After four days I went on to Novi Sad and three days later back to Belgrade. The capital was a small highlight for me. With its many cafes, markets and pubs it was easy to spend some nice days there.",
         "date": {
             "from": "6.09.2019",
@@ -264,9 +264,9 @@
             "belgrade"
         ]
     }, {
-        "id": "nordmazedonia",
-        "countryId": "nordmazedonia",
-        "title": "Nordmazedonien",
+        "id": "northmacedonia",
+        "countryId": "northmacedonia",
+        "title": "North Macedonia",
         "teaser": "As a small break in the long drive from Belgrade to Albania, I stayed one night in Skopje. I have been here before and could therefore return to my favorite places right away. Due to a tight schedule, I skipped Ohrid, a small town on Lake Ohrid, again. Next time then!",
         "date": {
             "from": "15.09.2019",
@@ -284,7 +284,7 @@
     }, {
         "id": "albania",
         "countryId": "albania",
-        "title": "Albanien",
+        "title": "Albania",
         "teaser": "From Skopje I took the bus to Tirana. Because I had already visited Tirana on my last trip to the Balkans, I traveled to Berat, a place known as the city of a thousand windows, just one day later. Via Gjirokaster, known for its castle and old town, I continued by minibus to Saranda. Arriving at the sea I later chose the place Dhermi further north to relax for a short week at the turquoise blue water. Because it was already low season, I often had the paths and beach sections to myself.",
         "date": {
             "from": "16.09.2019",
@@ -307,7 +307,7 @@
     }, {
         "id": "greece",
         "countryId": "greece",
-        "title": "Griechenland",
+        "title": "Greece",
         "teaser": "I took the bus from Seranda and went to Ioannina. There I rented a small car to drive for two weeks along the Peloponnese Peninsula. I drove mainly toll-free through mountains and villages and spontaneously looked for a camping site to stay overnight every day. I visited old temples, rough bays and beaches with clear water. I also visited the deepest gorge in the world – the Vikos Gorge.",
         "date": {
             "from": "29.09.2019",
@@ -338,7 +338,7 @@
     }, {
         "id": "georgia",
         "countryId": "georgia",
-        "title": "Georgien 1/3",
+        "title": "Georgia",
         "teaser": "From Thessaloniki I flew to Kutaisi in Georgia. There I later met up with my girlfriend to travel together with her in this gorgeous country and to Armenia. In Georgia, it almost doesn't matter which wine you take off the shelf – they are world class. With the minibus we drove to Bordschomi, a place famous for its spring water, before we continued by train to the capital Tbilisi.",
         "date": {
             "from": "15.10.2019",
@@ -359,7 +359,7 @@
     }, {
         "id": "armenia",
         "countryId": "armenia",
-        "title": "Armenien",
+        "title": "Armenia",
         "teaser": "From Tbilisi we took a minibus again and went to Yerewan for five days. Yadine made friends with a radio presenter and so we got the chance to visit radiovan's studio in the capital. The other days we made some day trips before we went back to Georgia on the same way.",
         "date": {
             "from": "27.10.2019",
@@ -377,7 +377,7 @@
     }, {
         "id": "georgia2",
         "countryId": "georgia",
-        "title": "Georgien 2/3",
+        "title": "Georgia",
         "teaser": "Back in Tbilisi we visited a sulfur bath and moved on for three nights to the wine region in Signaghi, a small town on the edge of the Caucasus with a brilliant view. After I brought my girlfriend back to Kutaisi, a few days later I boarded the night train from Tbilisi to Baku in Azerbaijan.",
         "date": {
             "from": "1.11.2019",
@@ -399,7 +399,7 @@
     }, {
         "id": "azerbaijan",
         "countryId": "azerbaijan",
-        "title": "Aserbaidschan",
+        "title": "Azerbaijan",
         "teaser": "After the 12-hour train ride from Tbilisi I arrived in Baku in the morning. The capital almost flaunts its flawless facades. Baku is Kepab-Heaven and so this became my main course in all possible forms. I visited the small town of Sheki and made a day trip to the countryside. The ten centimeters of fresh snow told me that I should soon be heading further east and so a few days later I drove back from Baku to Tbilisi to start my onward flight.",
         "date": {
             "from": "15.11.2019",
@@ -419,7 +419,7 @@
     }, {
         "id": "georgia3",
         "countryId": "georgia",
-        "title": "Georgien 3/3",
+        "title": "Georgia",
         "teaser": "On the night train back from Baku, I stayed in Tbilisi for another three days and explored further corners of the city that I had not seen before. Actually, I wanted to go on from Azerbaijan to Iran, but due to newly emerging protests, which would later lead to a shutdown of the internet on site for several days, I spontaneously changed my destination again – I flew to India, which actually wasn't on my plan.",
         "date": {
             "from": "27.11.2019",
@@ -437,7 +437,7 @@
     }, {
         "id": "india",
         "countryId": "india",
-        "title": "Indien",
+        "title": "India",
         "teaser": "From the 10 degrees warm Tbilisi I flew via Almaty (-2 degrees) to New Delhi - almost 25 degrees. I had prepared myself for the numerous scams and so it was not very difficult for me to find my way around. I visited Jaipur, the Taj Mahal and Varanassi. The one or other culture shock was free of charge. Because the trains are regularly fully booked, I flew south to visit mountains, tea plantations and beaches as well as the club scene in Bangalore. But after four weeks I had enough of the country of contrasts, colors and extremes. I will go back anyway.",
         "date": {
             "from": "31.11.2019",
@@ -486,7 +486,7 @@
     }, {
         "id": "cambodia",
         "countryId": "cambodia",
-        "title": "Kambodscha",
+        "title": "Cambodia",
         "teaser": "From Bangkok I took a short flight to Phnom Penh. The next day my girlfriend arrived and we started our three week round trip. We ate crabs in Kep, went by boat on the arms of the Preaek Thom River in Kampot and had sunny beach days on Koh Rong Samolem Island. We also saw thousands of bats in Battambang and of course we didn't miss Ankor Wat. Finally we could watch river dolphins in Kratie.",
         "date": {
             "from": "20.01.20",
