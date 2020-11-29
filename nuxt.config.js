@@ -34,7 +34,7 @@ export default {
 		baseUrl: process.env.BASE_URL || 'http://localhost:3000',
 		imageUrl: process.env.IMAGE_URL || 'http://localhost:3000/images'
 	},
-	loading: { color: '#fff' },
+	loading: { color: '#00D4FA' },
 	css: [
 		'~/assets/css/reset.css',
 		'~/assets/css/main.css'

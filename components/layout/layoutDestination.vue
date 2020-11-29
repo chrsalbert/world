@@ -27,7 +27,7 @@
     grid-template-rows: 50vw 2rem min-content 32vh min-content;
     column-gap: var(--space);
     padding-bottom: calc(var(--space-md) + var(--control-height) + calc(var(--space-xs) * 2));
-    transition: all .8s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+    transition: all .4s cubic-bezier(0.55, 0.055, 0.675, 0.19)
 }
 
 .l-destination__footer {
@@ -148,14 +148,14 @@
 @media only screen and (min-width: 600px) {
     .layout-enter-active,
     .layout-leave-active {
-        transition: opacity .85s;
+        transition: opacity .45s;
     }
 
     .layout-enter .l-destination__grid,
     .layout-leave-to .l-destination__grid {
         opacity: 0
     }
-    
+
     .layout-leave .l-destination__grid,
     .layout-enter-to .l-destination__grid {
         opacity: 1
