@@ -10,6 +10,9 @@ import iconTransport from "~/assets/images/icons/transport.svg?raw"
 import iconCross from "~/assets/images/icons/cross.svg?raw"
 import iconArrowLeft from "~/assets/images/icons/arrow-left.svg?raw";
 import iconArrowRight from "~/assets/images/icons/arrow-right.svg?raw";
+import iconMoneybag from "~/assets/images/icons/moneybag.svg?raw";
+import iconPlant from "~/assets/images/icons/plant.svg?raw";
+import iconCalendar from "~/assets/images/icons/calendar.svg?raw";
 
 export default {
 	props: {
@@ -25,7 +28,10 @@ export default {
 				menu: iconMenu,
 				cross: iconCross,
 				arrowLeft: iconArrowLeft,
-				arrowRight: iconArrowRight
+				arrowRight: iconArrowRight,
+				moneybag: iconMoneybag,
+				plant: iconPlant,
+				calendar: iconCalendar
 			}
 		}
 	}
