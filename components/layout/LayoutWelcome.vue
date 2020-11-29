@@ -1,120 +1,62 @@
 <template>
-    <div class="l-welcome__grid">
-        <transition name="u-animation" mode="out-in">
-            <div class="l-welcome__menu" v-show="isMenuVisible" key="menu">
-                <slot name="menu"></slot>
-            </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-welcome__video">
-                <slot name="video"></slot>
-            </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-welcome__article">
-                <slot name="article"></slot>
-            </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-welcome__stats">
+    <div class="l-welcome">
+        <div class="l-welcome__video">
+            <slot name="video"></slot>
+        </div>
+        <div class="l-welcome__article">
+            <slot name="article"></slot>
+            <div class="l-welcome__article__stats">
                 <slot name="stats"></slot>
             </div>
-        </transition>
-        <transition name="u-animation" mode="out-in">
-            <div class="l-welcome__map">
-                <slot name="map"></slot>
-            </div>
-        </transition>
+        </div>
     </div>
 </template>
-<script>
-export default {
-    computed: {
-        isMenuVisible() {
-            return this.$store.state.navigation.isMenuVisible
-        }
-    }
-}
-</script>
 <style scoped>
-.l-welcome__grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: min-content 44vw var(--space-lg) min-content min-content;
-    column-gap: var(--space);
-}
-
-.l-welcome__map {
-    grid-area: 5 / 1 / 6 / 13;
-    margin: -50% calc(var(--space-lg) * -1) 0 calc(var(--space-lg) * -1);
-    pointer-events: none
-}
-
-.l-welcome__video {
-    grid-area: 2 / 1 / 3 / 13;
+.l-welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-md)
 }
 
 .l-welcome__article {
-    grid-area: 4 / 1 / 5 / 13;
     position: relative;
-    z-index: 2;
-    margin-bottom: var(--space-xl);
+    z-index: 1;
+    margin-bottom: var(--space-xl)
 }
 
-.l-welcome__stats {
-    grid-area: 5 / 1 / 6 / 13;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: var(--space-lg);
+.l-welcome__article__stats {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0)
 }
 
+.l-welcome__video {
+    width: 100%
+}
 
 @media only screen and (min-width: 600px) {
-    .l-welcome__grid {
-        grid-template-rows: 30vh 15vh 1fr;
-        column-gap: var(--space);
-    }
-
-    .l-welcome__video {
-        grid-area: 1 / 1 / 3 / 13
-    }
-
-    .l-welcome__article {
-        grid-area: 2 / 3 / 4 / 11;
-        background: var(--color-gray-darker);
-        border-radius: var(--border-radius);
-        padding: var(--space-lg);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .l-welcome__stats {
-        grid-area: 4 / 1 / 5 / 13;
-    }
-}
-
-@media only screen and (orientation: landscape) and (min-width: 900px) {
-    .l-welcome__grid {
-        grid-template-rows: 20vh 15vh;
-        column-gap: var(--space);
-    }
-    
-    .l-welcome__video {
-        grid-area: 1 / 5 / 3 / 12
+    .l-welcome {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        align-items: flex-start
     }
 
     .l-welcome__article {
-        grid-area: 2 / 2 / 4 / 8;
-        margin: 0;
+        margin: 0 0 0 10vw
     }
 
-    .l-welcome__stats {
-        grid-area: 3 / 8 / 3 / 12;
-    }
-
-    .l-welcome__map {
-        grid-area: 1 / 2 / 3 / 12;
-        z-index: 1;
-        margin: 0;
+    .l-welcome__video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        margin: 0
     }
 }
 </style>
